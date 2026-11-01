@@ -1,0 +1,49 @@
+{{ 'lilas-feature.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  製品紹介ページ：締め（商品・肌診断への入口）
+{%- endcomment -%}
+<section class="fcta dew" id="{{ section.settings.anchor | default: 'next' }}">
+  <span class="qlbl" data-r>{{ section.settings.label }}</span>
+  <h2 data-r>{{ section.settings.heading | escape | newline_to_br }}</h2>
+  <p class="fcta-text" data-r>{{ section.settings.text | escape | newline_to_br }}</p>
+
+  <div class="fcta-links" data-r>
+    {%- if section.settings.link1_label != blank -%}
+      <a class="fcta-card" href="{{ section.settings.link1 | default: '/#collection' }}">
+        <span class="en">{{ section.settings.link1_label }}</span>
+        <span class="ja">{{ section.settings.link1_sub }}</span>
+      </a>
+    {%- endif -%}
+    {%- if section.settings.link2_label != blank -%}
+      <a class="fcta-card" href="{{ section.settings.link2 | default: '/#formula' }}">
+        <span class="en">{{ section.settings.link2_label }}</span>
+        <span class="ja">{{ section.settings.link2_sub }}</span>
+      </a>
+    {%- endif -%}
+  </div>
+
+  {%- if section.settings.notes != blank -%}
+    <div class="fcta-notes">{{ section.settings.notes }}</div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 特徴：締め",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID", "default": "next" },
+    { "type": "text", "id": "label", "label": "ラベル", "default": "Lilas ・ Next step" },
+    { "type": "textarea", "id": "heading", "label": "見出し", "default": "素肌を、あきらめない。\n賢く選ぶ、毎日のケア。" },
+    { "type": "textarea", "id": "text", "label": "説明", "default": "高価なアイテムを買い足すより、\n今の肌に合う1本を。" },
+    { "type": "text", "id": "link1_label", "label": "リンク1（英字）", "default": "Collection" },
+    { "type": "text", "id": "link1_sub", "label": "リンク1（日本語）", "default": "商品を見る" },
+    { "type": "url", "id": "link1", "label": "リンク1の移動先", "info": "未設定のときはトップページの「商品」へ" },
+    { "type": "text", "id": "link2_label", "label": "リンク2（英字）", "default": "Skin check" },
+    { "type": "text", "id": "link2_sub", "label": "リンク2（日本語）", "default": "肌診断で、自分の1本を探す" },
+    { "type": "url", "id": "link2", "label": "リンク2の移動先", "info": "未設定のときはトップページの「肌診断」へ" },
+    { "type": "richtext", "id": "notes", "label": "注記" }
+  ],
+  "presets": [{ "name": "Lilas 特徴：締め" }]
+}
+{% endschema %}

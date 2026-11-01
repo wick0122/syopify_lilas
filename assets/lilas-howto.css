@@ -1,0 +1,30 @@
+/* ===== 使い方（sections/lilas-howto.liquid） ===== */
+.howto { background: var(--bg2); padding: clamp(120px, 14vw, 220px) 0; }
+.hw-in { max-width: 1180px; margin: 0 auto; padding: 0 clamp(22px, 5vw, 80px); }
+
+.hw-hd { text-align: center; margin-bottom: clamp(70px, 8vw, 120px); }
+.hw-lbl { display: block; font-family: var(--serif); font-style: italic; font-size: clamp(34px, 3.6vw, 54px); font-weight: 300; line-height: 1; margin-bottom: 20px; }
+.hw-hd h2 { margin: 0 0 26px; font-family: var(--min); font-weight: 400; font-size: clamp(18px, 1.6vw, 22px); letter-spacing: .32em; padding-left: .32em; }
+.hw-hd p { margin: 0; font-size: 15.5px; line-height: 2.2; color: #3d3d3b; }
+.hw-hd b, .hw-steps b, .amt b { font-weight: 500; color: var(--ink); border-bottom: 1px solid currentColor; }
+
+.hw-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(24px, 4vw, 60px); }
+.hw-steps .ph { aspect-ratio: 1 / 1; margin-bottom: 24px; background: #fff; }
+.hw-steps .no { display: block; font-family: var(--serif); font-style: italic; font-size: 30px; line-height: 1; margin-bottom: 12px; }
+.hw-steps h3 { margin: 0 0 10px; font-family: var(--min); font-weight: 400; font-size: 18px; letter-spacing: .18em; }
+.hw-steps p { margin: 0; font-size: 14.5px; line-height: 2; color: #3d3d3b; }
+.dewph2 .ripple { width: 56%; }
+
+.hw-amt { margin: clamp(80px, 9vw, 130px) auto 0; max-width: 760px; text-align: center; border-top: 1px solid var(--ink); padding-top: 44px; }
+.hw-amt h3 { margin: 0 0 44px; font-family: var(--min); font-weight: 400; font-size: 18px; letter-spacing: .24em; }
+.amt { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.amt .t { margin: 0; font-size: 14px; color: var(--sub); letter-spacing: .14em; }
+.amt .v { margin: 6px 0 0; font-family: var(--min); font-size: 17px; letter-spacing: .14em; }
+.amt .v b { font-size: 1.25em; border-bottom: 0; }
+.hw-note { margin: 36px 0 0; font-size: 12.5px; color: var(--sub); }
+
+@media (max-width: 900px) {
+  .hw-steps { grid-template-columns: 1fr; gap: 56px; }
+  .hw-steps .ph { aspect-ratio: 4 / 3; }
+  .amt { gap: 16px; }
+}

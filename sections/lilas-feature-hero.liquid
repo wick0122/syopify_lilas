@@ -1,0 +1,56 @@
+{{ 'lilas-feature.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  製品紹介ページ：表紙
+  左に言葉、右にアーチ型の写真。トップページの表紙（動画）より静かな入り口。
+{%- endcomment -%}
+<section class="fhero dew page">
+  <div class="fhero-in grid12">
+    <div class="fhero-t">
+      <span class="qlbl" data-r>{{ section.settings.label }}</span>
+      <p class="disp" data-r>{{ section.settings.display }}</p>
+      <h1 data-r>{{ section.settings.heading | escape | newline_to_br }}</h1>
+      <p class="lead" data-r>{{ section.settings.lead | escape | newline_to_br }}</p>
+      {%- if section.blocks.size > 0 -%}
+        <ol class="fhero-nav" data-r aria-label="このページの内容">
+          {%- for block in section.blocks -%}
+            <li {{ block.shopify_attributes }}>
+              <a href="#{{ block.settings.anchor }}">
+                <span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>{{ block.settings.title }}
+              </a>
+            </li>
+          {%- endfor -%}
+        </ol>
+      {%- endif -%}
+    </div>
+    <figure class="ph arch fhero-ph" data-r>
+      {%- render 'lilas-image', image: section.settings.image, fallback: 'lilas-why-2.jpg', alt: 'Lilasの濃縮ローションとブレンドオイル', loading: 'eager' -%}
+      <span class="ripple"><i></i><i></i><i></i></span>
+    </figure>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 特徴：表紙",
+  "settings": [
+    { "type": "text", "id": "label", "label": "ラベル", "default": "Features ・ 製品の特徴" },
+    { "type": "text", "id": "display", "label": "大きな英字", "default": "Beauty of <i>Aging</i>", "info": "<i>〜</i> で囲むと斜体になります" },
+    { "type": "textarea", "id": "heading", "label": "見出し（改行できます）", "default": "ふとした瞬間も、\nうるおいを感じる肌へ。" },
+    { "type": "textarea", "id": "lead", "label": "説明文（改行できます）", "default": "季節や年齢、その日の肌に合わせて。\nLilasは、自分で調える濃縮ローションです。" },
+    { "type": "image_picker", "id": "image", "label": "写真（縦長がおすすめ）" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "ページ内リンク",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "title", "label": "項目名", "default": "調えられる" },
+        { "type": "text", "id": "anchor", "label": "移動先のID（# は不要）", "default": "adjust" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 特徴：表紙" }]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+<!-- 04 診断 -->
+<section class="fml" id="formula">
+  <div class="fm-top" data-r><span class="qlbl">04 ・ Skin type check</span><p class="disp">Your <em>Formula</em></p></div>
+  <div class="fm2 fm3">
+    <div class="fm2-body" data-r>
+      <h2>今、最も気になる肌の悩みは？</h2>
+      <p>三つの質問に答えるだけで、<br class="fm-spbr">今の肌に合う組み合わせをご提案します。</p>
+      <div class="qopts qbox">
+        <button data-v="dry"><span class="en">Sensitive</span><span class="t">乾燥・敏感</span></button>
+        <button data-v="aging"><span class="en">Firmness</span><span class="t">ハリ</span></button>
+        <button data-v="smooth"><span class="en">Texture</span><span class="t">キメ・テカリ<sup>※</sup></span></button>
+        <button data-v="bright"><span class="en">Radiance</span><span class="t">ツヤ</span></button>
+      </div>
+      <p class="qbox-note">※乾燥による肌のキメの乱れのこと</p>
+    </div>
+  </div>
+</section>
+
+<dialog id="dlg" aria-label="肌タイプチェック"><div class="dlg"><button class="x" id="dlgClose">閉じる</button><div id="dlgBody"></div></div></dialog>
+
+{% schema %}
+{
+  "name": "Lilas 04 肌タイプチェック",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,56 @@
+/* ===== 肌診断（sections/lilas-formula.liquid） =====
+   灰・白・灰の3段に、アーチの写真が重なる */
+.fml { position: relative; }
+
+.fm-top { background: #E4E4E3; text-align: center; padding: clamp(70px, 8vw, 110px) var(--m) clamp(40px, 4vw, 60px); }
+.fm-top .qlbl { margin-bottom: 0; }
+.fm-top .disp { margin: 22px 0 28px; font-family: var(--serif); font-weight: 300; font-size: clamp(52px, 6.4vw, 100px); line-height: 1; }
+.fm-top .disp em { font-style: italic; }
+.fm-top h2 { margin: 0; font-family: var(--min); font-weight: 400; font-size: clamp(16px, 1.4vw, 19px); letter-spacing: .3em; line-height: 2.2; padding-left: .3em; }
+
+.fm-mid { background: #fff; }
+.fm-in { position: relative; max-width: 1280px; margin: 0 auto; padding: 0 var(--m); display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: center; min-height: 240px; }
+.fm-txt { padding: 60px 0 60px 22%; }
+.fm-txt h3 { margin: 0 0 18px; font-family: var(--jp); font-weight: 400; font-size: clamp(19px, 1.8vw, 24px); letter-spacing: .16em; }
+.fm-txt p { margin: 0; font-size: 13.5px; color: var(--sub); }
+.fm-ph { margin: -70px 0 -18px; position: relative; z-index: 2; }
+.fm-ph .ph { aspect-ratio: 3 / 4; }
+.dewph .ripple { width: 60%; }
+
+.fm-bot { background: #E4E4E3; padding: 30px var(--m) 70px; }
+.fm-bot .qopts { display: flex; justify-content: center; flex-wrap: wrap; gap: clamp(28px, 4.5vw, 72px); }
+.fm-bot .qopts button { display: inline-block; padding: 8px 0; border-bottom: 1px solid transparent; font-family: var(--min); font-size: 18px; letter-spacing: .3em; transition: border-color .4s; }
+.fm-bot .qopts button:hover, .fm-bot .qopts button.main { border-color: var(--ink); }
+@media (min-width: 901px) { .fm-bot .qopts { padding-right: min(26vw, 380px); } }
+
+/* --- 診断の窓 --- */
+.lilas-dlg { border: 0; padding: 0; width: min(560px, 92vw); max-height: 90vh; background: var(--dlg); color: var(--ink); }
+.lilas-dlg::backdrop { background: rgba(22, 22, 21, .55); backdrop-filter: blur(3px); }
+.dlg { padding: 64px 52px 48px; position: relative; }
+.dlg .x { position: absolute; top: 22px; right: 26px; font-size: 11px; letter-spacing: .2em; color: var(--sub); }
+.dl { display: block; font-family: var(--en); font-size: 10.5px; letter-spacing: .36em; color: var(--sub); margin-bottom: 26px; }
+.dlg h3 { font-family: var(--min); font-weight: 400; font-size: 20px; letter-spacing: .2em; margin: 0 0 34px; line-height: 1.9; }
+.choice { display: block; width: 100%; text-align: left; padding: 18px 0; border-bottom: 1px solid var(--hair); font-family: var(--min); font-size: 15px; letter-spacing: .16em; transition: padding .4s var(--ease); }
+.choice:first-of-type { border-top: 1px solid var(--ink); }
+.choice:hover { padding-left: 12px; }
+.back { margin-top: 24px; font-size: 11px; letter-spacing: .2em; color: var(--sub); }
+
+.rx ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.rx li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 0; border-bottom: 1px solid var(--hair); font-family: var(--min); font-size: 14.5px; letter-spacing: .12em; }
+.rx li small { display: block; font-family: var(--jp); color: var(--sub); font-size: 11px; letter-spacing: .08em; }
+.rx li i { font-style: normal; font-family: var(--en); font-size: 15px; letter-spacing: .06em; white-space: nowrap; }
+.rx .sum { display: flex; justify-content: space-between; align-items: baseline; margin-top: 20px; font-size: 12px; }
+.rx .sum b { font-family: var(--en); font-weight: 300; font-size: 30px; letter-spacing: .04em; }
+.rx .ship { font-size: 12px; color: var(--sub); margin: 4px 0 30px; }
+.amt-b { display: block; font-style: normal; font-size: 12px; margin-top: 4px; color: var(--ink); }
+.amt-b b { font-weight: 500; border-bottom: 1px solid currentColor; }
+.fine { font-size: 10.5px; color: var(--sub); margin-top: 22px; }
+
+@media (max-width: 900px) {
+  .fm-in { grid-template-columns: 1fr; }
+  .fm-txt { padding: 40px 0 0; text-align: center; }
+  .fm-ph { margin: 0 auto -40px; width: 70%; }
+  .fm-bot { padding-top: 70px; }
+  .fm-bot .qopts { flex-direction: column; align-items: center; gap: 20px; }
+  .dlg { padding: 56px 24px 36px; }
+}

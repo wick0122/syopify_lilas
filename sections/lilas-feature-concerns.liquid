@@ -1,0 +1,52 @@
+{{ 'lilas-feature.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  製品紹介ページ：こんな方へ（悩みのチェックリスト）
+{%- endcomment -%}
+<section class="fcon sec page" id="{{ section.settings.anchor | default: 'for-you' }}">
+  <div class="fcon-in grid12">
+    <figure class="ph fcon-ph" data-r>
+      {%- render 'lilas-image', image: section.settings.image, fallback: 'lilas-why-3.jpg', alt: 'ローションのしずく' -%}
+    </figure>
+    <div class="fcon-t">
+      <span class="wy-lbl" data-r>{{ section.settings.display }}</span>
+      <h2 data-r>{{ section.settings.heading | escape | newline_to_br }}</h2>
+      <ul class="fcon-list" data-r>
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <span class="ck" aria-hidden="true"></span>{{ block.settings.text }}
+          </li>
+        {%- endfor -%}
+      </ul>
+      <p class="fcon-close" data-r>{{ section.settings.closing | escape | newline_to_br }}</p>
+      {%- if section.settings.note != blank -%}
+        <p class="fcon-note" data-r>{{ section.settings.note }}</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 特徴：こんな方へ",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID", "default": "for-you" },
+    { "type": "text", "id": "display", "label": "英字", "default": "For you" },
+    { "type": "textarea", "id": "heading", "label": "見出し", "default": "こんな方へ" },
+    { "type": "textarea", "id": "closing", "label": "締めの一文", "default": "ひとつでも思い当たったら、\nLilasの素肌ケアを、はじめてみませんか。" },
+    { "type": "text", "id": "note", "label": "小さな注記（任意）", "default": "エステサロンとスキンケア教室の現場から生まれました。" },
+    { "type": "image_picker", "id": "image", "label": "写真" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "項目",
+      "limit": 10,
+      "settings": [
+        { "type": "text", "id": "text", "label": "文章", "default": "自分に合うスキンケアが、まだ見つからない" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 特徴：こんな方へ" }]
+}
+{% endschema %}

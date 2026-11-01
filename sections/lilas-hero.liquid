@@ -1,0 +1,79 @@
+{{ 'lilas-hero.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lilas-hero.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  if section.settings.poster != blank
+    assign poster_url = section.settings.poster | image_url: width: 1600
+  else
+    assign poster_url = 'lilas-hero-poster.jpg' | asset_url
+  endif
+-%}
+
+<section class="fv" id="top">
+  {%- if section.settings.video != blank -%}
+    {{
+      section.settings.video
+      | video_tag: autoplay: true, loop: true, muted: true, playsinline: true, controls: false, class: 'bg', image_size: '1600x'
+    }}
+  {%- else -%}
+    <video class="bg" autoplay muted loop playsinline preload="auto" poster="{{ poster_url }}" aria-label="ブランドイメージの動画">
+      <source src="{{ 'lilas-hero.webm' | asset_url }}" type="video/webm">
+      <source src="{{ 'lilas-hero.mp4' | asset_url }}" type="video/mp4">
+    </video>
+  {%- endif -%}
+
+  <div class="shade"></div>
+  <p class="big" aria-label="{{ section.settings.logo_text | escape }}">{{ section.settings.logo_text }}</p>
+
+  <div class="copy">
+    <h1>{{ section.settings.heading }}</h1>
+    <p class="sub">
+      {{ section.settings.sub }}
+      {%- if section.settings.sub_en != blank -%}
+        <span class="eng2">{{ section.settings.sub_en }}</span>
+      {%- endif -%}
+    </p>
+    {%- if section.settings.button_label != blank -%}
+      <a class="fvbtn" href="{{ section.settings.button_link | default: '#collection' }}">{{ section.settings.button_label }}</a>
+    {%- endif -%}
+  </div>
+
+  <button class="vctl" type="button">Pause</button>
+  <span class="scroll">Scroll</span>
+</section>
+
+{%- assign marquee_items = section.settings.marquee | newline_to_br | split: '<br />' -%}
+{%- if section.settings.marquee != blank -%}
+  <div class="marq" aria-hidden="true">
+    <div class="mq">
+      {%- for round in (1..2) -%}
+        {%- for item in marquee_items -%}
+          {%- assign t = item | strip -%}
+          {%- if t != blank -%}<span>{{ t }}</span><i>✦</i>{%- endif -%}
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Lilas 表紙（動画）",
+  "settings": [
+    { "type": "video", "id": "video", "label": "背景の動画", "info": "未設定のときは仮の動画を表示します" },
+    { "type": "image_picker", "id": "poster", "label": "動画の読み込み前に出す画像" },
+    { "type": "text", "id": "logo_text", "label": "大きなロゴ", "default": "Lilas" },
+    { "type": "text", "id": "heading", "label": "見出し", "default": "乾きやすい肌に、満ちるうるおいを。" },
+    { "type": "text", "id": "sub", "label": "小見出し", "default": "重ねる手間を、ひとつに。" },
+    { "type": "text", "id": "sub_en", "label": "小見出し（英語）", "default": "Moisture, beautifully kept." },
+    { "type": "text", "id": "button_label", "label": "ボタンの文字", "default": "商品を見る" },
+    { "type": "url", "id": "button_link", "label": "ボタンのリンク先", "info": "未設定のときは商品の章へ移動します" },
+    { "type": "header", "content": "流れる文字（1行に1つ）" },
+    {
+      "type": "textarea", "id": "marquee", "label": "流れる文字",
+      "default": "うるおいを、美しく保つ\nConcentrate lotion\n水を足さない濃縮ローション\n性別を問わず、ふたりで\nSemi-custom skincare\n自分で調える、毎日のお手入れ"
+    }
+  ],
+  "presets": [{ "name": "Lilas 表紙（動画）" }]
+}
+{% endschema %}

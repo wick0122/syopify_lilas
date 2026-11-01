@@ -1,0 +1,22 @@
+{%- doc -%}
+  しずく型のゲージ（オイルの量の目安）。
+
+  @param {number} level - 0〜100（どこまで満たすか）
+  @param {string} uid - ページ内で重ならない識別子
+
+  @example
+  {% render 'lilas-gauge', level: 100, uid: 'howto-1' %}
+{%- enddoc -%}
+{%- liquid
+  assign lv = level | default: 0 | at_least: 0 | at_most: 100
+  assign h = lv | times: 0.475 | at_least: 1
+  assign y = 50.5 | minus: h
+-%}
+<svg class="gauge-d" viewBox="0 0 40 52" aria-hidden="true">
+  <defs>
+    <clipPath id="lg-c-{{ uid }}"><path d="M20 3C20 3 5 22 5 34.5A15 15 0 0 0 35 34.5C35 22 20 3 20 3Z"/></clipPath>
+    <linearGradient id="lg-g-{{ uid }}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c3d0d4"/><stop offset="1" stop-color="#7f959b"/></linearGradient>
+  </defs>
+  <rect clip-path="url(#lg-c-{{ uid }})" x="0" y="{{ y }}" width="40" height="{{ h }}" fill="url(#lg-g-{{ uid }})"/>
+  <path d="M20 3C20 3 5 22 5 34.5A15 15 0 0 0 35 34.5C35 22 20 3 20 3Z" fill="none" stroke="currentColor" stroke-width="1"/>
+</svg>

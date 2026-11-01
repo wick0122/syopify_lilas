@@ -1,0 +1,71 @@
+{{ 'lilas-feature-link.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  トップページ：製品紹介ページへの入口
+  3つの特徴を「目次」のように見せて、続きを読みたくなる形にする。
+  リンク先は「ページのハンドル」で決める（例：features → /pages/features）。
+{%- endcomment -%}
+{%- assign feature_url = '/pages/' | append: section.settings.page_handle -%}
+
+<section class="flink page" id="{{ section.settings.anchor | default: 'features' }}">
+  <div class="flink-in grid12">
+    <a class="flink-ph" href="{{ feature_url }}" data-r tabindex="-1" aria-hidden="true">
+      <figure class="ph arch">
+        {%- render 'lilas-image', image: section.settings.image, fallback: 'lilas-formula.jpg', alt: '' -%}
+        <span class="ripple"><i></i><i></i><i></i></span>
+      </figure>
+    </a>
+
+    <div class="flink-t">
+      <span class="qlbl" data-r>{{ section.settings.label }}</span>
+      <h2 data-r>{{ section.settings.heading | escape | newline_to_br }}</h2>
+      <p class="flink-lead" data-r>{{ section.settings.lead | escape | newline_to_br }}</p>
+
+      <ol class="flink-list" data-r>
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>
+            <a href="{{ feature_url }}#{{ block.settings.anchor }}">
+              <span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+              <span class="w">{{ block.settings.word }}</span>
+              <span class="j">{{ block.settings.title }}</span>
+              <span class="ar" aria-hidden="true"></span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ol>
+
+      <a class="lnk" data-r href="{{ feature_url }}">
+        {{- section.settings.link_label -}}<small>{{ section.settings.link_sub }}</small>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 製品の特徴への入口",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（目次からの移動先）", "default": "features" },
+    { "type": "text", "id": "page_handle", "label": "製品紹介ページのハンドル", "default": "features", "info": "管理画面の「ページ」で作ったページのURLの末尾（/pages/〇〇 の〇〇）" },
+    { "type": "text", "id": "label", "label": "ラベル", "default": "Features ・ 製品の特徴" },
+    { "type": "textarea", "id": "heading", "label": "見出し", "default": "1本の中にある、\n3つのこだわり。" },
+    { "type": "textarea", "id": "lead", "label": "説明", "default": "なぜ、1本で足りるのか。\nどうして、自分で調えられるのか。" },
+    { "type": "image_picker", "id": "image", "label": "写真" },
+    { "type": "text", "id": "link_label", "label": "リンクの文字（英字）", "default": "Read the features" },
+    { "type": "text", "id": "link_sub", "label": "リンクの文字（日本語）", "default": "製品の特徴を読む" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "特徴",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "word", "label": "英字", "default": "Adjust" },
+        { "type": "text", "id": "title", "label": "日本語", "default": "肌に合わせて、調えられる" },
+        { "type": "text", "id": "anchor", "label": "製品紹介ページ内の移動先ID", "default": "adjust" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 製品の特徴への入口" }]
+}
+{% endschema %}

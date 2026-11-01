@@ -1,0 +1,88 @@
+{{ 'lilas-howto.css' | asset_url | stylesheet_tag }}
+
+{%- assign fallbacks = 'lilas-product-oil.jpg,lilas-moisture-wide.jpg,lilas-why-3.jpg' | split: ',' -%}
+
+<section class="howto" id="{{ section.settings.anchor | default: 'howto' }}">
+  <div class="hw-in">
+    <div class="hw-hd" data-r>
+      <span class="hw-lbl">{{ section.settings.label }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text | newline_to_br }}</p>
+    </div>
+
+    <ol class="hw-steps">
+      {%- for block in section.blocks -%}
+        {%- assign fb = fallbacks[forloop.index0] | default: 'lilas-product-oil.jpg' -%}
+        <li data-r {{ block.shopify_attributes }}>
+          <figure class="ph{% if block.settings.ripple %} dewph2{% endif %}">
+            {%- render 'lilas-image', image: block.settings.image, fallback: fb, alt: block.settings.title -%}
+            {%- if block.settings.ripple -%}<span class="ripple dk"><i></i><i></i><i></i></span>{%- endif -%}
+          </figure>
+          <span class="no">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </li>
+      {%- endfor -%}
+    </ol>
+
+    {%- if section.settings.amount_heading != blank -%}
+      <div class="hw-amt" data-r>
+        <h3>{{ section.settings.amount_heading }}</h3>
+        <div class="amt">
+          <div>
+            {%- render 'lilas-gauge', level: section.settings.amount1_level, uid: 'howto-1' -%}
+            <p class="t">{{ section.settings.amount1_label }}</p>
+            <p class="v">{{ section.settings.amount1_value }}</p>
+          </div>
+          <div>
+            {%- render 'lilas-gauge', level: section.settings.amount2_level, uid: 'howto-2' -%}
+            <p class="t">{{ section.settings.amount2_label }}</p>
+            <p class="v">{{ section.settings.amount2_value }}</p>
+          </div>
+        </div>
+        {%- if section.settings.note != blank -%}
+          <p class="hw-note">{{ section.settings.note }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 使い方",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（目次からの移動先）", "default": "howto" },
+    { "type": "text", "id": "label", "label": "英字ラベル", "default": "How to use" },
+    { "type": "text", "id": "heading", "label": "見出し", "default": "使い方" },
+    {
+      "type": "textarea", "id": "text", "label": "説明文",
+      "info": "改行できます。<b>〜</b> で囲むと下線つきの太字になります",
+      "default": "濃縮ローションにブレンドオイルを加えると、\n美容液と乳液の代わりになる<b>オールインワン</b>に。"
+    },
+    { "type": "header", "content": "オイルを加える量の目安" },
+    { "type": "text", "id": "amount_heading", "label": "見出し（空にすると非表示）", "default": "オイルを加える量の目安" },
+    { "type": "text", "id": "amount1_label", "label": "左：肌の状態", "default": "やや乾燥が気になる方" },
+    { "type": "text", "id": "amount1_value", "label": "左：量", "default": "お好みで<b>半量〜3分の2</b>" },
+    { "type": "range", "id": "amount1_level", "label": "左：しずくの量", "min": 0, "max": 100, "step": 5, "default": 60, "unit": "%" },
+    { "type": "text", "id": "amount2_label", "label": "右：肌の状態", "default": "強い乾燥肌の方" },
+    { "type": "text", "id": "amount2_value", "label": "右：量", "default": "<b>全量</b>" },
+    { "type": "range", "id": "amount2_level", "label": "右：しずくの量", "min": 0, "max": 100, "step": 5, "default": 100, "unit": "%" },
+    { "type": "text", "id": "note", "label": "注意書き", "default": "※ブレンドオイル1本のうち、ローションに加える量の目安です。" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "手順",
+      "limit": 6,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "写真" },
+        { "type": "checkbox", "id": "ripple", "label": "写真に波紋を重ねる", "default": false },
+        { "type": "text", "id": "title", "label": "見出し", "default": "オイルをよく振る" },
+        { "type": "textarea", "id": "text", "label": "説明", "default": "ブレンドオイルをよく振って、混ぜておきます。" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 使い方" }]
+}
+{% endschema %}

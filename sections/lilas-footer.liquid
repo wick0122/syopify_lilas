@@ -1,0 +1,53 @@
+{{ 'lilas-footer.css' | asset_url | stylesheet_tag }}
+
+<footer class="lilas-footer page">
+  <p class="tag">
+    {{ section.settings.tagline }}
+    {%- if section.settings.tagline_en != blank -%}<span>{{ section.settings.tagline_en }}</span>{%- endif -%}
+  </p>
+  <div class="mast" aria-hidden="true">{{ section.settings.mast | default: shop.name }}</div>
+
+  <div class="row">
+    <span>{{ section.settings.shipping_note }}</span>
+    <ul>
+      {%- if section.settings.menu != blank -%}
+        {%- for link in section.settings.menu.links -%}
+          <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+        {%- endfor -%}
+      {%- else -%}
+        <li><a href="{{ routes.root_url }}pages/contact">お問い合わせ</a></li>
+        {%- comment -%} 管理画面「設定 → ポリシー」で作ったページ（特定商取引法・プライバシーポリシーなど） {%- endcomment -%}
+        {%- for policy in shop.policies -%}
+          <li><a href="{{ policy.url }}">{{ policy.title }}</a></li>
+        {%- endfor -%}
+      {%- endif -%}
+    </ul>
+    <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}</span>
+  </div>
+</footer>
+
+{%- comment -%} スマホ：画面下に固定のボタン {%- endcomment -%}
+{%- if section.settings.bar_left_label != blank or section.settings.bar_right_label != blank -%}
+  <nav class="spbar" aria-label="すぐに">
+    <a href="{{ section.settings.bar_left_link | default: '#formula' }}">{{ section.settings.bar_left_label }}</a>
+    <a href="{{ section.settings.bar_right_link | default: '#collection' }}">{{ section.settings.bar_right_label }}</a>
+  </nav>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Lilas フッター",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "ひとこと", "default": "うるおいを、毎日に。" },
+    { "type": "text", "id": "tagline_en", "label": "ひとこと（英語）", "default": "Moisture, for every day." },
+    { "type": "text", "id": "mast", "label": "大きなロゴ", "default": "Lilas" },
+    { "type": "text", "id": "shipping_note", "label": "送料のお知らせ", "default": "14,000円以上のご購入で送料無料" },
+    { "type": "link_list", "id": "menu", "label": "メニュー", "info": "未設定のときは「お問い合わせ」と、管理画面で作ったポリシーのページを表示します" },
+    { "type": "header", "content": "スマホの画面下に固定するボタン" },
+    { "type": "text", "id": "bar_left_label", "label": "左の文字", "default": "肌診断" },
+    { "type": "url", "id": "bar_left_link", "label": "左のリンク先" },
+    { "type": "text", "id": "bar_right_label", "label": "右の文字", "default": "商品を見る" },
+    { "type": "url", "id": "bar_right_link", "label": "右のリンク先" }
+  ]
+}
+{% endschema %}

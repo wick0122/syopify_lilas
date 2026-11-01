@@ -1,0 +1,35 @@
+{{ 'lilas-index.css' | asset_url | stylesheet_tag }}
+
+<nav class="qindex" aria-label="目次">
+  <span class="qlbl" data-r>{{ section.settings.label }}</span>
+  <ol data-r>
+    {%- for block in section.blocks -%}
+      <li {{ block.shopify_attributes }}>
+        <a href="#{{ block.settings.anchor }}">
+          <span class="n">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+          <span class="t">{{ block.settings.title }}</span>
+        </a>
+      </li>
+    {%- endfor -%}
+  </ol>
+</nav>
+
+{% schema %}
+{
+  "name": "Lilas 目次",
+  "settings": [
+    { "type": "text", "id": "label", "label": "ラベル", "default": "目次 ・ Index" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "目次の項目",
+      "settings": [
+        { "type": "text", "id": "title", "label": "項目名", "default": "うるおい" },
+        { "type": "text", "id": "anchor", "label": "移動先のID（# は不要）", "default": "moisture", "info": "例：moisture / together / why / collection / howto / formula / letters" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 目次" }]
+}
+{% endschema %}

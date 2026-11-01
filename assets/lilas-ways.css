@@ -1,0 +1,39 @@
+/* ===== 使い分け（sections/lilas-ways.liquid） ===== */
+.ways { padding: clamp(120px, 14vw, 220px) 0; }
+.wy-in { max-width: 1180px; margin: 0 auto; padding: 0 clamp(22px, 5vw, 80px); }
+
+.wy-hd { text-align: center; margin-bottom: clamp(70px, 8vw, 120px); }
+.wy-lbl { display: block; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(32px, 3.4vw, 52px); line-height: 1; margin-bottom: 22px; }
+.wy-hd h2 { margin: 0 0 30px; font-family: var(--min); font-weight: 400; font-size: clamp(20px, 2vw, 28px); letter-spacing: .26em; padding-left: .26em; }
+.wy-hd p { margin: 0; font-size: 15.5px; line-height: 2.3; color: #3d3d3b; }
+.wy-hd b { font-weight: 500; color: var(--ink); border-bottom: 1px solid currentColor; }
+
+.wy-duo { display: grid; grid-template-columns: 5fr 6fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
+.wy-ph { aspect-ratio: 4 / 5; border-radius: 999px 999px 0 0; }
+.wy-pair { display: grid; grid-template-columns: 1fr auto 1fr; align-items: start; gap: clamp(14px, 2vw, 28px); text-align: center; }
+.wy-pair .bt { padding: 34px 18px 30px; border: 1px solid var(--hair); background: color-mix(in srgb, var(--bg) 70%, #fff); }
+.wy-pair .k { margin: 0; font-family: var(--en); font-size: 11.5px; letter-spacing: .3em; color: var(--sub); }
+.wy-pair h3 { margin: 6px 0 12px; font-family: var(--min); font-weight: 400; font-size: 21px; letter-spacing: .24em; }
+.wy-pair p { margin: 0; font-size: 14px; line-height: 2; color: #3d3d3b; }
+.wy-pair .plus { align-self: center; font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--sub); }
+
+.wy-cases { list-style: none; margin: clamp(80px, 9vw, 130px) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(20px, 3vw, 44px); border-top: 1px solid var(--ink); }
+.wy-cases li { padding-top: 28px; }
+.wy-cases .n { font-family: var(--serif); font-style: italic; font-size: 24px; }
+.wy-cases h4 { margin: 10px 0 8px; font-family: var(--min); font-weight: 400; font-size: 17px; letter-spacing: .2em; }
+.wy-cases p { margin: 0; font-size: 14px; line-height: 2; color: #3d3d3b; }
+
+.wy-cta { text-align: center; margin-top: clamp(70px, 8vw, 110px); }
+.wy-cta p { margin: 0 0 22px; font-family: var(--min); font-size: 16px; letter-spacing: .18em; }
+
+@media (max-width: 900px) {
+  .wy-duo { grid-template-columns: 1fr; }
+  .wy-ph { width: 78%; margin: 0 auto; }
+  .wy-cases { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+  .wy-pair .bt { padding: 26px 10px; }
+}
+@media (max-width: 520px) {
+  .wy-pair { grid-template-columns: 1fr; }
+  .wy-pair .plus { justify-self: center; }
+  .wy-cases { grid-template-columns: 1fr; }
+}

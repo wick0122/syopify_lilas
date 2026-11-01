@@ -1,0 +1,65 @@
+/* ===== 商品（sections/lilas-products.liquid） ===== */
+.pcat { padding: var(--gap) 0; }
+.pc-hd { padding: 0 var(--m); max-width: 1280px; margin: 0 auto; }
+.plab { display: inline-block; font-family: var(--en); font-size: 12px; letter-spacing: .2em; color: var(--sub); margin-bottom: 18px; }
+.pc-hd h2 { margin: 0; font-family: var(--jp); font-weight: 400; font-size: clamp(24px, 2.4vw, 34px); letter-spacing: .16em; }
+.pc-hd .lead { margin: 16px 0 0; font-size: 14.5px; color: var(--sub); }
+
+/* --- 大きな行：写真と説明が左右に交互 --- */
+.prows { margin-top: clamp(56px, 7vw, 96px); border-top: 1px solid var(--hair); }
+.prow { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--hair); }
+.prow .ph { aspect-ratio: 1 / 1; background: #fff; }
+.prow .ph img { mix-blend-mode: multiply; }
+.prow.rev .ph { order: 2; }
+.prow .info { padding: clamp(36px, 6vw, 100px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.badge { display: inline-block; font-size: 12px; letter-spacing: .08em; padding: 3px 16px; border-radius: 999px; background: #B8A27A; color: #fff; margin-bottom: 24px; }
+.badge.ghost { background: transparent; color: var(--sub); border: 1px solid currentColor; font-family: var(--en); }
+.prow .p-en { margin: 0; font-family: var(--en); font-weight: 300; font-size: clamp(26px, 2.6vw, 40px); letter-spacing: .04em; line-height: 1.2; }
+.prow h3 { margin: 8px 0 0; font-family: var(--jp); font-weight: 400; font-size: 17px; letter-spacing: .14em; }
+.prow .k { margin: 4px 0 0; font-size: 13.5px; color: var(--sub); }
+.prow .d { margin: 16px 0 0; font-size: 14.5px; color: #4a4a47; max-width: 26em; }
+.prow .pr { margin: 18px 0 26px; font-family: var(--en); font-size: 20px; letter-spacing: .04em; }
+.prow .pr small { font-family: var(--jp); font-size: 11.5px; color: var(--sub); margin-left: 2px; }
+.pill { display: inline-flex; align-items: center; gap: 12px; padding: 10px 24px; border: 1px solid currentColor; border-radius: 999px; font-size: 13.5px; letter-spacing: .12em; transition: all .4s; }
+.pill::after { content: ">"; font-family: var(--en); }
+.pill:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+
+/* --- 小さなカード：仕上げのアイテム --- */
+.pc-opts { padding: 0 var(--m); max-width: 1280px; margin: clamp(80px, 9vw, 130px) auto 0; }
+.pc-opts .item { grid-column: span 4; display: block; }
+.item .iln { display: block; }
+.item .ph { aspect-ratio: 1 / 1; background: #FBFBFA; margin-bottom: 22px; }
+.item .ph img { mix-blend-mode: multiply; }
+.nmb { display: block; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--gold); margin-bottom: 6px; }
+.ename { display: block; font-family: var(--serif); font-weight: 400; font-size: clamp(22px, 2vw, 30px); letter-spacing: .02em; line-height: 1.2; }
+.ename em { font-style: italic; font-weight: 300; }
+.item .row { display: flex; justify-content: space-between; align-items: baseline; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--hair); }
+.item .n { font-family: var(--min); font-size: 15px; letter-spacing: .16em; color: var(--ink); }
+.item .pr { font-family: var(--en); font-weight: 300; font-size: 18px; letter-spacing: .06em; }
+.item .pr small { font-family: var(--jp); font-size: 10.5px; color: var(--sub); margin-left: 2px; }
+.item .k { font-size: 13px; letter-spacing: .14em; color: var(--sub); margin-top: 4px; }
+
+/* 容量の切り替え */
+.size { display: inline-flex; margin-top: 14px; border: 1px solid var(--hair); }
+.size button { padding: 7px 16px; font-size: 12.5px; letter-spacing: .1em; color: var(--sub); transition: background .3s, color .3s; }
+.size button.on { background: var(--ink); color: var(--bg); }
+.size button:disabled { opacity: .4; text-decoration: line-through; cursor: not-allowed; }
+.item .size + .addcart { display: flex; }
+
+.pc-more { text-align: center; margin-top: clamp(80px, 9vw, 120px); }
+.pc-more .lnk { font-size: 22px; }
+.pc-more .lnk small { font-size: 12.5px; margin-left: 24px; }
+
+@media (max-width: 900px) {
+  .prow { grid-template-columns: 1fr; }
+  .prow.rev .ph { order: 0; }
+  .prow .info { padding: 30px var(--m) 44px; }
+
+  .pc-opts { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; column-gap: 10px; }
+  .pc-opts .item { grid-column: auto !important; min-width: 0; }
+  .pc-opts .item .row { flex-direction: column; gap: 0; }
+  .pc-opts .item .n { font-size: 13.5px; }
+  .pc-opts .ename { font-size: 18px; }
+  .pc-opts .size button { padding: 6px 8px; }
+  .pc-opts .addcart { min-width: 0; width: 100%; padding: 11px 4px; font-size: 11px; letter-spacing: .04em; }
+}

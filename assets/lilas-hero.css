@@ -1,0 +1,59 @@
+/* ===== 表紙（sections/lilas-hero.liquid） ===== */
+.fv { position: relative; height: 100vh; min-height: 620px; overflow: hidden; background: #111; color: #fff; }
+.fv video.bg, .fv .bg video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fv .shade {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg, rgba(0,0,0,.32), rgba(0,0,0,.16) 35%, rgba(0,0,0,.2) 60%, rgba(0,0,0,.62));
+}
+
+/* 大きなロゴ：ゆっくり浮かぶ */
+.fv .big {
+  position: absolute; z-index: 4; left: 0; right: 0; top: 50%; margin: 0;
+  transform: translateY(-58%);
+  text-align: center; white-space: nowrap; pointer-events: none; line-height: 1;
+  font-family: 'Bodoni Moda', serif; font-weight: 400; font-size: 20vw; letter-spacing: -.01em;
+  color: #fff; text-shadow: 0 2px 40px rgba(0,0,0,.18);
+  animation: lilasQuietIn 2.6s cubic-bezier(.25,.8,.3,1) .2s both;
+}
+@keyframes lilasQuietIn { 0% { opacity: 0; filter: blur(6px); } 100% { opacity: 1; filter: blur(0); } }
+
+/* 見出し */
+.fv .copy {
+  position: absolute; z-index: 6; left: 0; right: 0; bottom: 64px; text-align: center;
+  text-shadow: 0 1px 14px rgba(0,0,0,.35);
+  opacity: 0; animation: lilasFadeIn 1.6s var(--ease) 1.6s forwards;
+}
+@keyframes lilasFadeIn { to { opacity: 1; } }
+.fv h1 { margin: 0; font-family: var(--min); font-weight: 400; font-size: clamp(19px, 1.7vw, 25px); letter-spacing: .26em; padding-left: .3em; line-height: 2.1; }
+.fv .sub { margin: 12px 0 0; font-size: 14px; letter-spacing: .18em; line-height: 2; color: rgba(255,255,255,.85); }
+.fv .eng2 { display: block; margin-top: 6px; font-family: var(--serif); font-style: italic; font-size: 17px; letter-spacing: .04em; opacity: .85; }
+.fv .fvbtn { display: inline-block; margin-top: 26px; padding: 13px 40px; border: 1px solid rgba(255,255,255,.8); font-size: 13px; letter-spacing: .24em; color: #fff; transition: background .5s, color .5s; }
+.fv .fvbtn:hover { background: #fff; color: #111; }
+
+/* 一時停止・スクロール */
+.fv .vctl, .fv .scroll { position: absolute; z-index: 6; bottom: 64px; color: rgba(255,255,255,.8); opacity: 0; animation: lilasFadeIn 1.8s var(--ease) 1.4s forwards; }
+.fv .vctl { left: var(--m); font-family: var(--en); font-size: 10.5px; letter-spacing: .34em; text-transform: uppercase; }
+.fv .scroll { right: var(--m); writing-mode: vertical-rl; font-size: 12px; letter-spacing: .2em; }
+
+/* 流れる文字 */
+.marq { overflow: hidden; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); padding: 22px 0; background: var(--bg); }
+.mq {
+  display: flex; gap: 44px; width: max-content; align-items: center;
+  animation: lilasMarquee 60s linear infinite;
+  font-family: var(--serif), var(--min); font-style: italic; font-weight: 300; font-size: clamp(22px, 2vw, 30px); white-space: nowrap;
+}
+.mq span { font-size: .9em; }
+.mq i { font-style: normal; font-size: 11px; color: var(--gold); }
+@keyframes lilasMarquee { to { transform: translateX(-50%); } }
+
+@media (max-width: 900px) {
+  .fv { height: 100svh; min-height: 560px; }
+  .fv .big { font-size: 26vw; }
+  .fv .copy { bottom: 96px; padding: 0 20px; }
+  .fv h1 { font-size: 17px; letter-spacing: .16em; }
+  .fv .vctl { bottom: 24px; }
+  .fv .scroll { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fv .big, .fv .copy, .fv .vctl, .fv .scroll { opacity: 1; filter: none; }
+}

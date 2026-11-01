@@ -1,0 +1,48 @@
+<header class="site lilas-top-header"><div class="in">
+  <nav class="jnav" aria-label="メインメニュー"><a href="{{ section.settings.products_url }}">製品</a><a href="{{ section.settings.features_url }}">製品の特徴</a><a href="{{ routes.root_url }}#formula">肌タイプチェック</a><a href="{% if section.settings.voices_product != blank %}{{ section.settings.voices_product.url }}{% else %}{{ section.settings.products_url }}{% endif %}#voices">お客様の声</a><a class="sp-only" href="{{ section.settings.message_url }}">Lilasの想い</a><a class="sp-only" href="{{ section.settings.about_url }}">ブランドの歩み</a><a class="sp-only" href="{{ section.settings.partner_url }}">販売パートナー</a></nav>
+  <a class="logo logo-h" href="{{ routes.root_url }}"><img src="{{ 'lilas-t-03-f8532c.png' | asset_url }}" alt="Lilas" width="1000" height="353"></a>
+  <div class="r jnav"><a class="lnkx" href="{{ section.settings.message_url }}">Lilasの想い</a><a class="lnkx" href="{{ section.settings.about_url }}">ブランドの歩み</a><a class="lnkx" href="{{ section.settings.partner_url }}">販売パートナー</a><a class="cart" href="{{ routes.cart_url }}" aria-label="カート">カート<span class="cartn">{{ cart.item_count }}</span></a><button class="mbtn" aria-label="メニュー"></button></div>
+</div></header>
+{% schema %}
+{
+  "name": "Lilas ヘッダー(トップ)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "products_url",
+      "label": "「製品」のリンク先",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "features_url",
+      "label": "「製品の特徴」のリンク先",
+      "default": "/pages/features"
+    },
+    {
+      "type": "product",
+      "id": "voices_product",
+      "label": "「お客様の声」を表示する製品(エイジングケア)"
+    },
+    {
+      "type": "text",
+      "id": "message_url",
+      "label": "「Lilasの想い」のリンク先",
+      "default": "/pages/message"
+    },
+    {
+      "type": "text",
+      "id": "about_url",
+      "label": "「ブランドの歩み」のリンク先",
+      "default": "/pages/about"
+    },
+    {
+      "type": "text",
+      "id": "partner_url",
+      "label": "「販売パートナー」のリンク先",
+      "default": "#",
+      "info": "ページができたら変更してください"
+    }
+  ]
+}
+{% endschema %}

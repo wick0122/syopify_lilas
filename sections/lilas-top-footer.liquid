@@ -1,0 +1,49 @@
+<footer class="page">
+  <p class="tag">うるおいを、毎日に。<span>Moisture, for every day.</span></p>
+  <div class="mast logo-img"><img src="{{ 'lilas-t-03-f8532c.png' | asset_url }}" alt="Lilas" width="1000" height="353"></div>
+  <div class="row"><span>14,000円以上のご購入で送料無料</span><ul><li><a href="{{ section.settings.features_url }}">製品の特徴</a></li><li><a href="{{ section.settings.message_url }}">Lilasの想い</a></li><li><a href="{{ section.settings.about_url }}">ブランドの歩み</a></li><li><a href="{{ section.settings.contact_url }}">お問い合わせ</a></li><li><a href="{{ section.settings.legal_url }}">特定商取引法に基づく表記</a></li><li><a href="{{ section.settings.privacy_url }}">プライバシーポリシー</a></li></ul><span>&copy; {{ "now" | date: "%Y" }} {{ shop.name }}</span></div>
+</footer>
+<nav class="spbar" aria-label="すぐに"><a href="{{ routes.root_url }}#formula">肌タイプチェック</a><a href="{{ routes.root_url }}#collection">ラインナップ</a></nav>
+{% schema %}
+{
+  "name": "Lilas フッター(トップ)",
+  "settings": [
+    {
+      "type": "text",
+      "id": "features_url",
+      "label": "「製品の特徴」のリンク先",
+      "default": "/pages/features"
+    },
+    {
+      "type": "text",
+      "id": "message_url",
+      "label": "「Lilasの想い」のリンク先",
+      "default": "/pages/message"
+    },
+    {
+      "type": "text",
+      "id": "about_url",
+      "label": "「ブランドの歩み」のリンク先",
+      "default": "/pages/about"
+    },
+    {
+      "type": "text",
+      "id": "contact_url",
+      "label": "「お問い合わせ」のリンク先",
+      "default": "/pages/contact"
+    },
+    {
+      "type": "text",
+      "id": "legal_url",
+      "label": "「特定商取引法に基づく表記」のリンク先",
+      "default": "/policies/legal-notice"
+    },
+    {
+      "type": "text",
+      "id": "privacy_url",
+      "label": "「プライバシーポリシー」のリンク先",
+      "default": "/policies/privacy-policy"
+    }
+  ]
+}
+{% endschema %}

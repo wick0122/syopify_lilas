@@ -1,0 +1,10 @@
+/* ===== 目次（sections/lilas-index.liquid） ===== */
+.qindex { padding: var(--gap) var(--m) 0; text-align: center; }
+.qindex ol { list-style: none; margin: 0 auto; padding: 0; display: flex; justify-content: center; flex-wrap: wrap; gap: 16px 52px; max-width: 1000px; }
+.qindex a { display: inline-flex; flex-direction: column; align-items: center; gap: 8px; transition: opacity .4s; }
+.qindex a:hover { opacity: .55; }
+.qindex .n { font-family: var(--en); font-weight: 300; font-size: 11.5px; letter-spacing: .3em; color: var(--sub); }
+.qindex .t { font-family: var(--min); font-size: 15px; letter-spacing: .24em; }
+@media (max-width: 900px) {
+  .qindex ol { flex-direction: column; align-items: center; gap: 22px; }
+}

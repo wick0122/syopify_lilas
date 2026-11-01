@@ -1,0 +1,142 @@
+/* =========================================================
+   Lilas 共通スタイル
+   全セクションで使う「色・文字・余白の変数」と、共通パーツだけを置く。
+   各セクション固有のスタイルは assets/lilas-<セクション名>.css にある。
+   ========================================================= */
+
+:root {
+  --bg: #F8F8F7;
+  --bg2: #EDEDEC;
+  --ink: #1C1C1C;
+  --sub: #585856;
+  --hair: rgba(28, 28, 28, .15);
+  --gold: #8E8E8C;
+  --t1: #E6E6E5;
+  --dlg: #F8F8F7;
+
+  --disp: 'Bodoni Moda', 'Times New Roman', serif;
+  --serif: 'Cormorant Garamond', 'Bodoni Moda', serif;
+  --en: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+  --min: 'Shippori Mincho', serif;
+  --jp: 'Zen Kaku Gothic New', sans-serif;
+
+  --m: clamp(22px, 6vw, 104px);
+  --gap: clamp(130px, 15vw, 240px);
+  --ease: cubic-bezier(.2, .75, .2, 1);
+}
+
+/* ---------- 基本 ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt";
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--jp);
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 2.1;
+  letter-spacing: .08em;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; }
+img, video { display: block; max-width: 100%; }
+:focus-visible { outline: 1px solid currentColor; outline-offset: 5px; }
+
+.lilas-skip { position: absolute; left: -9999px; top: 0; z-index: 100; background: var(--ink); color: var(--bg); padding: 10px 16px; }
+.lilas-skip:focus { left: 16px; top: 16px; }
+
+/* ---------- 改行の出し分け ---------- */
+.spbr { display: none; }
+.pcbr { display: inline; }
+@media (max-width: 900px) { .pcbr { display: none; } }
+@media (max-width: 600px) { .spbr { display: inline; } .spx { display: none; } }
+
+/* ---------- レイアウト ---------- */
+.page { padding-left: var(--m); padding-right: var(--m); }
+.sec { padding-top: var(--gap); padding-bottom: var(--gap); }
+.grid12 { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+@media (max-width: 900px) {
+  .grid12 { grid-template-columns: 1fr; gap: 20px; }
+  .grid12 > * { grid-column: 1 !important; margin-top: 0 !important; }
+}
+
+/* ---------- 写真の枠 ---------- */
+.ph { position: relative; overflow: hidden; margin: 0; background: var(--t1); }
+.ph img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 2.4s var(--ease); }
+a:hover .ph img { transform: scale(1.03); }
+.arch { border-radius: 999px 999px 0 0; }
+
+/* ---------- スクロールで静かに表示 ---------- */
+.js [data-r] { opacity: 0; transform: translateY(26px); transition: opacity 1.8s var(--ease), transform 1.8s var(--ease); }
+.js [data-r].shown { opacity: 1; transform: none; }
+
+/* ---------- 小さな見出し・ラベル ---------- */
+.folio { font-family: var(--en); font-size: 11.5px; letter-spacing: .36em; color: #5f5f5d; font-weight: 400; text-transform: uppercase; }
+.qlbl { display: block; font-family: var(--en); font-weight: 400; font-size: 11.5px; letter-spacing: .4em; color: var(--sub); text-transform: uppercase; margin-bottom: 44px; }
+
+/* ---------- 線つきリンク ---------- */
+.lnk {
+  display: inline-flex; align-items: center; gap: 16px;
+  padding-bottom: 8px; border-bottom: 1px solid currentColor;
+  font-family: var(--serif); font-style: italic; font-size: 17px; letter-spacing: .06em;
+}
+.lnk::after { content: ""; width: 28px; height: 1px; background: currentColor; transition: width .6s var(--ease); }
+.lnk:hover::after { width: 46px; }
+.lnk small { font-family: var(--jp); font-style: normal; font-size: 11px; letter-spacing: .2em; color: var(--sub); margin-left: 4px; }
+
+/* ---------- うるおいの表現（波紋・しずく・ゲージ） ---------- */
+.ripple { position: absolute; left: 50%; top: 50%; width: 46%; aspect-ratio: 1; transform: translate(-50%, -50%); pointer-events: none; z-index: 2; }
+.ripple i { position: absolute; inset: 0; border: 1px solid rgba(255, 255, 255, .9); border-radius: 50%; opacity: 0; animation: lilasRip 6s cubic-bezier(.2, .6, .3, 1) infinite; }
+.ripple i:nth-child(2) { animation-delay: 2s; }
+.ripple i:nth-child(3) { animation-delay: 4s; }
+.ripple.dk i { border-color: rgba(28, 28, 28, .22); }
+@keyframes lilasRip { 0% { transform: scale(.25); opacity: 0; } 15% { opacity: .9; } 100% { transform: scale(1.25); opacity: 0; } }
+
+.dropi { width: 14px; height: 18px; color: #7c9097; vertical-align: -2px; }
+.gauge-d { display: block; width: 44px; height: 58px; margin: 0 auto 20px; color: var(--ink); }
+
+/* ---------- ほんのり青みのある光（背景） ---------- */
+.dew { position: relative; isolation: isolate; }
+.dew::before {
+  content: ""; position: absolute; inset: -8% 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(40% 30% at 22% 30%, rgba(255,255,255,.9), transparent 70%),
+    radial-gradient(35% 28% at 78% 64%, rgba(214,226,230,.55), transparent 70%),
+    radial-gradient(28% 22% at 60% 18%, rgba(226,234,237,.5), transparent 70%);
+}
+
+/* ---------- カートに入れるボタン ---------- */
+.addcart {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  margin-top: 16px; padding: 13px 22px; min-width: 170px;
+  background: var(--ink); color: var(--bg);
+  font-family: var(--jp); font-size: 13px; letter-spacing: .16em;
+  transition: opacity .4s;
+}
+.addcart:hover { opacity: .82; }
+.addcart::before { content: ""; width: 13px; height: 13px; border: 1px solid currentColor; border-top-width: 3px; border-radius: 0 0 2px 2px; }
+.addcart.wide { width: 100%; padding: 16px; }
+.addcart[aria-busy="true"] { opacity: .5; pointer-events: none; }
+
+/* ---------- お知らせ（カートに入れたとき） ---------- */
+.toast {
+  position: fixed; left: 50%; bottom: 28px; z-index: 95;
+  transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+  background: #1c1c1c; color: #f4f4f3; font-size: 13px; letter-spacing: .08em;
+  padding: 14px 22px; transition: all .5s var(--ease); max-width: 92vw; text-align: center;
+}
+.toast.on { opacity: 1; transform: translate(-50%, 0); }
+@media (max-width: 900px) {
+  .toast { bottom: 80px; }
+  body.lilas { padding-bottom: 56px; }
+}
+
+/* ---------- 動きを減らす設定の人 ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js [data-r] { opacity: 1; transform: none; }
+  .ripple { display: none; }
+}

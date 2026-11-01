@@ -1,0 +1,11 @@
+/* ===== 締め（sections/lilas-share.liquid） ===== */
+.spread .ph { height: min(92vh, 980px); }
+.spread .after { padding-top: 30px; padding-bottom: var(--gap); }
+.spread .after h2 { grid-column: 1 / 8; margin: 0; font-family: var(--min); font-weight: 400; font-size: clamp(22px, 2.4vw, 34px); letter-spacing: .28em; line-height: 2; }
+.spread .after .r { grid-column: 9 / 13; justify-self: end; align-self: end; text-align: right; }
+.spread .after .r p { margin: 0 0 22px; font-size: 14px; color: var(--sub); }
+
+@media (max-width: 900px) {
+  .spread .ph { height: 70vh; }
+  .spread .after .r { justify-self: start; text-align: left; }
+}

@@ -1,0 +1,198 @@
+{{ 'lilas-products.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  商品の章。
+  - 「商品（大きな行）」ブロック：濃縮ローションなど主役の商品
+  - 「商品（小さなカード）」ブロック：セラム・バーム・オイルなどの仕上げ
+  各ブロックで Shopify の商品を選ぶと、価格・リンク・カートが本物の商品データに切り替わります。
+  商品を選んでいないときは、ブロックに入力した仮の価格を表示します。
+{%- endcomment -%}
+
+{%- assign row_fallbacks = 'lilas-product-aging.jpg,lilas-product-bright.jpg,lilas-product-smooth.jpg' | split: ',' -%}
+{%- assign option_fallbacks = 'lilas-product-serum.jpg,lilas-product-balm.jpg,lilas-product-oil.jpg' | split: ',' -%}
+{%- assign row_i = 0 -%}
+{%- assign option_i = 0 -%}
+
+<section class="pcat" id="{{ section.settings.anchor | default: 'collection' }}">
+  <div class="pc-hd" data-r>
+    <span class="plab">{{ section.settings.label }}</span>
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="lead">{{ section.settings.lead }}</p>
+  </div>
+
+  {%- comment -%} 大きな行 {%- endcomment -%}
+  <div class="prows">
+    {%- for block in section.blocks -%}
+      {%- if block.type != 'row' -%}{%- continue -%}{%- endif -%}
+      {%- liquid
+        assign p = block.settings.product
+        assign img = block.settings.image | default: p.featured_image
+        assign fb = row_fallbacks[row_i] | default: 'lilas-product-aging.jpg'
+        assign mod = row_i | modulo: 2
+        if p != blank
+          assign price_html = p.price | money
+          assign url = p.url
+        else
+          assign price_html = block.settings.price
+          assign url = block.settings.link | default: '#collection'
+        endif
+        assign row_i = row_i | plus: 1
+      -%}
+      <article class="prow{% if mod == 1 %} rev{% endif %}" data-r {{ block.shopify_attributes }}>
+        <figure class="ph">
+          {%- render 'lilas-image', image: img, fallback: fb, alt: block.settings.name_ja -%}
+        </figure>
+        <div class="info">
+          {%- if block.settings.badge != blank -%}
+            <span class="badge{% if block.settings.badge_style == 'outline' %} ghost{% endif %}">{{ block.settings.badge }}</span>
+          {%- endif -%}
+          <p class="p-en">{{ block.settings.name_en }}</p>
+          <h3>{{ block.settings.name_ja | default: p.title }}</h3>
+          <p class="k">{{ block.settings.keyword }}</p>
+          <p class="d">{{ block.settings.description }}</p>
+          {%- if price_html != blank -%}
+            <p class="pr">{{ price_html }}<small>{{ section.settings.tax_note }}</small></p>
+          {%- endif -%}
+          <a class="pill" href="{{ url }}">{{ block.settings.link_label }}</a>
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+
+  {%- comment -%} 小さなカード {%- endcomment -%}
+  <div class="pc-opts grid12">
+    {%- for block in section.blocks -%}
+      {%- if block.type != 'option' -%}{%- continue -%}{%- endif -%}
+      {%- liquid
+        assign p = block.settings.product
+        assign img = block.settings.image | default: p.featured_image
+        assign fb = option_fallbacks[option_i] | default: 'lilas-product-oil.jpg'
+        assign option_i = option_i | plus: 1
+        assign base_name = block.settings.name_ja | default: p.title
+        if p != blank
+          assign v = p.selected_or_first_available_variant
+          assign variant_id = v.id
+          assign price_html = v.price | money
+          assign url = p.url
+          assign add_name = base_name
+          if p.has_only_default_variant == false
+            assign add_name = base_name | append: ' ' | append: v.title
+          endif
+        else
+          assign variant_id = ''
+          assign price_html = block.settings.price
+          assign url = block.settings.link | default: '#collection'
+          assign add_name = base_name
+        endif
+      -%}
+      <article class="item" data-r {{ block.shopify_attributes }}>
+        <a href="{{ url }}" class="iln">
+          <div class="ph">
+            {%- render 'lilas-image', image: img, fallback: fb, alt: base_name -%}
+          </div>
+          <span class="nmb">{{ block.settings.kicker }}</span>
+          <span class="ename">{{ block.settings.name_en }}</span>
+          <div class="row">
+            <span class="n">{{ base_name }}</span>
+            <span class="pr"><span class="pv">{{ price_html }}</span><small>{{ section.settings.tax_note }}</small></span>
+          </div>
+          <p class="k">{{ block.settings.keyword }}</p>
+        </a>
+
+        {%- comment -%} 容量の切り替え：商品にバリエーションがあればそれを使う {%- endcomment -%}
+        {%- if p != blank and p.has_only_default_variant == false -%}
+          <div class="size" role="group" aria-label="{{ p.options.first | escape }}">
+            {%- for variant in p.variants -%}
+              <button
+                type="button"
+                class="{% if variant.id == variant_id %}on{% endif %}"
+                data-s="{{ variant.title | escape }}"
+                data-p="{{ variant.price | money }}"
+                data-variant="{{ variant.id }}"
+                {% unless variant.available %}disabled{% endunless %}
+              >{{ variant.title }}</button>
+            {%- endfor -%}
+          </div>
+        {%- elsif p == blank and block.settings.sizes != blank -%}
+          {%- assign sizes = block.settings.sizes | split: ',' -%}
+          {%- assign size_prices = block.settings.size_prices | split: ',' -%}
+          <div class="size" role="group" aria-label="容量">
+            {%- for s in sizes -%}
+              <button type="button" class="{% if forloop.first %}on{% endif %}" data-s="{{ s | strip }}" data-p="{{ size_prices[forloop.index0] | strip }}" data-variant="">{{ s | strip }}</button>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        <button
+          class="addcart"
+          type="button"
+          data-lilas-add
+          data-variant="{{ variant_id }}"
+          data-base="{{ base_name | escape }}"
+          data-name="{{ add_name | escape }}"
+        >カートに入れる</button>
+      </article>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.settings.more_label != blank -%}
+    <div class="pc-more" data-r>
+      <a class="lnk" href="{{ section.settings.more_link | default: routes.all_products_collection_url }}">
+        {{- section.settings.more_label -}}<small>{{ section.settings.more_sub }}</small>
+      </a>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 商品",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（目次からの移動先）", "default": "collection" },
+    { "type": "text", "id": "label", "label": "ラベル", "default": "( PRODUCT )" },
+    { "type": "text", "id": "heading", "label": "見出し", "default": "商品" },
+    { "type": "text", "id": "lead", "label": "説明", "default": "肌の悩みに合わせて選ぶ、三つの濃縮ローション。" },
+    { "type": "text", "id": "tax_note", "label": "価格の後ろの文字", "default": "(税込)" },
+    { "type": "header", "content": "一番下のリンク" },
+    { "type": "text", "id": "more_label", "label": "リンクの文字（英字）", "default": "Discover all" },
+    { "type": "text", "id": "more_sub", "label": "リンクの文字（日本語）", "default": "すべての商品" },
+    { "type": "url", "id": "more_link", "label": "リンク先", "info": "未設定のときは「すべての商品」ページへ" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "商品（大きな行）",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Shopify の商品", "info": "選ぶと、価格とリンクが本物の商品データになります" },
+        { "type": "image_picker", "id": "image", "label": "写真", "info": "未設定のときは商品の写真、それもなければ仮の写真" },
+        { "type": "text", "id": "badge", "label": "バッジ", "default": "予約受付中" },
+        { "type": "select", "id": "badge_style", "label": "バッジの形", "default": "filled", "options": [ { "value": "filled", "label": "塗りつぶし" }, { "value": "outline", "label": "線だけ" } ] },
+        { "type": "text", "id": "name_en", "label": "英語名", "default": "Aging Care" },
+        { "type": "text", "id": "name_ja", "label": "日本語名", "default": "エイジングケア" },
+        { "type": "text", "id": "keyword", "label": "ひとこと", "default": "ハリが気になる肌に" },
+        { "type": "textarea", "id": "description", "label": "説明" },
+        { "type": "text", "id": "price", "label": "仮の価格（商品未設定のとき）", "default": "¥12,100" },
+        { "type": "text", "id": "link_label", "label": "ボタンの文字", "default": "詳しく見る" },
+        { "type": "url", "id": "link", "label": "仮のリンク先（商品未設定のとき）" }
+      ]
+    },
+    {
+      "type": "option",
+      "name": "商品（小さなカード）",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Shopify の商品", "info": "容量などのバリエーションがあれば、自動で切り替えボタンになります" },
+        { "type": "image_picker", "id": "image", "label": "写真" },
+        { "type": "text", "id": "kicker", "label": "小さな文字", "default": "Option ・ 仕上げ" },
+        { "type": "text", "id": "name_en", "label": "英語名", "default": "Multi <em>Balm</em>", "info": "<em>〜</em> で囲むと斜体になります" },
+        { "type": "text", "id": "name_ja", "label": "日本語名", "default": "マルチバーム" },
+        { "type": "text", "id": "keyword", "label": "ひとこと", "default": "乾きやすいところに" },
+        { "type": "text", "id": "price", "label": "仮の価格（商品未設定のとき）", "default": "¥4,290" },
+        { "type": "text", "id": "sizes", "label": "仮の容量（商品未設定のとき・カンマ区切り）", "info": "例：60ml,200ml" },
+        { "type": "text", "id": "size_prices", "label": "仮の容量ごとの価格（カンマ区切り）", "info": "例：¥5,060,価格確認中" },
+        { "type": "url", "id": "link", "label": "仮のリンク先（商品未設定のとき）" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 商品" }]
+}
+{% endschema %}

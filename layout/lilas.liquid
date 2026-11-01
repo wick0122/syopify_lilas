@@ -1,0 +1,55 @@
+{%- comment -%}
+  Lilas 専用のレイアウト（ページの外枠）
+  React でいう App.jsx。Rise のスタイルを読み込まないので、デザインが混ざりません。
+  使うテンプレート: templates/index.json（"layout": "lilas"）
+{%- endcomment -%}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+
+    <title>
+      {{ page_title }}
+      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+    </title>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+    {% render 'meta-tags' %}
+
+    <script>document.documentElement.classList.add('js');</script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+
+    {{ 'lilas-base.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      window.LilasRoutes = {
+        cartAdd: '{{ routes.cart_add_url }}.js',
+        cart: '{{ routes.cart_url }}.js'
+      };
+    </script>
+    <script src="{{ 'lilas-base.js' | asset_url }}" defer="defer"></script>
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="lilas">
+    <a class="lilas-skip" href="#MainContent">本文へ移動</a>
+
+    {% section 'lilas-header' %}
+
+    <main id="MainContent" role="main" data-template="{{ template.name }}">
+      {{ content_for_layout }}
+    </main>
+
+    {% section 'lilas-footer' %}
+  </body>
+</html>

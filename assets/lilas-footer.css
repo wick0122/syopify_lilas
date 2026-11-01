@@ -1,0 +1,20 @@
+/* ===== フッター（sections/lilas-footer.liquid） ===== */
+.lilas-footer { padding-top: clamp(90px, 10vw, 150px); padding-bottom: 40px; border-top: 1px solid var(--ink); }
+.lilas-footer .tag { margin: 0; font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2.4vw, 34px); }
+.lilas-footer .tag span { display: block; font-size: .6em; margin-top: 6px; color: var(--sub); }
+.lilas-footer .mast { font-family: var(--serif); font-size: clamp(80px, 17vw, 270px); line-height: .85; letter-spacing: -.01em; text-align: center; margin: 60px 0 50px; }
+.lilas-footer .row { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; font-size: 12px; letter-spacing: .16em; color: var(--sub); border-top: 1px solid var(--hair); padding-top: 20px; }
+.lilas-footer ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 30px; flex-wrap: wrap; }
+
+/* スマホ下部の固定ボタン */
+.spbar { display: none; }
+@media (max-width: 900px) {
+  .spbar {
+    display: grid; grid-template-columns: 1fr 1fr;
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 75;
+    background: color-mix(in srgb, var(--bg) 94%, transparent);
+    backdrop-filter: blur(12px); border-top: 1px solid var(--hair);
+  }
+  .spbar a { display: block; text-align: center; padding: 15px 0 calc(15px + env(safe-area-inset-bottom)); font-size: 13px; letter-spacing: .16em; }
+  .spbar a + a { background: var(--ink); color: var(--bg); }
+}

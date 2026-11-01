@@ -1,0 +1,32 @@
+<!-- 03 強み -->
+<section class="why sec page" id="why">
+  <div class="fhd grid12" data-r><span class="folio">P. 03 / Feature</span><h2>Why <i>Lilas</i></h2><p>選ばれる、<br>五つの理由。</p></div>
+  <div class="grid12">
+    <figure class="f1" data-r><div class="ph"><img src="{{ 'lilas-t-08-244106.jpg' | asset_url }}" alt=""></div><p class="word">Semi-custom</p><p class="cap">1本で完結するオールインワン。オイルで、しっとり感を自在に。</p></figure>
+    <figure class="f2" data-r><div class="ph"><img src="{{ 'lilas-t-09-68b696.jpg' | asset_url }}" alt="エイジングケアのボトルを手にほほえむ女性" style="object-position:center"></div><p class="word">Concentrate</p><p class="cap">水を足さない、和漢植物エキスの濃縮処方。</p></figure>
+    <figure class="f3" data-r><div class="ph arch"><img src="{{ 'lilas-t-10-14d1a2.jpg' | asset_url }}" alt=""></div><p class="word">Gentle</p><p class="cap">10の成分を配合せず、使用期限もあえて短めに。<br>敏感な肌のことを考えた処方です。</p><a class="more-l" href="{{ section.settings.features_url }}#f6">配合していない成分を見る</a></figure>
+    <figure class="f4" data-r><div class="ph"><img src="{{ 'lilas-t-11-ca271c.jpg' | asset_url }}" alt="2本のローションを合わせるふたりの手" style="object-position:center 60%"></div><p class="word">For everyone</p><p class="cap">性別を問わず、家族やパートナーと一緒に。</p></figure>
+    <figure class="f5" data-r><div class="ph"><img src="{{ 'lilas-t-12-b2288a.jpg' | asset_url }}" alt="窓辺のテーブルで、Lilasのボトルを見つめる女性" style="object-position:60% 55%;transform:scale(1.3);transform-origin:48% 60%"></div><p class="word">From the salon</p><p class="cap">サロンの現場から生まれ、国内工場で<br>100本ずつの小ロットで丁寧に仕上げています。</p><a class="more-l" href="{{ section.settings.about_url }}">ブランドの歩みを読む</a></figure>
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Lilas 03 選ばれる理由",
+  "settings": [
+    {
+      "type": "text",
+      "id": "features_url",
+      "label": "「製品の特徴」のリンク先",
+      "default": "/pages/features"
+    },
+    {
+      "type": "text",
+      "id": "about_url",
+      "label": "「ブランドの歩み」のリンク先",
+      "default": "/pages/about"
+    }
+  ]
+}
+{% endschema %}

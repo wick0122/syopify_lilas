@@ -1,0 +1,28 @@
+{%- comment -%}
+  Lilas の読みものページ用レイアウト(Lilasの想い・ブランドの歩み)
+  テンプレート page.lilas-○○ を使うと、assets/lilas-○○.css と .js を読み込みます
+{%- endcomment -%}
+{%- assign lilas_key = template.suffix | remove: 'lilas-' -%}
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="canonical" href="{{ canonical_url }}">
+    {%- if settings.favicon != blank -%}
+      <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+    {%- endif -%}
+    <title>{{ page_title }}{%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}</title>
+    {%- if page_description -%}<meta name="description" content="{{ page_description | escape }}">{%- endif -%}
+    {% render 'meta-tags' %}
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&family=Shippori+Mincho:wght@400;500&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+    {{ 'lilas-' | append: lilas_key | append: '.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body class="lilas-page lilas-{{ lilas_key }}">
+    {{ content_for_layout }}
+    <script src="{{ 'lilas-' | append: lilas_key | append: '.js' | asset_url }}" defer></script>
+  </body>
+</html>

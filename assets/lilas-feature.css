@@ -1,0 +1,107 @@
+/* =========================================================
+   製品紹介ページ（templates/page.lilas-features.json）
+   sections/lilas-feature-hero / -concerns / -point / -cta で共通
+   トップページと同じ変数（lilas-base.css）だけを使う
+   ========================================================= */
+
+/* ---------- 表紙 ---------- */
+.fhero { padding-top: clamp(130px, 14vw, 200px); padding-bottom: clamp(90px, 10vw, 150px); background: linear-gradient(180deg, var(--bg) 0%, #EEF2F3 60%, var(--bg) 100%); }
+.fhero-in { align-items: center; }
+.fhero-t { grid-column: 1 / 7; }
+.fhero .qlbl { margin-bottom: 30px; }
+.fhero .disp { margin: 0 0 34px; font-family: var(--serif); font-weight: 300; font-size: clamp(52px, 6.4vw, 104px); line-height: .95; letter-spacing: -.01em; }
+.fhero .disp i { font-style: italic; }
+.fhero h1 { margin: 0 0 30px; font-family: var(--min); font-weight: 400; font-size: clamp(20px, 1.9vw, 27px); letter-spacing: .26em; line-height: 2.1; }
+.fhero .lead { margin: 0; font-size: 15.5px; color: #3d3d3b; line-height: 2.3; }
+.fhero-ph { grid-column: 8 / 13; aspect-ratio: 4 / 5; }
+.fhero-ph .ripple { width: 40%; top: 62%; }
+
+.fhero-nav { list-style: none; margin: 54px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 14px 34px; border-top: 1px solid var(--hair); padding-top: 24px; }
+.fhero-nav a { display: inline-flex; align-items: baseline; gap: 10px; font-family: var(--min); font-size: 14px; letter-spacing: .2em; transition: opacity .4s; }
+.fhero-nav a:hover { opacity: .55; }
+.fhero-nav .n { font-family: var(--en); font-size: 11px; letter-spacing: .3em; color: var(--sub); }
+
+/* ---------- こんな方へ ---------- */
+.fcon-in { align-items: center; }
+.fcon-ph { grid-column: 1 / 6; aspect-ratio: 3 / 4; }
+.fcon-t { grid-column: 7 / 13; }
+.fcon .wy-lbl { display: block; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(32px, 3.4vw, 52px); line-height: 1; margin-bottom: 18px; }
+.fcon h2 { margin: 0 0 40px; font-family: var(--min); font-weight: 400; font-size: clamp(20px, 2vw, 28px); letter-spacing: .26em; }
+.fcon-list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.fcon-list li { display: flex; gap: 18px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--hair); font-size: 15px; letter-spacing: .1em; line-height: 1.9; }
+.fcon-list .ck { flex: none; width: 11px; height: 6px; border-left: 1px solid #6f858c; border-bottom: 1px solid #6f858c; transform: rotate(-45deg) translateY(-3px); }
+.fcon-close { margin: 40px 0 0; font-family: var(--min); font-size: 17px; letter-spacing: .18em; line-height: 2.2; }
+.fcon-note { margin: 14px 0 0; font-size: 13px; color: var(--sub); letter-spacing: .12em; }
+
+/* ---------- 特徴（Point） ---------- */
+.fpt.tint { background: var(--bg2); }
+.fpt-hd { align-items: end; margin-bottom: clamp(50px, 6vw, 90px); }
+.fpt-hd .folio { grid-column: 1 / 3; align-self: start; padding-top: 1.2em; }
+.fpt-word { grid-column: 3 / 13; margin: 0; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(56px, 8vw, 128px); line-height: .9; letter-spacing: -.02em; }
+
+.fpt-body { align-items: center; }
+.fpt-ph { grid-column: 1 / 7; aspect-ratio: 4 / 3; }
+.fpt-ph.arch { aspect-ratio: 4 / 5; grid-column: 2 / 6; }
+.fpt-t { grid-column: 8 / 13; }
+.fpt.rev .fpt-ph { grid-column: 7 / 13; grid-row: 1; }
+.fpt.rev .fpt-ph.arch { grid-column: 8 / 12; }
+.fpt.rev .fpt-t { grid-column: 1 / 6; grid-row: 1; }
+.fpt h2 { margin: 0 0 32px; font-family: var(--min); font-weight: 400; font-size: clamp(19px, 1.8vw, 25px); letter-spacing: .24em; line-height: 2.1; }
+.fpt-text { font-size: 15px; color: #3d3d3b; line-height: 2.3; }
+.fpt-text p { margin: 0 0 1em; }
+.fpt-text strong { font-weight: 500; color: var(--ink); border-bottom: 1px solid currentColor; }
+.fpt .lnk { margin-top: 18px; }
+
+.fpt-items { list-style: none; margin: clamp(80px, 9vw, 130px) auto 0; padding: 0; max-width: 1080px; display: grid; gap: clamp(26px, 4vw, 56px); }
+.fpt-items h3 { margin: 0 0 8px; font-family: var(--min); font-weight: 400; font-size: 16px; letter-spacing: .2em; }
+.fpt-items p, .fpt-items .cap { margin: 0; font-size: 13.5px; line-height: 2; color: #4c4c4a; letter-spacing: .1em; }
+
+/* しずくアイコン */
+.fpt-items.is-list { grid-template-columns: repeat(5, 1fr); text-align: center; border-top: 1px solid var(--ink); padding-top: 40px; }
+.fpt-items.is-list .ic { display: block; margin-bottom: 14px; }
+.fpt-items.is-list .dropi { width: 16px; height: 21px; color: #6f858c; }
+
+/* 円（役割） */
+.fpt-items.is-roles { grid-template-columns: repeat(6, 1fr); text-align: center; }
+.fpt-items.is-roles .ring { display: grid; place-items: center; width: 100%; max-width: 128px; aspect-ratio: 1; margin: 0 auto 16px; border: 1px solid var(--hair); border-radius: 50%; background: color-mix(in srgb, var(--bg) 60%, #fff); position: relative; transition: border-color .6s var(--ease); }
+.fpt-items.is-roles .ring::after { content: ""; position: absolute; inset: 6px; border-radius: 50%; border: 1px solid rgba(111, 133, 140, .25); }
+.fpt-items.is-roles li:hover .ring { border-color: #6f858c; }
+.fpt-items.is-roles .k { font-family: var(--min); font-size: 15px; letter-spacing: .18em; padding-left: .18em; }
+
+/* 大きな数字 */
+.fpt-items.is-numbers { grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--ink); }
+.fpt-items.is-numbers li { padding-top: 30px; }
+.fpt-items.is-numbers .big { display: block; font-family: var(--serif); font-weight: 300; font-size: clamp(40px, 4.4vw, 66px); line-height: 1.1; letter-spacing: .01em; margin-bottom: 10px; }
+
+.fpt-note { max-width: 1080px; margin: 34px auto 0; font-size: 12px; color: var(--sub); letter-spacing: .08em; line-height: 1.9; }
+
+/* ---------- 締め ---------- */
+.fcta { padding: var(--gap) var(--m); text-align: center; background: linear-gradient(180deg, var(--bg) 0%, #EEF2F3 50%, var(--bg) 100%); }
+.fcta h2 { margin: 0 0 30px; font-family: var(--min); font-weight: 400; font-size: clamp(21px, 2.2vw, 31px); letter-spacing: .3em; line-height: 2.1; padding-left: .3em; }
+.fcta-text { margin: 0 auto; max-width: 30em; font-size: 15.5px; color: #3d3d3b; }
+.fcta-links { display: grid; grid-template-columns: repeat(2, minmax(0, 340px)); justify-content: center; gap: 24px; margin-top: clamp(56px, 6vw, 84px); }
+.fcta-card { display: flex; flex-direction: column; gap: 6px; padding: 36px 26px; border: 1px solid var(--ink); background: color-mix(in srgb, var(--bg) 70%, #fff); transition: background .5s var(--ease), color .5s var(--ease); }
+.fcta-card:hover { background: var(--ink); color: var(--bg); }
+.fcta-card .en { font-family: var(--serif); font-style: italic; font-size: 30px; line-height: 1.1; }
+.fcta-card .ja { font-size: 13px; letter-spacing: .18em; }
+.fcta-notes { max-width: 720px; margin: clamp(60px, 7vw, 90px) auto 0; text-align: left; font-size: 12px; line-height: 1.9; color: var(--sub); letter-spacing: .06em; }
+.fcta-notes p { margin: 0 0 4px; }
+
+/* ---------- スマホ ---------- */
+@media (max-width: 900px) {
+  .fhero-ph { width: 82%; justify-self: end; margin-top: 30px !important; }
+  .fcon-ph { width: 70%; }
+  .fpt-hd .folio { padding-top: 0; }
+  .fpt-ph, .fpt.rev .fpt-ph { grid-row: auto; }
+  .fpt-ph.arch, .fpt.rev .fpt-ph.arch { width: 76%; justify-self: center; }
+  .fpt-t, .fpt.rev .fpt-t { grid-row: auto; margin-top: 24px !important; }
+  .fpt-items.is-list { grid-template-columns: 1fr 1fr; row-gap: 36px; }
+  .fpt-items.is-roles { grid-template-columns: repeat(3, 1fr); row-gap: 30px; }
+  .fpt-items.is-numbers { grid-template-columns: 1fr; gap: 0; }
+  .fpt-items.is-numbers li { padding: 26px 0; border-bottom: 1px solid var(--hair); }
+  .fcta-links { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .fpt-items.is-roles { grid-template-columns: repeat(2, 1fr); }
+  .fpt-items.is-list li:last-child { grid-column: 1 / -1; }
+}

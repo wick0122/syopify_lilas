@@ -1,0 +1,45 @@
+{{ 'lilas-header.css' | asset_url | stylesheet_tag }}
+
+<header class="site" data-lilas-header data-transparent="{% if template.name == 'index' %}{{ section.settings.transparent }}{% else %}false{% endif %}">
+  <div class="in">
+    <nav class="jnav" aria-label="メインメニュー">
+      {%- if section.settings.menu != blank -%}
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="{{ routes.root_url }}#moisture">うるおい</a>
+        <a href="{{ routes.root_url }}#together">使い分け</a>
+        <a href="/pages/features">製品の特徴</a>
+        <a href="{{ routes.root_url }}#collection">商品</a>
+        <a href="{{ routes.root_url }}#formula">肌診断</a>
+        <a href="{{ routes.root_url }}#why">ブランド</a>
+      {%- endif -%}
+    </nav>
+
+    <a class="logo" href="{{ routes.root_url }}">{{ section.settings.logo_text | default: shop.name }}</a>
+
+    <div class="r jnav">
+      {%- if section.settings.voices_label != blank -%}
+        <a class="lnkx" href="{{ routes.root_url }}#letters">{{ section.settings.voices_label }}</a>
+      {%- endif -%}
+      <a class="cart" href="{{ routes.cart_url }}" aria-label="カート">
+        カート<span class="cartn" data-cart-count>{{ cart.item_count }}</span>
+      </a>
+      <button class="mbtn" type="button" aria-label="メニュー" aria-expanded="false"></button>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Lilas ヘッダー",
+  "class": "lilas-header-section",
+  "settings": [
+    { "type": "text", "id": "logo_text", "label": "ロゴの文字", "default": "Lilas" },
+    { "type": "link_list", "id": "menu", "label": "メニュー", "info": "未設定のときは、トップページ内の章へのリンクを表示します" },
+    { "type": "text", "id": "voices_label", "label": "右側のリンク（お客様の声）", "default": "お客様の声" },
+    { "type": "checkbox", "id": "transparent", "label": "ページの一番上では背景を透明にする", "default": true, "info": "表紙の動画の上に重ねるときはオン" }
+  ]
+}
+{% endschema %}

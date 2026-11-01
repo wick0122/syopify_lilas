@@ -1,0 +1,141 @@
+<header class="site"><div class="in">
+  <nav aria-label="メインメニュー"><a href="{{ section.settings.products_url }}">製品</a><a href="{{ section.settings.features_url }}">製品の特徴</a><a href="{{ routes.root_url }}#formula">肌タイプチェック</a><a href="{% if section.settings.aging_product != blank %}{{ section.settings.aging_product.url }}{% else %}{{ section.settings.products_url }}{% endif %}#voices">お客様の声</a><a class="sp-only" href="{{ section.settings.message_url }}">Lilasの想い</a><a class="sp-only" href="{{ section.settings.about_url }}" aria-current="page">ブランドの歩み</a><a class="sp-only" href="{{ section.settings.partner_url }}">販売パートナー</a></nav>
+  <a class="logo logo-h" href="{{ routes.root_url }}"><img src="{{ 'lilas-a-01-f8532c.png' | asset_url }}" alt="Lilas" width="1000" height="353"></a>
+  <div class="r"><a class="lnkx" href="{{ section.settings.message_url }}">Lilasの想い</a><a class="lnkx" href="{{ section.settings.about_url }}" aria-current="page">ブランドの歩み</a><a class="lnkx" href="{{ section.settings.partner_url }}">販売パートナー</a><a class="cart" href="{{ routes.cart_url }}" aria-label="カート">カート<span class="cartn">{{ cart.item_count }}</span></a><button class="mbtn" aria-label="メニュー"></button></div>
+</div></header>
+<main>
+<section class="mhero">
+  <figure class="ph"><img class="fvline" src="{{ 'lilas-a-02-254e87.jpg' | asset_url }}" alt="コンクリートの床に並ぶLilasの製品"></figure>
+  <div class="in"><p class="en" data-r>Born in the salon, shared with everyone.</p><h1 data-r>ブランドの歩み</h1></div>
+</section>
+<nav class="crumb" aria-label="現在の位置"><a href="{{ routes.root_url }}">トップ</a><span>/</span>ブランドの歩み</nav>
+
+<!-- 1 はじまり -->
+<section class="msec">
+  <div class="wrap">
+    <div class="center" data-r><span class="qlbl">Origin</span><p class="disp">Our <em>origin</em></p><h2 class="sh2">サロンと教室から、生まれたスキンケア</h2></div>
+    <div class="mgrid">
+      <figure class="ph fph" data-r><img src="{{ 'lilas-a-03-a97a27.jpg' | asset_url }}" alt="Lilasの開発者と製品"></figure>
+      <div class="story" data-r>
+        <h3>たくさんの素肌に触れてきた、<br>サロンの手から。</h3>
+        <p>Lilasは、エステ＆アロマサロンと調合スキンケア教室で、10年にわたり多くの肌に触れてきた経験から生まれました。</p>
+        <p>スキンセラピーや教室を続けるなかで、一人ひとりのお客様の肌に直接触れ、季節や年齢、暮らしによって変わる肌と向き合ってきました。</p>
+        <p>そこで気づいたのは、体が健やかでも、肌に自信が持てないと、心はなかなか上を向かないということ。肌と向き合う時間が、自分を大切にする時間にもなるように。その想いが、Lilasの原点です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 年表 -->
+<section class="msec alt">
+  <div class="wrap">
+    <div class="center" data-r><span class="qlbl">Story</span><p class="disp">Our <em>story</em></p><h2 class="sh2">Lilasが生まれるまで</h2></div>
+    <div class="tl-only">
+      <div class="story" data-r>
+        <ul class="tline">
+          <li><b>Salon &amp; School</b>エステ＆アロマサロンと調合スキンケア教室を開く。癒しの仕事に美容を重ね、お客様の肌に触れ、調合を教える日々。</li>
+          <li><b>2 salons</b>サロンは2店舗に。より多くのお客様の肌と向き合う。</li>
+          <li><b>Formulation</b>季節や年齢で変わる肌に合わせられるよう、肌タイプごとの調合を考案する。</li>
+          <li><b>Lilas</b>素肌を大切にすると、心も人生も明るく輝く。スキンケアとセラピーを通して、自分を好きになれる笑顔を全国に広げたいと、Lilasを立ち上げる。</li>
+        </ul>
+      </div>
+    </div>
+    <ul class="nums3" data-r>
+      <li><b>10<small>年</small></b><span>サロンと教室の運営</span></li>
+      <li><b>12<small>年</small></b><span>スキンケアの研究</span></li>
+      <li><b>1,200<small>本</small></b><span>発売から2年でお届けした本数</span></li>
+    </ul>
+    <p class="ncap" data-r>※本数は公式サイトの記載をもとにしています。掲載前に最新の数字の確認が必要です。<em class="tbc">要確認</em></p>
+  </div>
+</section>
+
+<!-- 3 メッセージ -->
+<section class="msec">
+  <div class="wrap">
+    <div class="center" data-r><span class="qlbl">Message</span><p class="disp">With <em>gratitude</em></p><h2 class="sh2">開発者より</h2></div>
+    <div class="fm-wrap">
+    <figure class="ph fm-ph2" data-r><img src="{{ 'lilas-a-04-49ed87.jpg' | asset_url }}" alt="Lilasの開発者"></figure>
+    <div class="fmsg" data-r>
+      <p>研究してきた12年間は、<br>スキンケアへの想いが詰まった、宝物のような経験です。</p>
+      <p>これまでの悩みや迷いも、<br>一緒に研究を重ねてきたクライアントの皆さまとの思い出も、<br>すべての出会いが、ギフトでした。</p>
+      <p>出会えた皆さまに、感謝を込めて。</p>
+      <p class="by">Lilas 開発者<span class="byname">Hano Miyu</span></p>
+    </div>
+    </div>
+    <div class="mcta2" data-r><a class="addcart big" href="{% if section.settings.aging_product != blank %}{{ section.settings.aging_product.url }}{% else %}{{ section.settings.products_url }}{% endif %}">製品を見る</a><a class="sub" href="{{ section.settings.message_url }}">Lilasの想いへ</a></div>
+  </div>
+</section>
+<!-- 合間の一文(コンセプトから移動) -->
+<div class="pull"><q data-r>Your skin changes.<br>Your care, gracefully.</q><span class="jp" data-r>変化する肌に、その時々のうるおいを。</span><span class="folio">Lilas philosophy</span></div>
+</main>
+
+<footer>
+  <p class="tag">うるおいを、毎日に。<span>Moisture, for every day.</span></p>
+  <div class="mast logo-img"><img src="{{ 'lilas-a-01-f8532c.png' | asset_url }}" alt="Lilas" width="1000" height="353"></div>
+  <div class="row"><span>14,000円以上のご購入で送料無料</span><ul><li><a href="{{ section.settings.features_url }}">製品の特徴</a></li><li><a href="{{ section.settings.message_url }}">Lilasの想い</a></li><li><a href="{{ section.settings.about_url }}">ブランドの歩み</a></li><li><a href="{{ section.settings.contact_url }}">お問い合わせ</a></li><li><a href="{{ section.settings.legal_url }}">特定商取引法に基づく表記</a></li><li><a href="{{ section.settings.privacy_url }}">プライバシーポリシー</a></li></ul><span>&copy; {{ "now" | date: "%Y" }} {{ shop.name }}</span></div>
+</footer>
+{% schema %}
+{
+  "name": "Lilas ブランドの歩み",
+  "settings": [
+    {
+      "type": "header",
+      "content": "メニュー・フッターのリンク先"
+    },
+    {
+      "type": "text",
+      "id": "products_url",
+      "label": "「製品」のリンク先",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "features_url",
+      "label": "「製品の特徴」のリンク先",
+      "default": "/pages/features"
+    },
+    {
+      "type": "product",
+      "id": "aging_product",
+      "label": "「お客様の声」「製品を見る」の製品(エイジングケア)"
+    },
+    {
+      "type": "text",
+      "id": "message_url",
+      "label": "「Lilasの想い」のリンク先",
+      "default": "/pages/message"
+    },
+    {
+      "type": "text",
+      "id": "about_url",
+      "label": "「ブランドの歩み」のリンク先",
+      "default": "/pages/about"
+    },
+    {
+      "type": "text",
+      "id": "partner_url",
+      "label": "「販売パートナー」のリンク先",
+      "default": "#",
+      "info": "ページができたら変更してください"
+    },
+    {
+      "type": "text",
+      "id": "contact_url",
+      "label": "「お問い合わせ」のリンク先",
+      "default": "/pages/contact"
+    },
+    {
+      "type": "text",
+      "id": "legal_url",
+      "label": "「特定商取引法に基づく表記」のリンク先",
+      "default": "/policies/legal-notice"
+    },
+    {
+      "type": "text",
+      "id": "privacy_url",
+      "label": "「プライバシーポリシー」のリンク先",
+      "default": "/policies/privacy-policy"
+    }
+  ]
+}
+{% endschema %}

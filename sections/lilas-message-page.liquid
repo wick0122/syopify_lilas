@@ -1,0 +1,168 @@
+<header class="site"><div class="in">
+  <nav aria-label="メインメニュー"><a href="{{ section.settings.products_url }}">製品</a><a href="{{ section.settings.features_url }}">製品の特徴</a><a href="{{ routes.root_url }}#formula">肌タイプチェック</a><a href="{% if section.settings.aging_product != blank %}{{ section.settings.aging_product.url }}{% else %}{{ section.settings.products_url }}{% endif %}#voices">お客様の声</a><a class="sp-only" href="{{ section.settings.message_url }}" aria-current="page">Lilasの想い</a><a class="sp-only" href="{{ section.settings.about_url }}">ブランドの歩み</a><a class="sp-only" href="{{ section.settings.partner_url }}">販売パートナー</a></nav>
+  <a class="logo logo-h" href="{{ routes.root_url }}"><img src="{{ 'lilas-m-01-f8532c.png' | asset_url }}" alt="Lilas" width="1000" height="353"></a>
+  <div class="r"><a class="lnkx" href="{{ section.settings.message_url }}" aria-current="page">Lilasの想い</a><a class="lnkx" href="{{ section.settings.about_url }}">ブランドの歩み</a><a class="lnkx" href="{{ section.settings.partner_url }}">販売パートナー</a><a class="cart" href="{{ routes.cart_url }}" aria-label="カート">カート<span class="cartn">{{ cart.item_count }}</span></a><button class="mbtn" aria-label="メニュー"></button></div>
+</div></header>
+<main>
+<section class="mhero">
+  <figure class="ph"><video class="blobv" muted loop playsinline autoplay preload="auto" poster="{{ 'lilas-m-02-939567.jpg' | asset_url }}" aria-label="コーヒーや読書など、ふたりで過ごす日常とスキンケアの時間"><source src="{{ 'lilas-m-03-1496ff.mp4' | asset_url }}" type="video/mp4"><source src="{{ 'lilas-m-04-28b01c.webm' | asset_url }}" type="video/webm"></video></figure>
+  <div class="in"><p class="en" data-r>All gender &amp; Semi-custom made Skin care</p><h1 data-r>小さな喜びで、<br>日常を満たそう</h1></div>
+</section>
+<nav class="crumb" aria-label="現在の位置"><a href="{{ routes.root_url }}">トップ</a><span>/</span>Lilasの想い</nav>
+
+<!-- 01 大切にしていること -->
+<section class="r-sec r-msg">
+  <div class="wrap r-msg__grid">
+    <div class="r-msg__txt" data-r>
+      <span class="r-no">01</span>
+      <p class="r-en">Our <em>message</em></p>
+      <h2 class="r-h">季節・性別・年齢・肌の状態に合わせて、<br>「自分で調節できる」<br>セミオーダースキンケア。</h2>
+      <p>「水分」「水分保持成分」「保護成分」の配合バランスにこだわり、保湿を大切にしたオールインワン化粧品です。</p>
+      <p>毎日に寄り添う「一生愛用したいスキンケア」を目指して。<em class="tbc">要確認</em></p>
+    </div>
+    <figure class="ph r-msg__ph" data-r><img src="{{ 'lilas-m-05-5c09c6.jpg' | asset_url }}" alt="2種類の濃縮ローションを手に持ち寄る"></figure>
+    <p class="r-vert" aria-hidden="true">自分で、調える。</p>
+  </div>
+</section>
+
+<!-- 02 名前 -->
+<section class="r-sec r-name">
+  <div class="wrap">
+    <div class="r-name__top">
+      <div class="r-name__lead" data-r>
+        <span class="r-no">02</span>
+        <p class="r-en">About <em>Lilas</em></p>
+        <img class="r-lilac" src="{{ 'lilas-m-06-5be3ef.png' | asset_url }}" alt="" width="520" height="511">
+      </div>
+      <div class="r-name__body" data-r>
+        <h2 class="r-h">Lilas（リラ）は、ライラックの花の<br>フランス語の呼び名。</h2>
+        <p>西洋の花言葉は「誇り」と「美」。</p>
+        <p>肌と心のケアにLilasを使っていただくことで、どの方にも本来ある「誇りと美しさ」を活かすお手伝いができるように。家庭や社会を明るく照らす輝きの一人として、喜びや誇りを持って生きる方と出会い、その人生を美しく支えたい。そう願って名づけました。</p>
+      </div>
+    </div>
+    <div class="r-series tall">
+      <figure class="ph r-series__ph" data-r><img src="{{ 'lilas-m-07-363634.jpg' | asset_url }}" alt="窓辺のテーブルで、Lilasを横にほほえむ女性" style="object-position:center 55%"></figure>
+      <div class="r-series__card" data-r>
+        <img class="r-series__logo" src="{{ 'lilas-m-08-cfd7ff.png' | asset_url }}" alt="Equity Concentrate Lotion" width="361" height="60">
+        <dl class="equity-origin__words">
+          <div><dt>Equity<span>公平</span></dt><dd>肌は一人ひとり違い、同じ人でも季節や年齢、環境によって変わっていくもの。<br>だからこそ、今の肌に必要なものを、必要なだけ。<br>すべての肌に同じ配合を与えるのではなく、一人ひとりの肌がその時々に必要とするうるおいを見極め、適切に補い、整えていく。<br>それが、Lilasの考える「公平なスキンケア」です。</dd></div>
+          <div><dt>Concentrate<span>濃縮</span></dt><dd>水で薄めるのではなく、和漢植物エキスと保湿成分を凝縮した濃縮処方。</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 コンセプト -->
+<section class="r-sec r-concept">
+  <div class="wrap">
+    <div class="r-concept__head" data-r>
+      <span class="r-no">03</span>
+      <p class="r-en">Our <em>concept</em></p>
+      <h2 class="r-h">宝モノのように、大切にしたくなる</h2>
+      <p>Lilasにとっての「美しさ」とは、顔や体の造作を比べることではなく、生まれ持った価値に気づき、誇りを持って生きること。</p>
+    </div>
+    <div class="r-concept__grid">
+      <figure class="ph r-concept__ph" data-r><img src="{{ 'lilas-m-09-68b696.jpg' | asset_url }}" alt="エイジングケアのボトルを見つめる女性" style="object-position:45% center"></figure>
+      <ol class="r-vals" data-r>
+        <li><b>i.</b><span>「ご自身」に意識を向けて、<br>労り、愛すること</span></li>
+        <li><b>ii.</b><span>揺るぎない、<br>心の軸を持つこと</span></li>
+        <li><b>iii.</b><span>休息を愛して、<br>いつもクリアでいること</span></li>
+      </ol>
+    </div>
+      </div>
+</section>
+
+<section class="r-light">
+  <figure class="ph"><img src="{{ 'lilas-m-10-0477e0.jpg' | asset_url }}" alt="" style="object-position:center 40%"></figure>
+  <p class="r-light__q" data-r>肌にふれるたびに、幸せを感じる。<br>使うたびに、自分のことが好きになる。</p>
+</section>
+
+<!-- 04 開発者の想い -->
+<section class="r-founder">
+  <div class="wrap r-founder__grid">
+    <div class="r-founder__txt" data-r>
+      <span class="r-no">04</span>
+      <p class="r-en">From the <em>founder</em></p>
+      <h2 class="r-h">肌に自信が持てると、<br>表情が、晴れていく。</h2>
+      <p>エステ＆アロマサロンと調合スキンケア教室を10年営むなかで、たくさんの肌にふれてきました。体が健やかでも、肌に自信が持てないと、心はなかなか上を向かない。そのことを、何度も目の当たりにしてきました。</p>
+      <p>だからこそ、肌にふれる時間を、自分を大切にする時間に。12年の研究と、一緒に歩んできたお客様との出会いのすべてに、感謝を込めて。</p>
+      <p class="r-sign">Lilas 開発者</p>
+      <a class="r-more" href="{{ section.settings.about_url }}">ブランドの歩みを読む<i>→</i></a>
+    </div>
+    <figure class="ph r-founder__ph" data-r><img src="{{ 'lilas-m-11-49ed87.jpg' | asset_url }}" alt="Lilasの開発者"></figure>
+  </div>
+</section>
+
+<div class="r-cta" data-r><a class="addcart big" href="{% if section.settings.aging_product != blank %}{{ section.settings.aging_product.url }}{% else %}{{ section.settings.products_url }}{% endif %}">製品を見る</a></div>
+</main>
+<footer>
+  <p class="tag">うるおいを、毎日に。<span>Moisture, for every day.</span></p>
+  <div class="mast logo-img"><img src="{{ 'lilas-m-01-f8532c.png' | asset_url }}" alt="Lilas" width="1000" height="353"></div>
+  <div class="row"><span>14,000円以上のご購入で送料無料</span><ul><li><a href="{{ section.settings.features_url }}">製品の特徴</a></li><li><a href="{{ section.settings.message_url }}">Lilasの想い</a></li><li><a href="{{ section.settings.about_url }}">ブランドの歩み</a></li><li><a href="{{ section.settings.contact_url }}">お問い合わせ</a></li><li><a href="{{ section.settings.legal_url }}">特定商取引法に基づく表記</a></li><li><a href="{{ section.settings.privacy_url }}">プライバシーポリシー</a></li></ul><span>&copy; {{ "now" | date: "%Y" }} {{ shop.name }}</span></div>
+</footer>
+{% schema %}
+{
+  "name": "Lilas Lilasの想い",
+  "settings": [
+    {
+      "type": "header",
+      "content": "メニュー・フッターのリンク先"
+    },
+    {
+      "type": "text",
+      "id": "products_url",
+      "label": "「製品」のリンク先",
+      "default": "/collections/all"
+    },
+    {
+      "type": "text",
+      "id": "features_url",
+      "label": "「製品の特徴」のリンク先",
+      "default": "/pages/features"
+    },
+    {
+      "type": "product",
+      "id": "aging_product",
+      "label": "「お客様の声」「製品を見る」の製品(エイジングケア)"
+    },
+    {
+      "type": "text",
+      "id": "message_url",
+      "label": "「Lilasの想い」のリンク先",
+      "default": "/pages/message"
+    },
+    {
+      "type": "text",
+      "id": "about_url",
+      "label": "「ブランドの歩み」のリンク先",
+      "default": "/pages/about"
+    },
+    {
+      "type": "text",
+      "id": "partner_url",
+      "label": "「販売パートナー」のリンク先",
+      "default": "#",
+      "info": "ページができたら変更してください"
+    },
+    {
+      "type": "text",
+      "id": "contact_url",
+      "label": "「お問い合わせ」のリンク先",
+      "default": "/pages/contact"
+    },
+    {
+      "type": "text",
+      "id": "legal_url",
+      "label": "「特定商取引法に基づく表記」のリンク先",
+      "default": "/policies/legal-notice"
+    },
+    {
+      "type": "text",
+      "id": "privacy_url",
+      "label": "「プライバシーポリシー」のリンク先",
+      "default": "/policies/privacy-policy"
+    }
+  ]
+}
+{% endschema %}

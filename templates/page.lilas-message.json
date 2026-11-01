@@ -1,0 +1,12 @@
+{
+  "layout": "lilas-page",
+  "sections": {
+    "main": {
+      "type": "lilas-message-page",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main"
+  ]
+}

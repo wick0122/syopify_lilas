@@ -1,0 +1,30 @@
+<!-- 02 Your way -->
+<section class="ways yw2" id="yourway">
+  <div class="wy-in">
+    <div class="wy-hd" data-r>
+      <span class="qlbl">02 ・ Your way</span><span class="wy-lbl">Your way</span>
+      <h2>肌に合わせて、使い方も自由に。</h2>
+      <p>1本でも、オールインワンとして使えるLilas。<br>さらに保湿感を高めたいときは、ブレンドオイルで調節できます。<br>1本をじっくり使うのも、朝と夜、季節や使う人に合わせ、<br><b>何本かを使い分ける</b>のも自由です。</p>
+    </div>
+    <p class="yw-cta" data-r><a class="lnk" href="{% if section.settings.howto_product != blank %}{{ section.settings.howto_product.url }}{% else %}{{ section.settings.products_url }}{% endif %}#howto">使い方を見る</a></p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 02 Your way",
+  "settings": [
+    {
+      "type": "product",
+      "id": "howto_product",
+      "label": "「使い方を見る」の製品(エイジングケア)"
+    },
+    {
+      "type": "text",
+      "id": "products_url",
+      "label": "製品が未設定のときのリンク先",
+      "default": "/collections/all"
+    }
+  ]
+}
+{% endschema %}

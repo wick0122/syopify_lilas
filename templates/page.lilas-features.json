@@ -1,0 +1,321 @@
+{
+  "layout": "lilas",
+  "sections": {
+    "hero": {
+      "type": "lilas-feature-hero",
+      "settings": {
+        "label": "Features ・ 製品の特徴",
+        "display": "Beauty of <i>Aging</i>",
+        "heading": "ふとした瞬間も、\nうるおいを感じる肌へ。",
+        "lead": "季節や年齢、その日の肌に合わせて。\nLilasは、自分で調える濃縮ローションです。"
+      },
+      "blocks": {
+        "hero-1": {
+          "type": "item",
+          "settings": {
+            "title": "調えられる",
+            "anchor": "adjust"
+          }
+        },
+        "hero-2": {
+          "type": "item",
+          "settings": {
+            "title": "1本で6つの使い方",
+            "anchor": "all-in-one"
+          }
+        },
+        "hero-3": {
+          "type": "item",
+          "settings": {
+            "title": "続けやすい",
+            "anchor": "value"
+          }
+        }
+      },
+      "block_order": [
+        "hero-1",
+        "hero-2",
+        "hero-3"
+      ]
+    },
+    "concerns": {
+      "type": "lilas-feature-concerns",
+      "settings": {
+        "anchor": "for-you",
+        "display": "For you",
+        "heading": "こんな方へ",
+        "closing": "ひとつでも思い当たったら、\nLilasの素肌ケアを、はじめてみませんか。",
+        "note": "エステサロンとスキンケア教室の現場から生まれました。"
+      },
+      "blocks": {
+        "c-1": {
+          "type": "item",
+          "settings": {
+            "text": "自分に合うスキンケアが、まだ見つからない"
+          }
+        },
+        "c-2": {
+          "type": "item",
+          "settings": {
+            "text": "乾燥しやすく、保湿が足りないと感じる"
+          }
+        },
+        "c-3": {
+          "type": "item",
+          "settings": {
+            "text": "うるおいとツヤのある素肌を目指したい"
+          }
+        },
+        "c-4": {
+          "type": "item",
+          "settings": {
+            "text": "素肌をほめられるような肌でいたい"
+          }
+        },
+        "c-5": {
+          "type": "item",
+          "settings": {
+            "text": "成分にこだわったスキンケアを選びたい"
+          }
+        },
+        "c-6": {
+          "type": "item",
+          "settings": {
+            "text": "今のスキンケアに、どこか満足できていない"
+          }
+        },
+        "c-7": {
+          "type": "item",
+          "settings": {
+            "text": "肌がゆらぎやすく、保湿を大切にしたい"
+          }
+        },
+        "c-8": {
+          "type": "item",
+          "settings": {
+            "text": "スキンケアにかける費用と手間を見直したい"
+          }
+        }
+      },
+      "block_order": [
+        "c-1",
+        "c-2",
+        "c-3",
+        "c-4",
+        "c-5",
+        "c-6",
+        "c-7",
+        "c-8"
+      ]
+    },
+    "point-1": {
+      "type": "lilas-feature-point",
+      "settings": {
+        "anchor": "adjust",
+        "folio": "Point 01",
+        "word": "Adjust",
+        "heading": "季節、年齢、性別、肌質に合わせて\n調えられる、オールインワン。",
+        "text": "<p>年齢とともに、肌の水分や皮脂のバランスは少しずつ変わっていきます。肌が変わるたびに化粧品を探し直すのではなく、<strong>今の肌に合わせて調える</strong>という考え方。</p><p>濃縮ローションに、ブレンドオイルを必要な分だけ加えて。季節や乾き具合に合わせて、自分にちょうどいい1本に仕上げます。</p>",
+        "fallback": "lilas-moisture-wide.jpg",
+        "image_alt": "濃縮ローションにブレンドオイルを加える手元",
+        "arch": false,
+        "reverse": false,
+        "tint": true,
+        "style": "list",
+        "link_label": "Blend oil",
+        "link_sub": "ブレンドオイルを見る",
+        "note": "※オイルを加える量の目安：やや乾燥が気になる方は半量〜3分の2、乾燥が強い方は全量。"
+      },
+      "blocks": {
+        "p1-1": {
+          "type": "item",
+          "settings": {
+            "title": "5種のオイル",
+            "text": "アンズ核油・スクワラン・セサミ油・ヒマシ油・シア脂"
+          }
+        },
+        "p1-2": {
+          "type": "item",
+          "settings": {
+            "title": "乾燥を防ぐ",
+            "text": "油分が肌を守り、うるおいを保ちます"
+          }
+        },
+        "p1-3": {
+          "type": "item",
+          "settings": {
+            "title": "しっとり",
+            "text": "しっとりとした、やさしい使い心地"
+          }
+        },
+        "p1-4": {
+          "type": "item",
+          "settings": {
+            "title": "肌になじむ",
+            "text": "塗ってから30分ほどで、なじみます"
+          }
+        },
+        "p1-5": {
+          "type": "item",
+          "settings": {
+            "title": "量で調える",
+            "text": "乾きが気になる季節は、多めに"
+          }
+        }
+      },
+      "block_order": [
+        "p1-1",
+        "p1-2",
+        "p1-3",
+        "p1-4",
+        "p1-5"
+      ]
+    },
+    "point-2": {
+      "type": "lilas-feature-point",
+      "settings": {
+        "anchor": "all-in-one",
+        "folio": "Point 02",
+        "word": "All in one",
+        "heading": "化粧水から、パックまで。\n1本で、6つの使い方。",
+        "text": "<p>化粧水、美容液、乳液と、いくつも重ねていたステップをひとつに。忙しい日も、ていねいなケアをあきらめずにすみます。</p><p>水を足さず、和漢ハーブと保湿成分を凝縮しているから、<strong>1本でもうるおいを感じられる</strong>処方です。</p>",
+        "fallback": "lilas-product-aging.jpg",
+        "image_alt": "Lilasの濃縮ローション",
+        "arch": true,
+        "reverse": true,
+        "tint": false,
+        "style": "roles",
+        "note": "※美容液・乳液として使う場合は、ブレンドオイル（別売）を加えてください。パックにするときは、3倍ほどに薄めてコットンに含ませるのがおすすめです。"
+      },
+      "blocks": {
+        "p2-1": {
+          "type": "item",
+          "settings": {
+            "title": "化粧水",
+            "text": "洗顔後の肌に、そのまま"
+          }
+        },
+        "p2-2": {
+          "type": "item",
+          "settings": {
+            "title": "美容液",
+            "text": "オイルを加えて"
+          }
+        },
+        "p2-3": {
+          "type": "item",
+          "settings": {
+            "title": "乳液",
+            "text": "オイルを加えて"
+          }
+        },
+        "p2-4": {
+          "type": "item",
+          "settings": {
+            "title": "パック",
+            "text": "薄めてコットンに"
+          }
+        },
+        "p2-5": {
+          "type": "item",
+          "settings": {
+            "title": "ハンドケア",
+            "text": "手肌の乾燥が気になるときに"
+          }
+        },
+        "p2-6": {
+          "type": "item",
+          "settings": {
+            "title": "香り",
+            "text": "花の水がほのかに香る、ひと息の時間に"
+          }
+        }
+      },
+      "block_order": [
+        "p2-1",
+        "p2-2",
+        "p2-3",
+        "p2-4",
+        "p2-5",
+        "p2-6"
+      ]
+    },
+    "quote": {
+      "type": "lilas-quote",
+      "settings": {
+        "quote": "Fewer steps,\nmore moments.",
+        "quote_ja": "心にも、時間にも、ゆとりのある毎日を。",
+        "folio": "Lilas philosophy"
+      }
+    },
+    "point-3": {
+      "type": "lilas-feature-point",
+      "settings": {
+        "anchor": "value",
+        "folio": "Point 03",
+        "word": "Value",
+        "heading": "あれこれ買い足さなくていい。\n続けやすい、1本。",
+        "text": "<p>化粧水・美容液・乳液・パックを、別々にそろえる代わりに。<strong>保湿成分をぎゅっと凝縮した濃縮ローション</strong>が、毎日のケアをシンプルにします。</p><p>目もとや口もと、首や手など、乾きやすいところのケアにも。</p>",
+        "fallback": "lilas-ways.jpg",
+        "image_alt": "濃縮ローションを手にする2人",
+        "arch": false,
+        "reverse": false,
+        "tint": false,
+        "style": "numbers",
+        "link_label": "Collection",
+        "link_sub": "濃縮ローションを見る",
+        "note": "※期間・金額は目安です。使う量や使い方により異なります。"
+      },
+      "blocks": {
+        "p3-1": {
+          "type": "item",
+          "settings": {
+            "title": "約4ヶ月",
+            "text": "1本（110ml）を使い切るまでの目安"
+          }
+        },
+        "p3-2": {
+          "type": "item",
+          "settings": {
+            "title": "約3,000円",
+            "text": "1ヶ月あたりの目安（12,100円÷約4ヶ月）"
+          }
+        },
+        "p3-3": {
+          "type": "item",
+          "settings": {
+            "title": "4 → 1",
+            "text": "化粧水・美容液・乳液・パックを、1本に"
+          }
+        }
+      },
+      "block_order": [
+        "p3-1",
+        "p3-2",
+        "p3-3"
+      ]
+    },
+    "cta": {
+      "type": "lilas-feature-cta",
+      "settings": {
+        "label": "Lilas ・ Next step",
+        "heading": "素肌を、あきらめない。\n賢く選ぶ、毎日のケア。",
+        "text": "高価なアイテムを買い足すより、\n今の肌に合う1本を。",
+        "link1_label": "Collection",
+        "link1_sub": "商品を見る",
+        "link2_label": "Skin check",
+        "link2_sub": "肌診断で、自分の1本を探す",
+        "notes": "<p>※このページの使い方・期間・金額は目安です。</p><p>※肌に異常があるとき、または肌に合わないときは使用を中止してください。</p>"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "concerns",
+    "point-1",
+    "point-2",
+    "quote",
+    "point-3",
+    "cta"
+  ]
+}

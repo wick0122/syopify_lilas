@@ -1,0 +1,100 @@
+{{ 'lilas-feature.css' | asset_url | stylesheet_tag }}
+
+{%- comment -%}
+  製品紹介ページ：特徴（Point 01〜03）
+  同じ部品を3回使い、「下の項目の見せ方」だけを切り替える。
+    list    … しずくアイコンつきの小さな項目（Point 01）
+    roles   … 円の中に役割の名前（Point 02）
+    numbers … 大きな数字（Point 03）
+{%- endcomment -%}
+{%- assign fb = section.settings.fallback | default: 'lilas-moisture-wide.jpg' -%}
+
+<section class="fpt sec page{% if section.settings.reverse %} rev{% endif %}{% if section.settings.tint %} tint{% endif %}" id="{{ section.settings.anchor }}">
+  <div class="fpt-hd grid12">
+    <span class="folio" data-r>{{ section.settings.folio }}</span>
+    <p class="fpt-word" data-r>{{ section.settings.word }}</p>
+  </div>
+
+  <div class="fpt-body grid12">
+    <figure class="ph fpt-ph{% if section.settings.arch %} arch{% endif %}" data-r>
+      {%- render 'lilas-image', image: section.settings.image, fallback: fb, alt: section.settings.image_alt -%}
+    </figure>
+    <div class="fpt-t">
+      <h2 data-r>{{ section.settings.heading | escape | newline_to_br }}</h2>
+      <div class="fpt-text" data-r>{{ section.settings.text }}</div>
+      {%- if section.settings.link_label != blank -%}
+        <a class="lnk" data-r href="{{ section.settings.link | default: '/#collection' }}">
+          {{- section.settings.link_label -}}<small>{{ section.settings.link_sub }}</small>
+        </a>
+      {%- endif -%}
+    </div>
+  </div>
+
+  {%- if section.blocks.size > 0 -%}
+    <ul class="fpt-items is-{{ section.settings.style }}" data-r>
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          {%- case section.settings.style -%}
+            {%- when 'numbers' -%}
+              <span class="big">{{ block.settings.title }}</span>
+              <span class="cap">{{ block.settings.text }}</span>
+            {%- when 'roles' -%}
+              <span class="ring"><span class="k">{{ block.settings.title }}</span></span>
+              <span class="cap">{{ block.settings.text }}</span>
+            {%- else -%}
+              <span class="ic">{% render 'lilas-drop-icon' %}</span>
+              <h3>{{ block.settings.title }}</h3>
+              <p>{{ block.settings.text }}</p>
+          {%- endcase -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  {%- endif -%}
+
+  {%- if section.settings.note != blank -%}
+    <p class="fpt-note" data-r>{{ section.settings.note }}</p>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 特徴：ポイント",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（ページ内リンクの移動先）", "default": "adjust" },
+    { "type": "text", "id": "folio", "label": "小さなラベル", "default": "Point 01" },
+    { "type": "text", "id": "word", "label": "大きな英字", "default": "Adjust" },
+    { "type": "textarea", "id": "heading", "label": "見出し（改行できます）", "default": "季節、年齢、肌質に合わせて\n調えられる、オールインワン。" },
+    { "type": "richtext", "id": "text", "label": "説明文", "default": "<p>肌は、季節や年齢とともに少しずつ変わっていきます。</p>" },
+    { "type": "image_picker", "id": "image", "label": "写真" },
+    { "type": "text", "id": "fallback", "label": "仮の写真（assets のファイル名）", "default": "lilas-moisture-wide.jpg", "info": "写真を選ぶまで表示されます" },
+    { "type": "text", "id": "image_alt", "label": "写真の説明", "default": "ローションにオイルを加える手元" },
+    { "type": "checkbox", "id": "arch", "label": "写真の上を丸くする", "default": false },
+    { "type": "checkbox", "id": "reverse", "label": "写真を右側にする", "default": false },
+    { "type": "checkbox", "id": "tint", "label": "背景をほんのり色づける", "default": false },
+    {
+      "type": "select", "id": "style", "label": "下の項目の見せ方", "default": "list",
+      "options": [
+        { "value": "list", "label": "しずくアイコン" },
+        { "value": "roles", "label": "円（役割）" },
+        { "value": "numbers", "label": "大きな数字" }
+      ]
+    },
+    { "type": "text", "id": "link_label", "label": "リンクの文字（英字・任意）" },
+    { "type": "text", "id": "link_sub", "label": "リンクの文字（日本語）" },
+    { "type": "url", "id": "link", "label": "リンク先" },
+    { "type": "text", "id": "note", "label": "小さな注記（任意）" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "項目",
+      "limit": 6,
+      "settings": [
+        { "type": "text", "id": "title", "label": "見出し（数字のときは数字）", "default": "5種のオイル" },
+        { "type": "text", "id": "text", "label": "説明", "default": "説明が入ります。" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 特徴：ポイント" }]
+}
+{% endschema %}

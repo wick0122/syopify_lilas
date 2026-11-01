@@ -1,0 +1,55 @@
+{{ 'lilas-why.css' | asset_url | stylesheet_tag }}
+
+{%- assign fallbacks = 'lilas-moisture-wide.jpg,lilas-why-2.jpg,lilas-why-3.jpg,lilas-ways.jpg,lilas-why-5.jpg' | split: ',' -%}
+
+<section class="why sec page" id="{{ section.settings.anchor | default: 'why' }}">
+  <div class="fhd grid12" data-r>
+    <span class="folio">{{ section.settings.folio }}</span>
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.sub | escape | newline_to_br }}</p>
+  </div>
+
+  <div class="grid12">
+    {%- for block in section.blocks -%}
+      {%- assign fb = fallbacks[forloop.index0] | default: 'lilas-why-2.jpg' -%}
+      <figure class="f{{ forloop.index }}" data-r {{ block.shopify_attributes }}>
+        <div class="ph{% if block.settings.arch %} arch{% endif %}">
+          {%- render 'lilas-image', image: block.settings.image, fallback: fb, alt: block.settings.word -%}
+        </div>
+        <p class="word">{{ block.settings.word }}</p>
+        <p class="cap">{{ block.settings.caption }}</p>
+        {%- if block.settings.link_label != blank -%}
+          <a class="more-l" href="{{ block.settings.link | default: '#' }}">{{ block.settings.link_label }}</a>
+        {%- endif -%}
+      </figure>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas 選ばれる理由",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（目次からの移動先）", "default": "why" },
+    { "type": "text", "id": "folio", "label": "小さなラベル", "default": "P. 03 / Feature" },
+    { "type": "text", "id": "heading", "label": "大きな見出し", "default": "Why <i>Lilas</i>", "info": "<i>〜</i> で囲むと斜体になります" },
+    { "type": "textarea", "id": "sub", "label": "見出しの横の文章", "default": "選ばれる、\n五つの理由。" }
+  ],
+  "blocks": [
+    {
+      "type": "reason",
+      "name": "理由",
+      "limit": 5,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "写真" },
+        { "type": "checkbox", "id": "arch", "label": "写真の上を丸くする", "default": false },
+        { "type": "text", "id": "word", "label": "英字", "default": "Semi-custom" },
+        { "type": "text", "id": "caption", "label": "説明", "default": "オイルを加えて、美容液・乳液いらずのオールインワンに。" },
+        { "type": "text", "id": "link_label", "label": "リンクの文字（任意）" },
+        { "type": "url", "id": "link", "label": "リンク先" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas 選ばれる理由" }]
+}
+{% endschema %}

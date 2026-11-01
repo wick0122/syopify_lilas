@@ -1,0 +1,66 @@
+{{ 'lilas-moisture.css' | asset_url | stylesheet_tag }}
+
+{%- liquid
+  assign glow = section.settings.glow_word
+  assign glow_html = '<span class="glow-txt">' | append: glow | append: '</span>'
+-%}
+
+<section class="qmoist dew" id="{{ section.settings.anchor | default: 'moisture' }}">
+  <span class="qlbl" data-r>{{ section.settings.label }}</span>
+  <p class="disp" data-r>{{ section.settings.display }}</p>
+  <h2 data-r>
+    {%- if glow != blank -%}
+      {{ section.settings.heading | escape | newline_to_br | replace: glow, glow_html }}
+    {%- else -%}
+      {{ section.settings.heading | escape | newline_to_br }}
+    {%- endif -%}
+  </h2>
+  <p class="intro" data-r>{{ section.settings.intro | escape | newline_to_br }}</p>
+
+  <figure class="ph wide" data-r>
+    {%- render 'lilas-image',
+      image: section.settings.image,
+      fallback: 'lilas-moisture-wide.jpg',
+      alt: 'ローションにオイルを注ぐ手元',
+      style: 'object-position:center 55%'
+    -%}
+    <span class="ripple"><i></i><i></i><i></i></span>
+  </figure>
+
+  <div class="three">
+    {%- for block in section.blocks -%}
+      <div data-r {{ block.shopify_attributes }}>
+        <span class="ic">{% render 'lilas-drop-icon' %}</span>
+        <h3>{{ block.settings.title }}</h3>
+        <p>{{ block.settings.text }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Lilas うるおい",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（目次からの移動先）", "default": "moisture" },
+    { "type": "text", "id": "label", "label": "ラベル", "default": "01 ・ Moisture" },
+    { "type": "text", "id": "display", "label": "大きな英字", "default": "Moisture" },
+    { "type": "textarea", "id": "heading", "label": "見出し（改行できます）", "default": "乾きやすい肌に、\n満ちるうるおいを。" },
+    { "type": "text", "id": "glow_word", "label": "見出しの中で光らせる言葉", "default": "うるおい" },
+    { "type": "textarea", "id": "intro", "label": "説明文（改行できます）", "default": "水を足さない濃縮処方。\n和漢ハーブと保湿成分が、\n肌にうるおいを与えます。" },
+    { "type": "image_picker", "id": "image", "label": "横長の写真" }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "柱（特徴）",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "title", "label": "見出し", "default": "水を足さない" },
+        { "type": "text", "id": "text", "label": "説明", "default": "保湿成分を凝縮した、濃縮ローション。" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas うるおい" }]
+}
+{% endschema %}

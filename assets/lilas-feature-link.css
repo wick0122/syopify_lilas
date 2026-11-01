@@ -1,0 +1,28 @@
+/* ===== 製品の特徴への入口（sections/lilas-feature-link.liquid） ===== */
+.flink { padding-top: var(--gap); padding-bottom: var(--gap); background: var(--bg2); }
+.flink-in { align-items: center; }
+.flink-ph { grid-column: 1 / 6; display: block; }
+.flink-ph .ph { aspect-ratio: 4 / 5; }
+.flink-ph .ripple { left: 38%; top: 64%; width: 34%; }
+.flink-t { grid-column: 7 / 13; }
+
+.flink .qlbl { margin-bottom: 30px; }
+.flink h2 { margin: 0 0 24px; font-family: var(--min); font-weight: 400; font-size: clamp(22px, 2.3vw, 32px); letter-spacing: .26em; line-height: 2; }
+.flink-lead { margin: 0 0 clamp(40px, 5vw, 60px); font-size: 15px; color: #3d3d3b; line-height: 2.3; }
+
+.flink-list { list-style: none; margin: 0 0 clamp(44px, 5vw, 60px); padding: 0; border-top: 1px solid var(--ink); }
+.flink-list li { border-bottom: 1px solid var(--hair); }
+.flink-list a { display: grid; grid-template-columns: 44px minmax(0, 1fr) 40px; grid-template-areas: "n w ar" "n j ar"; align-items: center; column-gap: 14px; padding: 22px 0; }
+.flink-list .n { grid-area: n; align-self: start; padding-top: .9em; font-family: var(--en); font-size: 11.5px; letter-spacing: .3em; color: var(--sub); }
+.flink-list .w { grid-area: w; font-family: var(--serif); font-style: italic; font-weight: 300; font-size: clamp(28px, 2.6vw, 38px); line-height: 1.2; transition: transform .7s var(--ease); }
+.flink-list .j { grid-area: j; font-family: var(--min); font-size: 14px; letter-spacing: .2em; color: #3d3d3b; }
+.flink-list .ar { grid-area: ar; justify-self: end; width: 26px; height: 1px; background: currentColor; position: relative; transition: width .6s var(--ease); }
+.flink-list .ar::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid currentColor; border-right: 1px solid currentColor; transform: rotate(45deg); }
+.flink-list a:hover .w { transform: translateX(8px); }
+.flink-list a:hover .ar { width: 40px; }
+
+@media (max-width: 900px) {
+  .flink-ph { width: 72%; }
+  .flink-t { margin-top: 30px !important; }
+  .flink-list a { grid-template-columns: 36px minmax(0, 1fr) 30px; }
+}

@@ -1,0 +1,41 @@
+{%- doc -%}
+  画像を表示する部品。
+  管理画面で画像を選んでいればその画像を、選んでいなければ assets の仮画像を表示する。
+
+  @param {image} [image] - テーマエディタで選んだ画像
+  @param {string} fallback - assets にある仮画像のファイル名
+  @param {string} [alt] - 代替テキスト
+  @param {string} [style] - style 属性（object-position など）
+  @param {string} [id] - id 属性
+  @param {string} [loading] - lazy / eager
+
+  @example
+  {% render 'lilas-image', image: section.settings.image, fallback: 'lilas-share.jpg', alt: '写真の説明' %}
+{%- enddoc -%}
+{%- liquid
+  assign alt_text = alt | default: image.alt | default: ''
+  assign load = loading | default: 'lazy'
+-%}
+{%- if image != blank -%}
+  {{
+    image
+    | image_url: width: 2000
+    | image_tag:
+      alt: alt_text,
+      loading: load,
+      widths: '480, 800, 1200, 1600, 2000',
+      sizes: '(min-width: 900px) 60vw, 100vw',
+      style: style,
+      id: id
+  }}
+{%- else -%}
+  <img
+    src="{{ fallback | asset_url }}"
+    alt="{{ alt_text | escape }}"
+    width="1200"
+    height="1500"
+    loading="{{ load }}"
+    {% if style != blank %}style="{{ style }}"{% endif %}
+    {% if id != blank %}id="{{ id }}"{% endif %}
+  >
+{%- endif -%}

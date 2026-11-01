@@ -1,0 +1,9 @@
+/* ===== 引用（sections/lilas-quote.liquid） ===== */
+.pull { padding: clamp(130px, 15vw, 230px) 0; text-align: center; background: var(--bg2); }
+.pull q {
+  display: block; quotes: none;
+  font-family: var(--serif); font-style: italic; font-weight: 300;
+  font-size: clamp(30px, 3.4vw, 52px); letter-spacing: .02em; line-height: 1.5;
+}
+.pull .jp { display: block; margin-top: 26px; font-family: var(--min); font-size: 14px; letter-spacing: .3em; color: var(--sub); }
+.pull .folio { display: block; margin-top: 44px; }

@@ -1,0 +1,61 @@
+{{ 'lilas-voices.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'lilas-voices.js' | asset_url }}" defer="defer"></script>
+
+{%- assign fallbacks = 'lilas-voice-1.jpg,lilas-voice-2.jpg,lilas-voice-3.jpg,lilas-voice-4.jpg' | split: ',' -%}
+
+<section class="vcs" id="{{ section.settings.anchor | default: 'letters' }}" data-lilas-voices>
+  <span class="qlbl" data-r>{{ section.settings.label }}</span>
+  <p class="disp" data-r>{{ section.settings.display }}</p>
+
+  <div class="vc-stage" data-r>
+    <p class="vc-side">{{ section.settings.side | escape | newline_to_br }}</p>
+    {%- for block in section.blocks -%}
+      {%- assign fb = fallbacks[forloop.index0] | default: 'lilas-voice-1.jpg' -%}
+      <div class="vc-slide{% if forloop.first %} on{% endif %}" {{ block.shopify_attributes }}>
+        <figure class="ph vc-ph">
+          {%- render 'lilas-image', image: block.settings.image, fallback: fb, alt: '' -%}
+        </figure>
+        <div class="vc-card" aria-live="polite">
+          <p class="st">{{ block.settings.stars }}</p>
+          <p class="tx">{{ block.settings.text }}</p>
+          <p class="by">{{ block.settings.by }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+
+  {%- if section.blocks.size > 1 -%}
+    <div class="vc-nav">
+      <button type="button" data-prev>Prev</button>
+      <div class="vc-dots">
+        {%- for block in section.blocks -%}<span{% if forloop.first %} class="on"{% endif %}></span>{%- endfor -%}
+      </div>
+      <button type="button" data-next>Next</button>
+    </div>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Lilas お客様の声",
+  "settings": [
+    { "type": "text", "id": "anchor", "label": "ID（目次からの移動先）", "default": "letters" },
+    { "type": "text", "id": "label", "label": "ラベル", "default": "05 ・ Voices" },
+    { "type": "text", "id": "display", "label": "大きな英字", "default": "<em>Voices</em>" },
+    { "type": "textarea", "id": "side", "label": "横の文字", "default": "使った方から、\n届いた声" }
+  ],
+  "blocks": [
+    {
+      "type": "voice",
+      "name": "お客様の声",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "写真" },
+        { "type": "text", "id": "stars", "label": "星", "default": "★★★★★" },
+        { "type": "textarea", "id": "text", "label": "感想", "default": "ここに、実際にいただいた感想が入ります。二、三行ほどの短い一節を載せます。" },
+        { "type": "text", "id": "by", "label": "お客様の属性", "default": "女性・混合肌(例)" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Lilas お客様の声" }]
+}
+{% endschema %}
