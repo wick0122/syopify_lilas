@@ -1,0 +1,16 @@
+<script>
+/* 目次のタブ:価格の場所を過ぎたら出す。押すとその場所へ、読んでいる場所に下線 */
+(()=>{const L=[["voices","口コミ"],["detail","詳細"],["why","特徴"],["craft","こだわり"],["oil-check","分量チェック"],["howto","使い方"]];
+ const items=L.filter(([id])=>document.getElementById(id));if(items.length<2)return;
+ const nav=document.createElement("nav");nav.className="ptabs";nav.setAttribute("aria-label","このページの目次");
+ items.forEach(([id,t])=>{const a=document.createElement("a");a.href="#"+id;a.textContent=t;a.dataset.id=id;nav.appendChild(a)});document.body.appendChild(nav);
+ const hd=document.querySelector("header.site"),buy=document.getElementById("buy"),ft=document.querySelector("footer"),mq=matchMedia("(max-width:900px)");
+ const hdH=()=>(hd&&!hd.classList.contains("hd-hide"))?Math.max(hd.offsetHeight,hd.getBoundingClientRect().bottom):0;
+ function upd(){if(!mq.matches)return;const top=Math.max(0,hdH());nav.style.top=top+"px";
+  const show=buy&&buy.getBoundingClientRect().bottom<80&&(!ft||ft.getBoundingClientRect().top>innerHeight*.6);nav.classList.toggle("on",!!show);
+  const line=top+nav.offsetHeight+20;let cur=null;items.forEach(([id])=>{const r=document.getElementById(id).getBoundingClientRect();if(r.top<=line)cur=id});
+  nav.querySelectorAll("a").forEach(a=>{const on=a.dataset.id===cur;a.classList.toggle("cur",on);if(on&&nav.classList.contains("on")){const ar=a.getBoundingClientRect();if(ar.left<0||ar.right>innerWidth)nav.scrollTo({left:a.offsetLeft-20,behavior:"smooth"})}})}
+ addEventListener("scroll",()=>{upd();setTimeout(upd,80)},{passive:true});addEventListener("resize",upd);upd();
+ nav.addEventListener("click",e=>{const a=e.target.closest("a");if(!a)return;e.preventDefault();const el=document.getElementById(a.dataset.id);
+  const y=el.getBoundingClientRect().top+scrollY-(nav.offsetHeight+4);if(hd)hd.classList.add("hd-hide");scrollTo({top:y,behavior:"smooth"})})})();
+</script>

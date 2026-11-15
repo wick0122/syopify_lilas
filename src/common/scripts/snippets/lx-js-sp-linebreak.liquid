@@ -1,0 +1,8 @@
+<script>
+/* スマホ用:段落の中の改行のうち、注記(※)や箇条(・)の前など意味のある改行以外を「詰めてよい改行」にする */
+(()=>{const keepNext=/^[\s]*[※・◎●○■□\-–—(（「『【]/;const keepPrev=/[：:]\s*$/;
+ document.querySelectorAll("main p:not(.lx-pre p) br, main li:not(.lx-pre li) br, main dd:not(.lx-pre dd) br, footer p br").forEach(b=>{
+  if(b.closest("h1,h2,h3,h4,.fine,.rx-fine,.oc-note,.pnotes,.qbox-note,small,button,.svc-d,.nw-bd"))return;
+  const nx=b.nextSibling?b.nextSibling.textContent||"":"",pv=b.previousSibling?b.previousSibling.textContent||"":"";
+  if(keepNext.test(nx)||keepPrev.test(pv)||!nx.trim())return;b.classList.add("sbr")})})();
+</script>

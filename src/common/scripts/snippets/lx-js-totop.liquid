@@ -1,0 +1,5 @@
+<script>
+/* 「ページの上へ」:2画面分ほど読んだら出す */
+(()=>{const b=document.getElementById("totop");if(!b)return;const up=()=>b.classList.toggle("on",scrollY>innerHeight*1.5);
+ addEventListener("scroll",up,{passive:true});up();b.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}))})();
+</script>

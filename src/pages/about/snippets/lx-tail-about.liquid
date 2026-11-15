@@ -9,105 +9,17 @@
 <li><details><summary><time datetime="2026-11-05">2026.11.05</time><span class="nw-t">待望の新作が誕生。</span></summary><div class="nw-bd">肌荒れを防ぎ、キメを整える新作「カームスムース」が誕生しました。<a class="nw-lk" href="/pages/lilas-product-calmsmooth">カームスムースを見る →</a></div></details></li>
 </ul>
 </aside>
-<script>
-/* お知らせ:news.js の内容でパネルを作り直す(読み込めないときは、ページに書いてある内容をそのまま表示) */
-(()=>{const L=window.LILAS_NEWS,ul=document.querySelector(".nw-list");if(!L||!ul)return;
- const esc=s=>String(s);ul.innerHTML=L.map(n=>{const t=`<time datetime="${n.date}">${n.label}</time>`;let b=n.body||"";if(n.link)b+=`<a class="nw-lk" href="${n.link}">${n.linkText||"詳しく見る"} →</a>`;
-  return b?`<li><details><summary>${t}<span class="nw-t">${esc(n.title)}</span></summary><div class="nw-bd">${b}</div></details></li>`:`<li><div class="nw-row">${t}<span class="nw-t">${esc(n.title)}</span></div></li>`}).join("");
- const f=ul.querySelector("details");if(f)f.open=true})();
-</script>
-<script>
-document.documentElement.classList.add("js");
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("shown");io.unobserve(e.target)}}),{rootMargin:"0px 0px -10% 0px"});
-document.querySelectorAll("[data-r]").forEach(el=>io.observe(el));
-const openN=document.getElementById("openNotes");const setN=on=>{document.body.classList.toggle("notes",on);openN.setAttribute("aria-expanded",on)};
-openN.onclick=()=>setN(true);document.getElementById("closeNotes").onclick=()=>setN(false);document.getElementById("scrim").onclick=()=>setN(false);
-document.addEventListener("keydown",e=>{if(e.key==="Escape")setN(false)});
-</script>
-<script>(function(){var v=document.querySelector("video.bg");if(!v)return;var ss=[].slice.call(v.querySelectorAll("source[data-src]"));var c=ss.map(function(s){return {u:s.getAttribute("data-src"),t:s.type,q:s.type=="video/mp4"?'video/mp4; codecs="avc1.640028"':'video/webm; codecs="vp9"'}}).filter(function(x){return v.canPlayType(x.q)});ss.forEach(function(s){s.remove()});v.muted=true;v.setAttribute("muted","");function go(i){if(i>=c.length)return;v.onerror=function(){go(i+1)};v.preload="auto";v.src=c[i].u;v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}go(0)})();</script>
-<script>(()=>{const h=document.querySelector("header.site"),b=h&&h.querySelector(".mbtn");if(!b)return;b.addEventListener("click",()=>h.classList.toggle("menu"));h.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>h.classList.remove("menu")))})();</script>
-<script>
-(()=>{const hd=document.querySelector('header.site.hd2');if(!hd)return;const items=[...hd.querySelectorAll('.gi')].filter(g=>g.querySelector('.mm'));
-const desk=()=>matchMedia('(min-width:901px)').matches;let t;
-const close=()=>{items.forEach(g=>{g.classList.remove('open');g.querySelector('.gt').setAttribute('aria-expanded','false')});hd.classList.remove('mmopen')};
-const open=g=>{close();g.classList.add('open');g.querySelector('.gt').setAttribute('aria-expanded','true');if(desk())hd.classList.add('mmopen')};
-items.forEach(g=>{const b=g.querySelector('.gt');
- b.addEventListener('click',e=>{e.preventDefault();g.classList.contains('open')?close():open(g)});
- g.addEventListener('mouseenter',()=>{if(!desk())return;clearTimeout(t);open(g)});
- g.addEventListener('mouseleave',()=>{if(!desk())return;t=setTimeout(close,180)});});
-hd.querySelectorAll('.gi:not(:has(.mm))').forEach(g=>g.addEventListener('mouseenter',()=>{if(desk())close()}));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-document.addEventListener('click',e=>{if(!hd.contains(e.target))close()});})();
-</script>
-<script>if(location.hash==="#news"){addEventListener("load",()=>{const b=document.getElementById("openNotes");if(b)b.click()})}
-document.querySelectorAll("[data-news]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const b=document.getElementById("openNotes");if(b)b.click()}));</script>
-<script>
-/* ===== セクション送り:Enter・スペース・PageDownで次へ(Shiftで前へ)、パソコン表示のみ ===== */
-(()=>{const mq=matchMedia('(min-width:901px)');const hd=document.querySelector('header.site');
-const secs=()=>[...document.querySelectorAll('main section.lx-top, footer')];
-function go(d){const H=hd?hd.getBoundingClientRect().height:0;const cur=scrollY+H;const tops=secs().map(x=>Math.round(x.getBoundingClientRect().top+scrollY));
-let t=d>0?tops.find(v=>v>cur+6):[...tops].reverse().find(v=>v<cur-6);if(t===undefined)t=d>0?document.documentElement.scrollHeight:0;
-scrollTo({top:Math.max(0,t-H),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}
-addEventListener('keydown',e=>{if(!mq.matches||e.metaKey||e.ctrlKey||e.altKey||e.isComposing)return;const tg=e.target;
-if(/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName||'')||tg.isContentEditable)return;
-if(/^(BUTTON|A|SUMMARY)$/.test(tg.tagName||'')&&(e.key==='Enter'||e.key===' '))return;
-if(document.body.classList.contains('notes')||document.querySelector('dialog[open]'))return;
-if(e.key==='Enter'||e.key===' '||e.key==='PageDown'||e.key==='PageUp'){e.preventDefault();go((e.shiftKey||e.key==='PageUp')?-1:1)}})})();
-</script>
-<script>
-/* お知らせバー:×で閉じると、同じお知らせはこのブラウザでは再表示しない */
-(()=>{const b=document.getElementById("anbar");if(!b)return;const k="lilas-anbar:"+(b.dataset.id||"");try{if(localStorage.getItem(k)){b.hidden=true}}catch(e){}
-const x=b.querySelector(".anbar-x");if(x)x.onclick=()=>{b.hidden=true;try{localStorage.setItem(k,"1")}catch(e){}};
-const a=b.querySelector("[data-news]");if(a)a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}})})();
-</script>
-<script>
-/* ベル:押すとNewsを開く。新しいお知らせを見たら印を消す */
-(()=>{const b=document.querySelector("header.site .nbell");if(!b)return;const key="lilas-news-seen";
- const latest=(document.querySelector(".nw-list time")||{}).getAttribute?document.querySelector(".nw-list time").getAttribute("datetime"):"";
- try{if(latest&&localStorage.getItem(key)===latest)b.classList.add("seen")}catch(e){}
- b.addEventListener("click",()=>{const o=document.getElementById("openNotes");try{if(latest)localStorage.setItem(key,latest)}catch(e){}b.classList.add("seen");if(o)o.click();else location.href="/#news"})})();
-</script>
-<script>
-/* 改行の仕組み(BudouX):言葉のまとまりの改行に未対応のブラウザ(iPhoneのSafariなど)だけ読み込む */
-(()=>{if(window.CSS&&CSS.supports&&CSS.supports("word-break","auto-phrase"))return;
- const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/budoux@0.6.3/bundle/budoux-ja.min.js";s.async=true;
- s.onload=()=>{if(!window.customElements)return;customElements.whenDefined("budoux-ja").then(()=>{
-  const sel="main p, main li, main dd, main dt, main h1, main h2, main h3, main h4, main figcaption, .drawer p, footer p";
-  document.querySelectorAll(sel).forEach(el=>{
-   if(el.closest("button,nav,dialog,svg,budoux-ja")||el.querySelector("p,div,ul,ol,li,table,img,svg,button,input,select,textarea,budoux-ja"))return;
-   if(!/[\u3040-\u30ff\u4e00-\u9fff]/.test(el.textContent))return;
-   const w=document.createElement("budoux-ja");while(el.firstChild)w.appendChild(el.firstChild);el.appendChild(w)})})};
- document.head.appendChild(s)})();
-/* スマホ:メニューバーの出し入れ */
-(()=>{const hd=document.querySelector("header.site");if(!hd)return;const mq=matchMedia("(max-width:900px)");let y0=scrollY,tick=false;
- addEventListener("scroll",()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const y=scrollY,d=y-y0;
-  if(!mq.matches||hd.classList.contains("open")||hd.classList.contains("menu")||document.body.classList.contains("notes")||y<120){if(hd.classList.contains("hd-hide"))hd.classList.remove("hd-hide");y0=y;return}
-  if(d>8){hd.classList.add("hd-hide");y0=y}else if(d<-6){hd.classList.remove("hd-hide");y0=y}})},{passive:true})})();
-</script>
-<script>
-/* フッターのNEWS:Newsのパネルを開く(パネルがないページはトップページへ) */
-document.querySelectorAll("[data-fm-news]").forEach(a=>a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}}));
-</script>
-<script>
-/* スマホのメニュー:開いている間は後ろのページを止め、メニューの中だけスクロール。1つ開くとほかは閉じる */
-(()=>{const h=document.querySelector("header.site");if(!h)return;const mq=matchMedia("(max-width:900px)");
- let keepY=null;const sync=()=>{const open=h.classList.contains("menu")&&mq.matches;const was=document.documentElement.classList.contains("menu-lock");if(open&&!was)keepY=scrollY;document.documentElement.classList.toggle("menu-lock",open);if(!open&&was&&keepY!==null){const y=keepY;keepY=null;document.documentElement.style.scrollSnapType="none";scrollTo({top:y,behavior:"instant"});setTimeout(()=>document.documentElement.style.scrollSnapType="",400)}
-  if(open){if(h.classList.contains("hd-hide"))h.classList.remove("hd-hide");const st=()=>document.documentElement.style.setProperty("--mnav-top",Math.round(Math.max(h.offsetHeight,h.getBoundingClientRect().bottom))+"px");st();setTimeout(st,360)}};
- new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});addEventListener("resize",sync);
- h.querySelectorAll(".gi > .gt[aria-controls]").forEach(b=>b.addEventListener("click",()=>{if(!mq.matches)return;
-  setTimeout(()=>{if(b.getAttribute("aria-expanded")==="true"){h.querySelectorAll(".gi > .gt[aria-controls]").forEach(o=>{if(o!==b&&o.getAttribute("aria-expanded")==="true")o.click()});
-   const nav=h.querySelector("nav");const r=b.getBoundingClientRect(),nr=nav.getBoundingClientRect();nav.scrollTo({top:nav.scrollTop+r.top-nr.top-4,behavior:"smooth"})}},30)}))})();
-</script>
-<script>
-/* スマホ用:段落の中の改行のうち、注記(※)や箇条(・)の前など意味のある改行以外を「詰めてよい改行」にする */
-(()=>{const keepNext=/^[\s]*[※・◎●○■□\-–—(（「『【]/;const keepPrev=/[：:]\s*$/;
- document.querySelectorAll("main p:not(.lx-pre p) br, main li:not(.lx-pre li) br, main dd:not(.lx-pre dd) br, footer p br").forEach(b=>{
-  if(b.closest("h1,h2,h3,h4,.fine,.rx-fine,.oc-note,.pnotes,.qbox-note,small,button,.svc-d,.nw-bd"))return;
-  const nx=b.nextSibling?b.nextSibling.textContent||"":"",pv=b.previousSibling?b.previousSibling.textContent||"":"";
-  if(keepNext.test(nx)||keepPrev.test(pv)||!nx.trim())return;b.classList.add("sbr")})})();
-</script>
-<script>
-/* メニューボタンの読み上げ名を、開閉に合わせて切り替える */
-(()=>{const h=document.querySelector("header.site"),b=h&&h.querySelector(".mbtn");if(!b)return;
- new MutationObserver(()=>{const o=h.classList.contains("menu"),l=o?"メニューを閉じる":"メニュー";if(b.getAttribute("aria-label")!==l)b.setAttribute("aria-label",l);const e=String(o);if(b.getAttribute("aria-expanded")!==e)b.setAttribute("aria-expanded",e)}).observe(h,{attributes:true,attributeFilter:["class"]})})();
-</script>
+{% render 'lx-js-news-panel' %}
+{% render 'lx-js-reveal-basic' %}
+{% render 'lx-js-video-bg' %}
+{% render 'lx-js-menu-toggle' %}
+{% render 'lx-js-megamenu' %}
+{% render 'lx-js-news-hash' %}
+{% render 'lx-js-section-nav-1' %}
+{% render 'lx-js-anbar-close' %}
+{% render 'lx-js-bell' %}
+{% render 'lx-js-budoux' %}
+{% render 'lx-js-footer-news' %}
+{% render 'lx-js-sp-menu' %}
+{% render 'lx-js-sp-linebreak' %}
+{% render 'lx-js-menu-label' %}

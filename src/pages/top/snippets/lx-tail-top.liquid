@@ -12,13 +12,7 @@
 <li><details><summary><time datetime="2026-11-05">2026.11.05</time><span class="nw-t">待望の新作が誕生。</span></summary><div class="nw-bd">肌荒れを防ぎ、キメを整える新作「カームスムース」が誕生しました。<a class="nw-lk" href="/pages/lilas-product-calmsmooth">カームスムースを見る →</a></div></details></li>
 </ul>
 </aside>
-<script>
-/* お知らせ:news.js の内容でパネルを作り直す(読み込めないときは、ページに書いてある内容をそのまま表示) */
-(()=>{const L=window.LILAS_NEWS,ul=document.querySelector(".nw-list");if(!L||!ul)return;
- const esc=s=>String(s);ul.innerHTML=L.map(n=>{const t=`<time datetime="${n.date}">${n.label}</time>`;let b=n.body||"";if(n.link)b+=`<a class="nw-lk" href="${n.link}">${n.linkText||"詳しく見る"} →</a>`;
-  return b?`<li><details><summary>${t}<span class="nw-t">${esc(n.title)}</span></summary><div class="nw-bd">${b}</div></details></li>`:`<li><div class="nw-row">${t}<span class="nw-t">${esc(n.title)}</span></div></li>`}).join("");
- const f=ul.querySelector("details");if(f)f.open=true})();
-</script>
+{% render 'lx-js-news-panel' %}
 <script>// ===== 共通の動き(両案) =====
 document.documentElement.classList.add("js");
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
@@ -146,22 +140,9 @@ const bgv=document.querySelector(".fv.video video");
 if(bgv){if(matchMedia("(prefers-reduced-motion:reduce)").matches){bgv.removeAttribute("autoplay");bgv.pause()}
  const vb=document.querySelector(".vctl");if(vb)vb.onclick=()=>{if(bgv.paused){bgv.play();vb.textContent="Pause"}else{bgv.pause();vb.textContent="Play"}}}
 </script>
-<script>(()=>{document.querySelectorAll(".vt-card").forEach(c=>{const q=c.querySelector("blockquote");requestAnimationFrame(()=>{if(q.scrollHeight>q.clientHeight+2){const b=document.createElement("button");b.type="button";b.className="vt-more";b.textContent="続きを読む";b.onclick=()=>{c.classList.toggle("open");b.textContent=c.classList.contains("open")?"閉じる":"続きを読む"};q.after(b)}})})})();</script>
-<script>
-// 動画:読み込み後すぐ再生。Safariでも動くようBlobに変換し、だめなら元のデータで再生
-(()=>{document.querySelectorAll("video.blobv").forEach(v=>{
-  v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");v.setAttribute("autoplay","");v.setAttribute("playsinline","");v.preload="none";
-  const ss=[...v.querySelectorAll("source[data-src]")].map(s=>({u:s.dataset.src,t:s.type,q:s.type=="video/mp4"?'video/mp4; codecs="avc1.640028"':'video/webm; codecs="vp9"'})).filter(x=>v.canPlayType(x.q)||v.canPlayType(x.t));
-  const play=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{})};
-  const go=i=>{if(i>=ss.length)return;v.onerror=()=>go(i+1);
-    (v.src=ss[i].u,v.load(),play())};
-  {const lz=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){lz.disconnect();go(0)}},{rootMargin:"400px 0px"});lz.observe(v)}
-  v.addEventListener("canplay",play);
-  new IntersectionObserver(es=>es.forEach(e=>{e.isIntersecting?play():v.pause()}),{threshold:.1}).observe(v)})})();
-// 画面のどこかを触ったら再生を再試行(省電力モードなどで止められた場合の保険)
-addEventListener("touchstart",()=>document.querySelectorAll("video.blobv").forEach(v=>{if(v.paused){const p=v.play();if(p&&p.catch)p.catch(()=>{})}}),{once:true,passive:true});
-</script>
-<script>(function(){var v=document.querySelector("video.bg");if(!v)return;var ss=[].slice.call(v.querySelectorAll("source[data-src]"));var c=ss.map(function(s){return {u:s.getAttribute("data-src"),t:s.type,q:s.type=="video/mp4"?'video/mp4; codecs="avc1.640028"':'video/webm; codecs="vp9"'}}).filter(function(x){return v.canPlayType(x.q)});ss.forEach(function(s){s.remove()});v.muted=true;v.setAttribute("muted","");function go(i){if(i>=c.length)return;v.onerror=function(){go(i+1)};v.preload="auto";v.src=c[i].u;v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}go(0)})();</script>
+{% render 'lx-js-voices-more' %}
+{% render 'lx-js-video-blob' %}
+{% render 'lx-js-video-bg' %}
 <script>(()=>{const IM={c110:"{{ 'img-c5d27c9f0af9.webp' | asset_url }}",c50:"{{ 'img-c5372a0839fe.webp' | asset_url }}",s100:"{{ 'img-8de2e64b41f3.webp' | asset_url }}",s50:"{{ 'img-69914e4c4a1a.webp' | asset_url }}"};document.querySelectorAll(".sens-size button").forEach(b=>b.addEventListener("click",()=>{const c=b.closest("article");c.querySelector(".ph img").src=IM[b.dataset.img];const ad=c.querySelector(".addcart");if(ad)delete ad.dataset.name}));document.querySelectorAll(".size button[data-note]").forEach(b=>b.addEventListener("click",()=>{const n=b.closest("article").querySelector(".sznote");if(n)n.textContent=b.dataset.note}))})();</script>
 <script>
 /* セクション送り(パソコン):Enter・スペース・PageDownで次へ、Shift+Enter・Shift+スペース・PageUpで前へ */
@@ -185,68 +166,14 @@ addEventListener('keydown',e=>{if(!mq.matches||e.metaKey||e.ctrlKey||e.altKey||e
  if(d){e.preventDefault();go(d)}});
 document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href^="#"],summary');if(a)setTimeout(()=>a.blur(),0)})})();
 </script>
-<script>
-document.querySelectorAll(".with .wi .size button").forEach(b=>b.addEventListener("click",()=>{const v=b.closest("article").querySelector(".wvol");if(v&&b.dataset.s)v.textContent=b.dataset.s}));
-</script>
-<script>
-/* 一緒に使うなら:同じ行のカードで価格の行の高さをそろえる */
-(()=>{const top=(el,root)=>{let t=0;while(el&&el!==root){t+=el.offsetTop;el=el.offsetParent}return t};
-const run=()=>{document.querySelectorAll(".with .w-grid").forEach(g=>{const ps=[...g.querySelectorAll(".wi .pr")];ps.forEach(p=>p.style.marginTop="");const rows={};
-ps.forEach(p=>{const k=top(p.closest(".wi"),g);(rows[k]=rows[k]||[]).push(p)});
-Object.values(rows).forEach(r=>{const ts=r.map(p=>top(p,g)),m=Math.max(...ts);r.forEach((p,i)=>{const b=parseFloat(getComputedStyle(p).marginTop)||0;if(m-ts[i]>0.5)p.style.marginTop=(b+m-ts[i])+"px"})})})};
-window.addEventListener("load",run);window.addEventListener("resize",run);if(document.fonts)document.fonts.ready.then(run);run()})();
-</script>
-<script>
-(()=>{const hd=document.querySelector('header.site.hd2');if(!hd)return;const items=[...hd.querySelectorAll('.gi')].filter(g=>g.querySelector('.mm'));
-const desk=()=>matchMedia('(min-width:901px)').matches;let t;
-const close=()=>{items.forEach(g=>{g.classList.remove('open');g.querySelector('.gt').setAttribute('aria-expanded','false')});hd.classList.remove('mmopen')};
-const open=g=>{close();g.classList.add('open');g.querySelector('.gt').setAttribute('aria-expanded','true');if(desk())hd.classList.add('mmopen')};
-items.forEach(g=>{const b=g.querySelector('.gt');
- b.addEventListener('click',e=>{e.preventDefault();g.classList.contains('open')?close():open(g)});
- g.addEventListener('mouseenter',()=>{if(!desk())return;clearTimeout(t);open(g)});
- g.addEventListener('mouseleave',()=>{if(!desk())return;t=setTimeout(close,180)});});
-hd.querySelectorAll('.gi:not(:has(.mm))').forEach(g=>g.addEventListener('mouseenter',()=>{if(desk())close()}));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-document.addEventListener('click',e=>{if(!hd.contains(e.target))close()});})();
-</script>
-<script>if(location.hash==="#news"){addEventListener("load",()=>{const b=document.getElementById("openNotes");if(b)b.click()})}
-document.querySelectorAll("[data-news]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const b=document.getElementById("openNotes");if(b)b.click()}));</script>
-<script>(()=>{const t=document.getElementById("vtTrack");if(!t)return;const cs=[...t.children],cnt=document.getElementById("vtCount");
-const step=()=>cs[0].getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||0);
-const upd=()=>{const i=Math.round(t.scrollLeft/step());cnt.textContent=(Math.min(i,cs.length-1)+1)+" / "+cs.length};
-const pv=()=>t.scrollBy({left:-step(),behavior:"smooth"});document.getElementById("vcPrev").onclick=pv;document.querySelector(".vt-prev").onclick=pv;
-const nx=()=>{if(t.scrollLeft+t.clientWidth>=t.scrollWidth-4)t.scrollTo({left:0,behavior:"smooth"});else t.scrollBy({left:step(),behavior:"smooth"})};document.getElementById("vcNext").onclick=nx;document.querySelector(".vt-next").onclick=nx;
-t.addEventListener("scroll",upd,{passive:true})})();</script>
-<script>
-/* お知らせバー:×で閉じると、同じお知らせはこのブラウザでは再表示しない */
-(()=>{const b=document.getElementById("anbar");if(!b)return;const k="lilas-anbar:"+(b.dataset.id||"");try{if(localStorage.getItem(k)){b.hidden=true}}catch(e){}
-const x=b.querySelector(".anbar-x");if(x)x.onclick=()=>{b.hidden=true;try{localStorage.setItem(k,"1")}catch(e){}};
-const a=b.querySelector("[data-news]");if(a)a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}})})();
-</script>
-<script>
-/* ベル:押すとNewsを開く。新しいお知らせを見たら印を消す */
-(()=>{const b=document.querySelector("header.site .nbell");if(!b)return;const key="lilas-news-seen";
- const latest=(document.querySelector(".nw-list time")||{}).getAttribute?document.querySelector(".nw-list time").getAttribute("datetime"):"";
- try{if(latest&&localStorage.getItem(key)===latest)b.classList.add("seen")}catch(e){}
- b.addEventListener("click",()=>{const o=document.getElementById("openNotes");try{if(latest)localStorage.setItem(key,latest)}catch(e){}b.classList.add("seen");if(o)o.click();else location.href="/#news"})})();
-</script>
-<script>
-/* 改行の仕組み(BudouX):言葉のまとまりの改行に未対応のブラウザ(iPhoneのSafariなど)だけ読み込む */
-(()=>{if(window.CSS&&CSS.supports&&CSS.supports("word-break","auto-phrase"))return;
- const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/budoux@0.6.3/bundle/budoux-ja.min.js";s.async=true;
- s.onload=()=>{if(!window.customElements)return;customElements.whenDefined("budoux-ja").then(()=>{
-  const sel="main p, main li, main dd, main dt, main h1, main h2, main h3, main h4, main figcaption, .drawer p, footer p";
-  document.querySelectorAll(sel).forEach(el=>{
-   if(el.closest("button,nav,dialog,svg,budoux-ja")||el.querySelector("p,div,ul,ol,li,table,img,svg,button,input,select,textarea,budoux-ja"))return;
-   if(!/[\u3040-\u30ff\u4e00-\u9fff]/.test(el.textContent))return;
-   const w=document.createElement("budoux-ja");while(el.firstChild)w.appendChild(el.firstChild);el.appendChild(w)})})};
- document.head.appendChild(s)})();
-/* スマホ:メニューバーの出し入れ */
-(()=>{const hd=document.querySelector("header.site");if(!hd)return;const mq=matchMedia("(max-width:900px)");let y0=scrollY,tick=false;
- addEventListener("scroll",()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const y=scrollY,d=y-y0;
-  if(!mq.matches||hd.classList.contains("open")||hd.classList.contains("menu")||document.body.classList.contains("notes")||y<120){if(hd.classList.contains("hd-hide"))hd.classList.remove("hd-hide");y0=y;return}
-  if(d>8){hd.classList.add("hd-hide");y0=y}else if(d<-6){hd.classList.remove("hd-hide");y0=y}})},{passive:true})})();
-</script>
+{% render 'lx-js-pair-size-label' %}
+{% render 'lx-js-pair-price-align' %}
+{% render 'lx-js-megamenu' %}
+{% render 'lx-js-news-hash' %}
+{% render 'lx-js-voices-slider' %}
+{% render 'lx-js-anbar-close' %}
+{% render 'lx-js-bell' %}
+{% render 'lx-js-budoux' %}
 <script>
 /* 右下の浮かぶボタン:02を読んだ後に「肌タイプチェック」、フッターの手前で「ページの上へ」、肌タイプチェックの欄では隠す */
 (()=>{const b=document.getElementById("fab1");if(!b)return;const yw=document.getElementById("yourway"),fm=document.getElementById("formula"),ft=document.querySelector("footer");
@@ -256,30 +183,7 @@ const a=b.querySelector("[data-news]");if(a)a.addEventListener("click",e=>{const
  addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
  b.addEventListener("click",e=>{if(b.classList.contains("totop")){e.preventDefault();scrollTo({top:0,behavior:"smooth"})}})})();
 </script>
-<script>
-/* フッターのNEWS:Newsのパネルを開く(パネルがないページはトップページへ) */
-document.querySelectorAll("[data-fm-news]").forEach(a=>a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}}));
-</script>
-<script>
-/* スマホのメニュー:開いている間は後ろのページを止め、メニューの中だけスクロール。1つ開くとほかは閉じる */
-(()=>{const h=document.querySelector("header.site");if(!h)return;const mq=matchMedia("(max-width:900px)");
- let keepY=null;const sync=()=>{const open=h.classList.contains("menu")&&mq.matches;const was=document.documentElement.classList.contains("menu-lock");if(open&&!was)keepY=scrollY;document.documentElement.classList.toggle("menu-lock",open);if(!open&&was&&keepY!==null){const y=keepY;keepY=null;document.documentElement.style.scrollSnapType="none";scrollTo({top:y,behavior:"instant"});setTimeout(()=>document.documentElement.style.scrollSnapType="",400)}
-  if(open){if(h.classList.contains("hd-hide"))h.classList.remove("hd-hide");const st=()=>document.documentElement.style.setProperty("--mnav-top",Math.round(Math.max(h.offsetHeight,h.getBoundingClientRect().bottom))+"px");st();setTimeout(st,360)}};
- new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});addEventListener("resize",sync);
- h.querySelectorAll(".gi > .gt[aria-controls]").forEach(b=>b.addEventListener("click",()=>{if(!mq.matches)return;
-  setTimeout(()=>{if(b.getAttribute("aria-expanded")==="true"){h.querySelectorAll(".gi > .gt[aria-controls]").forEach(o=>{if(o!==b&&o.getAttribute("aria-expanded")==="true")o.click()});
-   const nav=h.querySelector("nav");const r=b.getBoundingClientRect(),nr=nav.getBoundingClientRect();nav.scrollTo({top:nav.scrollTop+r.top-nr.top-4,behavior:"smooth"})}},30)}))})();
-</script>
-<script>
-/* スマホ用:段落の中の改行のうち、注記(※)や箇条(・)の前など意味のある改行以外を「詰めてよい改行」にする */
-(()=>{const keepNext=/^[\s]*[※・◎●○■□\-–—(（「『【]/;const keepPrev=/[：:]\s*$/;
- document.querySelectorAll("main p:not(.lx-pre p) br, main li:not(.lx-pre li) br, main dd:not(.lx-pre dd) br, footer p br").forEach(b=>{
-  if(b.closest("h1,h2,h3,h4,.fine,.rx-fine,.oc-note,.pnotes,.qbox-note,small,button,.svc-d,.nw-bd"))return;
-  const nx=b.nextSibling?b.nextSibling.textContent||"":"",pv=b.previousSibling?b.previousSibling.textContent||"":"";
-  if(keepNext.test(nx)||keepPrev.test(pv)||!nx.trim())return;b.classList.add("sbr")})})();
-</script>
-<script>
-/* メニューボタンの読み上げ名を、開閉に合わせて切り替える */
-(()=>{const h=document.querySelector("header.site"),b=h&&h.querySelector(".mbtn");if(!b)return;
- new MutationObserver(()=>{const o=h.classList.contains("menu"),l=o?"メニューを閉じる":"メニュー";if(b.getAttribute("aria-label")!==l)b.setAttribute("aria-label",l);const e=String(o);if(b.getAttribute("aria-expanded")!==e)b.setAttribute("aria-expanded",e)}).observe(h,{attributes:true,attributeFilter:["class"]})})();
-</script>
+{% render 'lx-js-footer-news' %}
+{% render 'lx-js-sp-menu' %}
+{% render 'lx-js-sp-linebreak' %}
+{% render 'lx-js-menu-label' %}

@@ -1,0 +1,6 @@
+<script>(()=>{const t=document.getElementById("vtTrack");if(!t)return;const cs=[...t.children],cnt=document.getElementById("vtCount");
+const step=()=>cs[0].getBoundingClientRect().width+parseFloat(getComputedStyle(t).columnGap||0);
+const upd=()=>{const i=Math.round(t.scrollLeft/step());cnt.textContent=(Math.min(i,cs.length-1)+1)+" / "+cs.length};
+const pv=()=>t.scrollBy({left:-step(),behavior:"smooth"});document.getElementById("vcPrev").onclick=pv;document.querySelector(".vt-prev").onclick=pv;
+const nx=()=>{if(t.scrollLeft+t.clientWidth>=t.scrollWidth-4)t.scrollTo({left:0,behavior:"smooth"});else t.scrollBy({left:step(),behavior:"smooth"})};document.getElementById("vcNext").onclick=nx;document.querySelector(".vt-next").onclick=nx;
+t.addEventListener("scroll",upd,{passive:true})})();</script>

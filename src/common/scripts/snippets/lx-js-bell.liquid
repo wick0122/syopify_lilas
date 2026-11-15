@@ -1,0 +1,7 @@
+<script>
+/* ベル:押すとNewsを開く。新しいお知らせを見たら印を消す */
+(()=>{const b=document.querySelector("header.site .nbell");if(!b)return;const key="lilas-news-seen";
+ const latest=(document.querySelector(".nw-list time")||{}).getAttribute?document.querySelector(".nw-list time").getAttribute("datetime"):"";
+ try{if(latest&&localStorage.getItem(key)===latest)b.classList.add("seen")}catch(e){}
+ b.addEventListener("click",()=>{const o=document.getElementById("openNotes");try{if(latest)localStorage.setItem(key,latest)}catch(e){}b.classList.add("seen");if(o)o.click();else location.href="/#news"})})();
+</script>

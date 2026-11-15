@@ -1,0 +1,6 @@
+<script>
+/* お知らせバー:×で閉じると、同じお知らせはこのブラウザでは再表示しない */
+(()=>{const b=document.getElementById("anbar");if(!b)return;const k="lilas-anbar:"+(b.dataset.id||"");try{if(localStorage.getItem(k)){b.hidden=true}}catch(e){}
+const x=b.querySelector(".anbar-x");if(x)x.onclick=()=>{b.hidden=true;try{localStorage.setItem(k,"1")}catch(e){}};
+const a=b.querySelector("[data-news]");if(a)a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}})})();
+</script>
