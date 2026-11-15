@@ -1,7 +1,7 @@
 {
   "sections": {
     "s01": {
-      "type": "lx-features-01",
+      "type": "lx-parts-crumb",
       "settings": {
         "t_1": "<a href=\"/\">トップ</a><span>/</span>製品の特徴"
       }

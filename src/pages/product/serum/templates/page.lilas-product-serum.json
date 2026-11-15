@@ -1,7 +1,7 @@
 {
   "sections": {
     "s01": {
-      "type": "lx-product-serum-01",
+      "type": "lx-parts-crumb",
       "settings": {
         "t_1": "<a href=\"/\">トップ</a><span>/</span><a href=\"/#collection\">製品</a><span>/</span>モイストヴェールセラム"
       }
@@ -63,7 +63,7 @@
       }
     },
     "s03": {
-      "type": "lx-product-serum-03",
+      "type": "lx-parts-voices",
       "settings": {
         "t_1": "Voices",
         "t_2": "Voices",

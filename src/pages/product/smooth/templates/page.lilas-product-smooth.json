@@ -1,7 +1,7 @@
 {
   "sections": {
     "s01": {
-      "type": "lx-product-smooth-01",
+      "type": "lx-parts-crumb",
       "settings": {
         "t_1": "<a href=\"/\">トップ</a><span>/</span><a href=\"/#collection\">製品</a><span>/</span>スムーススキン"
       }
@@ -219,7 +219,7 @@
       }
     },
     "s05": {
-      "type": "lx-product-smooth-05",
+      "type": "lx-parts-pairwith-b",
       "settings": {
         "t_1": "With",
         "t_2": "Pair <em>with</em>",
