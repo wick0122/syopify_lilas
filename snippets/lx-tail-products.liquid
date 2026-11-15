@@ -1,0 +1,203 @@
+<dialog aria-label="肌タイプチェック" id="dlg"><div class="dlg"><button class="x" id="dlgClose">閉じる</button><div id="dlgBody"></div></div></dialog>
+<button aria-expanded="false" class="notes-tab" id="openNotes">News<span class="nt-ja">お知らせ</span></button>
+<div class="scrim" id="scrim"></div>
+<aside aria-label="News" class="drawer" id="drawer">
+<button class="close" id="closeNotes">閉じる</button>
+<h2 class="nw-h">News<span>お知らせ</span></h2>
+<!-- お知らせ:内容は news.js で管理しています(この下はnews.jsを読み込めないときの予備) -->
+<ul class="nw-list">
+<li><details><summary><time datetime="2026-12">2026.12</time><span class="nw-t">年末年始の配送休業のお知らせ</span></summary><div class="nw-bd">休業期間は、決まり次第こちらでお知らせします。</div></details></li>
+<li><details><summary><time datetime="2026-11-05">2026.11.05</time><span class="nw-t">待望の新作が誕生。</span></summary><div class="nw-bd">肌荒れを防ぎ、キメを整える新作「カームスムース」が誕生しました。<a class="nw-lk" href="/pages/lilas-product-calmsmooth">カームスムースを見る →</a></div></details></li>
+</ul>
+</aside>
+<script>
+/* お知らせ:news.js の内容でパネルを作り直す(読み込めないときは、ページに書いてある内容をそのまま表示) */
+(()=>{const L=window.LILAS_NEWS,ul=document.querySelector(".nw-list");if(!L||!ul)return;
+ const esc=s=>String(s);ul.innerHTML=L.map(n=>{const t=`<time datetime="${n.date}">${n.label}</time>`;let b=n.body||"";if(n.link)b+=`<a class="nw-lk" href="${n.link}">${n.linkText||"詳しく見る"} →</a>`;
+  return b?`<li><details><summary>${t}<span class="nw-t">${esc(n.title)}</span></summary><div class="nw-bd">${b}</div></details></li>`:`<li><div class="nw-row">${t}<span class="nw-t">${esc(n.title)}</span></div></li>`}).join("");
+ const f=ul.querySelector("details");if(f)f.open=true})();
+</script>
+<script>
+document.documentElement.classList.add("js");
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("shown");io.unobserve(e.target)}}),{rootMargin:"0px 0px -10% 0px"});
+document.querySelectorAll("[data-r]").forEach(el=>io.observe(el));
+const openN=document.getElementById("openNotes");const setN=on=>{document.body.classList.toggle("notes",on);openN.setAttribute("aria-expanded",on)};
+openN.onclick=()=>setN(true);document.getElementById("closeNotes").onclick=()=>setN(false);document.getElementById("scrim").onclick=()=>setN(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")setN(false)});
+</script>
+<script>(function(){var v=document.querySelector("video.bg");if(!v)return;var ss=[].slice.call(v.querySelectorAll("source[data-src]"));var c=ss.map(function(s){return {u:s.getAttribute("data-src"),t:s.type,q:s.type=="video/mp4"?'video/mp4; codecs="avc1.640028"':'video/webm; codecs="vp9"'}}).filter(function(x){return v.canPlayType(x.q)});ss.forEach(function(s){s.remove()});v.muted=true;v.setAttribute("muted","");function go(i){if(i>=c.length)return;v.onerror=function(){go(i+1)};v.preload="auto";v.src=c[i].u;v.load();var p=v.play();if(p&&p.catch)p.catch(function(){})}go(0)})();</script>
+<script>
+// 動画:読み込み後すぐ再生。Safariでも動くようBlobに変換し、だめなら元のデータで再生
+(()=>{document.querySelectorAll("video.blobv").forEach(v=>{
+  v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");v.setAttribute("autoplay","");v.setAttribute("playsinline","");v.preload="none";
+  const ss=[...v.querySelectorAll("source[data-src]")].map(s=>({u:s.dataset.src,t:s.type,q:s.type=="video/mp4"?'video/mp4; codecs="avc1.640028"':'video/webm; codecs="vp9"'})).filter(x=>v.canPlayType(x.q)||v.canPlayType(x.t));
+  const play=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+  const go=i=>{if(i>=ss.length)return;v.onerror=()=>go(i+1);
+    (v.src=ss[i].u,v.load(),play())};
+  {const lz=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){lz.disconnect();go(0)}},{rootMargin:"400px 0px"});lz.observe(v)}
+  v.addEventListener("canplay",play);
+  new IntersectionObserver(es=>es.forEach(e=>{e.isIntersecting?play():v.pause()}),{threshold:.1}).observe(v)})})();
+// 画面のどこかを触ったら再生を再試行(省電力モードなどで止められた場合の保険)
+addEventListener("touchstart",()=>document.querySelectorAll("video.blobv").forEach(v=>{if(v.paused){const p=v.play();if(p&&p.catch)p.catch(()=>{})}}),{once:true,passive:true});
+</script>
+<script>(()=>{const h=document.querySelector("header.site"),b=h&&h.querySelector(".mbtn");if(!b)return;b.addEventListener("click",()=>h.classList.toggle("menu"));h.querySelectorAll("nav a").forEach(a=>a.addEventListener("click",()=>h.classList.remove("menu")))})();</script>
+<script>(()=>{const IM={s60:"{{ 'img-04c8511daed6.webp' | asset_url }}",s200:"{{ 'img-27cfbb2c1f9f.webp' | asset_url }}",c110:"{{ 'img-3f53eb3d9bb6.webp' | asset_url }}",c50:"{{ 'img-3595dd8be9d3.webp' | asset_url }}"};document.querySelectorAll(".pl-size").forEach(g=>{const c=g.closest(".pl-card");g.querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{g.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));c.querySelector(".pv").textContent=b.dataset.p;c.querySelector(".pl-ph img").src=IM[b.dataset.img]}))})})();</script>
+<script>
+(()=>{const hd=document.querySelector('header.site.hd2');if(!hd)return;const items=[...hd.querySelectorAll('.gi')].filter(g=>g.querySelector('.mm'));
+const desk=()=>matchMedia('(min-width:901px)').matches;let t;
+const close=()=>{items.forEach(g=>{g.classList.remove('open');g.querySelector('.gt').setAttribute('aria-expanded','false')});hd.classList.remove('mmopen')};
+const open=g=>{close();g.classList.add('open');g.querySelector('.gt').setAttribute('aria-expanded','true');if(desk())hd.classList.add('mmopen')};
+items.forEach(g=>{const b=g.querySelector('.gt');
+ b.addEventListener('click',e=>{e.preventDefault();g.classList.contains('open')?close():open(g)});
+ g.addEventListener('mouseenter',()=>{if(!desk())return;clearTimeout(t);open(g)});
+ g.addEventListener('mouseleave',()=>{if(!desk())return;t=setTimeout(close,180)});});
+hd.querySelectorAll('.gi:not(:has(.mm))').forEach(g=>g.addEventListener('mouseenter',()=>{if(desk())close()}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+document.addEventListener('click',e=>{if(!hd.contains(e.target))close()});})();
+</script>
+<script>if(location.hash==="#news"){addEventListener("load",()=>{const b=document.getElementById("openNotes");if(b)b.click()})}
+document.querySelectorAll("[data-news]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();const b=document.getElementById("openNotes");if(b)b.click()}));</script>
+<script>
+(()=>{const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+// ローションは質問1(悩み)と質問2(刺激)、肌タイプとオイルの量は質問3(30分後の肌)で決める
+const P={aging:{n:"エイジングケア",s:"濃縮ローション ・ 肌にハリを与える",p:12100},bright:{n:"ブライトアップ",s:"濃縮ローション ・ 肌にツヤを与え、キメを整える",p:12100},smooth:{n:"スムーススキン",s:"濃縮ローション ・ キメを整える",p:11000,wait:true},sensitive:{n:"センシティブケア",s:"濃縮ローション ・ 予約販売(12月5日発送)",p:"¥5,060〜"},calm:{n:"カームスムース",s:"濃縮ローション ・ 肌荒れを防ぎ、キメを整える",p:"¥6,490〜"},oil:{n:"ブレンドオイル",s:"ローションに加えて、よりしっとりと",p:1320},balm:{n:"マルチバーム",s:"お好みで ・ 乾きやすいところに",p:4290}};
+const QS={k:"s",t:"化粧品を使ったとき、<br>赤みやヒリヒリ感、肌荒れを<br>感じたことはありますか？",o:[["often","今もよく感じる"],["past","過去に感じたことがある"],["no","とくにない"]]};
+const QT={k:"t",t:"赤みやヒリヒリ感を感じたのは、<br>どれくらい前ですか？",o:[["1y","1年以内"],["2y","2〜3年前"],["old","それ以上前"]]};
+const QD={k:"d",t:"30分経ったとき、肌の感触は？",o:[["mochi","潤ってもっちり吸いつく"],["sara","さらっとしている"],["kona","粉をふく・ガサガサする"],["mix","部分的にテカるのに、一部は乾く（つっぱる）"],["teka","テカリやベタつきが気になる"]]};
+const qList=()=>ans.s==="past"?[QS,QT,QD]:[QS,QD];
+const TT={mochi:{n:"バランスの整った肌",v:[1,1,1]},sara:{n:"乾燥肌タイプ（軽め）",v:[.7,.7,.7]},teka:{n:"脂性肌タイプ",v:[.42,.48,.95]},kona:{n:"乾燥肌タイプ",v:[.55,.55,.55]},mix:{n:"混合肌タイプ",v:[.5,.55,.8],v2:[.6,.6,.45]},sens:{n:"敏感肌タイプ",v:[.34,.34,.34]}};
+const OIL={std:{mochi:{s:["ローションのみで、もっちり吸いつくまで重ねづけ"],a:""},sara:{s:["まずはローションを3回重ねづけ","もっちり吸いつかなければ、オイルを3分の1から"],a:"3分の1から、吸いつくまで"},teka:{s:["まずはローションを3回重ねづけ","しっとり感がほしくなったら、オイルを3分の1から"],a:"数日はローションのみ。その後3分の1から"},kona:{s:["まずはローションを3回重ねづけ","吸いつかなければ、オイルを半量から全量まで"],a:"半量から全量まで"},mix:{s:["オイルを3分の1ほど加える","テカる部位は2回、乾く部分は3回重ねづけ"],a:"3分の1ほど。半量〜全量に加減"}},
+ sens:{mochi:{s:["ローションにオイルを少量加え、重ねづけ"],a:"少量から、必要に応じて"},sara:{s:["最初からオイルを3分の1加える","もっちり吸いつくまで、少しずつ増やす"],a:"3分の1から、吸いつくまで"},teka:{s:["最初からオイルを3分の1加える","もっちり吸いつくまで、少しずつ増やす"],a:"3分の1から、吸いつくまで"},kona:{s:["最初からオイルを半量加える","様子を見て、全量まで増やす"],a:"半量から全量まで"},mix:{s:["オイルを3分の1ほど加える","テカる部位は2回、乾く部分は3回重ねづけ"],a:"3分の1ほど。半量〜全量に加減"}}};
+function triSvg(v,v2){const cx=100,cy=112,R=78,ang=[-90,150,30].map(a=>a*Math.PI/180),pt=(r,i)=>[cx+r*R*Math.cos(ang[i]),cy+r*R*Math.sin(ang[i])],poly=a=>a.map((r,i)=>pt(r,i).map(n=>n.toFixed(1)).join(",")).join(" ");
+ let s=`<svg viewBox="0 0 200 204" role="img" aria-label="水分・水分保持力・保護力のバランス"><polygon points="${poly([1,1,1])}" fill="rgba(255,255,255,.5)" stroke="#fff" stroke-width="2.5"/>`;
+ [0,1,2].forEach(i=>{const p=pt(1,i);s+=`<line x1="${cx}" y1="${cy}" x2="${p[0]}" y2="${p[1]}" stroke="#fff" stroke-width="1.2"/>`});
+ if(v2)s+=`<polygon points="${poly(v2)}" fill="none" stroke="#9AA3D0" stroke-width="1.2" stroke-dasharray="3 3"/>`;
+ s+=`<polygon points="${poly(v)}" fill="rgba(182,190,228,.62)" stroke="#9AA3D0" stroke-width="1.3"/>`;
+ [["水分",100,22,"middle"],["水分保持力",18,200,"start"],["保護力",182,200,"end"]].forEach(([t,x,y,a])=>s+=`<text x="${x}" y="${y}" text-anchor="${a}" font-size="11" fill="#585856" font-family="Shippori Mincho,serif">${t}</text>`);
+ return s+"</svg>"}
+const yen=n=>"¥"+n.toLocaleString("ja-JP");
+const dlg=$("#dlg"),body=$("#dlgBody");let ans={},st=0;
+function render(){
+  const L=qList();
+  if(st<L.length){const q=L[st];const tot=L.length+1;body.innerHTML=`<span class="dl">QUESTION ${st+2} / ${tot}</span><h3>${q.t}</h3>${q.o.map(([v,l])=>`<button class="choice" data-v="${v}">${l}</button>`).join("")}<button class="back rx-b-back" id="bk">${st?'<span aria-hidden="true">←</span>ひとつ戻る':"閉じる"}</button>`;
+    body.querySelectorAll(".choice").forEach(b=>b.onclick=()=>{ans[q.k]=b.dataset.v;if(q.k==="s"&&b.dataset.v!=="past")delete ans.t;st++;render()});$("#bk").onclick=()=>{if(st){st--;render()}else dlg.close()};return;}
+  const {c,s,t,d}=ans;
+  const sens=s==="often"||(s==="past"&&t==="1y");      // 今も感じる・1年以内 → 敏感肌タイプ
+  const pastOld=s==="past"&&t!=="1y";                  // 2年以上前 → 悩みに合うローション＋注意書き
+  let lots,title;
+  if(sens){lots=["calm"];title="まずは、やさしく守る。"}
+  else if(c==="smooth"){lots=["calm","bright"];title="キメを、整える。"}
+  else if(c==="dry"||c==="rough"){lots=["calm"];title="ゆらぎを防ぎ、整える。"}
+  else if(c==="bright"){lots=["bright"];title="ツヤを、与える。"}
+  else{lots=["aging"];title="ハリを、与える。"}
+  const lot=lots[0];
+  const tt=sens?TT.sens:TT[d];
+  const useOil=true;
+  const useBalm=sens||d==="kona"||d==="mix";
+  const OILMSG={mochi:"ブレンドオイルは、乾燥時期のみ追加",sara:"ブレンドオイルを少し加えるのがおすすめ",teka:"秋頃から、ブレンドオイルを少しだけ追加",kona:"ブレンドオイルを多めに加えるのがおすすめ",mix:"乾く部分がつっぱるなら、ブレンドオイルを追加"};
+  const TYN={mochi:"バランスの整った肌タイプ",sara:"乾燥肌タイプ（軽め）",teka:"水分不足による（隠れ乾燥）脂性肌タイプ",kona:"乾燥肌タイプ",mix:"隠れ乾燥の混合肌タイプ",sens:"敏感肌タイプ"};
+  const SHORT={mochi:"水分・水分保持・保護の3つとも、足りています。",sara:"3つとも少し不足。ブレンドオイルを少し加えて。",teka:"まずは、たっぷりの水分補給がおすすめ。",kona:"3つとも不足。ブレンドオイルを多めに加えて。",mix:"部位によって調整。乾く部分は重ねづけを。",sens:"ブレンドオイルを加えて、やさしく守りましょう。"};
+  const TXT={mochi:"水分・水分保持・保護の3つとも足りているようなので、濃縮ローションにブレンドオイルの追加は不要だと言えますが、秋頃からなど季節によってもっちり吸いつかない乾燥を感じる時期は、ブレンドオイルを追加して調整しましょう。",
+   sara:"水分・水分保持・保護の3つとも不足しているので、濃縮ローションにブレンドオイルを少し加えるのがおすすめ。秋頃からなど季節によって強い乾燥を感じる前には、ブレンドオイルを追加して調整しましょう。",
+   teka:"保湿が足りないと、お肌はそれを守るため過剰な油を出やすくなります。まずはたっぷりの水分補給がおすすめ。水分・水分保持の2つが不足しているので、濃縮ローションの重ねづけで様子を見ながら、秋頃からブレンドオイルを少しだけ追加して調整しましょう。",
+   kona:"水分・水分保持・保護の3つとも不足しているようなので、濃縮ローションにブレンドオイルを多めに加えるのがおすすめ。",
+   sens:"水分・水分保持・保護の3つとも不足しているようなので、濃縮ローションにブレンドオイルを加えるのがおすすめ。<br>特に最近でも敏感な方、乾燥やガサガサ感が気になる方は、寝る前はご自宅ではマルチバームの保護もおすすめします。",
+   mix:"体質による影響もあり、一部は、水分・水分保持の2つとも不足。乾く部位は油分も不足しているため、濃縮ローションの回数で調整しましょう。全体は1回。乾く部分は3回重ね、それでもつっぱるなら、ブレンドオイルを加えるのがおすすめ。"};
+  const oilMsg=sens?"ブレンドオイルを加えて、肌を守るのがおすすめ":OILMSG[d];
+  const OCP={calm:"/pages/lilas-product-calmsmooth",aging:"/pages/lilas-product-aging",bright:"/pages/lilas-product-bright"};
+  const ocHref=OCP[lot]+"#oil-check";
+  const PRICE={calm:"50ml ¥6,490／110ml ¥11,000"};
+  const row=(k,sub,plus)=>{const x=P[k];const nm=OCP[k]?`<a class="rx-pn" href="${OCP[k]}">${x.n}<span aria-hidden="true"> →</span></a>`:x.n;return `<li class="rx-row"><span>${plus?'<b class="rx-plus">＋</b>':""}${nm}</span><i>${PRICE[k]||(typeof x.p==="string"?x.p:yen(x.p))}</i><small class="rx-sub">${sub||x.s}</small></li>`};
+  const ocLink=k=>`<li class="rx-oc-li"><a class="rx-oc" href="${OCP[k]}?skin=${sens?"sens":d}#oil-check">肌タイプの解説と、${P[k].n}を見る<span aria-hidden="true">→</span></a></li>`;
+  let li=lots.map(k=>row(k)+(useOil?ocLink(k):"")).join("");
+  if(useOil)li+=row("oil",oilMsg,true);
+  const notes=[];
+  if(sens)notes.push("カームスムースから始めて、問題がなければ、ほかの種類に移ることもできます。");
+  
+  const past=(pastOld||sens)?`<div class="rx-pastd"><p class="rx-pastd-h">${pastOld?"過去に敏感肌の経験がある方へ":"はじめて使う方へ(切り替え方)"}</p><div class="rx-pastc"><p>生理前後や妊娠・出産前後や、アレルギー体質で炎症が出ている方は、免疫やホルモンバランスなどの影響で、肌が敏感に傾きやすい時期です。<br>新しいスキンケアへの切り替えは、肌が落ち着いてからがおすすめです。</p><p class="q">心配な方は？</p><p>カームスムース(ブレンドオイルを加えて)からお試しください。</p><p class="q">新しいスキンケアに変える時は？</p><p>最初の数日は、お手持ちのスキンケアかお水と手のひらで1:1に混ぜて使い、肌を慣らしてから切り替えるのがおすすめです。</p></div></div>`:"";
+  body.innerHTML=`<div class="rx rx-a"><div class="rx-dark"><span class="dl">YOUR RECOMMENDATION</span><div class="rx-hd rx-hd-a"><div><p class="rx-lead">あなたは今、</p><h3 class="rx-tyname">${TYN[sens?"sens":d]}</h3><p class="rx-lead rx-lead2">の可能性があります。</p></div></div></div>${notes.map(n=>`<p class="rx-note">${n}</p>`).join("")}
+   <p class="rx-h rx-h2">${title.replace(/、/g,"").replace("。","")}、おすすめは？${lots.length>1?`<span class="rx-two">2本から、お好みでお選びください。</span>`:""}</p><ul>${li}</ul>${past}<div class="rx-back"><button class="back rx-b-back" id="rxBack" type="button"><span aria-hidden="true">←</span>ひとつ戻る</button><button class="back rx-b-restart" id="rxRestart" type="button"><span aria-hidden="true">↻</span>最初からやり直す</button></div><p class="fine rx-fine">チェック結果は目安です。肌に合わないときは使用をおやめください。${lot==="aging"?"<br>※エイジングケア:年齢に応じたうるおいケアのこと":""}</p></div>`;
+  const rb=body.querySelector("#rxBack");if(rb)rb.onclick=()=>{st=qList().length-1;render()};const rr=body.querySelector("#rxRestart");if(rr)rr.onclick=()=>{st=0;delete ans.s;delete ans.t;delete ans.d;render()};
+  
+}
+$$(".qopts button").forEach(b=>b.onclick=()=>{ans={c:b.dataset.v};st=0;render();dlg.showModal()});
+$("#dlgClose").onclick=()=>dlg.close();
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+})();
+</script>
+<script>
+/* ===== セクション送り:Enter・スペース・PageDownで次へ(Shiftで前へ)、パソコン表示のみ ===== */
+(()=>{const mq=matchMedia('(min-width:901px)');const hd=document.querySelector('header.site');
+const secs=()=>[...document.querySelectorAll('main section.lx-top, footer')];
+function go(d){const H=hd?hd.getBoundingClientRect().height:0;const cur=scrollY+H;const tops=secs().map(x=>Math.round(x.getBoundingClientRect().top+scrollY));
+let t=d>0?tops.find(v=>v>cur+6):[...tops].reverse().find(v=>v<cur-6);if(t===undefined)t=d>0?document.documentElement.scrollHeight:0;
+scrollTo({top:Math.max(0,t-H),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}
+addEventListener('keydown',e=>{if(!mq.matches||e.metaKey||e.ctrlKey||e.altKey||e.isComposing)return;const tg=e.target;
+if(/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName||'')||tg.isContentEditable)return;
+if(/^(BUTTON|A|SUMMARY)$/.test(tg.tagName||'')&&(e.key==='Enter'||e.key===' '))return;
+if(document.body.classList.contains('notes')||document.querySelector('dialog[open]'))return;
+if(e.key==='Enter'||e.key===' '||e.key==='PageDown'||e.key==='PageUp'){e.preventDefault();go((e.shiftKey||e.key==='PageUp')?-1:1)}})})();
+</script>
+<script>
+/* お知らせバー:×で閉じると、同じお知らせはこのブラウザでは再表示しない */
+(()=>{const b=document.getElementById("anbar");if(!b)return;const k="lilas-anbar:"+(b.dataset.id||"");try{if(localStorage.getItem(k)){b.hidden=true}}catch(e){}
+const x=b.querySelector(".anbar-x");if(x)x.onclick=()=>{b.hidden=true;try{localStorage.setItem(k,"1")}catch(e){}};
+const a=b.querySelector("[data-news]");if(a)a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}})})();
+</script>
+<script>
+/* ベル:押すとNewsを開く。新しいお知らせを見たら印を消す */
+(()=>{const b=document.querySelector("header.site .nbell");if(!b)return;const key="lilas-news-seen";
+ const latest=(document.querySelector(".nw-list time")||{}).getAttribute?document.querySelector(".nw-list time").getAttribute("datetime"):"";
+ try{if(latest&&localStorage.getItem(key)===latest)b.classList.add("seen")}catch(e){}
+ b.addEventListener("click",()=>{const o=document.getElementById("openNotes");try{if(latest)localStorage.setItem(key,latest)}catch(e){}b.classList.add("seen");if(o)o.click();else location.href="/#news"})})();
+</script>
+<script>
+/* 改行の仕組み(BudouX):言葉のまとまりの改行に未対応のブラウザ(iPhoneのSafariなど)だけ読み込む */
+(()=>{if(window.CSS&&CSS.supports&&CSS.supports("word-break","auto-phrase"))return;
+ const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/budoux@0.6.3/bundle/budoux-ja.min.js";s.async=true;
+ s.onload=()=>{if(!window.customElements)return;customElements.whenDefined("budoux-ja").then(()=>{
+  const sel="main p, main li, main dd, main dt, main h1, main h2, main h3, main h4, main figcaption, .drawer p, footer p";
+  document.querySelectorAll(sel).forEach(el=>{
+   if(el.closest("button,nav,dialog,svg,budoux-ja")||el.querySelector("p,div,ul,ol,li,table,img,svg,button,input,select,textarea,budoux-ja"))return;
+   if(!/[\u3040-\u30ff\u4e00-\u9fff]/.test(el.textContent))return;
+   const w=document.createElement("budoux-ja");while(el.firstChild)w.appendChild(el.firstChild);el.appendChild(w)})})};
+ document.head.appendChild(s)})();
+/* スマホ:メニューバーの出し入れ */
+(()=>{const hd=document.querySelector("header.site");if(!hd)return;const mq=matchMedia("(max-width:900px)");let y0=scrollY,tick=false;
+ addEventListener("scroll",()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const y=scrollY,d=y-y0;
+  if(!mq.matches||hd.classList.contains("open")||hd.classList.contains("menu")||document.body.classList.contains("notes")||y<120){if(hd.classList.contains("hd-hide"))hd.classList.remove("hd-hide");y0=y;return}
+  if(d>8){hd.classList.add("hd-hide");y0=y}else if(d<-6){hd.classList.remove("hd-hide");y0=y}})},{passive:true})})();
+</script>
+<script>
+/* フッターのNEWS:Newsのパネルを開く(パネルがないページはトップページへ) */
+document.querySelectorAll("[data-fm-news]").forEach(a=>a.addEventListener("click",e=>{const o=document.getElementById("openNotes");if(o){e.preventDefault();o.click()}}));
+</script>
+<button aria-label="ページの上へ" class="totop" id="totop" type="button">↑</button>
+<script>
+/* 「ページの上へ」:2画面分ほど読んだら出す */
+(()=>{const b=document.getElementById("totop");if(!b)return;const up=()=>b.classList.toggle("on",scrollY>innerHeight*1.5);
+ addEventListener("scroll",up,{passive:true});up();b.addEventListener("click",()=>scrollTo({top:0,behavior:"smooth"}))})();
+</script>
+<script>
+/* スマホのメニュー:開いている間は後ろのページを止め、メニューの中だけスクロール。1つ開くとほかは閉じる */
+(()=>{const h=document.querySelector("header.site");if(!h)return;const mq=matchMedia("(max-width:900px)");
+ let keepY=null;const sync=()=>{const open=h.classList.contains("menu")&&mq.matches;const was=document.documentElement.classList.contains("menu-lock");if(open&&!was)keepY=scrollY;document.documentElement.classList.toggle("menu-lock",open);if(!open&&was&&keepY!==null){const y=keepY;keepY=null;document.documentElement.style.scrollSnapType="none";scrollTo({top:y,behavior:"instant"});setTimeout(()=>document.documentElement.style.scrollSnapType="",400)}
+  if(open){if(h.classList.contains("hd-hide"))h.classList.remove("hd-hide");const st=()=>document.documentElement.style.setProperty("--mnav-top",Math.round(Math.max(h.offsetHeight,h.getBoundingClientRect().bottom))+"px");st();setTimeout(st,360)}};
+ new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});addEventListener("resize",sync);
+ h.querySelectorAll(".gi > .gt[aria-controls]").forEach(b=>b.addEventListener("click",()=>{if(!mq.matches)return;
+  setTimeout(()=>{if(b.getAttribute("aria-expanded")==="true"){h.querySelectorAll(".gi > .gt[aria-controls]").forEach(o=>{if(o!==b&&o.getAttribute("aria-expanded")==="true")o.click()});
+   const nav=h.querySelector("nav");const r=b.getBoundingClientRect(),nr=nav.getBoundingClientRect();nav.scrollTo({top:nav.scrollTop+r.top-nr.top-4,behavior:"smooth"})}},30)}))})();
+</script>
+<script>
+/* スマホ用:段落の中の改行のうち、注記(※)や箇条(・)の前など意味のある改行以外を「詰めてよい改行」にする */
+(()=>{const keepNext=/^[\s]*[※・◎●○■□\-–—(（「『【]/;const keepPrev=/[：:]\s*$/;
+ document.querySelectorAll("main p:not(.lx-pre p) br, main li:not(.lx-pre li) br, main dd:not(.lx-pre dd) br, footer p br").forEach(b=>{
+  if(b.closest("h1,h2,h3,h4,.fine,.rx-fine,.oc-note,.pnotes,.qbox-note,small,button,.svc-d,.nw-bd"))return;
+  const nx=b.nextSibling?b.nextSibling.textContent||"":"",pv=b.previousSibling?b.previousSibling.textContent||"":"";
+  if(keepNext.test(nx)||keepPrev.test(pv)||!nx.trim())return;b.classList.add("sbr")})})();
+</script>
+<script>
+/* メニューボタンの読み上げ名を、開閉に合わせて切り替える */
+(()=>{const h=document.querySelector("header.site"),b=h&&h.querySelector(".mbtn");if(!b)return;
+ new MutationObserver(()=>{const o=h.classList.contains("menu"),l=o?"メニューを閉じる":"メニュー";if(b.getAttribute("aria-label")!==l)b.setAttribute("aria-label",l);const e=String(o);if(b.getAttribute("aria-expanded")!==e)b.setAttribute("aria-expanded",e)}).observe(h,{attributes:true,attributeFilter:["class"]})})();
+</script>

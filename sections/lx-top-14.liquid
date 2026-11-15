@@ -1,0 +1,45 @@
+<section class="fsec lx-top lx-n12" id="share"><div class="wrap">
+<div class="f2-grid gift-grid">
+<div data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><div class="fhd-in left"><h2 class="fh">{{ section.settings.t_2 | escape }}</h2></div>
+<p class="ftx">{{ section.settings.t_3 | escape | newline_to_br | strip_newlines }}</p>
+<a class="lnk" href="#collection">{{ section.settings.t_4 }}</a></div>
+<figure class="ph f2-ph" data-r=""><img alt="Lilasを手にする2人" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-8b41fb643834.webp' | asset_url }}{% endif %}"/></figure>
+</div>
+</div></section>
+{% schema %}
+{
+  "name": "トップ 14 大切な人と、分かち合う。",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilasを手にする2人",
+      "info": "未設定のときは元の画像（img-8b41fb643834.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "06 / Gift"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "大切な人と、分かち合う。"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "性別を問わず使えるから、贈り物にも。 ギフト…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_4",
+      "label": "Gift ideas 贈り物を選ぶ",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    }
+  ]
+}
+{% endschema %}

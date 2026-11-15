@@ -1,0 +1,7 @@
+<div class="lx-sys">
+  <h1>コレクション</h1>
+  <div class="lx-grid">{%- for c in collections -%}<a class="lx-card" href="{{ c.url }}"><p>{{ c.title | escape }}</p></a>{%- endfor -%}</div>
+</div>
+{% schema %}
+{"name":"コレクション一覧","tag":"div","class":"lx-sec","settings":[]}
+{% endschema %}

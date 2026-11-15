@@ -1,0 +1,23 @@
+{%- assign p = product -%}
+<div class="lx-sys">
+  <div class="lx-pd">
+    <div>{% if p.featured_image %}<img src="{{ p.featured_image | image_url: width: 1200 }}" alt="{{ p.title | escape }}" width="1200" height="1200">{% endif %}</div>
+    <div>
+      <h1 style="text-align:left">{{ p.title | escape }}</h1>
+      <p style="font-size:20px">{{ p.selected_or_first_available_variant.price | money }}<small>（税込）</small></p>
+      {%- form 'product', p -%}
+        {%- if p.has_only_default_variant -%}
+          <input type="hidden" name="id" value="{{ p.selected_or_first_available_variant.id }}">
+        {%- else -%}
+          <p><select name="id">{%- for v in p.variants -%}<option value="{{ v.id }}"{% unless v.available %} disabled{% endunless %}{% if v == p.selected_or_first_available_variant %} selected{% endif %}>{{ v.title | escape }} - {{ v.price | money }}</option>{%- endfor -%}</select></p>
+        {%- endif -%}
+        <p><input type="number" name="quantity" value="1" min="1" aria-label="数量"></p>
+        <button type="submit"{% unless p.available %} disabled{% endunless %}>{% if p.available %}カートに入れる{% else %}売り切れ{% endif %}</button>
+      {%- endform -%}
+      <div class="rte" style="margin-top:28px">{{ p.description }}</div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{"name":"商品（標準）","tag":"div","class":"lx-sec","settings":[]}
+{% endschema %}

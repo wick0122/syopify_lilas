@@ -1,0 +1,15 @@
+<div class="lx-sys">
+  <h1>{{ collection.title | escape }}</h1>
+  {%- paginate collection.products by 24 -%}
+  <div class="lx-grid">
+    {%- for p in collection.products -%}
+      <a class="lx-card" href="{{ p.url }}">{% if p.featured_image %}<img src="{{ p.featured_image | image_url: width: 600 }}" alt="" loading="lazy" width="600" height="600">{% endif %}<p>{{ p.title | escape }}<br>{{ p.price | money }}</p></a>
+    {%- else -%}<p>商品がありません。</p>
+    {%- endfor -%}
+  </div>
+  {{ paginate | default_pagination }}
+  {%- endpaginate -%}
+</div>
+{% schema %}
+{"name":"コレクション","tag":"div","class":"lx-sec","settings":[]}
+{% endschema %}

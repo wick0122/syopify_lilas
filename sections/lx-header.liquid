@@ -1,0 +1,189 @@
+<header class="site hd2"><div class="in">
+<a class="logo logo-h" href="/"><img alt="Lilas" height="353" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-bfca34aa6eb8.webp' | asset_url }}{% endif %}" width="1000"/></a>
+<nav aria-label="メインメニュー" class="gnav"><div class="gi"><button aria-controls="mm-products" aria-expanded="false" class="gt" type="button"><span class="en">{{ section.settings.t_1 | escape }}</span></button><div aria-label="製品" class="mm" id="mm-products" role="region"><div class="mm-in"><div class="mm-col"><a class="mm-card" href="/#formula"><span class="mm-img mm-dark"><span class="mm-dk-en">{{ section.settings.t_2 | escape }}</span><span class="mm-dk-ja">{{ section.settings.t_3 | escape }}</span></span><span class="mm-lb">{{ section.settings.t_4 | escape }}</span></a><a class="mm-card" href="/pages/lilas-product-oil#oil-check"><span class="mm-img mm-dark mm-oil"><span class="mm-dk-en">{{ section.settings.t_5 | escape }}</span><span class="mm-dk-ja">{{ section.settings.t_6 | escape }}</span></span><span class="mm-lb">{{ section.settings.t_7 }}</span></a></div><a class="mm-card" href="/pages/lilas-features"><span class="mm-img"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-fbb103b99729.webp' | asset_url }}{% endif %}"/></span><span class="mm-lb">{{ section.settings.t_8 | escape }}</span></a><a class="mm-card" href="/pages/lilas-products"><span class="mm-img"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-b00cc97ca3c4.webp' | asset_url }}{% endif %}"/></span><span class="mm-lb">{{ section.settings.t_9 | escape }}</span></a><div class="mm-plist"><p class="mm-ph">{{ section.settings.t_10 | escape }}</p><ul><li><a href="/pages/lilas-product-calmsmooth">{{ section.settings.t_11 }}</a></li><li><a href="/pages/lilas-product-aging">{{ section.settings.t_12 | escape }}</a></li><li><a href="/pages/lilas-product-bright">{{ section.settings.t_13 | escape }}</a></li><li><a href="/pages/lilas-product-oil">{{ section.settings.t_14 | escape }}</a></li></ul><p class="mm-ph">{{ section.settings.t_15 | escape }}</p><ul><li><a href="/pages/lilas-product-serum">{{ section.settings.t_16 | escape }}</a></li></ul><p class="mm-ph">{{ section.settings.t_17 | escape }}</p><ul><li><a href="/pages/lilas-product-balm">{{ section.settings.t_18 | escape }}</a></li></ul></div></div></div></div><div class="gi"><button aria-controls="mm-about" aria-expanded="false" class="gt" type="button"><span class="en">{{ section.settings.t_19 | escape }}</span></button><div aria-label="Lilasについて" class="mm" id="mm-about" role="region"><div class="mm-in"><a class="mm-card" href="/pages/lilas-message"><span class="mm-img"><img alt="" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-994930ab0987.webp' | asset_url }}{% endif %}"/></span><span class="mm-lb">{{ section.settings.t_20 | escape }}</span></a><a class="mm-card" href="/pages/lilas-about"><span class="mm-img"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-c6ddb81140f0.webp' | asset_url }}{% endif %}"/></span><span class="mm-lb">{{ section.settings.t_21 | escape }}</span></a></div></div></div><div class="gi"><a class="gt" data-news="" href="/#news"><span class="en">{{ section.settings.t_22 | escape }}</span></a></div><div class="gi"><button aria-controls="mm-shop" aria-expanded="false" class="gt" type="button"><span class="en">{{ section.settings.t_23 | escape }}</span></button><div aria-label="ショップ情報" class="mm" id="mm-shop" role="region"><div class="mm-in"><a class="mm-card" data-todo="partner" href="#"><span class="mm-img mm-gray"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-42989edf7895.webp' | asset_url }}{% endif %}"/><img alt="" class="mm-logo pt" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-bfca34aa6eb8.webp' | asset_url }}{% endif %}"/></span><span class="mm-lb">{{ section.settings.t_24 | escape }}</span></a><a class="mm-card" data-todo="contact" href="#"><span class="mm-img mm-gray"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_7 %}{{ section.settings.img_7 | image_url: width: 1800 }}{% else %}{{ 'img-38b52dd84f25.webp' | asset_url }}{% endif %}"/></span><span class="mm-lb">{{ section.settings.t_25 | escape }}</span></a></div></div></div></nav>
+<div class="r"><button aria-label="お知らせ" class="nbell" type="button"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M6 17h12l-1.5-2V11a4.5 4.5 0 0 0-9 0v4L6 17Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.3"></path><path d="M10.5 19.2a1.6 1.6 0 0 0 3 0" fill="none" stroke="currentColor" stroke-width="1.3"></path></svg><i class="nbell-dot"></i></button><a aria-label="カート" class="cart" href="{{ routes.cart_url }}">カート<span class="cartn">{{ cart.item_count }}</span></a><button aria-label="メニュー" class="mbtn"></button></div>
+</div></header>
+{% schema %}
+{
+  "name": "ヘッダー",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilas",
+      "info": "未設定のときは元の画像（img-bfca34aa6eb8.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像 2",
+      "info": "未設定のときは元の画像（img-fbb103b99729.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像 3",
+      "info": "未設定のときは元の画像（img-b00cc97ca3c4.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "画像 4",
+      "info": "未設定のときは元の画像（img-994930ab0987.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_5",
+      "label": "画像 5",
+      "info": "未設定のときは元の画像（img-c6ddb81140f0.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像 6",
+      "info": "未設定のときは元の画像（img-42989edf7895.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_7",
+      "label": "画像 7",
+      "info": "未設定のときは元の画像（img-38b52dd84f25.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "PRODUCTS"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "SKIN TYPE CHECK"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "今、気になる肌の悩みは？"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "肌タイプチェック"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "BLEND OIL CHECK"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "私に必要な、潤いレベルは？"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "ブレンドオイル 分量チェック",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "製品の特徴"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "製品一覧"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "Equity Concentrate Lot…"
+    },
+    {
+      "type": "html",
+      "id": "t_11",
+      "label": "カームスムース 新作",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "エイジングケア"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "ブライトアップ"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "ブレンドオイル"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "BIRTH pure"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "モイストヴェールセラム"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "Others"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "モイストグロー マルチバーム"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "ABOUT"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "Lilasの想い"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "ブランドの歩み"
+    },
+    {
+      "type": "text",
+      "id": "t_22",
+      "label": "NEWS"
+    },
+    {
+      "type": "text",
+      "id": "t_23",
+      "label": "SHOP INFO"
+    },
+    {
+      "type": "text",
+      "id": "t_24",
+      "label": "販売パートナー"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "お問い合わせ"
+    },
+    {
+      "type": "html",
+      "id": "t_26",
+      "label": "カート（未使用）",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    }
+  ]
+}
+{% endschema %}

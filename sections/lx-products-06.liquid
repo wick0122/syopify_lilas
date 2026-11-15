@@ -1,0 +1,62 @@
+<section class="pl-sec wrap lx-top lx-n5" id="gift">
+<div class="pl-hd" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><h2>{{ section.settings.t_2 | escape }}</h2></div>
+<div class="pl-grid g1"><article class="pl-card is-gift" data-r="">
+<div class="pl-ph"><img alt="Lilasを手にする2人" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-8b41fb643834.webp' | asset_url }}{% endif %}"/></div>
+<div class="pl-tx">
+<div class="pl-name"><p class="pl-en">{{ section.settings.t_3 | escape }}</p><h3>{{ section.settings.t_4 | escape }}</h3></div>
+<p class="pl-lbl">{{ section.settings.t_5 | escape }}</p><p class="pl-desc">{{ section.settings.t_6 | escape }}</p>
+<p class="pl-price">{{ section.settings.t_7 }}</p>
+</div>
+</article></div>
+</section>
+{% schema %}
+{
+  "name": "製品一覧 06 ギフト",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilasを手にする2人",
+      "info": "未設定のときは元の画像（img-8b41fb643834.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "03 ・ Gift"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "ギフト"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "Gift Wrapping"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "ギフトラッピング"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "大切な人への贈り物に"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "箔押しのロゴシール・リボン・包装紙の緩衝材で…"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "¥330 (税込)",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    }
+  ]
+}
+{% endschema %}

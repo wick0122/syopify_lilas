@@ -1,0 +1,79 @@
+<section class="msec lx-top lx-n4">
+<div class="wrap">
+<div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><p class="disp">{{ section.settings.t_2 }}</p><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div>
+<div class="fm-wrap">
+<figure class="ph fm-ph2" data-r=""><img alt="Lilasの開発者" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-dca828bae116.webp' | asset_url }}{% endif %}"/></figure>
+<div class="fmsg" data-r="">
+<p>{{ section.settings.t_4 | escape | newline_to_br | strip_newlines }}</p>
+<p>{{ section.settings.t_5 | escape | newline_to_br | strip_newlines }}</p>
+<p>{{ section.settings.t_6 | escape }}</p>
+<p class="by">{{ section.settings.t_7 }}</p>
+</div>
+</div>
+<div class="mcta2" data-r=""><a class="mc-btn mc-dark" href="/pages/lilas-features">{{ section.settings.t_8 | escape }}</a><a class="mc-btn mc-line" href="/pages/lilas-products">{{ section.settings.t_9 | escape }}</a></div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "歩み 05 3 メッセージ",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilasの開発者",
+      "info": "未設定のときは元の画像（img-dca828bae116.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Message"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "With gratitude",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "開発者より"
+    },
+    {
+      "type": "textarea",
+      "id": "t_4",
+      "label": "研究してきた12年間は、 スキンケアへの想い…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_5",
+      "label": "これまでの悩みや迷いも、 一緒に研究を重ねて…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "出会えた皆さまに、感謝を込めて。"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "Lilas 開発者 Hano Miyu",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "製品の特徴を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "製品一覧"
+    }
+  ]
+}
+{% endschema %}

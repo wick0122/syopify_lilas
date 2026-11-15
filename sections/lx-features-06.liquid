@@ -1,0 +1,63 @@
+<section class="fsec alt lx-top lx-n4" id="f3"><div class="wrap">
+<div class="fhd-in left" data-r=""><span class="fno">{{ section.settings.t_1 | escape }}</span><h2 class="fh">{{ section.settings.t_2 | escape }}</h2></div>
+<div class="f3-grid">
+<figure class="ph f3-vid" data-r="">{%- assign lxv_1 = section.settings.vid_1 | default: settings.video_features -%}<video aria-label="洗面台の前で、Lilasを手に取る女性" autoplay="" class="blobv" loop="" muted="" playsinline="" poster="{{ 'img-5cd11f582996.webp' | asset_url }}" preload="auto"><source data-src="{% render 'lx-video-src', video: lxv_1 %}" data-src-sp="{% render 'lx-video-src', video: lxv_1, sp: true %}" type="video/mp4"/></video><script>(function(v){if(!v||!matchMedia("(max-width:900px)").matches)return;v.querySelectorAll("source[data-src-sp]").forEach(function(s){s.setAttribute("data-src",s.getAttribute("data-src-sp"))})})(document.currentScript.previousElementSibling)</script></figure>
+<div data-r=""><ul class="six6"><li>{{ section.settings.t_3 | escape }}</li><li>{{ section.settings.t_4 | escape }}</li><li>{{ section.settings.t_5 | escape }}</li><li>{{ section.settings.t_6 }}</li><li>{{ section.settings.t_7 | escape }}</li></ul><p class="ftx">{{ section.settings.t_8 | escape }}</p></div>
+</div>
+</div></section>
+{% schema %}
+{
+  "name": "特徴 06 03 1本で5役",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "video",
+      "id": "vid_1",
+      "label": "動画：洗面台の前で、Lilasを手に取る女性",
+      "info": "未設定のときは「テーマ設定 → 動画」の「特徴ページ（1本で5役）」を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "03"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "手間を省きながら、1本で5役"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "化粧水"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "美容液"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "乳液"
+    },
+    {
+      "type": "html",
+      "id": "t_6",
+      "label": "パック 3倍ほどに薄めて",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "ハンドケア"
+    },
+    {
+      "type": "textarea",
+      "id": "t_8",
+      "label": "化粧水から、美容液、乳液、パックまで。いくつ…"
+    }
+  ]
+}
+{% endschema %}

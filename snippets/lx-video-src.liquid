@@ -1,0 +1,16 @@
+{%- comment -%}動画のURL（パソコンは高画質、スマホは720p前後）{%- endcomment -%}
+{%- liquid
+  if video
+    assign mp4s = video.sources | where: 'format', 'mp4' | sort: 'height'
+    assign pick = mp4s.last
+    if sp
+      for s in mp4s
+        if s.height >= 720
+          assign pick = s
+          break
+        endif
+      endfor
+    endif
+    echo pick.url
+  endif
+-%}

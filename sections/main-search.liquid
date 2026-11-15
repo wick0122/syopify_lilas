@@ -1,0 +1,10 @@
+<div class="lx-sys">
+  <h1>検索</h1>
+  <form action="{{ routes.search_url }}" method="get" style="text-align:center;margin-bottom:32px"><input type="search" name="q" value="{{ search.terms | escape }}" style="padding:10px;min-width:260px;border:1px solid #d9d2ca;border-radius:4px" aria-label="検索"> <button type="submit">検索</button></form>
+  {%- if search.performed -%}
+  <div class="lx-grid">{%- for r in search.results -%}<a class="lx-card" href="{{ r.url }}"><p>{{ r.title | escape }}</p></a>{%- else -%}<p>見つかりませんでした。</p>{%- endfor -%}</div>
+  {%- endif -%}
+</div>
+{% schema %}
+{"name":"検索","tag":"div","class":"lx-sec","settings":[]}
+{% endschema %}

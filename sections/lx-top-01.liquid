@@ -1,0 +1,54 @@
+<section class="fv video lx-pre" id="top">
+{%- assign lxv_1 = section.settings.vid_1 | default: settings.video_top -%}<video aria-label="ブランドイメージの動画(約10秒)" autoplay="" class="bg" loop="" muted="" playsinline="" poster="{{ 'img-73b2923072e5.webp' | asset_url }}" preload="auto"><source data-src="{% render 'lx-video-src', video: lxv_1 %}" data-src-sp="{% render 'lx-video-src', video: lxv_1, sp: true %}" type="video/mp4"/></video><script>(function(v){if(!v||!matchMedia("(max-width:900px)").matches)return;v.querySelectorAll("source[data-src-sp]").forEach(function(s){s.setAttribute("data-src",s.getAttribute("data-src-sp"))})})(document.currentScript.previousElementSibling)</script>
+<div class="shade"></div>
+<p aria-label="Lilas" class="big big-logo"><span><img alt="Lilas" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-06dc8f874e25.webp' | asset_url }}{% endif %}"/></span><span class="fv-catch2">{{ section.settings.t_1 | escape }}</span></p>
+<div class="copy"><div class="lead-in"><p class="li-en">{{ section.settings.t_2 | escape }}</p><h1>{{ section.settings.t_3 | escape | newline_to_br | strip_newlines }}</h1></div></div>
+<button class="vctl" type="button">{{ section.settings.t_4 | escape }}</button><span class="scroll">{{ section.settings.t_5 | escape }}</span>
+</section>
+{% schema %}
+{
+  "name": "トップ 01 表紙",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilas",
+      "info": "未設定のときは元の画像（img-06dc8f874e25.webp）を表示します"
+    },
+    {
+      "type": "video",
+      "id": "vid_1",
+      "label": "動画：ブランドイメージの動画(約10秒)",
+      "info": "未設定のときは「テーマ設定 → 動画」の「トップの表紙」を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "うるおいの、ヴェールを纏う"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "All gender & Semi-cust…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "季節・年齢・性別・肌質に合わせて調節できる、…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "Pause"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "Scroll"
+    }
+  ]
+}
+{% endschema %}

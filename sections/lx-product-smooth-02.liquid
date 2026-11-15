@@ -1,0 +1,659 @@
+{%- liquid
+  assign p = section.settings.product
+  assign po = section.settings.oil_product
+  assign pg = section.settings.gift_product
+-%}
+{%- if p -%}
+<script>
+window.LX_PRICE={{ p.selected_or_first_available_variant.price | divided_by: 100 }};
+window.LX_CART={
+  variants:[{%- for v in p.variants -%}{"id":{{ v.id }},"title":{{ v.title | json }},"available":{{ v.available | json }}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}],
+  oil:{% if po %}{{ po.selected_or_first_available_variant.id }}{% else %}null{% endif %},
+  gift:{% if pg %}{{ pg.selected_or_first_available_variant.id }}{% else %}null{% endif %}
+};
+</script>
+{%- endif -%}
+<section class="wrap buy lx-top lx-n1" id="buy">
+<div class="gal">
+<div aria-label="製品写真" class="thumbs" role="tablist"><button aria-label="写真1" class="on" data-src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-769b66489e2f.webp' | asset_url }}{% endif %}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-4a364a85b76c.webp' | asset_url }}{% endif %}"/></button><button aria-label="写真2" data-src="{{ 'img-faf04d6281db.webp' | asset_url }}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-f8221df86347.webp' | asset_url }}{% endif %}"/></button><button aria-label="写真3" data-src="{{ 'img-460f03d0e362.webp' | asset_url }}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-f201d970279f.webp' | asset_url }}{% endif %}"/></button><button aria-label="写真4" data-src="{{ 'img-14c60bd0e019.webp' | asset_url }}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-8829ae3deb29.webp' | asset_url }}{% endif %}"/></button></div>
+<figure class="ph main-ph"><img alt="スムーススキン" decoding="async" id="mainImg" loading="lazy" src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-769b66489e2f.webp' | asset_url }}{% endif %}"/><span class="stamps"><span class="vg-badge"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_1 | escape }}</span></span></figure>
+</div>
+<div class="info">
+<span class="nmb">{{ section.settings.t_2 | escape }}</span>
+<h1>{{ section.settings.t_3 }}</h1>
+<p class="jp">{{ section.settings.t_4 | escape }}</p>
+<p class="catch"><span class="catch-t">{{ section.settings.t_5 | escape }}</span></p>
+<p class="rec-for">{{ section.settings.t_6 | escape }}</p><ul class="chips"><li>{{ section.settings.t_7 | escape }}</li><li>{{ section.settings.t_8 | escape }}</li><li>{{ section.settings.t_9 | escape }}</li><li>{{ section.settings.t_10 | escape }}</li></ul>
+<p class="ag-note"><span class="vg">{{ section.settings.t_11 | escape }}</span><span class="fn">{{ section.settings.t_12 | escape }}</span></p>
+<div class="price"><b>{{ section.settings.t_13 | escape }}</b><small>{{ section.settings.t_14 | escape }}</small><span class="vol">{{ section.settings.t_15 | escape }}</span></div>
+<p class="soldnote">{{ section.settings.t_16 | escape | newline_to_br | strip_newlines }}</p>
+<div aria-label="オプション" class="opt-box" role="group">
+<label class="opt"><input checked="" data-price="1320" id="optOil" type="checkbox"/><img alt="" class="ti" decoding="async" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-b3ab3b980636.webp' | asset_url }}{% endif %}"/><span><b>{{ section.settings.t_17 }}</b><small>{{ section.settings.t_18 | escape | newline_to_br | strip_newlines }}</small></span><span class="p">{{ section.settings.t_19 | escape }}</span></label>
+<label class="opt"><input data-price="330" id="optGift" type="checkbox"/><img alt="" class="ti" decoding="async" loading="lazy" src="{% if section.settings.img_7 %}{{ section.settings.img_7 | image_url: width: 1800 }}{% else %}{{ 'img-3bdc8772dbe5.webp' | asset_url }}{% endif %}"/><span><b>{{ section.settings.t_20 | escape }}</b><small>{{ section.settings.t_21 | escape }}</small></span><span class="p">{{ section.settings.t_22 | escape }}</span></label>
+</div>
+<div class="qtyrow">
+<div class="qty"><button aria-label="減らす" id="qMinus" type="button">{{ section.settings.t_23 | escape }}</button><output id="qty">{{ section.settings.t_24 | escape }}</output><button aria-label="増やす" id="qPlus" type="button">{{ section.settings.t_25 | escape }}</button></div>
+<div class="total"><span>{{ section.settings.t_26 | escape }}</span><b id="total">{{ section.settings.t_27 | escape }}</b></div>
+</div>
+<button aria-disabled="true" class="addcart big" disabled="" id="buyBtn">{{ section.settings.t_28 | escape }}</button>
+<p class="ship"><span id="shipTx">{{ section.settings.t_29 | escape }}</span><span class="bar"><i id="shipBar" style="width:96%"></i></span></p>
+<div class="ingC"><h3>{{ section.settings.t_30 }}</h3><p class="ic-sec">{{ section.settings.t_31 | escape }}</p><p class="ic-lead">{{ section.settings.t_32 | escape }}</p><div class="ic-g"><h4>{{ section.settings.t_33 }}</h4><ul class="tiles five"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_8 %}{{ section.settings.img_8 | image_url: width: 1800 }}{% else %}{{ 'img-05463f96fc49.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_34 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_9 %}{{ section.settings.img_9 | image_url: width: 1800 }}{% else %}{{ 'img-a6e1a1e2fa53.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_35 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_10 %}{{ section.settings.img_10 | image_url: width: 1800 }}{% else %}{{ 'img-592d7c69ccc6.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_36 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_11 %}{{ section.settings.img_11 | image_url: width: 1800 }}{% else %}{{ 'img-b483783fe7f0.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_37 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_12 %}{{ section.settings.img_12 | image_url: width: 1800 }}{% else %}{{ 'img-f7b7b7ea0207.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_38 | escape }}</span></li></ul></div><div class="ic-g"><h4>{{ section.settings.t_39 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_13 %}{{ section.settings.img_13 | image_url: width: 1800 }}{% else %}{{ 'img-c138105965a4.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_40 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_14 %}{{ section.settings.img_14 | image_url: width: 1800 }}{% else %}{{ 'img-8a08b1335776.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_41 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_15 %}{{ section.settings.img_15 | image_url: width: 1800 }}{% else %}{{ 'img-b85984b643a8.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_42 | escape }}</span></li></ul><p class="ic-note">{{ section.settings.t_43 | escape }}</p></div><div class="ic-g"><h4>{{ section.settings.t_44 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_16 %}{{ section.settings.img_16 | image_url: width: 1800 }}{% else %}{{ 'img-1e56fe9168d5.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_45 }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_17 %}{{ section.settings.img_17 | image_url: width: 1800 }}{% else %}{{ 'img-c9f46f0b727f.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_46 }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_18 %}{{ section.settings.img_18 | image_url: width: 1800 }}{% else %}{{ 'img-c3bcb0996551.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_47 }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_19 %}{{ section.settings.img_19 | image_url: width: 1800 }}{% else %}{{ 'img-baebdca1cbe1.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_48 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_20 %}{{ section.settings.img_20 | image_url: width: 1800 }}{% else %}{{ 'img-cc484d06a185.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_49 | escape | newline_to_br | strip_newlines }}</span></li></ul></div><div class="ic-g"><details class="ic-more"><summary>{{ section.settings.t_50 | escape }}</summary><p class="ic-sec ic-sec2">{{ section.settings.t_51 }}</p><div class="ic-g"><h4>{{ section.settings.t_52 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_21 %}{{ section.settings.img_21 | image_url: width: 1800 }}{% else %}{{ 'img-c1575d06b548.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_53 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_22 %}{{ section.settings.img_22 | image_url: width: 1800 }}{% else %}{{ 'img-4b8e54f71bb7.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_54 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_23 %}{{ section.settings.img_23 | image_url: width: 1800 }}{% else %}{{ 'img-4d4aab12a91b.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_55 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_24 %}{{ section.settings.img_24 | image_url: width: 1800 }}{% else %}{{ 'img-64d844f6cc82.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_56 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_25 %}{{ section.settings.img_25 | image_url: width: 1800 }}{% else %}{{ 'img-158bccc6c230.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_57 | escape }}</span></li></ul></div><div class="ic-g"><h4>{{ section.settings.t_58 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_26 %}{{ section.settings.img_26 | image_url: width: 1800 }}{% else %}{{ 'img-5f425005f26c.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_59 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_27 %}{{ section.settings.img_27 | image_url: width: 1800 }}{% else %}{{ 'img-a9a95b36a5f8.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_60 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_28 %}{{ section.settings.img_28 | image_url: width: 1800 }}{% else %}{{ 'img-2797e0c14ec0.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_61 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_29 %}{{ section.settings.img_29 | image_url: width: 1800 }}{% else %}{{ 'img-b59e95669293.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_62 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_30 %}{{ section.settings.img_30 | image_url: width: 1800 }}{% else %}{{ 'img-e1aba261b351.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_63 | escape }}</span></li></ul></div><div class="ic-g"><h4>{{ section.settings.t_64 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_31 %}{{ section.settings.img_31 | image_url: width: 1800 }}{% else %}{{ 'img-72d059972333.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_65 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_32 %}{{ section.settings.img_32 | image_url: width: 1800 }}{% else %}{{ 'img-7e9ed424f981.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_66 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_33 %}{{ section.settings.img_33 | image_url: width: 1800 }}{% else %}{{ 'img-e174171fb758.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_67 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_34 %}{{ section.settings.img_34 | image_url: width: 1800 }}{% else %}{{ 'img-8c9a3b73883c.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_68 | escape | newline_to_br | strip_newlines }}</span></li></ul></div></details></div></div>
+<ul class="mini">
+<li>{{ section.settings.t_69 }}</li>
+<li>{{ section.settings.t_70 }}</li>
+</ul>
+</div>
+</section>
+{% schema %}
+{
+  "name": "スムース 02 1 購入エリア",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-4a364a85b76c.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像 2",
+      "info": "未設定のときは元の画像（img-f8221df86347.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像 3",
+      "info": "未設定のときは元の画像（img-f201d970279f.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "画像 4",
+      "info": "未設定のときは元の画像（img-8829ae3deb29.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_5",
+      "label": "画像：スムーススキン",
+      "info": "未設定のときは元の画像（img-769b66489e2f.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像 6",
+      "info": "未設定のときは元の画像（img-b3ab3b980636.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_7",
+      "label": "画像 7",
+      "info": "未設定のときは元の画像（img-3bdc8772dbe5.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_8",
+      "label": "画像 8",
+      "info": "未設定のときは元の画像（img-05463f96fc49.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_9",
+      "label": "画像 9",
+      "info": "未設定のときは元の画像（img-a6e1a1e2fa53.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_10",
+      "label": "画像 10",
+      "info": "未設定のときは元の画像（img-592d7c69ccc6.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_11",
+      "label": "画像 11",
+      "info": "未設定のときは元の画像（img-b483783fe7f0.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_12",
+      "label": "画像 12",
+      "info": "未設定のときは元の画像（img-f7b7b7ea0207.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_13",
+      "label": "画像 13",
+      "info": "未設定のときは元の画像（img-c138105965a4.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_14",
+      "label": "画像 14",
+      "info": "未設定のときは元の画像（img-8a08b1335776.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_15",
+      "label": "画像 15",
+      "info": "未設定のときは元の画像（img-b85984b643a8.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_16",
+      "label": "画像 16",
+      "info": "未設定のときは元の画像（img-1e56fe9168d5.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_17",
+      "label": "画像 17",
+      "info": "未設定のときは元の画像（img-c9f46f0b727f.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_18",
+      "label": "画像 18",
+      "info": "未設定のときは元の画像（img-c3bcb0996551.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_19",
+      "label": "画像 19",
+      "info": "未設定のときは元の画像（img-baebdca1cbe1.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_20",
+      "label": "画像 20",
+      "info": "未設定のときは元の画像（img-cc484d06a185.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_21",
+      "label": "画像 21",
+      "info": "未設定のときは元の画像（img-c1575d06b548.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_22",
+      "label": "画像 22",
+      "info": "未設定のときは元の画像（img-4b8e54f71bb7.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_23",
+      "label": "画像 23",
+      "info": "未設定のときは元の画像（img-4d4aab12a91b.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_24",
+      "label": "画像 24",
+      "info": "未設定のときは元の画像（img-64d844f6cc82.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_25",
+      "label": "画像 25",
+      "info": "未設定のときは元の画像（img-158bccc6c230.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_26",
+      "label": "画像 26",
+      "info": "未設定のときは元の画像（img-5f425005f26c.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_27",
+      "label": "画像 27",
+      "info": "未設定のときは元の画像（img-a9a95b36a5f8.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_28",
+      "label": "画像 28",
+      "info": "未設定のときは元の画像（img-2797e0c14ec0.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_29",
+      "label": "画像 29",
+      "info": "未設定のときは元の画像（img-b59e95669293.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_30",
+      "label": "画像 30",
+      "info": "未設定のときは元の画像（img-e1aba261b351.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_31",
+      "label": "画像 31",
+      "info": "未設定のときは元の画像（img-72d059972333.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_32",
+      "label": "画像 32",
+      "info": "未設定のときは元の画像（img-7e9ed424f981.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_33",
+      "label": "画像 33",
+      "info": "未設定のときは元の画像（img-e174171fb758.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_34",
+      "label": "画像 34",
+      "info": "未設定のときは元の画像（img-8c9a3b73883c.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "Equity Concentrate Lot…"
+    },
+    {
+      "type": "html",
+      "id": "t_3",
+      "label": "Smooth Skin",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "スムーススキン"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "キメの乱れが気になる肌を、なめらかに"
+    },
+    {
+      "type": "textarea",
+      "id": "t_6",
+      "label": "ブレンドオイルの配合量を抑えているため、濃縮…"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "ヴィーガン処方"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "防腐剤無添加※"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "国内工場で手作業"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "ジェンダーレス"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "VEGAN対応:動物由来の原料を使用していま…"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "※防腐剤無添加:化粧品基準に定められた防腐剤…"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "¥11,000"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "(税込)"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "110ml"
+    },
+    {
+      "type": "textarea",
+      "id": "t_16",
+      "label": "スムーススキンは旧作のため、販売を終了しまし…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_17",
+      "label": "02 ブレンドオイル(15ml) おすすめ",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_18",
+      "label": "ローションに加えると油分が補われ、 より乳液…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "+¥1,320"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "ギフトラッピング"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "贈り物に。"
+    },
+    {
+      "type": "text",
+      "id": "t_22",
+      "label": "+¥330"
+    },
+    {
+      "type": "text",
+      "id": "t_23",
+      "label": "−"
+    },
+    {
+      "type": "text",
+      "id": "t_24",
+      "label": "1"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "＋"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "合計(税込)"
+    },
+    {
+      "type": "text",
+      "id": "t_27",
+      "label": "¥12,320"
+    },
+    {
+      "type": "text",
+      "id": "t_28",
+      "label": "完売しました"
+    },
+    {
+      "type": "text",
+      "id": "t_29",
+      "label": "あと¥580で送料無料"
+    },
+    {
+      "type": "html",
+      "id": "t_30",
+      "label": "Key ingredients 主な配合成分",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_31",
+      "label": "スムーススキンの特徴となる成分"
+    },
+    {
+      "type": "textarea",
+      "id": "t_32",
+      "label": "肌をひきしめる和漢植物エキス、ゲンノショウコ…"
+    },
+    {
+      "type": "html",
+      "id": "t_33",
+      "label": "Herbs 和漢植物エキス 5 種",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_34",
+      "label": "ゲンノショウコ"
+    },
+    {
+      "type": "text",
+      "id": "t_35",
+      "label": "ドクダミ"
+    },
+    {
+      "type": "text",
+      "id": "t_36",
+      "label": "ハトムギ種子"
+    },
+    {
+      "type": "text",
+      "id": "t_37",
+      "label": "レイシ"
+    },
+    {
+      "type": "text",
+      "id": "t_38",
+      "label": "ザクロ"
+    },
+    {
+      "type": "html",
+      "id": "t_39",
+      "label": "Tightening 肌のひきしめ成分 3 …",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_40",
+      "label": "ハマメリス"
+    },
+    {
+      "type": "textarea",
+      "id": "t_41",
+      "label": "アーティ チョーク葉",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_42",
+      "label": "ビルベリー葉"
+    },
+    {
+      "type": "text",
+      "id": "t_43",
+      "label": "和漢植物エキスのゲンノショウコ、ドクダミも、…"
+    },
+    {
+      "type": "html",
+      "id": "t_44",
+      "label": "Vitamins 肌を整えるビタミン成分 5…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_45",
+      "label": "レチノール ビタミンA",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_46",
+      "label": "ナイアシン アミド ビタミンB3",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_47",
+      "label": "ピリドキシン ビタミンB6",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_48",
+      "label": "ビタミンC 誘導体",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_49",
+      "label": "ビタミンE 誘導体",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_50",
+      "label": "Lilas共通のベース成分を見る"
+    },
+    {
+      "type": "html",
+      "id": "t_51",
+      "label": "Lilas共通の土台 リラの土台となる、肌を…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_52",
+      "label": "Moisture うるおいを与える成分 5 …",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_53",
+      "label": "高分子＆低分子 ヒアルロン酸Na",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_54",
+      "label": "シロキクラゲ 多糖体",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_55",
+      "label": "クリ渋皮 セラミド",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_56",
+      "label": "玄米麹発酵 エキス",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_57",
+      "label": "アラントイン"
+    },
+    {
+      "type": "html",
+      "id": "t_58",
+      "label": "Oil オイルと植物バター 5 種",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_59",
+      "label": "アンズ核油"
+    },
+    {
+      "type": "text",
+      "id": "t_60",
+      "label": "スクワラン"
+    },
+    {
+      "type": "text",
+      "id": "t_61",
+      "label": "セサミ油"
+    },
+    {
+      "type": "text",
+      "id": "t_62",
+      "label": "ヒマシ油"
+    },
+    {
+      "type": "text",
+      "id": "t_63",
+      "label": "シア脂"
+    },
+    {
+      "type": "html",
+      "id": "t_64",
+      "label": "Floral water オーガニック植物の…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_65",
+      "label": "月桃水"
+    },
+    {
+      "type": "textarea",
+      "id": "t_66",
+      "label": "ダマスク ローズ水",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_67",
+      "label": "ラベンダー 花水",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_68",
+      "label": "オレンジ花 （ネロリ）水",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_69",
+      "label": "使用の目安 1本で4ヶ月分",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_70",
+      "label": "送料 全国一律800円 ・ 14,000円以…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "header",
+      "content": "Shopifyの商品とつなぐ"
+    },
+    {
+      "type": "paragraph",
+      "content": "ここで商品を選ぶと「カートに入れる」でShopifyのカートに入ります。未選択のときはカートに入りません。"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "この製品（本体）"
+    },
+    {
+      "type": "product",
+      "id": "oil_product",
+      "label": "オプション：ブレンドオイル"
+    },
+    {
+      "type": "product",
+      "id": "gift_product",
+      "label": "オプション：ギフトラッピング"
+    }
+  ]
+}
+{% endschema %}

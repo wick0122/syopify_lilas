@@ -1,0 +1,51 @@
+<section class="fsec qmoist dew lx-top lx-n1" id="moisture"><div class="wrap">
+<span class="qlbl" data-r="">{{ section.settings.t_1 | escape }}</span>
+<p class="disp" data-r="">{{ section.settings.t_2 | escape }}</p>
+<h2 data-r="">{{ section.settings.t_3 }}</h2>
+<p class="intro" data-r="">{{ section.settings.t_4 | escape | newline_to_br | strip_newlines }}</p>
+<figure class="ph wide" data-r=""><img alt="琥珀色のEquity Concentrate Lotion 3種とブレンドオイル" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-1ff48560747e.webp' | asset_url }}{% endif %}" style="object-position:center 62%"/><span class="ripple"><i></i><i></i><i></i></span></figure>
+<p class="amber" data-r="">{{ section.settings.t_5 | escape | newline_to_br | strip_newlines }}</p>
+</div></section>
+{% schema %}
+{
+  "name": "トップ 03 01 うるおい",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：琥珀色のEquity Concentrate…",
+      "info": "未設定のときは元の画像（img-1ff48560747e.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "01 / Moisture"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "Moisture"
+    },
+    {
+      "type": "html",
+      "id": "t_3",
+      "label": "植物の恵みを、贅沢に 凝縮",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_4",
+      "label": "Lilasを初めて手にした方が驚かれる、美し…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_5",
+      "label": "水を新たに加えず、和漢植物エキスと保湿成分を…",
+      "info": "改行はそのまま反映されます"
+    }
+  ]
+}
+{% endschema %}

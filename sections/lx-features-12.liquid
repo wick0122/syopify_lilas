@@ -1,0 +1,150 @@
+<section class="craft lx-top lx-n10" id="f5">
+<div class="wrap">
+<div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><p class="disp">{{ section.settings.t_2 }}</p><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div>
+<div class="cr-grid">
+<div class="cr-free" data-r="">
+<h3>{{ section.settings.t_4 | escape }}</h3>
+<ul class="free10"><li>{{ section.settings.t_5 }}</li><li>{{ section.settings.t_6 | escape }}</li><li>{{ section.settings.t_7 | escape }}</li><li>{{ section.settings.t_8 | escape }}</li><li>{{ section.settings.t_9 | escape }}</li><li>{{ section.settings.t_10 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_11 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_12 | escape }}</li><li>{{ section.settings.t_13 | escape }}</li><li>{{ section.settings.t_14 }}</li></ul>
+<p class="cr-note">{{ section.settings.t_15 }}</p>
+<p class="cr-fine">{{ section.settings.t_16 | escape }}</p>
+<figure class="ph cr-ph"><img alt="手のひらにローションを出す様子" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-f9e79b00eb03.webp' | asset_url }}{% endif %}"/></figure>
+</div>
+<div class="cr-side">
+<div class="cr-box" data-r=""><span class="k">{{ section.settings.t_17 | escape }}</span><h3>{{ section.settings.t_18 | escape }}</h3><p>{{ section.settings.t_19 | escape }}</p></div>
+<div class="cr-box" data-r=""><span class="k">{{ section.settings.t_20 | escape }}</span><h3>{{ section.settings.t_21 | escape }}</h3><p>{{ section.settings.t_22 | escape | newline_to_br | strip_newlines }}</p></div>
+</div>
+</div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "特徴 12 05 つくり",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：手のひらにローションを出す様子",
+      "info": "未設定のときは元の画像（img-f9e79b00eb03.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Craft & Care"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Made with care",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "入れないもの、手をかけること"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "配合していない、10の成分"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "乳化剤 合成界面活性剤",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "シリコン"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "合成香料"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "合成着色料"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "タール系色素"
+    },
+    {
+      "type": "textarea",
+      "id": "t_10",
+      "label": "石油由来 ミネラル油",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_11",
+      "label": "石油由来 ワセリン",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "エデト酸塩"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "安息香酸"
+    },
+    {
+      "type": "html",
+      "id": "t_14",
+      "label": "PG プロピレングリコール",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_15",
+      "label": "長期保存のための添加物に頼らず、使用期限を短…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "※すべての方に肌トラブルが起こらないというこ…"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "Small Batch, Made in J…"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "国内工場で100本ずつ、大切に製造"
+    },
+    {
+      "type": "textarea",
+      "id": "t_19",
+      "label": "仕上げのブレンドオイルも一つひとつ手作業で加…"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "4 months"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "1本で、約4ヶ月のお手入れを"
+    },
+    {
+      "type": "textarea",
+      "id": "t_22",
+      "label": "肌の状態に合わせて、必要な部分に必要なだけ、…",
+      "info": "改行はそのまま反映されます"
+    }
+  ]
+}
+{% endschema %}

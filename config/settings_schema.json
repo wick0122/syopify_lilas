@@ -1,0 +1,54 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Lilas",
+    "theme_version": "1.0.0",
+    "theme_author": "Lilas",
+    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
+    "theme_support_url": "https://help.shopify.com"
+  },
+  {
+    "name": "全体の設定",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "ファビコン（ブラウザのタブのアイコン）"
+      }
+    ]
+  },
+  {
+    "name": "動画",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "Shopifyの「コンテンツ → ファイル」にアップロードした動画を選びます。各ページのセクションで別の動画を選ぶと、そちらが優先されます。"
+      },
+      {
+        "type": "video",
+        "id": "video_top",
+        "label": "トップの表紙"
+      },
+      {
+        "type": "video",
+        "id": "video_message",
+        "label": "想いページの表紙"
+      },
+      {
+        "type": "video",
+        "id": "video_features",
+        "label": "特徴ページ（1本で5役）"
+      },
+      {
+        "type": "video",
+        "id": "video_howto_apply",
+        "label": "使い方（なじませる）"
+      },
+      {
+        "type": "video",
+        "id": "video_howto_shake",
+        "label": "使い方（振って手に取る）"
+      }
+    ]
+  }
+]

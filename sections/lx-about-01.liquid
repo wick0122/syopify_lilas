@@ -1,0 +1,29 @@
+<section class="mhero lx-top lx-n1">
+<figure class="ph"><img alt="コンクリートの床に並ぶLilasの製品" class="fvline" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-72bd739940c3.webp' | asset_url }}{% endif %}"/></figure>
+<div class="in"><p class="en" data-r="">{{ section.settings.t_1 | escape }}</p><h1 data-r="">{{ section.settings.t_2 | escape }}</h1></div>
+</section>
+{% schema %}
+{
+  "name": "歩み 01 ブランドの歩み",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：コンクリートの床に並ぶLilasの製品",
+      "info": "未設定のときは元の画像（img-72bd739940c3.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Born in the salon, sha…"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "ブランドの歩み"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,84 @@
+<section class="r-sec r-concept lx-top lx-n4">
+<div class="wrap">
+<div class="r-concept__head" data-r="">
+<span class="r-no">{{ section.settings.t_1 | escape }}</span>
+<p class="r-en">{{ section.settings.t_2 }}</p>
+<h2 class="r-h">{{ section.settings.t_3 | escape }}</h2>
+<p>{{ section.settings.t_4 | escape }}</p>
+</div>
+<div class="r-concept__grid">
+<figure class="ph r-concept__ph" data-r=""><img alt="エイジングケアのボトルを見つめる女性" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-57ab9b85ce1f.webp' | asset_url }}{% endif %}" style="object-position:45% center"/></figure>
+<ol class="r-vals" data-r="">
+<li><b>{{ section.settings.t_5 | escape }}</b><span>{{ section.settings.t_6 | escape }}</span></li>
+<li><b>{{ section.settings.t_7 | escape }}</b><span>{{ section.settings.t_8 | escape }}</span></li>
+<li><b>{{ section.settings.t_9 | escape }}</b><span>{{ section.settings.t_10 | escape }}</span></li>
+</ol>
+</div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "想い 05 03 コンセプト",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：エイジングケアのボトルを見つめる女性",
+      "info": "未設定のときは元の画像（img-57ab9b85ce1f.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "03"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Our concept",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "宝モノのように、大切にしたくなる"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "Lilasにとっての「美しさ」とは、顔や体の…"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "i."
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "「ご自身」に意識を向けて、労り、愛すること"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "ii."
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "揺るぎない、心の軸を持つこと"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "iii."
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "休息を愛して、いつもクリアでいること"
+    }
+  ]
+}
+{% endschema %}

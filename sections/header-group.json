@@ -1,0 +1,50 @@
+{
+  "type": "header",
+  "name": "Header",
+  "sections": {
+    "announcement": {
+      "type": "lx-announcement",
+      "settings": {
+        "t_1": "年末年始の配送休業のお知らせ",
+        "t_2": "×",
+        "show": true,
+        "anbar_id": "2026-yearend"
+      }
+    },
+    "header": {
+      "type": "lx-header",
+      "settings": {
+        "t_1": "PRODUCTS",
+        "t_2": "SKIN TYPE CHECK",
+        "t_3": "今、気になる肌の悩みは？",
+        "t_4": "肌タイプチェック",
+        "t_5": "BLEND OIL CHECK",
+        "t_6": "私に必要な、潤いレベルは？",
+        "t_7": "ブレンドオイル<wbr/><span class=\"sp-br\"></span>分量チェック",
+        "t_8": "製品の特徴",
+        "t_9": "製品一覧",
+        "t_10": "Equity Concentrate Lotion",
+        "t_11": "カームスムース<small>新作</small>",
+        "t_12": "エイジングケア",
+        "t_13": "ブライトアップ",
+        "t_14": "ブレンドオイル",
+        "t_15": "BIRTH pure",
+        "t_16": "モイストヴェールセラム",
+        "t_17": "Others",
+        "t_18": "モイストグロー マルチバーム",
+        "t_19": "ABOUT",
+        "t_20": "Lilasの想い",
+        "t_21": "ブランドの歩み",
+        "t_22": "NEWS",
+        "t_23": "SHOP INFO",
+        "t_24": "販売パートナー",
+        "t_25": "お問い合わせ",
+        "t_26": "カート<span class=\"cartn\">§LX0§</span>"
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "header"
+  ]
+}

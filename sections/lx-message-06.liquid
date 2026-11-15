@@ -1,0 +1,25 @@
+<section class="r-light lx-top lx-n5">
+<figure class="ph"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-eae2867bbdb5.webp' | asset_url }}{% endif %}" style="object-position:center 40%"/></figure>
+<p class="r-light__q" data-r="">{{ section.settings.t_1 | escape | newline_to_br | strip_newlines }}</p>
+</section>
+{% schema %}
+{
+  "name": "想い 06 section.r-light lx-",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-eae2867bbdb5.webp）を表示します"
+    },
+    {
+      "type": "textarea",
+      "id": "t_1",
+      "label": "肌にふれるたびに、幸せを感じる。 使うたびに…",
+      "info": "改行はそのまま反映されます"
+    }
+  ]
+}
+{% endschema %}

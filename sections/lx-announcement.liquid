@@ -1,0 +1,34 @@
+{%- if section.settings.show -%}
+<div class="anbar" data-id="{{ section.settings.anbar_id | escape }}" id="anbar"><a data-news="" href="/#news">{{ section.settings.t_1 | escape }}</a><button aria-label="お知らせを閉じる" class="anbar-x" type="button">{{ section.settings.t_2 | escape }}</button></div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "お知らせバー",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "年末年始の配送休業のお知らせ"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "×"
+    },
+    {
+      "type": "checkbox",
+      "id": "show",
+      "label": "お知らせバーを表示する",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "anbar_id",
+      "label": "お知らせID",
+      "info": "内容を変えたらIDも変えてください（×で閉じた人にも再表示されます）"
+    }
+  ]
+}
+{% endschema %}

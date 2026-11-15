@@ -1,0 +1,116 @@
+<section class="fsec lx-top lx-n3" id="f2"><div class="wrap">
+<div class="f2-grid">
+<div data-r=""><span class="fno">{{ section.settings.t_1 | escape }}</span><h2 class="fh">{{ section.settings.t_2 | escape | newline_to_br | strip_newlines }}</h2>
+<p class="ftx">{{ section.settings.t_3 | escape }}</p></div>
+<figure class="ph f2-ph" data-r=""><img alt="鏡の前で、ふたりでローションを肌になじませる様子" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-16b2edfff84a.webp' | asset_url }}{% endif %}"/></figure>
+</div>
+<ul class="wy-cases">
+<li data-r=""><span class="n">{{ section.settings.t_4 | escape }}</span><h4>{{ section.settings.t_5 | escape }}</h4><p>{{ section.settings.t_6 | escape }}</p></li>
+<li data-r=""><span class="n">{{ section.settings.t_7 | escape }}</span><h4>{{ section.settings.t_8 | escape }}</h4><p>{{ section.settings.t_9 | escape }}</p></li>
+<li data-r=""><span class="n">{{ section.settings.t_10 | escape }}</span><h4>{{ section.settings.t_11 | escape }}</h4><p>{{ section.settings.t_12 | escape }}</p></li>
+<li data-r=""><span class="n">{{ section.settings.t_13 | escape }}</span><h4>{{ section.settings.t_14 | escape }}</h4><p>{{ section.settings.t_15 | escape }}</p></li>
+</ul>
+<div class="f2-cta" data-r=""><p>{{ section.settings.t_16 }}</p><a class="addcart big" href="/pages/lilas-products">{{ section.settings.t_17 | escape }}</a></div>
+</div></section>
+{% schema %}
+{
+  "name": "特徴 05 02 調節できる",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：鏡の前で、ふたりでローションを肌になじませる…",
+      "info": "未設定のときは元の画像（img-16b2edfff84a.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "02"
+    },
+    {
+      "type": "textarea",
+      "id": "t_2",
+      "label": "調節できる、という 新しいオールインワン",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "年齢や季節によって、肌の水分や油分のバランス…"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "i."
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "朝と夜で"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "朝は軽やかに、夜はオイルを加えた1本でしっと…"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "ii."
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "季節で"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "夏は軽やかに、乾く冬はオイルを多めに。季節に…"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "iii."
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "ふたりで"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "自分用と、パートナー用に。それぞれ好みの仕上…"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "iv."
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "重ねづけで"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "乾燥や美容面で重点的にケアしたい部分には、丁…"
+    },
+    {
+      "type": "html",
+      "id": "t_16",
+      "label": "1本をじっくり使うのも、朝と夜、季節や使う人…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "製品を見る"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,35 @@
+<section class="fsec alt lx-top lx-n2" id="yourway"><div class="wrap center">
+<div data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><div class="fhd-in"><h2 class="fh">{{ section.settings.t_2 | escape }}</h2></div></div>
+<p class="ftx yw-tx" data-r="">{{ section.settings.t_3 }}</p>
+<p class="yw-cta" data-r=""><a class="addcart more" href="/pages/lilas-features">{{ section.settings.t_4 | escape }}</a></p>
+</div></section>
+{% schema %}
+{
+  "name": "トップ 04 02 Your way",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "02 / Your way"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "肌に合わせて、使い方も自由に"
+    },
+    {
+      "type": "html",
+      "id": "t_3",
+      "label": "1本でも、オールインワンとして使えるLila…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "製品の特徴を見る"
+    }
+  ]
+}
+{% endschema %}

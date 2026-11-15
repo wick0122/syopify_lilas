@@ -1,0 +1,8 @@
+<div class="lx-sys">
+  <h1>{{ article.title | escape }}</h1>
+  <p style="text-align:center"><small>{{ article.published_at | date: '%Y.%m.%d' }}</small></p>
+  <div class="rte">{{ article.content }}</div>
+</div>
+{% schema %}
+{"name":"記事","tag":"div","class":"lx-sec","settings":[]}
+{% endschema %}

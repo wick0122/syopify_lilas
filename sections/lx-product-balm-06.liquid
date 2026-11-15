@@ -1,0 +1,192 @@
+<section class="with lx-top lx-n4">
+<div class="wrap">
+<div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><p class="disp">{{ section.settings.t_2 }}</p><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div>
+<div class="w-grid n4"><article class="wi" data-r=""><figure class="ph"><img alt="エイジングケア" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-c46ccea7b588.webp' | asset_url }}{% endif %}"/></figure><span class="why">{{ section.settings.t_4 | escape }}</span><h3>{{ section.settings.t_5 }}</h3><p class="pr">{{ section.settings.t_6 }}</p><a class="addcart" href="/pages/lilas-product-aging" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_7 | escape }}</a></article><article class="wi" data-r=""><figure class="ph"><img alt="ブライトアップ" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-ed5556ee1295.webp' | asset_url }}{% endif %}"/><span class="vg-mini"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg>{{ section.settings.t_8 | escape }}</span></figure><span class="why">{{ section.settings.t_9 | escape }}</span><h3>{{ section.settings.t_10 | escape }}</h3><p class="pr">{{ section.settings.t_11 }}</p><a class="addcart" href="/pages/lilas-product-bright" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_12 | escape }}</a></article><article class="wi" data-r=""><figure class="ph"><img alt="カームスムース" class="snimg" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-0bbaf3fdb4ff.webp' | asset_url }}{% endif %}"/><span class="vg-mini"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg>{{ section.settings.t_13 | escape }}</span></figure><span class="why">{{ section.settings.t_14 | escape }}</span><h3>{{ section.settings.t_15 | escape }}</h3><p class="pr"><span class="wvol">{{ section.settings.t_16 | escape }}</span><span class="pv">{{ section.settings.t_17 | escape }}</span></p><div aria-label="容量" class="size snsel" role="group"><button class="on" data-img="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-0bbaf3fdb4ff.webp' | asset_url }}{% endif %}" data-p="¥11,000" data-s="110ml" type="button">{{ section.settings.t_18 | escape }}</button><button data-img="{{ 'img-4353f77cce01.webp' | asset_url }}" data-p="¥6,490" data-s="50ml" type="button">{{ section.settings.t_19 | escape }}</button></div><a class="addcart" href="/pages/lilas-product-calmsmooth" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_20 | escape }}</a></article><article class="wi" data-r=""><figure class="ph"><img alt="モイストヴェールセラム" decoding="async" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-6579ed2668c1.webp' | asset_url }}{% endif %}"/><span class="salebdg">{{ section.settings.t_21 | escape }}</span><span class="vg-mini"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg>{{ section.settings.t_22 | escape }}</span></figure><span class="why">{{ section.settings.t_23 | escape }}</span><h3>{{ section.settings.t_24 | escape }}</h3><p>{{ section.settings.t_25 | escape }}</p><p class="pr"><span class="wvol">{{ section.settings.t_26 | escape }}</span><span class="pv">{{ section.settings.t_27 | escape }}</span></p><div aria-label="容量" class="size" role="group"><button class="on" data-note="" data-p="¥5,060" data-s="60ml×2本" type="button">{{ section.settings.t_28 | escape }}</button><button data-note="11月15日まで ・ 使用期限 2026年12月末" data-p="¥9,020" data-s="200ml×2本" type="button">{{ section.settings.t_29 | escape }}</button></div><p class="sznote"></p><a class="addcart" href="/pages/lilas-product-serum" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_30 | escape }}</a></article></div>
+</div></section>
+{% schema %}
+{
+  "name": "バーム 06 7 一緒に使う",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：エイジングケア",
+      "info": "未設定のときは元の画像（img-c46ccea7b588.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像：ブライトアップ",
+      "info": "未設定のときは元の画像（img-ed5556ee1295.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像：カームスムース",
+      "info": "未設定のときは元の画像（img-0bbaf3fdb4ff.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "画像：モイストヴェールセラム",
+      "info": "未設定のときは元の画像（img-6579ed2668c1.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "With"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Pair with",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "一緒に使うなら"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "年齢に応じたうるおいケア"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "エイジングケア ※",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_6",
+      "label": "110ml ¥12,100",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "製品を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "明るい印象の肌を目指す方に"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "ブライトアップ"
+    },
+    {
+      "type": "html",
+      "id": "t_11",
+      "label": "110ml ¥12,100",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "製品を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "肌荒れを防ぎ、キメの乱れを整えなめらかに"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "カームスムース"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "110ml"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "¥11,000"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "110ml"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "50ml"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "製品を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "SALE"
+    },
+    {
+      "type": "text",
+      "id": "t_22",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_23",
+      "label": "全身用のうるおい濃縮処方"
+    },
+    {
+      "type": "text",
+      "id": "t_24",
+      "label": "モイストヴェールセラム"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "SALE ・ 各2本セット"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "60ml×2本"
+    },
+    {
+      "type": "text",
+      "id": "t_27",
+      "label": "¥5,060"
+    },
+    {
+      "type": "text",
+      "id": "t_28",
+      "label": "60ml×2本"
+    },
+    {
+      "type": "text",
+      "id": "t_29",
+      "label": "200ml×2本"
+    },
+    {
+      "type": "text",
+      "id": "t_30",
+      "label": "製品を見る"
+    }
+  ]
+}
+{% endschema %}

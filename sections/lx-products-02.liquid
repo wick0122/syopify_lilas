@@ -1,0 +1,71 @@
+<section class="pl-hero2 lx-top lx-n1" id="p-hero">
+<img alt="Lilasの濃縮ローションが並ぶ様子" class="ph2-bg" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-0511582a910a.webp' | asset_url }}{% endif %}"/>
+<div class="ph2-tx">
+<span class="qlbl" data-r="">{{ section.settings.t_1 | escape }}</span>
+<h1 class="disp" data-r="">{{ section.settings.t_2 }}</h1>
+<h2 class="sh2" data-r="">{{ section.settings.t_3 | escape }}</h2>
+<p class="lead" data-r="">{{ section.settings.t_4 | escape }}</p>
+<nav aria-label="分類" class="pl-jump" data-r=""><a href="#p-calm">{{ section.settings.t_5 | escape }}</a><a href="#p-aging">{{ section.settings.t_6 | escape }}</a><a href="#p-bright">{{ section.settings.t_7 | escape }}</a><a href="#option">{{ section.settings.t_8 | escape }}</a><a href="#gift">{{ section.settings.t_9 | escape }}</a></nav>
+</div>
+</section>
+{% schema %}
+{
+  "name": "製品一覧 02 All products",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilasの濃縮ローションが並ぶ様子",
+      "info": "未設定のときは元の画像（img-0511582a910a.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Products"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "All products",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "製品一覧"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "肌や季節に合わせて、選んで、組み合わせる。"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "新作｜カームスムース"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "エイジングケア"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "ブライトアップ"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "そのほかの製品"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "ギフト"
+    }
+  ]
+}
+{% endschema %}
