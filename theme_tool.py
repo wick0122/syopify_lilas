@@ -259,6 +259,45 @@ def git(*args, cwd=None, check=True, capture=True):
         raise SystemExit(f'✗ git {" ".join(args)} に失敗しました\n{(r.stderr or "").strip()}')
     return (r.stdout or '').strip()
 
+
+def pull_from_shopify(base, ref, branch):
+    rows = git('diff', '--name-status', '--no-renames', base, ref)
+    if not rows:
+        print('② Shopify側の変更はありません'); return
+    print(f'② Shopify側で変わったファイルを src/ に取り込みます')
+    mapping, _ = collect()
+    def show(rev, path):
+        r = subprocess.run(['git', 'show', f'{rev}:{path}'], cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+        return r.stdout if r.returncode == 0 else None
+    took, conflicts, deleted = [], [], []
+    for line in rows.splitlines():
+        st, path = line.split('\t', 1)
+        if '/' not in path or path.split('/', 1)[0] not in THEME_DIRS | {'assets'}: continue
+        target = mapping.get(path) or os.path.join(SRC, classify(path))
+        if st == 'D':
+            deleted.append(os.path.relpath(target, ROOT)); continue
+        theirs = show(ref, path); basev = show(base, path)
+        mine = open(target, 'rb').read() if os.path.exists(target) else None
+        if mine == theirs: continue
+        if mine is None or mine == basev:
+            os.makedirs(os.path.dirname(target), exist_ok=True)
+            open(target, 'wb').write(theirs); took.append(os.path.relpath(target, ROOT))
+        else:
+            d, n = os.path.split(target)
+            cp = os.path.join(d, '_shopify版_' + n)
+            open(cp, 'wb').write(theirs); conflicts.append(os.path.relpath(cp, ROOT))
+    for x in took: print('  取り込み ' + x)
+    for x in deleted: print('  ⚠ Shopify側で削除されています(src/には残しています): ' + x)
+    if conflicts:
+        print('✗ 同じファイルが、ローカルとShopifyの両方で変更されています。')
+        print('  Shopify側の内容を「_shopify版_〜」として隣に置きました。見比べて元のファイルにまとめ、')
+        print('  _shopify版_ のファイルを消してコミットしてから、もう一度公開してください:')
+        for x in conflicts: print('  ' + x)
+        raise SystemExit(1)
+    if took:
+        git('add', '-A'); git('commit', '-q', '-m', f'Shopifyでの変更を取り込み({ref})')
+        print('  → 取り込んだ変更を develop にコミットしました')
+
 def publish(target='main'):
     branch = git('rev-parse', '--abbrev-ref', 'HEAD')
     if branch == target:
@@ -269,18 +308,13 @@ def publish(target='main'):
     git('fetch', 'origin')
     remote_exists = bool(git('ls-remote', '--heads', 'origin', target))
 
-    # ② Shopify側(テーマエディタ等)の変更を src/ に取り込む
+    # ② Shopify側(テーマエディタ等)の変更を src/ に取り込む(前回の公開以降に main で変わったファイルだけ)
+    base_file = os.path.join(ROOT, f'.shopify-base-{target}')
+    base = open(base_file).read().strip() if os.path.exists(base_file) else ''
     if remote_exists:
-        print(f'② origin/{target} の内容(テーマエディタでの変更)を src/ に取り込みます')
-        tmp = tempfile.mkdtemp()
-        data = subprocess.run(['git', 'archive', f'origin/{target}'], cwd=ROOT, stdout=subprocess.PIPE, check=True).stdout
-        tarfile.open(fileobj=io.BytesIO(data)).extractall(tmp)
-        do_import(tmp)
-        shutil.rmtree(tmp, ignore_errors=True)
-        if git('status', '--porcelain'):
-            git('add', '-A')
-            git('commit', '-q', '-m', f'Shopifyでの変更を取り込み(origin/{target})')
-            print('  → 取り込んだ変更を develop にコミットしました')
+        if not base or subprocess.run(['git', 'cat-file', '-e', base + '^{commit}'], cwd=ROOT).returncode != 0:
+            raise SystemExit(f'✗ 前回の公開記録(.shopify-base-{target})が見つかりません。READMEの「困ったとき」を見てください')
+        pull_from_shopify(base, f'origin/{target}', branch)
     else:
         print(f'② origin/{target} はまだありません。新しく作ります')
 
@@ -317,8 +351,12 @@ def publish(target='main'):
             r = subprocess.run(['git', 'push', 'origin', f'{target}:{target}'], cwd=wt)
             if r.returncode != 0:
                 raise SystemExit('✗ 送信に失敗しました。直前にShopify側で保存があった可能性があります。もう一度実行してください')
+        new_base = git('rev-parse', 'HEAD', cwd=wt)
     finally:
         git('worktree', 'remove', '--force', wt, check=False)
+    if new_base != base:
+        open(base_file, 'w').write(new_base + '\n')
+        git('add', base_file); git('commit', '-q', '-m', f'公開記録を更新({target} {new_base[:7]})')
     subprocess.run(['git', 'push', '-q', 'origin', branch], cwd=ROOT)
     print(f'✓ 完了しました。数十秒ほどで、{target} につないだShopifyのテーマに反映されます')
 
