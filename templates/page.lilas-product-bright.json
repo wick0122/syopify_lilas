@@ -1,16 +1,7 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
     "s01": {
-      "type": "lx-product-bright-01",
+      "type": "lx-parts-crumb",
       "settings": {
         "t_1": "<a href=\"/\">トップ</a><span>/</span><a href=\"/#collection\">製品</a><span>/</span>ブライトアップ"
       }
@@ -92,7 +83,7 @@
       }
     },
     "s03": {
-      "type": "lx-product-bright-03",
+      "type": "lx-parts-voices",
       "settings": {
         "t_1": "Voices",
         "t_2": "Voices",
@@ -175,7 +166,7 @@
       }
     },
     "s06": {
-      "type": "lx-product-bright-06",
+      "type": "lx-parts-allinone",
       "settings": {
         "t_1": "All in one",
         "t_2": "Add <em>the oil</em>",
@@ -190,7 +181,7 @@
       }
     },
     "s07": {
-      "type": "lx-product-bright-07",
+      "type": "lx-parts-oil-adjust",
       "settings": {
         "t_1": "How <em>to add</em>",
         "t_2": "ブレンドオイルの調整方法",
@@ -231,7 +222,7 @@
       }
     },
     "s08": {
-      "type": "lx-product-bright-08",
+      "type": "lx-parts-layering",
       "settings": {
         "t_1": "How <em>to use</em>",
         "t_2": "Lilas skincare ritual",
@@ -259,7 +250,7 @@
       }
     },
     "s09": {
-      "type": "lx-product-bright-09",
+      "type": "lx-parts-freeuse",
       "settings": {
         "t_1": "Your <em>way</em>",
         "t_2": "肌に合わせて、使い方も自由に",
@@ -273,7 +264,7 @@
       }
     },
     "s10": {
-      "type": "lx-product-bright-10",
+      "type": "lx-parts-pairwith-a",
       "settings": {
         "t_1": "With",
         "t_2": "Pair <em>with</em>",

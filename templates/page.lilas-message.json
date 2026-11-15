@@ -8,7 +8,7 @@
       }
     },
     "s02": {
-      "type": "lx-message-02",
+      "type": "lx-parts-crumb-about",
       "settings": {
         "t_1": "<a href=\"/\">トップ</a><span>/</span>Lilasの想い"
       }
