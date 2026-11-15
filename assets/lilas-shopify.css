@@ -1,2 +1,8 @@
 /* Shopify用の調整：セクションを囲む枠がレイアウトに影響しないようにする */
 .shopify-section.lx-sec,.shopify-section-group-header-group,.shopify-section-group-footer-group{display:contents}
+
+/* ヘッダーのカート:バッグのアイコン＋右上に数(案A) */
+header.site .cart.lx-bag{position:relative;display:inline-flex!important;align-items:center;justify-content:center;width:44px;height:44px;padding:0!important;gap:0!important;font-size:0!important;color:#fff}
+header.site .cart.lx-bag svg{width:23px;height:23px;display:block}
+header.site .cart.lx-bag .cartn{position:absolute;top:6px;right:4px;min-width:16px!important;height:16px!important;padding:0 4px;box-sizing:border-box;border:0!important;border-radius:8px;background:#c9a77a!important;color:#282828!important;font-family:var(--en,"Helvetica Neue",Arial,sans-serif);font-size:10px!important;line-height:16px;letter-spacing:0;display:inline-grid;place-items:center}
+header.site .cart.lx-bag .cartn[hidden]{display:none!important}
