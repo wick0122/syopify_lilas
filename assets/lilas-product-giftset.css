@@ -1,0 +1,515 @@
+/* lilas-product-balm.html のスタイル */
+/* 共通部分は lilas-product-common.css にあります */
+/* フッター:トップページと統一(3列) */
+footer{border-top:1px solid var(--hair)!important;background:#FEFEFE!important;padding:clamp(80px,9vw,130px) var(--m) 0!important}
+footer .tag{font-size:15px}
+footer .tag span{font-size:13px}
+@media (min-width:901px){footer{padding-top:56px!important}footer .mast.logo-img{margin:24px auto 28px;width:clamp(156px,22vw,300px)}}
+footer .fgray{background:#3c3c3c;color:#fff}
+footer .fcols{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:40px 64px;max-width:1126px;margin:0 auto;padding:56px 0 36px}
+footer .fcol h3{margin:0 0 14px;font-size:13px;font-weight:600;letter-spacing:.14em;color:#E6E6E6;line-height:1.6}
+footer .fcol h3.h2nd{margin-top:30px}
+footer .fcol ul{display:block;padding:0;margin:0;list-style:none}
+footer .fcol li{font-size:12px;letter-spacing:.14em;line-height:2.2;color:#fff;font-weight:400}
+footer .fcol li.sub{padding-left:1em}
+footer .copy{margin:0 auto;max-width:1126px;padding:20px 0 28px;border-top:1px solid rgba(255,255,255,.28);text-align:center;font-size:11px;letter-spacing:.14em;color:#E6E6E6}
+@media (max-width:900px){footer .fcols{grid-template-columns:1fr 1fr;gap:32px 28px;padding:40px 0 28px}footer .fcol:first-child{grid-column:1/-1}}
+footer .fgray{margin-inline:calc(-1*var(--m,0px));padding-inline:var(--m,0px)}
+#detail{background:var(--bg2,#EEEDEB)}#why{background:var(--bg)}#howto{background:var(--bg2,#EEEDEB)}.subt{font-weight:500}.with .wi .size button.on{background:#3c3c3c!important;color:#fff!important;border-color:#3c3c3c!important}.buy .chips li,#buy .chips li{background:#3c3c3c;color:#fff;border-color:#3c3c3c}.with .wi{display:flex;flex-direction:column;align-items:flex-start}.with .wi .addcart{margin-top:auto}.with .wi>*:nth-last-child(2){margin-bottom:10px}.ingC .tiles li{font-size:9px!important}.ingC .tiles small{font-size:8.5px!important}
+.rec-for{margin:10px 0 0;font-size:12.5px;line-height:1.9;color:var(--sub)}
+.rec-for a{color:var(--ink);border-bottom:1px solid currentColor}
+.szsel{display:flex;gap:0;margin:14px 0 0}
+.szsel button{padding:8px 20px;font-size:12.5px;letter-spacing:.1em;border:1px solid var(--hair);color:var(--sub);transition:background .3s,color .3s}
+.szsel button+button{border-left:0}
+.szsel button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.vgstamp{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:68px;height:68px;border:1px solid var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--en);font-size:11px;letter-spacing:.18em;color:var(--ink);background:rgba(255,255,255,.7);z-index:2;pointer-events:none}
+.subt{margin:6px 0 0;font-size:13.5px;letter-spacing:.12em;color:var(--sub)}
+.szguide{margin:12px 0 0;font-size:12.5px;color:var(--sub);letter-spacing:.06em}.szguide b{font-weight:400;margin-right:1em;color:var(--ink)}
+.with .w-grid.n4{max-width:1000px;grid-template-columns:repeat(4,1fr)}
+.with .w-grid.n5{max-width:1180px;grid-template-columns:repeat(5,1fr)}
+@media(max-width:900px){.with .w-grid.n4,.with .w-grid.n5{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:900px){#why .np-why-g{grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:clamp(20px,3vw,44px)!important}}
+@media(min-width:700px){#howto .np-lead2{white-space:nowrap;max-width:none}}
+.np-way-g.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+
+/* VEGANスタンプ(セラムページと同じ) */
+.main-ph .stamps{position:absolute;left:14px;top:14px;z-index:2;display:flex;gap:8px;align-items:center}
+.main-ph .stamps .salebdg{position:static}
+.salebdg.vgn{background:#fff;color:#1c1c1c;box-shadow:0 0 0 1px rgba(28,28,28,.22)}
+
+/* 一緒に使うなら:価格の横に分量 */
+.with .wi .pr .wvol{margin-right:10px;font-size:12px;letter-spacing:.1em;color:var(--sub)}
+
+/* 製品の特徴への導線 */
+.feat-more-wrap{display:flex;justify-content:center;margin:clamp(24px,4vh,44px) auto 0;padding:0 20px}
+.feat-more{display:inline-flex;align-items:center;gap:14px;padding:13px 34px;border:1px solid var(--ink);color:var(--ink);text-decoration:none;font-size:13.5px;letter-spacing:.2em;transition:background .3s,color .3s}
+.feat-more:hover{background:var(--ink);color:var(--bg)}
+.feat-link{text-align:center;margin:clamp(14px,2.5vh,26px) 0 0;font-size:12.5px;letter-spacing:.12em}
+.feat-link a{color:var(--sub);text-decoration:none;border-bottom:1px solid var(--hair);padding-bottom:3px}
+.feat-link a span{margin-left:8px}
+
+/* ===== 共通:新メニューバー・フッター ===== */
+
+/* ===== 新メニューバー(プレビュー):ロゴ左・メニュー中央・カート右、全幅メガメニュー ===== */
+header.site.hd2 .in{grid-template-columns:1fr auto 1fr!important;position:static}
+header.site.hd2 .logo{grid-column:1!important;justify-self:start!important;opacity:1!important}
+header.site.hd2 .r{grid-column:3!important;justify-self:end}
+header.site.hd2 .gnav{grid-column:2;display:flex!important;gap:clamp(22px,3vw,44px)!important;align-items:stretch;height:100%;position:static!important;flex-direction:row!important;background:none!important;padding:0!important;border:0!important}
+header.site.hd2 .gi{display:flex;align-items:stretch;position:static}
+header.site.hd2 .gt{appearance:none;background:none;border:0;color:inherit;font:inherit;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;padding:0 2px;position:relative;text-decoration:none;letter-spacing:.16em;font-size:12.5px;font-weight:500;white-space:nowrap}
+header.site.hd2 .gt .ja{font-size:9px;letter-spacing:.06em;font-weight:400;opacity:.72}
+header.site.hd2 .gt::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:currentColor;transform:scaleX(0);transition:transform .3s}
+header.site.hd2 .gi.open .gt::after,header.site.hd2 .gt:hover::after,header.site.hd2 .gt:focus-visible::after{transform:scaleX(1)}
+header.site.hd2 .mm{position:absolute;left:0;right:0;top:100%;background:#fff;color:#1c1c1c;border-top:1px solid #e2e1de;border-bottom:1px solid #e2e1de;opacity:0;visibility:hidden;transform:translateY(-6px);transition:opacity .25s,transform .25s,visibility 0s .25s}
+header.site.hd2 .gi.open .mm{opacity:1;visibility:visible;transform:none;transition:opacity .25s,transform .25s}
+header.site.hd2 .mm-in{max-width:1100px;margin:0 auto;padding:clamp(24px,4vh,40px) 24px;display:flex;justify-content:center;gap:clamp(20px,3vw,44px)}
+header.site.hd2 .mm-card{display:flex;flex-direction:column;align-items:center;gap:12px;width:min(22vw,240px);color:#1c1c1c;text-decoration:none}
+header.site.hd2 .mm-img{display:block;width:100%;aspect-ratio:3/2;overflow:hidden;background:#fff;outline:1px solid #eeedeb;outline-offset:-1px}
+header.site.hd2 .mm-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+header.site.hd2 .mm-card:hover .mm-img img{transform:scale(1.04)}
+header.site.hd2 .mm-plain{display:flex;align-items:center;justify-content:center}
+header.site.hd2 .mm-plain span{font-family:var(--serif,serif);font-size:30px;letter-spacing:.2em;color:#3c3c3c}
+header.site.hd2 .mm-lb{font-size:13px;letter-spacing:.12em}
+header.site.hd2.mmopen{background:rgba(40,40,40,.97)!important;color:#fff}
+@media (max-width:900px){
+ header.site.hd2 .gnav{display:none!important}
+ header.site.hd2.menu .gnav{display:flex!important;flex-direction:column!important;position:absolute!important;top:56px;left:0;right:0;background:#282828!important;padding:8px var(--m,20px) 24px!important;height:auto;gap:0!important}
+ header.site.hd2.menu .gi{flex-direction:column;border-bottom:1px solid rgba(255,255,255,.14)}
+ header.site.hd2.menu .gt{flex-direction:row;justify-content:space-between;padding:14px 0;gap:10px}
+ header.site.hd2.menu .gt::after{display:none}
+ header.site.hd2.menu .gt .ja{font-size:11px}
+ header.site.hd2 .mm{position:static;background:none;color:#fff;border:0;display:none;opacity:1;visibility:visible;transform:none}
+ header.site.hd2 .gi.open .mm{display:block}
+ header.site.hd2 .mm-in{flex-direction:column;padding:0 0 10px 14px;gap:0}
+ header.site.hd2 .mm-card{flex-direction:row;width:auto;color:#fff;padding:10px 0}
+ header.site.hd2 .mm-img{display:none}
+}
+
+
+/* メガメニュー:ファーストビュー写真の文字重ね、製品名リスト */
+header.site.hd2 .mm-img{position:relative}
+header.site.hd2 .mm-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-align:center;pointer-events:none;background:rgba(0,0,0,.08);gap:8px!important;padding-top:18px}
+header.site.hd2 .mm-ov em{font-family:"Cormorant Garamond",var(--serif,serif);font-style:italic;font-size:11px;letter-spacing:.02em;font-weight:400}
+header.site.hd2 .mm-ov b{font-family:"Shippori Mincho",var(--min,serif);font-weight:400;font-size:11px;letter-spacing:.42em;padding-left:.42em}
+header.site.hd2 .mm-plist{min-width:200px;padding-left:clamp(20px,3vw,40px);border-left:1px solid #e2e1de;align-self:stretch}
+header.site.hd2 .mm-ph{margin:0 0 8px;font-family:"Cormorant Garamond",var(--serif,serif);font-style:italic;font-size:15px;color:#6b6b68;letter-spacing:.02em}
+header.site.hd2 .mm-plist ul{list-style:none;margin:0 0 16px;padding:0}
+header.site.hd2 .mm-plist li a{display:block;padding:5px 0;color:#1c1c1c;text-decoration:none;font-size:13px;letter-spacing:.1em;white-space:nowrap}
+header.site.hd2 .mm-plist li a:hover{text-decoration:underline;text-underline-offset:4px}
+header.site.hd2 .mm-plist small{margin-left:8px;font-size:10px;padding:1px 6px;background:#3c3c3c;color:#fff;letter-spacing:.1em}
+@media (max-width:900px){header.site.hd2 .mm-plist{border-left:0;padding:4px 0 0 14px}header.site.hd2 .mm-plist li a,header.site.hd2 .mm-ph{color:#fff}header.site.hd2 .mm-ph{color:#aaa;margin-top:8px}}
+
+header.site.hd2 .mm-dark{background:#3c3c3c!important;outline:0!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;text-align:center}
+header.site.hd2 .mm-dk-en{font-size:10px;letter-spacing:.32em;padding-left:.32em;opacity:.85}
+header.site.hd2 .mm-dk-ja{font-family:"Shippori Mincho",var(--min,serif);font-size:14px;letter-spacing:.22em;padding-left:.22em}
+
+
+/* 肌タイプチェックのカード:余白を広く、文字を少し小さく */
+header.site.hd2 .mm-dark{gap:8px!important;padding:0 18%}
+header.site.hd2 .mm-dk-en{font-size:9px!important}
+header.site.hd2 .mm-dk-ja{font-size:12px!important}
+
+/* フッターのSNSアイコン */
+footer .fsns{display:flex;justify-content:flex-start;gap:18px;margin:0 0 13px}
+footer .fsns a{display:inline-flex;width:22px;height:22px;color:inherit;opacity:.85;transition:opacity .3s}
+footer .fsns a:hover{opacity:1}
+footer .fsns svg{width:100%;height:100%}
+
+/* News(右の引き出し) */
+
+.notes-tab .nt-ja{margin-top:.8em;font-size:.85em;opacity:.8}
+footer .fcol ul.fgap{margin-top:1.9em}
+
+
+/* News(右の引き出し) */
+.drawer .nw-h{font-family:"Cormorant Garamond",var(--serif,serif);font-style:italic;font-weight:400;font-size:28px;letter-spacing:.02em;margin:0 0 18px}
+.drawer .nw-h span{display:block;font-family:var(--sans,sans-serif);font-style:normal;font-size:11px;letter-spacing:.2em;color:var(--sub);margin-top:4px}
+.drawer .nw-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hair,#e2e1de)}
+.drawer .nw-list li{padding:16px 0;border-bottom:1px solid var(--hair,#e2e1de)}
+.drawer .nw-list time{display:block;font-size:11px;letter-spacing:.12em;color:var(--sub)}
+.drawer .nw-list p{margin:6px 0 0;font-size:14px;line-height:1.8;letter-spacing:.06em}
+
+/* ===== メニューバー:製品ページ(新版)に合わせた追加 ===== */
+header.site.hd2 .mm-in{max-width:1100px;margin:0 auto;padding:clamp(24px,4vh,40px) 24px;display:flex;justify-content:center;gap:clamp(20px,3vw,44px)}
+header.site.hd2 .mm-card{display:flex;flex-direction:column;align-items:center;gap:12px;width:min(22vw,240px);color:#1c1c1c;text-decoration:none}
+header.site.hd2 .mm-img{display:block;width:100%;aspect-ratio:3/2;overflow:hidden;background:#fff;outline:1px solid #eeedeb;outline-offset:-1px}
+header.site.hd2 .mm-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+header.site.hd2 .mm-card:hover .mm-img img{transform:scale(1.04)}
+header.site.hd2 .mm-lb{font-size:13px;letter-spacing:.12em}
+@media (max-width:900px){header.site.hd2 .mm-in{flex-direction:column;padding:0 0 10px 14px;gap:0}header.site.hd2 .mm-card{flex-direction:row;width:auto;color:#fff;padding:10px 0}header.site.hd2 .mm-img{display:none}}
+header.site.hd2 .mm-img{position:relative}
+header.site.hd2 .mm-dark{background:#3c3c3c!important;outline:0!important;display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#fff;text-align:center}
+header.site.hd2 .mm-dk-en{font-size:10px;letter-spacing:.32em;padding-left:.32em;opacity:.85}
+header.site.hd2 .mm-dk-ja{font-family:"Shippori Mincho",var(--min,serif);font-size:14px;letter-spacing:.22em;padding-left:.22em}
+header.site.hd2 .mm-dark{gap:8px!important;padding:0 18%}
+header.site.hd2 .mm-dk-en{font-size:9px!important}
+header.site.hd2 .mm-dk-ja{font-size:12px!important}
+header.site.hd2 .mm-img.mm-gray{background:#737373;outline:0}
+header.site.hd2 .mm-img.mm-gray > img{object-fit:contain}
+header.site.hd2 .mm-img img.mm-logo{position:absolute;left:50%;top:50%;width:38%;height:auto;object-fit:contain;transform:translate(-50%,-50%);filter:brightness(0) invert(1)}
+header.site.hd2 .mm-card:hover .mm-img img.mm-logo{transform:translate(-50%,-50%)}
+header.site.hd2 .mm-dark.mm-oil{background:#737373!important}
+header.site.hd2 .mm-col{display:flex;flex-direction:column;gap:clamp(16px,2.4vh,24px);width:min(22vw,240px)}
+header.site.hd2 .mm-col .mm-card{width:100%}
+@media (max-width:900px){header.site.hd2 .mm-col{width:auto;gap:0}}
+header.site.hd2 .mm-img img.mm-logo.pt{top:46%;width:26%}
+
+/* ===== VEGANスタンプ:トップページと同じアイコン入り ===== */
+.vg-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 16px;border:1px solid #1c1c1c;border-radius:999px;background:rgba(255,255,255,.88);color:#1c1c1c;font-family:var(--en,"Jost","Helvetica Neue",Arial,sans-serif);font-weight:300;font-size:11px;letter-spacing:.22em;line-height:2.1;text-transform:uppercase;white-space:nowrap}
+.vg-badge svg{width:12px;height:12px;flex:none}
+.vg-mini{position:absolute;right:8px;top:8px;z-index:2;display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border:1px solid #1c1c1c;border-radius:999px;background:rgba(255,255,255,.88);color:#1c1c1c;font-family:var(--en,"Jost","Helvetica Neue",Arial,sans-serif);font-weight:300;font-size:8px;letter-spacing:.2em;line-height:1.6;text-transform:uppercase}
+.vg-mini svg{width:9px;height:9px;flex:none}
+.with .wi .ph{position:relative}
+.pl-ph .vg-badge{position:absolute;right:12px;top:12px;z-index:2;padding:2px 11px;font-size:10px}
+.pl-ph .vg-badge svg{width:11px;height:11px}
+
+/* 販売パートナー:PARTNERの文字とロゴの間隔(全ページ共通) */
+header.site.hd2 .mm-img img.mm-logo.pt{padding-top:30px}
+
+/* お客様の声:口コミアプリ用の見本表示 */
+.vc-ic{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:#EDEDEC;color:#8a8a87}
+.vc-ic svg{width:22px;height:22px}
+.vt-tag{margin-left:auto;padding:1px 8px;font-size:10px;letter-spacing:.14em;color:#585856;border:1px solid rgba(28,28,28,.2)}
+.vt-sample blockquote{color:var(--sub)}
+.vc-post{margin:clamp(22px,3vw,34px) auto 0;text-align:center}
+.vc-post-tx{margin:0 0 14px;font-size:13px;line-height:1.9;letter-spacing:.06em;color:var(--sub)}
+.vc-post-btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 30px;background:#1c1c1c;color:#F8F8F7;text-decoration:none;font-weight:700;font-size:13px;letter-spacing:.16em;transition:opacity .4s}
+.vc-post-btn:hover{opacity:.75}
+
+/* 製品の特徴を見る:通常=濃い地、ホバー=白抜き(反転) */
+.feat-more{background:#1c1c1c!important;color:#F8F8F7!important;border-color:#1c1c1c!important}
+.feat-more:hover{background:transparent!important;color:#1c1c1c!important}
+
+/* フッターのリンク */
+footer .fcol li a{color:inherit;text-decoration:none;transition:opacity .3s}
+footer .fcol li a:hover{opacity:.6}
+
+/* 製品の特徴を見る:全ページ統一 */
+.feat-more{background:#282828!important;color:#F8F8F7!important;border:1px solid #282828!important;font-family:"Zen Kaku Gothic New",sans-serif!important;font-size:11px!important;font-weight:700!important;letter-spacing:.2em!important;transition:background .3s,color .3s!important;opacity:1!important}
+.feat-more:hover{background:transparent!important;color:#282828!important}
+
+/* ===== 白抜き文字のボタン:文字の大きさを11pxに統一 ===== */
+.addcart,.addcart.big,.addcart.more,.pl-btn,.pl-jump a,.vc-post-btn,.mcta2 .mc-btn,.r-cta .addcart{font-size:11px!important}
+/* News お知らせのタブ:ボタンと同じ大きさ・太さ */
+.notes-tab{font-size:11px!important;font-weight:700!important}
+.notes-tab .nt-ja{font-size:11px!important;font-weight:700!important}
+
+/* 白抜き文字のボタン:文字の間隔も「贈り物を選ぶ」と同じに */
+.addcart,.addcart.big,.addcart.more,.pl-btn,.pl-jump a,.vc-post-btn,.mcta2 .mc-btn,.r-cta .addcart{letter-spacing:.2em!important}
+
+/* 製品の特徴を見る:枠線のボタン(カーソルで濃い地に) */
+.feat-more{background:transparent!important;color:#282828!important;border:1px solid #282828!important}
+.feat-more:hover{background:#282828!important;color:#F8F8F7!important}
+
+/* ===== ボタンの文字の太さを統一(300) ===== */
+.addcart,.addcart.big,.addcart.more,.pl-btn,.pl-jump a,.vc-post-btn,.feat-more,.mcta2 .mc-btn,.mcta2 .mc-dark,.mcta2 .mc-line,.yw-cta .addcart.more,.r-cta .addcart{font-weight:300!important}
+
+/* メニューバーの白文字:太さ400 */
+header.site.hd2 .gt{font-weight:400!important}
+
+/* ===== お知らせバー(ページ最上部・1行) ===== */
+.anbar{position:relative;display:flex;align-items:center;justify-content:center;min-height:32px;padding:6px 44px;background:#EDEDEC;color:#1c1c1c;font-size:12px;letter-spacing:.1em;line-height:1.5;text-align:center;z-index:60}
+.anbar a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(28,28,28,.35);padding-bottom:1px;transition:opacity .3s}
+.anbar a:hover{opacity:.6}
+.anbar .anbar-x{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:24px;height:24px;border:0;background:transparent;color:#585856;font-size:16px;line-height:1;cursor:pointer}
+.anbar[hidden]{display:none}
+
+/* 混合肌:乾く部分(乾燥肌)とテカる部分(脂性肌)の2つの三角グラフ */
+.oc-tri2{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.oc-tri2 figure{margin:0}
+.oc-tri2 figcaption{text-align:center;font-size:10px;letter-spacing:.06em;color:#585856;margin-top:-2px}
+
+.oc .oc-tri .oc-tri2{display:grid!important;grid-template-columns:1fr 1fr!important;gap:2px!important}
+.oc .oc-tri .oc-tri2 figure{margin:0!important;padding:0!important;width:auto!important;min-width:0}
+.oc .oc-tri .oc-tri2 figcaption{font-size:10px!important;line-height:1.4!important;letter-spacing:.04em!important;text-align:center!important;color:#585856!important;margin:0!important;padding:0!important;white-space:nowrap}
+.oc .oc-res:has(.oc-tri2){grid-template-columns:240px minmax(0,1fr)!important}
+@media (max-width:900px){.oc .oc-res:has(.oc-tri2){grid-template-columns:170px minmax(0,1fr)!important}}
+
+/* 一緒に使うなら:SALEとVEGANを縦に2段 */
+.with .wi .ph:has(.salebdg) .vg-mini{left:8px!important;right:auto!important;top:36px!important}
+
+/* お客様の口コミ:カームスムースと同じ形 */
+.vc-hdrow{position:relative;max-width:1126px;margin:0 auto;padding:0 var(--m,20px)}
+.vc-hdrow .hd-btn{position:absolute;right:var(--m,20px);bottom:2px;padding:10px 20px!important}
+#voices .vc-note{text-align:right!important;font-size:9px!important;line-height:1.7!important;max-width:1126px;margin-left:auto!important;margin-right:auto!important;padding:0 var(--m,20px)}
+.vc-hdrow{width:100%;align-self:stretch;box-sizing:border-box;text-align:center}
+#voices .vc-note{width:100%;align-self:stretch;box-sizing:border-box}
+.vc-post-btn{font-weight:300!important}
+
+.with .wi .ph .salebdg{position:absolute!important;left:8px!important;right:auto!important;top:8px!important;z-index:2}
+.with .wi .ph:has(.salebdg) .vg-mini{top:34px!important}
+
+/* ===== スマホ・iPad:触って使いやすく ===== */
+/* メニューの画像カード:スマホで同じ幅に */
+@media (max-width:900px){
+ header.site.hd2 .mm-card .mm-img{flex:0 0 150px!important;width:150px!important;aspect-ratio:3/2}
+ header.site.hd2 .mm-dk-ja{font-size:11px!important;line-height:1.5}
+}
+/* 指で押しやすい大きさ(高さ44px以上) */
+@media (max-width:900px){
+ .pl-size button,.size button,.szsel button,.qty button,.oc-back,.rx-b-back,.rx-b-restart,.back,.oc-go,.vc-post-btn{min-height:44px!important}
+ .pl-size button,.size button,.szsel button{min-width:56px}
+ #vcPrev,#vcNext,.vt-arr,.vc-nav button{min-width:44px!important;min-height:44px!important}
+ .anbar .anbar-x{width:44px!important;height:32px!important;right:0!important}
+ .oc .oc-types button,.oc .oc-env button,dialog .choice{min-height:44px!important}
+ .oc-dlg-x,#dlg .close,.drawer .close{min-width:44px;min-height:44px}
+ .vc-hdrow .hd-btn{position:static!important;display:inline-flex!important;margin:12px auto 0!important}
+}
+/* スマホで読みやすい文字の大きさ */
+@media (max-width:600px){
+ .tiles li span,.pki ul li span,.why-ic li span{font-size:11px!important;line-height:1.4!important}
+ .fine,.rx-fine,.oc-note,.oc-fine-w,.oc-envfine,.pl-fine,.vc-note,.qbox-note,.np-zero,.pnotes,.pnotes p{font-size:10px!important}
+}
+/* カーソルがない画面では、色が変わる動きを止める */
+@media (hover:none){
+ #formula .qopts.qbox button:hover{background:#FEFEFE!important;color:#1c1c1c!important;border-color:rgba(28,28,28,.14)!important}
+ #formula .qopts.qbox button:hover .t{color:#1c1c1c!important}
+ #formula .qopts.qbox button:hover .en{color:#6b6b68!important}
+ .rx-a .rx-oc:hover{background:#323232!important;color:#fff!important}
+ .oc-back:hover,.rx-b-back:hover{background:#fff!important;color:#1c1c1c!important}
+ .rx-b-restart:hover,.oc-b-restart:hover{background:#EDEDEC!important;color:#1c1c1c!important}
+ .feat-more:hover,.yw-cta .addcart.more:hover,.mcta2 .mc-dark:hover{background:transparent!important;color:#282828!important}
+ .addcart:hover,.pl-btn:hover,.pl-jump a:hover,.vc-post-btn:hover,.mc-line:hover{opacity:1!important}
+ .np-rit2 li:hover,.pl-ph:hover img{transform:none!important}
+}
+/* スマホ:ポップアップを画面いっぱいに、「閉じる」を上に固定 */
+@media (max-width:600px){
+ #dlg,.oc .oc-dlg{width:100vw!important;max-width:100vw!important;height:100dvh!important;max-height:100dvh!important;margin:0!important;padding:0 18px 28px!important;border-radius:0!important}
+ #dlg .close,.oc .oc-dlg-x{position:sticky!important;top:0;right:auto;display:block;width:calc(100% + 36px);margin:0 -18px 8px;padding:12px 18px;text-align:right;background:#F8F8F7;z-index:5;border-bottom:1px solid rgba(28,28,28,.08)}
+}
+/* iPad:2列に並べる */
+@media (min-width:601px) and (max-width:900px){
+ .np-why-g,.np-why-g.g3{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .w-grid,.w-grid.n4,.w-grid.n5{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .pl-grid,.pl-grid.g3,.pl-grid.g4,#lotion .pl-grid,#option .pl-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .np-way-g{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .np-first-qa{grid-template-columns:1fr 1fr!important}
+}
+
+@media (max-width:900px){header.site.hd2 .mm-card .mm-img{flex:0 0 132px!important;width:132px!important}header.site.hd2 .mm-dk-ja{white-space:normal!important;padding:0 8px;font-size:10.5px!important;line-height:1.45!important}header.site.hd2 .mm-dk-en{font-size:8.5px!important;letter-spacing:.2em!important}header.site.hd2 .mm-card{gap:14px!important}}
+
+@media (max-width:900px){header.site.hd2 .mm-dk-ja{display:none!important}header.site.hd2 .mm-dk-en{display:block!important;white-space:nowrap!important;font-size:8.5px!important;letter-spacing:.18em!important;padding:0 6px}}
+
+/* スマホ:お知らせはメニューバーのベルから(右下の浮いたタブは出さない) */
+.nbell{display:none}
+@media (max-width:900px){
+ .notes-tab{display:none!important}
+ header.site .nbell{display:inline-flex;align-items:center;justify-content:center;position:relative;width:44px;height:44px;margin-right:4px;background:none;border:0;color:#fff;cursor:pointer;padding:0}
+ header.site .nbell svg{width:22px;height:22px}
+ header.site .nbell .nbell-dot{position:absolute;top:10px;right:10px;width:7px;height:7px;border-radius:50%;background:#c9a77a}
+ header.site .nbell.seen .nbell-dot{display:none}
+}
+
+/* ===== 改行:言葉のまとまりで改行し、最後の行に1〜2文字だけ残さない ===== */
+p,li,dd,dt,figcaption,small,blockquote,td,th{word-break:auto-phrase;text-wrap:pretty}
+h1,h2,h3,h4,.sh2,.np-cap{word-break:auto-phrase;text-wrap:balance}
+budoux-ja{display:contents}
+/* ===== スマホ:メニューバーは下へ読む間は隠れ、上へ戻すと出る ===== */
+@media (max-width:900px){
+ header.site{transition:transform .32s ease}
+ header.site.hd-hide{transform:translateY(-110%)}
+}
+
+/* ===== フッターの上:サービス紹介 ===== */
+.svc-band{background:#EDEDEC;padding:clamp(22px,4vw,40px) var(--m,20px)}
+.svc-list{list-style:none;margin:0 auto;padding:0;max-width:1126px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px 28px}
+.svc-list li,.svc-list .svc-a{display:grid;grid-template-columns:32px 1fr;gap:12px;align-items:start;color:#1c1c1c;text-decoration:none}
+.svc-list svg{width:32px;height:32px;color:#1c1c1c}
+.svc-t{margin:2px 0 4px;font-size:13.5px;letter-spacing:.08em}
+.svc-d{margin:0;font-size:12px;line-height:1.85;color:#585856}
+.svc-d small{font-size:10px}
+.svc-a:hover .svc-t{text-decoration:underline}
+@media (max-width:900px){.svc-list{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.svc-list{grid-template-columns:1fr;gap:0}.svc-list>li{padding:12px 0;border-bottom:1px solid rgba(28,28,28,.1)}.svc-list>li:last-child{border-bottom:0}}
+/* ===== スマホのフッター:メニューバーと同じ4つの見出しを開閉式で ===== */
+.fmob{display:none}
+@media (max-width:900px){
+ footer .fcols{display:none!important}
+ footer .fmob{display:block;padding:4px var(--m,20px) 6px}
+ .fmob .fm-g{display:block;border-bottom:1px solid rgba(255,255,255,.16);color:#fff}
+ .fmob summary,.fmob .fm-link{list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:52px;font-size:12.5px;letter-spacing:.18em;color:#fff;text-decoration:none;cursor:pointer}
+ .fmob summary::-webkit-details-marker{display:none}
+ .fmob summary::after{content:"＋";font-size:13px;opacity:.85;letter-spacing:0}
+ .fmob details[open] summary::after{content:"－"}
+ .fmob .fm-link span{font-size:16px;opacity:.85}
+ .fmob ul{list-style:none;margin:0;padding:0 0 12px 10px}
+ .fmob ul li a{display:block;padding:9px 0;font-size:13px;color:rgba(255,255,255,.9);text-decoration:none}
+ .fmob .fm-h{padding:12px 0 2px;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,.55)}
+ .fmob .fm-legal{display:flex;flex-wrap:wrap;gap:4px 16px;padding:16px 0 4px}
+ .fmob .fm-legal li a{padding:6px 0;font-size:11px;color:rgba(255,255,255,.7)}
+ footer .fsns-m{display:flex;gap:18px;padding:14px var(--m,20px) 0}
+}
+
+@media (min-width:901px){footer .fsns-m{display:none}}
+
+.svc-d{text-wrap:wrap!important;word-break:normal!important}
+@media (max-width:900px){
+ .fmob ul{display:block!important;columns:auto!important;grid-template-columns:none!important}
+ .fmob ul li{display:block!important;width:auto!important;margin:0!important}
+ .fmob .fm-legal{display:flex!important}
+ .fmob .fm-legal li{display:inline-block!important}
+}
+
+.svc-list li:has(> .svc-a){display:block!important}
+
+/* ===== メニュー PRODUCTS:パソコンは2つ×2段(A)、スマホは4つとも同じ大きさの画像(C) ===== */
+@media (min-width:901px){
+ header.site.hd2 #mm-products .mm-in{display:grid!important;grid-template-columns:repeat(2,min(17vw,200px)) auto;grid-auto-rows:auto;column-gap:clamp(18px,2vw,28px);row-gap:clamp(14px,2vh,20px);justify-content:center;align-items:start}
+ header.site.hd2 #mm-products .mm-col{display:contents!important}
+ header.site.hd2 #mm-products .mm-card{width:100%!important}
+ header.site.hd2 #mm-products .mm-plist{grid-column:3;grid-row:1 / span 2;margin-left:clamp(10px,2vw,30px)}
+}
+@media (max-width:900px){
+ header.site.hd2 #mm-products .mm-card{display:flex!important;flex-direction:row!important;align-items:center!important;gap:14px!important}
+ header.site.hd2 #mm-products .mm-card .mm-img{display:block!important;flex:0 0 112px!important;width:112px!important;aspect-ratio:3/2;position:relative}
+ header.site.hd2 #mm-products .mm-card .mm-img.mm-dark{display:flex!important}
+ header.site.hd2 #mm-products .mm-card .mm-img img{width:100%;height:100%;object-fit:cover}
+ header.site.hd2 #mm-products .mm-lb{white-space:normal!important;line-height:1.5;word-break:auto-phrase}
+}
+
+@media (min-width:901px){
+ header.site.hd2 #mm-products .mm-lb{text-align:center;display:block}
+ header.site.hd2 #mm-products .mm-dk-ja{font-size:clamp(10px,.95vw,12.5px)!important;padding:0 8px;white-space:nowrap}
+ header.site.hd2 #mm-products .mm-dk-en{font-size:clamp(8px,.7vw,9.5px)!important}
+}
+
+@media (min-width:901px){
+ header.site.hd2 #mm-products .mm-dk-ja{font-size:clamp(9.5px,.88vw,12.5px)!important;letter-spacing:.06em!important}
+ header.site.hd2 .gi a.gt .en,header.site.hd2 .gi a.gt{font-size:12.5px!important}
+}
+
+/* パソコン:左の列に「肌タイプチェック→ブレンドオイル分量チェック」、右の列に「製品の特徴→製品一覧」 */
+@media (min-width:901px){
+ header.site.hd2 #mm-products .mm-in{grid-template-rows:auto auto!important;grid-auto-flow:column!important}
+ header.site.hd2 #mm-products .mm-plist{grid-column:3!important;grid-row:1 / span 2!important}
+ header.site.hd2 #mm-products .mm-lb .sp-br{display:none}
+}
+/* スマホ:画像を大きく、「ブレンドオイル/分量チェック」で改行 */
+@media (max-width:900px){
+ header.site.hd2 #mm-products .mm-card .mm-img{flex:0 0 150px!important;width:150px!important}
+ header.site.hd2 #mm-products .mm-lb .sp-br{display:block}
+}
+
+/* ===== レスポンシブ点検での修正 ===== */
+/* 成分イラストの名前が重なる:スマホ・iPadは4つずつ並べる */
+@media (max-width:900px){
+ .pki ul{grid-template-columns:repeat(4,minmax(0,1fr))!important;row-gap:10px!important}
+ .pki ul li span{white-space:normal!important;font-size:10.5px!important;line-height:1.35!important;word-break:keep-all;overflow-wrap:anywhere}
+ .tiles li span,.why-ic li span{font-size:10.5px!important}
+}
+/* 指で押しやすく:SNSアイコン・「続きを読む」・パンくず */
+@media (max-width:900px){
+ footer .fsns a{display:inline-flex!important;align-items:center;justify-content:center;min-width:44px;min-height:44px}
+ .vt-more,.vc-more,a.more-link{display:inline-flex;align-items:center;min-height:40px}
+ .crumb a,.bc a,nav.crumb a{display:inline-flex;align-items:center;min-height:36px}
+}
+/* 一緒に使うなら:スマホで写真と文字の間が空きすぎる */
+@media (max-width:900px){
+ .w-grid .wi{display:flex!important;flex-direction:column!important}
+ .w-grid .wi .why{height:auto!important;min-height:0!important;margin-top:12px!important}
+ .w-grid .wi h3{margin-top:4px!important}
+}
+
+@media (max-width:900px){.feat-link a{display:inline-flex;align-items:center;min-height:40px}}
+
+@media (max-width:900px){.w-grid .wi .why{padding:0!important;margin:12px 0 4px!important;line-height:1.6!important}}
+
+body.ft-in #sbar{transform:translateY(110%)!important;opacity:0!important;pointer-events:none!important}
+#sbar{transition:transform .3s,opacity .3s}
+
+@media (max-width:600px){.w-grid,.w-grid.n4,.w-grid.n5{grid-template-columns:minmax(0,1fr)!important}}
+
+/* スマホ:VEGANスタンプを小さく、写真をふさがないように */
+@media (max-width:600px){
+ .vg-badge,.vg-mini,.vg-stamp,.np-vg,.pdvg{font-size:9px!important;padding:2px 7px!important;gap:3px!important;letter-spacing:.12em!important}
+ .vg-badge svg,.vg-mini svg,.vg-stamp svg,.np-vg svg,.pdvg svg{width:9px!important;height:9px!important}
+}
+
+/* スマホ:製品ページの「ページの上へ」(カートのバーのすぐ上) */
+.totop{display:none}
+@media (max-width:900px){
+ .totop{display:flex;align-items:center;justify-content:center;position:fixed;right:14px;bottom:calc(86px + env(safe-area-inset-bottom,0px));z-index:69;width:44px;height:44px;border-radius:50%;background:#fff;color:#1c1c1c;border:1px solid rgba(28,28,28,.18);box-shadow:0 4px 12px rgba(0,0,0,.14);font-size:17px;opacity:0;transform:translateY(10px);pointer-events:none;transition:opacity .3s,transform .3s,bottom .3s}
+ .totop.on{opacity:1;transform:none;pointer-events:auto}
+ body:not(:has(#sbar.on)) .totop,body.ft-in .totop{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+}
+
+/* ===== スマホ:製品ページの目次のタブ ===== */
+.ptabs{display:none}
+@media (max-width:900px){
+ .ptabs{display:flex;position:fixed;left:0;right:0;top:0;z-index:68;background:rgba(254,254,254,.97);border-bottom:1px solid rgba(28,28,28,.12);overflow-x:auto;scrollbar-width:none;transform:translateY(-120%);transition:transform .3s,top .3s}
+ .ptabs::-webkit-scrollbar{display:none}
+ .ptabs.on{transform:none}
+ .ptabs a{flex:1 0 auto;display:flex;align-items:center;justify-content:center;min-height:44px;padding:0 14px;font-size:12px;letter-spacing:.08em;color:#585856;text-decoration:none;white-space:nowrap;box-shadow:inset 0 -2px 0 transparent;transition:color .2s,box-shadow .2s}
+ .ptabs a.cur{color:#1c1c1c;box-shadow:inset 0 -2px 0 #282828}
+}
+
+@media (max-width:900px){.ptabs a{flex:1 1 auto!important;padding:0 8px!important;font-size:11.5px!important;letter-spacing:.04em!important}}
+
+/* ===== Newsのパネル:タイトルを押すと本文が開く ===== */
+.nw-list li{list-style:none}
+.nw-list details summary,.nw-list .nw-row{list-style:none;display:block;cursor:pointer;padding:2px 22px 2px 0;position:relative}
+.nw-list .nw-row{cursor:default}
+.nw-list details summary::-webkit-details-marker{display:none}
+.nw-list details summary::after{content:"＋";position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:12px;color:#585856}
+.nw-list details[open] summary::after{content:"－"}
+.nw-list time{display:block}
+.nw-list .nw-t{display:block;font-size:13px;line-height:1.7;color:#1c1c1c;margin-top:2px}
+.nw-list .nw-bd{margin:8px 0 2px;padding:10px 12px;background:#fff;font-size:12.5px;line-height:1.85;color:#3d3d3b}
+.nw-list .nw-lk{display:inline-block;margin-top:6px;color:#1c1c1c;border-bottom:1px solid #1c1c1c;text-decoration:none;font-size:12px}
+
+@media (max-width:900px){.ptabs:not(.on){visibility:hidden;pointer-events:none;transition:transform .3s,top .3s,visibility 0s .3s}.ptabs.on{visibility:visible;transition:transform .3s,top .3s,visibility 0s}}
+
+/* ===== スマホのメニュー:画面の高さに収めて、中をスクロールできるように ===== */
+@media (max-width:900px){
+ html body header.site.hd2.menu nav.gnav{position:fixed!important;left:0;right:0;top:var(--mnav-top,57px)!important;bottom:0!important;max-height:none!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))!important}
+ html.menu-lock,html.menu-lock body{overflow:hidden!important}
+}
+
+@media (max-width:900px){
+ html body header.site.hd2.menu{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;transform:none!important;filter:none!important}
+ html body header.site.hd2.menu nav.gnav{position:fixed!important;left:0!important;right:0!important;top:var(--mnav-top,57px)!important;bottom:0!important;height:auto!important;max-height:none!important;overflow-y:auto!important;display:block!important}
+}
+
+@media (max-width:900px){html.menu-lock header.site.hd2{position:fixed!important;top:0!important;left:0;right:0;transform:none!important}}
+
+@media (max-width:900px){html.menu-lock header.site.hd2{background:#282828!important;z-index:200!important}html.menu-lock .anbar{visibility:hidden!important}}
+
+/* スマホ:文章の中の改行(br)は、幅が足りるところでは詰めて、1行に入るところまで続ける */
+@media (max-width:600px){br.sbr{display:none}}
+
+/* スマホ:ABOUT・SHOP INFOのメニューも、PRODUCTSと同じく画像付きで */
+@media (max-width:900px){
+ header.site.hd2 #mm-about .mm-card,header.site.hd2 #mm-shop .mm-card{display:flex!important;flex-direction:row!important;align-items:center!important;gap:14px!important;width:auto!important;padding:10px 0!important;color:#fff!important}
+ header.site.hd2 #mm-about .mm-card .mm-img,header.site.hd2 #mm-shop .mm-card .mm-img{display:block!important;flex:0 0 150px!important;width:150px!important;aspect-ratio:3/2;position:relative;overflow:hidden}
+ header.site.hd2 #mm-about .mm-card .mm-img > img:not(.mm-logo),header.site.hd2 #mm-shop .mm-card .mm-img > img:not(.mm-logo){display:block!important;width:100%;height:100%;object-fit:cover}
+ header.site.hd2 #mm-shop .mm-card .mm-img img.mm-logo{display:block!important;position:absolute;left:50%;top:50%;width:38%;height:auto;transform:translate(-50%,-50%)}
+ header.site.hd2 #mm-about .mm-in,header.site.hd2 #mm-shop .mm-in{display:block!important}
+ header.site.hd2 #mm-about .mm-card+.mm-card,header.site.hd2 #mm-shop .mm-card+.mm-card{border-top:1px solid rgba(255,255,255,.12)}
+}
+
+/* スマホ:メニューボタン。押しやすい大きさにし、開いている間は「×」に変わる */
+@media (max-width:900px){
+ header.site .mbtn{position:relative;width:44px!important;height:44px!important;border:0!important;margin-right:-9px;color:#fff}
+ header.site .mbtn::before,header.site .mbtn::after{content:"";position:absolute;left:9px;right:9px;height:1px;background:currentColor;transition:transform .28s ease,top .28s ease}
+ header.site .mbtn::before{top:16px}
+ header.site .mbtn::after{top:27px}
+ header.site.menu .mbtn::before{top:21.5px;transform:rotate(45deg)}
+ header.site.menu .mbtn::after{top:21.5px;transform:rotate(-45deg)}
+}
+
+.svc-d .nw{white-space:nowrap}
+
+/* スマホ:サービス紹介の説明を、小さめの画面でも1行に */
+@media (max-width:600px){.svc-d{letter-spacing:.02em!important}.svc-list li,.svc-list .svc-a{column-gap:10px!important}}
+/* リップ:選ばれる理由3項目を中央に */
+@media(min-width:900px){#why .np-why-g.n3{grid-template-columns:repeat(3,minmax(0,300px))!important;justify-content:center;column-gap:clamp(48px,6vw,104px)!important}}
+
+/* ギフトセット */
+.gs-list{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--line,#ddd)}
+.gs-list li{display:grid;grid-template-columns:64px 1fr auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line,#ddd)}
+.gs-list img{width:64px;height:64px;object-fit:cover;background:#fff}
+.gs-list p{margin:0}.gs-en{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:13px;color:#777}
+.gs-nm{font-size:14px;letter-spacing:.08em}.gs-nm a{color:inherit;text-decoration:none;border-bottom:1px solid currentColor}
+.gs-note{margin:-6px 0 14px;font-size:11px;color:#777;letter-spacing:.06em;text-align:right}
+.gs-cat{font-size:11px;color:#777;letter-spacing:.06em}.gs-vol{font-size:13px;letter-spacing:.08em}
+@media(min-width:900px){.w-grid.gs-w{grid-template-columns:repeat(3,minmax(0,260px))!important;justify-content:center;column-gap:clamp(32px,4vw,64px)!important}}

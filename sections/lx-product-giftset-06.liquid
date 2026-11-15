@@ -1,0 +1,126 @@
+<section class="with lx-top lx-n4">
+<div class="wrap">
+<div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><p class="disp">{{ section.settings.t_2 }}</p><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div>
+<div class="w-grid n4 gs-w"><article class="wi" data-r=""><figure class="ph"><img alt="カームスムース" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-f8792b59992c.webp' | asset_url }}{% endif %}"/><span class="vg-mini"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg>{{ section.settings.t_4 | escape }}</span></figure><span class="why">{{ section.settings.t_5 | escape }}</span><h3>{{ section.settings.t_6 | escape }}</h3><p class="pr">{{ section.settings.t_7 }}</p><a class="addcart" href="/pages/lilas-product-calmsmooth" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_8 | escape }}</a></article><article class="wi" data-r=""><figure class="ph"><img alt="モイストグロー リペアリップ" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-f4c71fb8d91a.webp' | asset_url }}{% endif %}"/><span class="vg-mini"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg>{{ section.settings.t_9 | escape }}</span></figure><span class="why">{{ section.settings.t_10 | escape }}</span><h3>{{ section.settings.t_11 | escape }}</h3><p class="pr">{{ section.settings.t_12 }}</p><a class="addcart" href="/pages/lilas-product-lip" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_13 | escape }}</a></article><article class="wi" data-r=""><figure class="ph"><img alt="02 ブレンドオイル" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-ce1d4a600a04.webp' | asset_url }}{% endif %}"/><span class="vg-mini"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1.2"></path></svg>{{ section.settings.t_14 | escape }}</span></figure><span class="why">{{ section.settings.t_15 | escape }}</span><h3>{{ section.settings.t_16 | escape }}</h3><p class="pr">{{ section.settings.t_17 }}</p><a class="addcart" href="/pages/lilas-product-oil" style="display:flex;text-decoration:none;width:fit-content">{{ section.settings.t_18 | escape }}</a></article></div>
+</div></section>
+{% schema %}
+{
+  "name": "ギフトセット 06 7 一緒に使う",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Items"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "In this set",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "セットの製品を、単品で見る"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "カームスムース",
+      "info": "未設定のときは元の画像（img-f8792b59992c.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "肌荒れを防ぎ、キメの乱れを整えなめらかに"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "カームスムース"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "50ml ¥6,490",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "製品を見る"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "モイストグロー リペアリップ",
+      "info": "未設定のときは元の画像（img-f4c71fb8d91a.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "唇の荒れを防ぐ、ツヤ膜の集中保湿ケア"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "モイストグロー リペアリップ"
+    },
+    {
+      "type": "html",
+      "id": "t_12",
+      "label": "15g ¥2,750",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "製品を見る"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "02 ブレンドオイル",
+      "info": "未設定のときは元の画像（img-ce1d4a600a04.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "ローション専用の調整オイル"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "02 ブレンドオイル"
+    },
+    {
+      "type": "html",
+      "id": "t_17",
+      "label": "15ml ¥1,320",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "製品を見る"
+    }
+  ]
+}
+{% endschema %}

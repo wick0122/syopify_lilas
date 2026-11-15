@@ -1,0 +1,89 @@
+<div class="sbar" id="sbar"><div class="in"><img alt="" decoding="async" loading="lazy" src="{{ 'img-65f0d52a2ced.webp' | asset_url }}"/><p class="nm">Repair Lip Stick<small>リペアリップスティック ・ 15g</small></p><span class="pr" id="sbarPr">¥13,420</span><button class="addcart" id="sbarBtn">カートに入れる</button></div></div>
+<button aria-expanded="false" class="notes-tab" id="openNotes">News<span class="nt-ja">お知らせ</span></button>
+<div class="scrim" id="scrim"></div>
+<aside aria-label="News" class="drawer" id="drawer">
+<button class="close" id="closeNotes">閉じる</button>
+<h2 class="nw-h">News<span>お知らせ</span></h2>
+<!-- お知らせ:内容は news.js で管理しています(この下はnews.jsを読み込めないときの予備) -->
+<ul class="nw-list">
+<li><details><summary><time datetime="2026-12">2026.12</time><span class="nw-t">年末年始の配送休業のお知らせ</span></summary><div class="nw-bd">休業期間は、決まり次第こちらでお知らせします。</div></details></li>
+<li><details><summary><time datetime="2026-11-05">2026.11.05</time><span class="nw-t">待望の新作が誕生。</span></summary><div class="nw-bd">肌荒れを防ぎ、キメを整える新作「カームスムース」が誕生しました。<a class="nw-lk" href="/pages/lilas-product-calmsmooth">カームスムースを見る →</a></div></details></li>
+</ul>
+</aside>
+{% render 'lx-js-news-panel' %}
+<script>
+document.documentElement.classList.add("js");
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("shown");io.unobserve(e.target)}}),{rootMargin:"0px 0px -10% 0px"});
+$$("[data-r]").forEach(el=>io.observe(el));
+// 写真の切り替え
+const mainImg=$("#mainImg");
+$$(".thumbs button").forEach(b=>b.onclick=()=>{$$(".thumbs button").forEach(x=>x.classList.toggle("on",x===b));mainImg.style.opacity=0;setTimeout(()=>{mainImg.src=b.dataset.src;mainImg.style.opacity=1},250)});
+// 合計と送料無料までの残り
+let BASE=(window.LX_PRICE||2750),FREE=14000;let q=1;const yen=n=>"¥"+n.toLocaleString("ja-JP");
+function calc(){let t=BASE*q;$$(".opt input").forEach(i=>{if(i.checked)t+=+i.dataset.price});
+  $("#total").textContent=yen(t);$("#sbarPr").textContent=yen(t);$("#qty").textContent=q;
+  const r=FREE-t;$("#shipTx").textContent=r>0?`あと${yen(r)}で送料無料`:"送料無料でお届けします";$("#shipBar").style.width=Math.min(100,t/FREE*100)+"%";return t}
+$$(".opt input").forEach(i=>i.onchange=calc);
+$("#qMinus").onclick=()=>{q=Math.max(1,q-1);calc()};$("#qPlus").onclick=()=>{q=Math.min(9,q+1);calc()};calc();
+// カート(見本)
+let cartN=0;const toast=document.createElement("div");toast.className="toast";toast.setAttribute("role","status");document.body.appendChild(toast);let tt;
+function addCart(n,name){cartN+=n;$$(".cartn").forEach(e=>e.textContent=cartN);toast.textContent=`${name}をカートに入れました`;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),2600)}
+const buy=()=>{let n=q;$$(".opt input").forEach(i=>{if(i.checked)n++});addCart(n,"モイストグロー リペアリップスティック")};
+$("#buyBtn").onclick=buy;$("#sbarBtn").onclick=buy;
+$$(".addcart[data-name]").forEach(b=>b.onclick=()=>addCart(1,b.dataset.name));
+// セラムの容量
+$$(".size").forEach(g=>{const card=g.closest("article");g.querySelectorAll("button").forEach(b=>b.onclick=()=>{g.querySelectorAll("button").forEach(x=>x.classList.toggle("on",x===b));card.querySelector(".pv").textContent=b.dataset.p;card.querySelector(".addcart").dataset.name="モイストヴェールセラム "+b.dataset.s})});
+// 下部の購入バー:購入エリアを過ぎたら表示
+const sbar=$("#sbar"),buyEl=$("#buyBtn");
+/* 上メニューと下のカートバーを、スクロールの向きで切り替える */(()=>{const hd=document.querySelector("header.site");let lastY=window.scrollY,ticking=false;const upd=()=>{ticking=false;const y=window.scrollY,dy=y-lastY;const passed=buyEl.getBoundingClientRect().bottom<0;if(!passed){sbar.classList.remove("on");hd&&hd.classList.remove("hide");lastY=y;return}if(hd&&hd.classList.contains("menu")){lastY=y;return}if(Math.abs(dy)<6)return;if(dy>0){sbar.classList.add("on");hd&&hd.classList.add("hide")}else{sbar.classList.remove("on");hd&&hd.classList.remove("hide")}lastY=y};window.addEventListener("scroll",()=>{if(!ticking){ticking=true;requestAnimationFrame(upd)}},{passive:true});upd()})();
+// 考え方の引き出し
+const openN=$("#openNotes");const setN=on=>{document.body.classList.toggle("notes",on);openN.setAttribute("aria-expanded",on)};
+openN.onclick=()=>setN(true);$("#closeNotes").onclick=()=>setN(false);$("#scrim").onclick=()=>setN(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")setN(false)});
+</script>
+{% render 'lx-js-voices-slider' %}
+{% render 'lx-js-voices-more' %}
+{% render 'lx-js-video-bg' %}
+{% render 'lx-js-menu-toggle' %}
+{% render 'lx-js-video-blob' %}
+{% render 'lx-js-size-note' %}
+{% render 'lx-js-oil-chart-b' %}
+<script>
+/* セクション送り(パソコン):Enter・スペース・PageDownで次へ、Shift+Enter・Shift+スペース・PageUpで前へ */
+(()=>{const STOPS=["#buy", "#voices", "#detail", "#why", "#howto", "section.with", "footer"],HIDE="#buy";
+const hd=document.querySelector('header.site');const hh=()=>hd?Math.round(hd.getBoundingClientRect().height):0;
+const setH=()=>document.documentElement.style.setProperty('--hh',(hh()||64)+'px');setH();addEventListener('resize',setH);
+const mq=matchMedia('(min-width:901px)');
+const tops=()=>STOPS.map(s=>document.querySelector(s)).filter(Boolean).map(x=>Math.round(x.getBoundingClientRect().top+scrollY)).sort((a,b)=>a-b);
+function go(d){const vis=hd?Math.max(0,Math.round(hd.getBoundingClientRect().bottom)):0;const cur=Math.round(scrollY)+vis;const ts=tops();let t;const he=HIDE&&document.querySelector(HIDE);const hideY=he?Math.round(he.getBoundingClientRect().bottom+scrollY):Infinity;const off=v=>(d>0&&v>=hideY)?0:hh();const page=innerHeight-hh();
+ if(d>0){t=ts.find(v=>v>cur+6);if(t===undefined)t=document.documentElement.scrollHeight;if(t-cur>page+40)t=cur+page-40;}
+ else{t=[...ts].reverse().find(v=>v<cur-6);if(t===undefined)t=0;if(cur-t>page+40)t=cur-page+40;}
+ scrollTo({top:Math.max(0,t-off(t)),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}
+addEventListener('keydown',e=>{if(!mq.matches||e.metaKey||e.ctrlKey||e.altKey||e.isComposing)return;const tg=e.target;
+ if(/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName||'')||tg.isContentEditable)return;
+ if(document.querySelector('dialog[open]')||document.body.classList.contains('notes'))return;
+ const onCtl=tg.closest&&tg.closest('a,button,summary,label,[role=button],[role=radio],video');
+ let d=0;
+ if((e.key==='Enter'||e.key===' ')&&!onCtl)d=e.shiftKey?-1:1;
+ else if(e.key==='PageDown')d=1;else if(e.key==='PageUp')d=-1;
+ if(d){e.preventDefault();go(d)}});
+/* ページ内リンクを押した後も、Enterで続けて送れるようにする */
+document.addEventListener('click',e=>{const a=e.target.closest&&e.target.closest('a[href^="#"],summary');if(a)setTimeout(()=>a.blur(),0)})})();
+</script>
+{% render 'lx-js-sn-select' %}
+{% render 'lx-js-pair-size-label' %}
+{% render 'lx-js-pair-price-align' %}
+{% render 'lx-js-megamenu' %}
+{% render 'lx-js-news-hash' %}
+{% render 'lx-js-anbar-close' %}
+{% render 'lx-js-bell' %}
+{% render 'lx-js-budoux' %}
+{% render 'lx-js-footer-news' %}
+{% render 'lx-js-sp-cartbar-hide' %}
+<button aria-label="ページの上へ" class="totop" id="totop" type="button">↑</button>
+{% render 'lx-js-totop' %}
+{% render 'lx-js-toc-tabs' %}
+{% render 'lx-js-sp-menu' %}
+{% render 'lx-js-sp-linebreak' %}
+{% render 'lx-js-menu-label' %}
