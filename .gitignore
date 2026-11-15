@@ -3,3 +3,5 @@ release/
 .publish/
 __pycache__/
 .DS_Store
+.shopify-conflicts
+_shopify版_*

@@ -270,6 +270,8 @@ def pull_from_shopify(base, ref, branch):
         r = subprocess.run(['git', 'show', f'{rev}:{path}'], cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
         return r.stdout if r.returncode == 0 else None
     took, conflicts, deleted = [], [], []
+    pend_file = os.path.join(ROOT, '.shopify-conflicts')
+    pending = set(open(pend_file, encoding='utf-8').read().split('\n')) if os.path.exists(pend_file) else set()
     for line in rows.splitlines():
         st, path = line.split('\t', 1)
         if '/' not in path or path.split('/', 1)[0] not in THEME_DIRS | {'assets'}: continue
@@ -285,15 +287,19 @@ def pull_from_shopify(base, ref, branch):
         else:
             d, n = os.path.split(target)
             cp = os.path.join(d, '_shopify版_' + n)
-            open(cp, 'wb').write(theirs); conflicts.append(os.path.relpath(cp, ROOT))
+            if path in pending and not os.path.exists(cp):
+                continue   # _shopify版_ が消されている = まとめ終わった
+            open(cp, 'wb').write(theirs); conflicts.append((path, os.path.relpath(cp, ROOT)))
     for x in took: print('  取り込み ' + x)
     for x in deleted: print('  ⚠ Shopify側で削除されています(src/には残しています): ' + x)
     if conflicts:
         print('✗ 同じファイルが、ローカルとShopifyの両方で変更されています。')
         print('  Shopify側の内容を「_shopify版_〜」として隣に置きました。見比べて元のファイルにまとめ、')
-        print('  _shopify版_ のファイルを消してコミットしてから、もう一度公開してください:')
-        for x in conflicts: print('  ' + x)
+        print('  _shopify版_ のファイルを消して(元のファイルを直した場合はコミットして)、もう一度公開してください:')
+        for _, x in conflicts: print('  ' + x)
+        open(pend_file, 'w', encoding='utf-8').write('\n'.join(sorted(pending | {p for p, _ in conflicts})))
         raise SystemExit(1)
+    if os.path.exists(pend_file): os.remove(pend_file)
     if took:
         git('add', '-A'); git('commit', '-q', '-m', f'Shopifyでの変更を取り込み({ref})')
         print('  → 取り込んだ変更を develop にコミットしました')
