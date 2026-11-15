@@ -24,3 +24,5 @@
   $$(".addcart[data-name]").forEach(b=>{const a=b.closest("article,li,.card,div")&&b.closest("article,li,.card,div").querySelector("a[href^='/pages/']");
     if(!a)return;b.onclick=null;b.addEventListener("click",e=>{e.preventDefault();e.stopImmediatePropagation();location.href=a.getAttribute("href")},true)});
 })();
+/* 「一緒に使うなら」のセラム:容量のボタンで写真も切り替える */
+document.querySelectorAll(".with .wi .size button[data-img]").forEach(b=>b.addEventListener("click",()=>{const im=b.closest("article")&&b.closest("article").querySelector(".ph img");if(im)im.src=b.dataset.img}));
