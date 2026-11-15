@@ -1,0 +1,7 @@
+<script>
+/* 肌タイプチェックの結果から来たとき:肌タイプを自動で選び、Q2のポップアップを開く */
+(()=>{let k="";try{k=new URLSearchParams(location.search).get("skin")||""}catch(e){}
+ if(!/^(mochi|sara|kona|teka|mix|sens)$/.test(k))return;
+ addEventListener("load",()=>{const sec=document.getElementById("oil-check");const b=document.querySelector('.oc-types button[data-k="'+k+'"]');if(!b)return;
+  if(sec)sec.scrollIntoView({block:"start"});setTimeout(()=>b.click(),400)})})();
+</script>

@@ -1,0 +1,8 @@
+<script>
+/* 一緒に使うなら:同じ行のカードで価格の行の高さをそろえる */
+(()=>{const top=(el,root)=>{let t=0;while(el&&el!==root){t+=el.offsetTop;el=el.offsetParent}return t};
+const run=()=>{document.querySelectorAll(".with .w-grid").forEach(g=>{const ps=[...g.querySelectorAll(".wi .pr")];ps.forEach(p=>p.style.marginTop="");const rows={};
+ps.forEach(p=>{const k=top(p.closest(".wi"),g);(rows[k]=rows[k]||[]).push(p)});
+Object.values(rows).forEach(r=>{const ts=r.map(p=>top(p,g)),m=Math.max(...ts);r.forEach((p,i)=>{const b=parseFloat(getComputedStyle(p).marginTop)||0;if(m-ts[i]>0.5)p.style.marginTop=(b+m-ts[i])+"px"})})})};
+window.addEventListener("load",run);window.addEventListener("resize",run);if(document.fonts)document.fonts.ready.then(run);run()})();
+</script>

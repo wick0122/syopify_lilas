@@ -1,0 +1,10 @@
+<script>
+/* スマホのメニュー:開いている間は後ろのページを止め、メニューの中だけスクロール。1つ開くとほかは閉じる */
+(()=>{const h=document.querySelector("header.site");if(!h)return;const mq=matchMedia("(max-width:900px)");
+ let keepY=null;const sync=()=>{const open=h.classList.contains("menu")&&mq.matches;const was=document.documentElement.classList.contains("menu-lock");if(open&&!was)keepY=scrollY;document.documentElement.classList.toggle("menu-lock",open);if(!open&&was&&keepY!==null){const y=keepY;keepY=null;document.documentElement.style.scrollSnapType="none";scrollTo({top:y,behavior:"instant"});setTimeout(()=>document.documentElement.style.scrollSnapType="",400)}
+  if(open){if(h.classList.contains("hd-hide"))h.classList.remove("hd-hide");const st=()=>document.documentElement.style.setProperty("--mnav-top",Math.round(Math.max(h.offsetHeight,h.getBoundingClientRect().bottom))+"px");st();setTimeout(st,360)}};
+ new MutationObserver(sync).observe(h,{attributes:true,attributeFilter:["class"]});addEventListener("resize",sync);
+ h.querySelectorAll(".gi > .gt[aria-controls]").forEach(b=>b.addEventListener("click",()=>{if(!mq.matches)return;
+  setTimeout(()=>{if(b.getAttribute("aria-expanded")==="true"){h.querySelectorAll(".gi > .gt[aria-controls]").forEach(o=>{if(o!==b&&o.getAttribute("aria-expanded")==="true")o.click()});
+   const nav=h.querySelector("nav");const r=b.getBoundingClientRect(),nr=nav.getBoundingClientRect();nav.scrollTo({top:nav.scrollTop+r.top-nr.top-4,behavior:"smooth"})}},30)}))})();
+</script>

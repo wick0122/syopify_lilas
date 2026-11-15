@@ -1,0 +1,13 @@
+<script>
+/* ===== セクション送り:Enter・スペース・PageDownで次へ(Shiftで前へ)、パソコン表示のみ ===== */
+(()=>{const mq=matchMedia('(min-width:901px)');const hd=document.querySelector('header.site');
+const secs=()=>[...document.querySelectorAll('main section.lx-top, main h2, footer')];
+function go(d){const H=hd?hd.getBoundingClientRect().height:0;const cur=scrollY+H;const tops=secs().map(x=>Math.round(x.getBoundingClientRect().top+scrollY));
+let t=d>0?tops.find(v=>v>cur+6):[...tops].reverse().find(v=>v<cur-6);if(t===undefined)t=d>0?document.documentElement.scrollHeight:0;
+scrollTo({top:Math.max(0,t-H-8),behavior:matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'})}
+addEventListener('keydown',e=>{if(!mq.matches||e.metaKey||e.ctrlKey||e.altKey||e.isComposing)return;const tg=e.target;
+if(/^(INPUT|TEXTAREA|SELECT)$/.test(tg.tagName||'')||tg.isContentEditable)return;
+if(/^(BUTTON|A|SUMMARY)$/.test(tg.tagName||'')&&(e.key==='Enter'||e.key===' '))return;
+if(document.body.classList.contains('notes'))return;
+if(e.key==='Enter'||e.key===' '||e.key==='PageDown'||e.key==='PageUp'){e.preventDefault();go((e.shiftKey||e.key==='PageUp')?-1:1)}})})();
+</script>

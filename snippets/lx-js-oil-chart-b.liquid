@@ -1,0 +1,36 @@
+<script>
+// オイル量チャート(製品ページ)
+(()=>{const box=document.querySelector(".oc");if(!box)return;
+const line=box.dataset.line||"std";
+const TYPES={mochi:{n:"バランスの整った肌",e:"Balanced",v:[1,1,1]},sara:{n:"乾燥肌（軽め）",e:"Slightly dry",v:[.7,.7,.7]},teka:{n:"脂性肌",e:"Oily",v:[.42,.48,.95]},kona:{n:"乾燥肌",e:"Dry",v:[.55,.55,.55]},mix:{n:"混合肌",e:"Combination",d:"TゾーンとUゾーンのバランスが異なる",v:[.5,.55,.8],v2:[.6,.6,.45]}};
+const R={std:{
+ mochi:{s:["ローションのみで、もっちり吸いつくまで重ねづけ"],r:[0,0],a:"<b>なし</b>"},
+ sara:{s:["まずはローションを3回重ねづけ","もっちり吸いつかなければ、オイルを3分の1から"],r:[1/3,1],a:"<b>3分の1から</b>"},
+ teka:{s:["まずはローションを3回重ねづけ","しっとり感がほしくなったら、オイルを3分の1から"],r:[1/3,.75],a:"<b>3分の1から</b>"},
+ kona:{s:["まずはローションを3回重ねづけ","吸いつかなければ、オイルを半量から全量まで"],r:[.5,1],a:"<b>半量〜全量</b>"},
+ mix:{s:["オイルを3分の1ほど加える","テカリやすいTゾーンなどは1〜2回、乾く部位は3回重ねづけ","Uゾーンはオイル多めが合う方が多い"],r:[1/3,1],a:"<b>3分の1〜全量</b>"}},
+ sens:{
+ mochi:{s:["ローションに、オイルを少量加えて重ねづけ"],r:[0,1/3],a:"<b>少量</b>"},
+ sara:{s:["最初からオイルを3分の1加える","もっちり吸いつくまで、少しずつ増やす"],r:[1/3,1],a:"<b>3分の1から</b>"},
+ teka:{s:["最初からオイルを3分の1加える","もっちり吸いつくまで、少しずつ増やす"],r:[1/3,1],a:"<b>3分の1から</b>"},
+ kona:{s:["最初からオイルを半量加える","様子を見て、全量まで増やす"],r:[.5,1],a:"<b>半量〜全量</b>"},
+ mix:{s:["オイルを3分の1ほど加える","テカリやすいTゾーンなどは1〜2回、乾く部位は3回重ねづけ"],r:[1/3,1],a:"<b>3分の1〜全量</b>"}}};
+function tri(v,v2,small){const cx=100,cy=112,Rr=78,ang=[-90,150,30].map(a=>a*Math.PI/180),pt=(r,i)=>[cx+r*Rr*Math.cos(ang[i]),cy+r*Rr*Math.sin(ang[i])],poly=a=>a.map((r,i)=>pt(r,i).map(n=>n.toFixed(1)).join(",")).join(" ");
+ let s=`<svg viewBox="0 0 200 200" role="img" aria-label="水分・水分保持力・保護力のバランス"><defs><radialGradient id="ocbg" cx="50%" cy="56%" r="50%"><stop offset="0" stop-color="#E2E1EA"/><stop offset="1" stop-color="#E2E1EA" stop-opacity="0"/></radialGradient></defs><circle cx="100" cy="110" r="96" fill="url(#ocbg)"/>`;
+ s+=`<polygon points="${poly([1,1,1])}" fill="rgba(255,255,255,.5)" stroke="#fff" stroke-width="2.5"/>`;
+ [0,1,2].forEach(i=>{const p=pt(1,i);s+=`<line x1="${cx}" y1="${cy}" x2="${p[0]}" y2="${p[1]}" stroke="#fff" stroke-width="1.2"/>`});
+ if(v2)s+=`<polygon points="${poly(v2)}" fill="none" stroke="#9AA3D0" stroke-width="1.2" stroke-dasharray="3 3"/>`;
+ s+=`<polygon points="${poly(v)}" fill="rgba(182,190,228,.62)" stroke="#9AA3D0" stroke-width="1.3"/>`;
+ [["水分",100,22,"middle"],["水分保持力",20,196,"start"],["保護力",180,196,"end"]].forEach(([t,x,y,a])=>s+=`<text x="${x}" y="${y}" text-anchor="${a}" font-size="11" fill="#585856" font-family="Shippori Mincho,serif">${t}</text>`);
+ return s+"</svg>"}
+const el=id=>document.getElementById(id);
+function show(k){const t=TYPES[k],r=R[line][k];
+ el("ocTri").innerHTML=k==="mix"?`<div class="oc-tri2"><figure>${tri([.55,.55,.55])}<figcaption>乾く部分</figcaption></figure><figure>${tri([.42,.48,.95])}<figcaption>テカる部分</figcaption></figure></div>`:tri(t.v);
+ el("ocType").innerHTML=`${t.n}${t.d?`<span class="oc-d">${t.d}</span>`:""}<small>${t.e}</small>`;
+ el("ocSteps").innerHTML=r.s.map(x=>`<li>${x}</li>`).join("");
+ const g=el("ocRange");const a=r.r[0],b=r.r[1];g.style.left=(a*100)+"%";g.style.width=(Math.max(b-a,.02)*100)+"%";if(b===0){g.style.width="10px";g.style.left="0"}
+ el("ocAmt").innerHTML=r.a;
+ box.querySelectorAll(".oc-opts button").forEach(x=>{const on=x.dataset.k===k;x.classList.toggle("on",on);x.setAttribute("aria-checked",on)})}
+box.querySelectorAll(".oc-opts button").forEach(b=>b.addEventListener("click",()=>{show(b.dataset.k);b.closest(".oc").classList.add("done")}));
+})();
+</script>

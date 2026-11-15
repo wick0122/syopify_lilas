@@ -1,0 +1,7 @@
+<script>
+/* お知らせ:news.js の内容でパネルを作り直す(読み込めないときは、ページに書いてある内容をそのまま表示) */
+(()=>{const L=window.LILAS_NEWS,ul=document.querySelector(".nw-list");if(!L||!ul)return;
+ const esc=s=>String(s);ul.innerHTML=L.map(n=>{const t=`<time datetime="${n.date}">${n.label}</time>`;let b=n.body||"";if(n.link)b+=`<a class="nw-lk" href="${n.link}">${n.linkText||"詳しく見る"} →</a>`;
+  return b?`<li><details><summary>${t}<span class="nw-t">${esc(n.title)}</span></summary><div class="nw-bd">${b}</div></details></li>`:`<li><div class="nw-row">${t}<span class="nw-t">${esc(n.title)}</span></div></li>`}).join("");
+ const f=ul.querySelector("details");if(f)f.open=true})();
+</script>

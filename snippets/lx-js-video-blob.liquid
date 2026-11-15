@@ -1,0 +1,14 @@
+<script>
+// 動画:読み込み後すぐ再生。Safariでも動くようBlobに変換し、だめなら元のデータで再生
+(()=>{document.querySelectorAll("video.blobv").forEach(v=>{
+  v.muted=true;v.defaultMuted=true;v.setAttribute("muted","");v.setAttribute("autoplay","");v.setAttribute("playsinline","");v.preload="none";
+  const ss=[...v.querySelectorAll("source[data-src]")].map(s=>({u:s.dataset.src,t:s.type,q:s.type=="video/mp4"?'video/mp4; codecs="avc1.640028"':'video/webm; codecs="vp9"'})).filter(x=>v.canPlayType(x.q)||v.canPlayType(x.t));
+  const play=()=>{const p=v.play();if(p&&p.catch)p.catch(()=>{})};
+  const go=i=>{if(i>=ss.length)return;v.onerror=()=>go(i+1);
+    (v.src=ss[i].u,v.load(),play())};
+  {const lz=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){lz.disconnect();go(0)}},{rootMargin:"400px 0px"});lz.observe(v)}
+  v.addEventListener("canplay",play);
+  new IntersectionObserver(es=>es.forEach(e=>{e.isIntersecting?play():v.pause()}),{threshold:.1}).observe(v)})})();
+// 画面のどこかを触ったら再生を再試行(省電力モードなどで止められた場合の保険)
+addEventListener("touchstart",()=>document.querySelectorAll("video.blobv").forEach(v=>{if(v.paused){const p=v.play();if(p&&p.catch)p.catch(()=>{})}}),{once:true,passive:true});
+</script>

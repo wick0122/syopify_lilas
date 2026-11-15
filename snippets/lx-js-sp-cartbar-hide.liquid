@@ -1,0 +1,5 @@
+<script>
+/* スマホ:フッターが見えたら、下のカートのバーを隠す(フッターの文字に重ならないように) */
+(()=>{const sb=document.getElementById("sbar"),ft=document.querySelector("footer");if(!sb||!ft||!("IntersectionObserver"in window))return;
+ new IntersectionObserver(es=>es.forEach(e=>document.body.classList.toggle("ft-in",e.isIntersecting)),{rootMargin:"0px 0px -40px 0px"}).observe(ft)})();
+</script>

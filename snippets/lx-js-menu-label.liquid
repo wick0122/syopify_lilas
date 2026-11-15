@@ -1,0 +1,5 @@
+<script>
+/* メニューボタンの読み上げ名を、開閉に合わせて切り替える */
+(()=>{const h=document.querySelector("header.site"),b=h&&h.querySelector(".mbtn");if(!b)return;
+ new MutationObserver(()=>{const o=h.classList.contains("menu"),l=o?"メニューを閉じる":"メニュー";if(b.getAttribute("aria-label")!==l)b.setAttribute("aria-label",l);const e=String(o);if(b.getAttribute("aria-expanded")!==e)b.setAttribute("aria-expanded",e)}).observe(h,{attributes:true,attributeFilter:["class"]})})();
+</script>

@@ -1,0 +1,13 @@
+<script>
+(()=>{const hd=document.querySelector('header.site.hd2');if(!hd)return;const items=[...hd.querySelectorAll('.gi')].filter(g=>g.querySelector('.mm'));
+const desk=()=>matchMedia('(min-width:901px)').matches;let t;
+const close=()=>{items.forEach(g=>{g.classList.remove('open');g.querySelector('.gt').setAttribute('aria-expanded','false')});hd.classList.remove('mmopen')};
+const open=g=>{close();g.classList.add('open');g.querySelector('.gt').setAttribute('aria-expanded','true');if(desk())hd.classList.add('mmopen')};
+items.forEach(g=>{const b=g.querySelector('.gt');
+ b.addEventListener('click',e=>{e.preventDefault();g.classList.contains('open')?close():open(g)});
+ g.addEventListener('mouseenter',()=>{if(!desk())return;clearTimeout(t);open(g)});
+ g.addEventListener('mouseleave',()=>{if(!desk())return;t=setTimeout(close,180)});});
+hd.querySelectorAll('.gi:not(:has(.mm))').forEach(g=>g.addEventListener('mouseenter',()=>{if(desk())close()}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+document.addEventListener('click',e=>{if(!hd.contains(e.target))close()});})();
+</script>

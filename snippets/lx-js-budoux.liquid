@@ -1,0 +1,17 @@
+<script>
+/* 改行の仕組み(BudouX):言葉のまとまりの改行に未対応のブラウザ(iPhoneのSafariなど)だけ読み込む */
+(()=>{if(window.CSS&&CSS.supports&&CSS.supports("word-break","auto-phrase"))return;
+ const s=document.createElement("script");s.src="https://cdn.jsdelivr.net/npm/budoux@0.6.3/bundle/budoux-ja.min.js";s.async=true;
+ s.onload=()=>{if(!window.customElements)return;customElements.whenDefined("budoux-ja").then(()=>{
+  const sel="main p, main li, main dd, main dt, main h1, main h2, main h3, main h4, main figcaption, .drawer p, footer p";
+  document.querySelectorAll(sel).forEach(el=>{
+   if(el.closest("button,nav,dialog,svg,budoux-ja")||el.querySelector("p,div,ul,ol,li,table,img,svg,button,input,select,textarea,budoux-ja"))return;
+   if(!/[\u3040-\u30ff\u4e00-\u9fff]/.test(el.textContent))return;
+   const w=document.createElement("budoux-ja");while(el.firstChild)w.appendChild(el.firstChild);el.appendChild(w)})})};
+ document.head.appendChild(s)})();
+/* スマホ:メニューバーの出し入れ */
+(()=>{const hd=document.querySelector("header.site");if(!hd)return;const mq=matchMedia("(max-width:900px)");let y0=scrollY,tick=false;
+ addEventListener("scroll",()=>{if(tick)return;tick=true;requestAnimationFrame(()=>{tick=false;const y=scrollY,d=y-y0;
+  if(!mq.matches||hd.classList.contains("open")||hd.classList.contains("menu")||document.body.classList.contains("notes")||y<120){if(hd.classList.contains("hd-hide"))hd.classList.remove("hd-hide");y0=y;return}
+  if(d>8){hd.classList.add("hd-hide");y0=y}else if(d<-6){hd.classList.remove("hd-hide");y0=y}})},{passive:true})})();
+</script>
