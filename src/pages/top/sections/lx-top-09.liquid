@@ -1,0 +1,180 @@
+<section class="fsec pdsec lx-top lx-n7" id="collection"><div class="pdtitle" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><h2 class="fh">{{ section.settings.t_2 }}</h2></div><div class="wrap"><article class="prow" data-r=""><figure class="ph"><img alt="エイジングケア" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-086a2ac6a243.webp' | asset_url }}{% endif %}"/></figure>
+<div class="info"><p class="p-en">{{ section.settings.t_3 | escape }}</p><div class="ttl"><h3>{{ section.settings.t_4 }}</h3></div><p class="k">{{ section.settings.t_5 | escape }}</p><p class="d">{{ section.settings.t_6 | escape }}</p><div class="pki"><p class="pki-h">{{ section.settings.t_7 }}</p><p class="pki-g">{{ section.settings.t_8 | escape }}</p><ul><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-fd8ef5c40b94.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_9 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-946f029e733e.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_10 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-8601dc58da95.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_11 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-5b636a3e868c.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_12 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-136b8a2b8742.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_13 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_7 %}{{ section.settings.img_7 | image_url: width: 1800 }}{% else %}{{ 'img-15e418bd9377.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_14 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_8 %}{{ section.settings.img_8 | image_url: width: 1800 }}{% else %}{{ 'img-0f0a54a5a3fa.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_15 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_9 %}{{ section.settings.img_9 | image_url: width: 1800 }}{% else %}{{ 'img-e22059205ba5.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_16 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_10 %}{{ section.settings.img_10 | image_url: width: 1800 }}{% else %}{{ 'img-e79f7f0e1feb.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_17 | escape | newline_to_br | strip_newlines }}</span></li></ul></div><div class="buyrow"><p class="pr">{{ section.settings.t_18 }}</p><a class="addcart more" href="/pages/lilas-product-aging">{{ section.settings.t_19 | escape }}</a></div><p class="pdnote">{{ section.settings.t_20 | escape }}</p></div></article></div></section>
+{% schema %}
+{
+  "name": "トップ 09 05〜07 濃縮ローション",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：エイジングケア",
+      "info": "未設定のときは元の画像（img-086a2ac6a243.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像 2",
+      "info": "未設定のときは元の画像（img-fd8ef5c40b94.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像 3",
+      "info": "未設定のときは元の画像（img-946f029e733e.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "画像 4",
+      "info": "未設定のときは元の画像（img-8601dc58da95.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_5",
+      "label": "画像 5",
+      "info": "未設定のときは元の画像（img-5b636a3e868c.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像 6",
+      "info": "未設定のときは元の画像（img-136b8a2b8742.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_7",
+      "label": "画像 7",
+      "info": "未設定のときは元の画像（img-15e418bd9377.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_8",
+      "label": "画像 8",
+      "info": "未設定のときは元の画像（img-0f0a54a5a3fa.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_9",
+      "label": "画像 9",
+      "info": "未設定のときは元の画像（img-e22059205ba5.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_10",
+      "label": "画像 10",
+      "info": "未設定のときは元の画像（img-e79f7f0e1feb.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "05 / Product"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "悩みに合わせて選べる、 2層式の オールイン…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "Aging Care"
+    },
+    {
+      "type": "html",
+      "id": "t_4",
+      "label": "エイジングケア ※",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "リラで最も贅沢な、ハリを与えるプレミアム処方"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "30代以降の大人肌の、年齢による乾燥と肌悩み…"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "Key ingredients ハリ・ツヤ他…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "特徴となる成分"
+    },
+    {
+      "type": "textarea",
+      "id": "t_9",
+      "label": "オタネ ニンジン根",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "アルジルリン"
+    },
+    {
+      "type": "textarea",
+      "id": "t_11",
+      "label": "ローヤル ゼリー末",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_12",
+      "label": "水溶性 プロテオグリカン",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "セラミドNP"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "カルノシン"
+    },
+    {
+      "type": "textarea",
+      "id": "t_15",
+      "label": "プラセンタ エキス",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "ハトムギ種子"
+    },
+    {
+      "type": "textarea",
+      "id": "t_17",
+      "label": "カーネーション 花エキス",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_18",
+      "label": "¥12,100 (税込)",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "この製品を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "※エイジングケア:年齢に応じたうるおいケアの…"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,42 @@
+<section class="fsec why whyB lx-top lx-n4" id="why2"><div class="wrap"><div class="grid12"><figure class="f3" data-r=""><div class="ph arch"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-661442a5e709.webp' | asset_url }}{% endif %}"/></div><p class="word">{{ section.settings.t_1 | escape }}</p><p class="cap">{{ section.settings.t_2 | escape }}</p></figure><figure class="f4" data-r=""><div class="ph"><img alt="2本のローションを合わせるふたりの手" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-6faf0c7939ea.webp' | asset_url }}{% endif %}" style="object-position:center 60%"/></div><p class="word">{{ section.settings.t_3 | escape }}</p><p class="cap">{{ section.settings.t_4 | escape }}</p></figure></div></div></section>
+{% schema %}
+{
+  "name": "トップ 06 03 Why Lilas 2/3",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-661442a5e709.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像：2本のローションを合わせるふたりの手",
+      "info": "未設定のときは元の画像（img-6faf0c7939ea.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Gentle"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "10の無添加で使用期限をあえて短く。"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "For everyone"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "性別を問わないジェンダーレスコスメ。ご家族や…"
+    }
+  ]
+}
+{% endschema %}

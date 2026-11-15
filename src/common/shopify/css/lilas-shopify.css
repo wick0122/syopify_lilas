@@ -1,0 +1,2 @@
+/* Shopify用の調整：セクションを囲む枠がレイアウトに影響しないようにする */
+.shopify-section.lx-sec,.shopify-section-group-header-group,.shopify-section-group-footer-group{display:contents}

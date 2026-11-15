@@ -1,0 +1,59 @@
+<section class="fsec why whyA lx-top lx-n3" id="why"><div class="wrap"><div class="fhd grid12" data-r=""><span class="folio">{{ section.settings.t_1 | escape }}</span><h2>{{ section.settings.t_2 }}</h2><p>{{ section.settings.t_3 | escape | newline_to_br | strip_newlines }}</p></div><div class="grid12"><figure class="f1" data-r=""><div class="ph"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-ce2152ba1fcc.webp' | asset_url }}{% endif %}"/></div><p class="word">{{ section.settings.t_4 | escape }}</p><p class="cap">{{ section.settings.t_5 | escape }}</p></figure><figure class="f2" data-r=""><div class="ph"><img alt="エイジングケアのボトルを手にほほえむ女性" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-57ab9b85ce1f.webp' | asset_url }}{% endif %}" style="object-position:center"/></div><p class="word">{{ section.settings.t_6 | escape }}</p><p class="cap">{{ section.settings.t_7 | escape }}</p></figure></div></div></section>
+{% schema %}
+{
+  "name": "トップ 05 03 Why Lilas 1/3",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-ce2152ba1fcc.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像：エイジングケアのボトルを手にほほえむ女性",
+      "info": "未設定のときは元の画像（img-57ab9b85ce1f.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "03 / Feature"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Why Lilas",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "選ばれる、 五つの理由",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "Semi-custom"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "1本で完結するオールインワン。オイルで、しっ…"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "Concentrate"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "水を足さない、和漢植物エキスの濃縮処方。"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  {%- liquid
+    assign lx_key = template.name
+    if template.suffix
+      assign lx_key = template.name | append: '.' | append: template.suffix
+    endif
+    assign lx_title = ''
+    assign lx_main = ''
+  -%}
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {%- case lx_key -%}
+  {%- when 'index' -%}
+    {%- assign lx_title = "Lilas | うるおいを、毎日に。" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-index.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&amp;family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-features' -%}
+    {%- assign lx_title = "製品の特徴 | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-features.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-products' -%}
+    {%- assign lx_title = "製品一覧 | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-products.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-message' -%}
+    {%- assign lx_title = "Lilasの想い | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-message.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-about' -%}
+    {%- assign lx_title = "ブランドの歩み | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-about.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-guide' -%}
+    {%- assign lx_title = "サービスガイド | Lilas" -%}
+    {%- assign lx_main = 'ip' -%}
+    {{ 'lilas-guide.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-privacy' -%}
+    {%- assign lx_title = "プライバシーポリシー | Lilas" -%}
+    {%- assign lx_main = 'ip' -%}
+    {{ 'lilas-privacy.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-terms' -%}
+    {%- assign lx_title = "ご利用規約 | Lilas" -%}
+    {%- assign lx_main = 'ip' -%}
+    {{ 'lilas-terms.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-tokushoho' -%}
+    {%- assign lx_title = "特定商取引法に基づく表記 | Lilas" -%}
+    {%- assign lx_main = 'ip' -%}
+    {{ 'lilas-tokushoho.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-aging' -%}
+    {%- assign lx_title = "エイジングケア | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-aging.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-bright' -%}
+    {%- assign lx_title = "ブライトアップ | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-bright.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-calmsmooth' -%}
+    {%- assign lx_title = "カームスムース | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-calmsmooth.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-oil' -%}
+    {%- assign lx_title = "ブレンドオイル | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-oil.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-serum' -%}
+    {%- assign lx_title = "モイストヴェールセラム | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-serum.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-balm' -%}
+    {%- assign lx_title = "モイストグロー マルチバーム | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-balm.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-sensitive' -%}
+    {%- assign lx_title = "センシティブケア | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-sensitive.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-smooth' -%}
+    {%- assign lx_title = "スムーススキン | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-smooth.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- else -%}
+    {{ 'lilas-terms.css' | asset_url | stylesheet_tag }}
+    {{ 'lilas-system.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- endcase -%}
+  {{ 'lilas-shopify.css' | asset_url | stylesheet_tag }}
+  <title>{% if lx_title != blank %}{{ lx_title }}{% else %}{{ page_title }}{% unless page_title contains shop.name %} | {{ shop.name }}{% endunless %}{% endif %}</title>
+  {%- if page_description %}<meta name="description" content="{{ page_description | escape }}">{% endif %}
+  {%- if settings.favicon != blank %}<link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 64 }}">{% endif %}
+  {{ content_for_header }}
+</head>
+<body>
+{% sections 'header-group' %}
+<main{% if lx_main != blank %} class="{{ lx_main }}"{% endif %}>
+{{ content_for_layout }}
+</main>
+{% sections 'footer-group' %}
+{%- case lx_key -%}
+  {%- when 'index' -%}{%- render 'lx-tail-top' -%}
+  {%- when 'page.lilas-features' -%}{%- render 'lx-tail-features' -%}
+  {%- when 'page.lilas-products' -%}{%- render 'lx-tail-products' -%}
+  {%- when 'page.lilas-message' -%}{%- render 'lx-tail-message' -%}
+  {%- when 'page.lilas-about' -%}{%- render 'lx-tail-about' -%}
+  {%- when 'page.lilas-guide' -%}{%- render 'lx-tail-guide' -%}
+  {%- when 'page.lilas-privacy' -%}{%- render 'lx-tail-privacy' -%}
+  {%- when 'page.lilas-terms' -%}{%- render 'lx-tail-terms' -%}
+  {%- when 'page.lilas-tokushoho' -%}{%- render 'lx-tail-tokushoho' -%}
+  {%- when 'page.lilas-product-aging' -%}{%- render 'lx-tail-product-aging' -%}
+  {%- when 'page.lilas-product-bright' -%}{%- render 'lx-tail-product-bright' -%}
+  {%- when 'page.lilas-product-calmsmooth' -%}{%- render 'lx-tail-product-calmsmooth' -%}
+  {%- when 'page.lilas-product-oil' -%}{%- render 'lx-tail-product-oil' -%}
+  {%- when 'page.lilas-product-serum' -%}{%- render 'lx-tail-product-serum' -%}
+  {%- when 'page.lilas-product-balm' -%}{%- render 'lx-tail-product-balm' -%}
+  {%- when 'page.lilas-product-sensitive' -%}{%- render 'lx-tail-product-sensitive' -%}
+  {%- when 'page.lilas-product-smooth' -%}{%- render 'lx-tail-product-smooth' -%}
+  {%- else -%}{%- render 'lx-tail-system' -%}
+{%- endcase -%}
+<script src="{{ 'lilas-cart.js' | asset_url }}" defer></script>
+</body>
+</html>

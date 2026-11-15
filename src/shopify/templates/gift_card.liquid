@@ -1,0 +1,7 @@
+{{ 'lilas-system.css' | asset_url | stylesheet_tag }}
+<div class="lx-sys lx-empty">
+  <h1>{{ shop.name }} ギフトカード</h1>
+  <p style="font-size:24px">{{ gift_card.balance | money }}</p>
+  <p><code>{{ gift_card.code | format_code }}</code></p>
+  {%- if gift_card.expires_on -%}<p>有効期限：{{ gift_card.expires_on | date: '%Y.%m.%d' }}</p>{%- endif -%}
+</div>

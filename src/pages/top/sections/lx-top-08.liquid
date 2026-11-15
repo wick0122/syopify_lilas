@@ -1,0 +1,94 @@
+<section class="fsec alt fml fml2 lx-top lx-n6" id="formula"><div class="wrap center">
+<div data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><div class="fhd-in"><h2 class="fh">{{ section.settings.t_2 | escape }}</h2></div>
+<p class="ftx">{{ section.settings.t_3 }}</p>
+<div class="qopts qbox">
+<button data-v="dry"><span class="en">{{ section.settings.t_4 | escape }}</span><span class="t">{{ section.settings.t_5 | escape }}</span></button>
+<button data-v="rough"><span class="en">{{ section.settings.t_6 | escape }}</span><span class="t">{{ section.settings.t_7 | escape }}</span></button>
+<button data-v="aging"><span class="en">{{ section.settings.t_8 | escape }}</span><span class="t">{{ section.settings.t_9 | escape }}</span></button>
+<button data-v="smooth"><span class="en">{{ section.settings.t_10 | escape }}</span><span class="t">{{ section.settings.t_11 }}</span></button>
+<button data-v="bright"><span class="en">{{ section.settings.t_12 | escape }}</span><span class="t">{{ section.settings.t_13 }}</span></button>
+</div>
+<p class="qbox-note">{{ section.settings.t_14 | escape }}</p></div>
+</div></section>
+{% schema %}
+{
+  "name": "トップ 08 04 肌タイプチェック",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "04 / Skin type check"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "今、最も気になる肌の悩みは？"
+    },
+    {
+      "type": "html",
+      "id": "t_3",
+      "label": "三つの質問に答えるだけで、 今の肌に合う組み…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "Sensitive"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "乾燥・敏感肌"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "Roughness"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "肌荒れ"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "Firmness"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "年齢肌・ハリ"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "Texture"
+    },
+    {
+      "type": "html",
+      "id": "t_11",
+      "label": "キメ・テカリ ※",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "Radiance"
+    },
+    {
+      "type": "html",
+      "id": "t_13",
+      "label": "くすみ ※",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "※乾燥による肌のキメの乱れ・くすみのこと"
+    }
+  ]
+}
+{% endschema %}

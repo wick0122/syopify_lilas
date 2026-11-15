@@ -1,0 +1,130 @@
+<section class="mz mz-l lx-top lx-n5" id="f4"><div class="wrap">
+<div class="mz-hd" data-r="">
+<p class="mz-k">{{ section.settings.t_1 | escape }}</p>
+<div class="fhd-in"><span class="fno">{{ section.settings.t_2 | escape }}</span><h2 class="fh"><span class="nb">{{ section.settings.t_3 | escape }}</span><span class="nb">{{ section.settings.t_4 | escape }}</span></h2></div>
+<p class="mz-lead">{{ section.settings.t_5 | escape }}</p>
+</div>
+<div class="mz-grid">
+<figure class="mz-fig" data-r="">
+<svg aria-label="保湿の3つの要素の図:肌の上で、保湿成分が水分を抱え込み(保水)、網のように水分を逃しにくくし(水分保持)、その上を植物ブレンドオイルが覆う(保護)" role="img" viewbox="0 0 560 300">
+<defs>
+<lineargradient id="mzOil" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9fb4bf" stop-opacity=".55"></stop><stop offset="1" stop-color="#9fb4bf" stop-opacity=".08"></stop></lineargradient>
+<clippath id="mzNet"><rect height="92" width="300" x="60" y="128"></rect></clippath>
+</defs>
+<path d="M40 92 Q210 52 380 92 L380 112 Q210 72 40 112 Z" fill="url(#mzOil)" stroke="#9fb4bf" stroke-width="1"></path>
+<g clip-path="url(#mzNet)" opacity=".75" stroke="#8fa3ab" stroke-width=".8">
+<path d="M40 128 L160 248 M80 128 L200 248 M120 128 L240 248 M160 128 L280 248 M200 128 L320 248 M240 128 L360 248 M280 128 L400 248 M320 128 L440 248 M0 128 L120 248"></path>
+<path d="M400 128 L280 248 M360 128 L240 248 M320 128 L200 248 M280 128 L160 248 M240 128 L120 248 M200 128 L80 248 M160 128 L40 248 M120 128 L0 248 M440 128 L320 248"></path>
+</g>
+<g fill="#a9bcc2" opacity=".9"><circle cx="96" cy="176" r="6"></circle><circle cx="142" cy="196" r="5"></circle><circle cx="188" cy="160" r="6.5"></circle><circle cx="232" cy="190" r="5.5"></circle><circle cx="276" cy="168" r="6"></circle><circle cx="320" cy="198" r="5"></circle><circle cx="118" cy="146" r="4"></circle><circle cx="300" cy="142" r="4"></circle></g>
+<path d="M30 252 Q120 240 210 252 T390 252" fill="none" stroke="#585856" stroke-width="1.2"></path>
+<text class="mz-svlb" text-anchor="middle" x="210" y="282">肌</text>
+<g class="mz-tags">
+<path d="M378 100 H440" stroke="#9fb4bf"></path><text class="mz-en" x="448" y="96">Protect</text><text class="mz-jp" x="448" y="114">保護</text>
+<path d="M360 150 H440" stroke="#9fb4bf"></path><text class="mz-en" x="448" y="146">Keep</text><text class="mz-jp" x="448" y="164">水分保持</text>
+<path d="M326 198 H440" stroke="#9fb4bf"></path><text class="mz-en" x="448" y="194">Hold</text><text class="mz-jp" x="448" y="212">保水</text>
+</g>
+</svg>
+</figure>
+<div data-r="">
+<ul class="mz-three">
+<li><span class="mz-en2">{{ section.settings.t_6 | escape }}</span><b>{{ section.settings.t_7 | escape }}</b><span>{{ section.settings.t_8 | escape }}</span></li>
+<li><span class="mz-en2">{{ section.settings.t_9 | escape }}</span><b>{{ section.settings.t_10 | escape }}</b><span>{{ section.settings.t_11 | escape }}</span></li>
+<li><span class="mz-en2">{{ section.settings.t_12 | escape }}</span><b>{{ section.settings.t_13 | escape }}</b><span>{{ section.settings.t_14 | escape }}</span></li>
+</ul>
+<p class="mz-fact">{{ section.settings.t_15 }}</p>
+<p class="mz-note mz-note-r">{{ section.settings.t_16 | escape | newline_to_br | strip_newlines }}</p>
+</div>
+</div>
+</div></section>
+{% schema %}
+{
+  "name": "特徴 07 04 黄金比率",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Moisture"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "04"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "Lilasが考える、"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "保湿のかたち"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "保湿とは、「保水」「水分保持」「保護」の3つ…"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "Hold"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "保水"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "保湿成分が、水分を抱え込む。"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "Keep"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "水分保持"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "抱えた水分を、逃しにくくする。"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "Protect"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "保護"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "植物ブレンドオイルが覆い、皮膚を保護する。"
+    },
+    {
+      "type": "html",
+      "id": "t_15",
+      "label": "水分と油分の割合 健康なお肌の水分と油分バラ…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_16",
+      "label": "※保湿:皮膚にうるおいを与え、乾燥を防ぐこと…",
+      "info": "改行はそのまま反映されます"
+    }
+  ]
+}
+{% endschema %}

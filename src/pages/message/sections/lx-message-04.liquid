@@ -1,0 +1,103 @@
+<section class="r-sec r-name lx-top lx-n3">
+<div class="wrap">
+<div class="r-name__top">
+<div class="r-name__lead" data-r="">
+<span class="r-no">{{ section.settings.t_1 | escape }}</span>
+<p class="r-en">{{ section.settings.t_2 }}</p>
+<img alt="" class="r-lilac" decoding="async" height="511" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-fde599f8a57e.webp' | asset_url }}{% endif %}" width="520"/>
+</div>
+<div class="r-name__body" data-r="">
+<h2 class="r-h">{{ section.settings.t_3 | escape | newline_to_br | strip_newlines }}</h2>
+<p>{{ section.settings.t_4 | escape }}</p>
+<p>{{ section.settings.t_5 | escape }}</p>
+</div>
+</div>
+<div class="r-series tall">
+<figure class="ph r-series__ph" data-r=""><img alt="窓辺のテーブルで、Lilasを横にほほえむ女性" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-8bdcafa8bcc1.webp' | asset_url }}{% endif %}" style="object-position:center 55%"/></figure>
+<div class="r-series__card" data-r="">
+<img alt="Equity Concentrate Lotion" class="r-series__logo" decoding="async" height="60" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-6cd8d4b647e5.webp' | asset_url }}{% endif %}" width="361"/>
+<dl class="equity-origin__words">
+<div><dt>{{ section.settings.t_6 }}</dt><dd>{{ section.settings.t_7 | escape | newline_to_br | strip_newlines }}</dd></div>
+<div><dt>{{ section.settings.t_8 }}</dt><dd>{{ section.settings.t_9 | escape }}</dd></div>
+</dl>
+</div>
+</div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "想い 04 02 名前",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-fde599f8a57e.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像：窓辺のテーブルで、Lilasを横にほほえむ女…",
+      "info": "未設定のときは元の画像（img-8bdcafa8bcc1.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像：Equity Concentrate Lot…",
+      "info": "未設定のときは元の画像（img-6cd8d4b647e5.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "02"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "About Lilas",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "Lilas（リラ）は、ライラックの花の フラ…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "西洋の花言葉は「誇り」と「美」。"
+    },
+    {
+      "type": "textarea",
+      "id": "t_5",
+      "label": "肌と心のケアにLilasを使っていただくこと…"
+    },
+    {
+      "type": "html",
+      "id": "t_6",
+      "label": "Equity 公平",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_7",
+      "label": "肌は一人ひとり違い、同じ人でも季節や年齢、環…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_8",
+      "label": "Concentrate 濃縮",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "水で薄めるのではなく、和漢植物エキスと保湿成…"
+    }
+  ]
+}
+{% endschema %}

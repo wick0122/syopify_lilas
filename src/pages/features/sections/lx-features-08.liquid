@@ -1,0 +1,58 @@
+<section class="mz mz-l lx-top lx-n6" id="f4b"><div class="wrap mz-row">
+<div class="mz-txt" data-r="">
+<p class="mz-no">{{ section.settings.t_1 }}</p>
+<h3 class="mz-h">{{ section.settings.t_2 | escape }}</h3>
+<p>{{ section.settings.t_3 | escape }}</p>
+<p>{{ section.settings.t_4 | escape }}</p>
+<p class="mz-fact">{{ section.settings.t_5 }}</p>
+</div>
+<figure class="mz-fig" data-r="">
+<svg aria-label="網を1枚、2枚、3枚と重ねるほど網目が細かくなり、水分が逃げにくくなる図" role="img" viewbox="0 0 520 250">
+<defs><clippath id="c1"><rect height="150" width="150" x="10" y="20"></rect></clippath><clippath id="c2"><rect height="150" width="150" x="185" y="20"></rect></clippath><clippath id="c3"><rect height="150" width="150" x="360" y="20"></rect></clippath></defs>
+<g fill="none" stroke="#8fa3ab" stroke-width=".9">
+<rect height="150" stroke="#c8cfd2" width="150" x="10" y="20"></rect><rect height="150" stroke="#c8cfd2" width="150" x="185" y="20"></rect><rect height="150" stroke="#c8cfd2" width="150" x="360" y="20"></rect>
+<g clip-path="url(#c1)"><path d="M10 20 L160 170 M10 70 L110 170 M10 120 L60 170 M60 20 L160 120 M110 20 L160 70 M160 20 L10 170 M110 20 L10 120 M60 20 L10 70 M160 70 L60 170 M160 120 L110 170"></path></g>
+<g clip-path="url(#c2)"><path d="M185 20 L335 170 M185 70 L285 170 M185 120 L235 170 M235 20 L335 120 M285 20 L335 70 M335 20 L185 170 M285 20 L185 120 M235 20 L185 70 M335 70 L235 170 M335 120 L285 170"></path><path d="M185 45 H335 M185 95 H335 M185 145 H335 M210 20 V170 M260 20 V170 M310 20 V170" stroke="#9fb4bf"></path></g>
+<g clip-path="url(#c3)"><path d="M360 20 L510 170 M360 70 L460 170 M360 120 L410 170 M410 20 L510 120 M460 20 L510 70 M510 20 L360 170 M460 20 L360 120 M410 20 L360 70 M510 70 L410 170 M510 120 L460 170"></path><path d="M360 45 H510 M360 95 H510 M360 145 H510 M385 20 V170 M435 20 V170 M485 20 V170" stroke="#9fb4bf"></path><path d="M360 70 H510 M360 120 H510 M410 20 V170 M460 20 V170 M360 20 L510 95 M360 95 L510 170" opacity=".55" stroke="#585856"></path></g>
+</g>
+<g fill="#a9bcc2"><circle cx="70" cy="80" r="5"></circle><circle cx="104" cy="122" r="5"></circle><circle cx="62" cy="194" opacity=".7" r="4.5"></circle><circle cx="120" cy="214" opacity=".45" r="4"></circle><circle cx="245" cy="80" r="5"></circle><circle cx="290" cy="128" r="5"></circle><circle cx="262" cy="196" opacity=".55" r="4"></circle><circle cx="420" cy="78" r="5"></circle><circle cx="466" cy="122" r="5"></circle><circle cx="398" cy="140" r="4.5"></circle><circle cx="482" cy="58" r="4"></circle></g>
+<text class="mz-cap" text-anchor="middle" x="85" y="238">1枚</text><text class="mz-cap" text-anchor="middle" x="260" y="238">2枚</text><text class="mz-cap" text-anchor="middle" x="435" y="238">重ねるほど、細かく</text>
+</svg>
+</figure>
+</div></section>
+{% schema %}
+{
+  "name": "特徴 08 保湿成分は、1枚の「網」",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "html",
+      "id": "t_1",
+      "label": "i — Layer",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "保湿成分は、1枚の「網」"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "保湿成分の一つひとつを、1枚の「網」と思い描…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_4",
+      "label": "1枚だけでは、網目の隙間から水分が逃げやすい…"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "とろみ 増粘剤を使わず、重ねた保湿成分そのも…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    }
+  ]
+}
+{% endschema %}

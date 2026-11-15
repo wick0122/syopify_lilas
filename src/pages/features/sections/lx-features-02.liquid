@@ -1,0 +1,73 @@
+<section class="fhero wrap center lx-top lx-n1">
+<span class="qlbl" data-r="">{{ section.settings.t_1 | escape }}</span>
+<h1 class="disp" data-r="">{{ section.settings.t_2 }}</h1>
+<h2 class="sh2" data-r="">{{ section.settings.t_3 | escape }}</h2>
+<p class="lead" data-r="">{{ section.settings.t_4 | escape | newline_to_br | strip_newlines }}</p>
+<nav aria-label="このページの目次" class="ftoc" data-r=""><a href="#f1">{{ section.settings.t_5 | escape }}</a><a href="#f2">{{ section.settings.t_6 | escape }}</a><a href="#f3">{{ section.settings.t_7 | escape }}</a><a href="#f4">{{ section.settings.t_8 | escape }}</a><a href="#f5">{{ section.settings.t_9 | escape }}</a><a href="#f6">{{ section.settings.t_10 | escape }}</a><a href="#f7">{{ section.settings.t_11 | escape }}</a></nav>
+</section>
+{% schema %}
+{
+  "name": "特徴 02 Product features",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Features"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Product features",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "濃縮ローションの特徴"
+    },
+    {
+      "type": "textarea",
+      "id": "t_4",
+      "label": "季節・年齢・性別・肌質に合わせて、“調節でき…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "01 こんな方に"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "02 調節できる"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "03 1本で5役"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "04 保湿のかたち"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "05 つくり"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "06 使い方"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "07 開発者"
+    }
+  ]
+}
+{% endschema %}

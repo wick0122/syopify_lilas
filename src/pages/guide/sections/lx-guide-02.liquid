@@ -1,0 +1,428 @@
+<div class="ip-grid">
+<aside class="ip-side" id="ipSide"><button aria-expanded="false" class="ip-tgl" id="ipTgl"><span id="ipCur">{{ section.settings.t_1 | escape }}</span></button><div class="lbl">{{ section.settings.t_2 | escape }}</div><nav aria-label="サービスガイドの目次"><a href="#g01">{{ section.settings.t_3 | escape }}</a><a href="#g02">{{ section.settings.t_4 | escape }}</a><a href="#g03">{{ section.settings.t_5 | escape }}</a><a href="#g04">{{ section.settings.t_6 | escape }}</a><a href="#g05">{{ section.settings.t_7 | escape }}</a><a href="#g06">{{ section.settings.t_8 | escape }}</a></nav></aside>
+<div class="ip-main"><div class="ip-head"><span class="en">{{ section.settings.t_9 | escape }}</span><h1>{{ section.settings.t_10 | escape }}</h1><p class="lead">{{ section.settings.t_11 | escape | newline_to_br | strip_newlines }}</p></div>
+<section class="ip-sec" id="g01"><h2>{{ section.settings.t_12 }}</h2>
+<p>{{ section.settings.t_13 | escape }}</p>
+<p>{{ section.settings.t_14 | escape }}</p>
+<p>{{ section.settings.t_15 | escape }}</p>
+<p>{{ section.settings.t_16 | escape }}</p>
+<p>{{ section.settings.t_17 | escape }}</p>
+<p>{{ section.settings.t_18 | escape }}</p>
+<h3>{{ section.settings.t_19 | escape }}</h3>
+<p>{{ section.settings.t_20 | escape }}</p>
+<p>{{ section.settings.t_21 | escape }}</p>
+<h3>{{ section.settings.t_22 | escape }}</h3>
+<p>{{ section.settings.t_23 | escape }}</p>
+<p>{{ section.settings.t_24 | escape }}</p></section>
+<section class="ip-sec" id="g02"><h2>{{ section.settings.t_25 }}</h2>
+<p>{{ section.settings.t_26 | escape }}</p>
+<p>{{ section.settings.t_27 | escape }}</p>
+<h3>{{ section.settings.t_28 | escape }}</h3>
+<p>{{ section.settings.t_29 | escape }}</p>
+<p>{{ section.settings.t_30 | escape }}</p></section>
+<section class="ip-sec" id="g03"><h2>{{ section.settings.t_31 }}</h2>
+<h3 class="gh3-first">{{ section.settings.t_32 | escape }}</h3>
+<div class="fee"><span class="big">{{ section.settings.t_33 | escape }}</span><p>{{ section.settings.t_34 | escape }}</p></div>
+<h3>{{ section.settings.t_35 | escape }}</h3>
+<p>{{ section.settings.t_36 | escape }}</p>
+<p>{{ section.settings.t_37 | escape }}</p>
+<p>{{ section.settings.t_38 | escape }}</p>
+<p>{{ section.settings.t_39 | escape }}</p>
+<p>{{ section.settings.t_40 | escape }}</p>
+<h3>{{ section.settings.t_41 | escape }}</h3>
+<p>{{ section.settings.t_42 | escape }}</p>
+<p>{{ section.settings.t_43 | escape }}</p>
+<p>{{ section.settings.t_44 | escape }}</p>
+<h3>{{ section.settings.t_45 | escape }}</h3>
+<p>{{ section.settings.t_46 | escape }}</p>
+<p>{{ section.settings.t_47 | escape }}</p>
+<p>{{ section.settings.t_48 | escape }}</p></section>
+<section class="ip-sec" id="g04"><h2>{{ section.settings.t_49 }}</h2>
+<h3 class="gh3-first">{{ section.settings.t_50 | escape }}</h3>
+<p>{{ section.settings.t_51 | escape }}</p>
+<p>{{ section.settings.t_52 | escape }}</p>
+<h3>{{ section.settings.t_53 | escape }}</h3>
+<p>{{ section.settings.t_54 | escape }}</p>
+<p>{{ section.settings.t_55 | escape }}</p>
+<p>{{ section.settings.t_56 | escape }}</p>
+<p>{{ section.settings.t_57 | escape }}</p>
+<p>{{ section.settings.t_58 | escape }}</p>
+<p>{{ section.settings.t_59 | escape }}</p>
+<p>{{ section.settings.t_60 | escape }}</p>
+<p class="gnote">{{ section.settings.t_61 | escape }}</p></section>
+<section class="ip-sec" id="g05"><h2>{{ section.settings.t_62 }}</h2>
+<p>{{ section.settings.t_63 | escape }}</p>
+<p>{{ section.settings.t_64 | escape }}</p>
+<p>{{ section.settings.t_65 | escape }}</p>
+<p>{{ section.settings.t_66 | escape }}</p></section>
+<section class="ip-sec" id="g06"><h2>{{ section.settings.t_67 }}</h2>
+<p>{{ section.settings.t_68 | escape }}</p>
+<p>{{ section.settings.t_69 | escape }}</p>
+<a class="btn" data-todo="contact" href="#">{{ section.settings.t_70 | escape }}</a></section>
+</div></div>
+{% schema %}
+{
+  "name": "ガイド 02 サービスガイド",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "ご注文"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "サービスガイド"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "ご注文"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "お支払い"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "配送・送料"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "返品・交換"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "製品のお取り扱い"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "お問い合わせ"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "SHOPPING GUIDE"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "サービスガイド"
+    },
+    {
+      "type": "textarea",
+      "id": "t_11",
+      "label": "Lilasをご利用いただき、ありがとうござい…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_12",
+      "label": "01 ご注文について",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "ご希望の商品をカートに入れ、購入手続きへお進…"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "カートに入れただけでは、商品は確保されません…"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "1回のご注文でご購入いただける数量に上限があ…"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "1回のご注文の合計金額は、220,000円（…"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "ご注文完了後、ご登録いただいたメールアドレス…"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "メールが届かない場合は、迷惑メールフォルダや…"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "ご注文の変更・キャンセル"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "ご注文内容の変更やキャンセルをご希望の場合は…"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "発送準備の状況によっては、変更・キャンセルを…"
+    },
+    {
+      "type": "text",
+      "id": "t_22",
+      "label": "ご利用環境について"
+    },
+    {
+      "type": "textarea",
+      "id": "t_23",
+      "label": "Google Chrome、Safari、M…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_24",
+      "label": "ブラウザのCookieやJavaScript…"
+    },
+    {
+      "type": "html",
+      "id": "t_25",
+      "label": "02 お支払いについて",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "ご利用いただけるお支払い方法は、ご購入手続き…"
+    },
+    {
+      "type": "text",
+      "id": "t_27",
+      "label": "お支払いの時期やご利用条件は、決済方法によっ…"
+    },
+    {
+      "type": "text",
+      "id": "t_28",
+      "label": "販売価格について"
+    },
+    {
+      "type": "text",
+      "id": "t_29",
+      "label": "価格の表示は、すべて税込です。"
+    },
+    {
+      "type": "text",
+      "id": "t_30",
+      "label": "価格は、予告なく変更する場合があります。ご注…"
+    },
+    {
+      "type": "html",
+      "id": "t_31",
+      "label": "03 配送・送料について",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_32",
+      "label": "送料"
+    },
+    {
+      "type": "text",
+      "id": "t_33",
+      "label": "全国一律800円（税込）"
+    },
+    {
+      "type": "text",
+      "id": "t_34",
+      "label": "商品代金14,000円（税込）以上のご購入で…"
+    },
+    {
+      "type": "text",
+      "id": "t_35",
+      "label": "発送について"
+    },
+    {
+      "type": "text",
+      "id": "t_36",
+      "label": "通常、ご注文およびお支払いの確認後、3営業日…"
+    },
+    {
+      "type": "text",
+      "id": "t_37",
+      "label": "予約商品など、発送時期が異なる商品については…"
+    },
+    {
+      "type": "text",
+      "id": "t_38",
+      "label": "土日祝日、ゴールデンウィーク、夏季休業、年末…"
+    },
+    {
+      "type": "text",
+      "id": "t_39",
+      "label": "休業期間中にいただいたご注文は、休業明けより…"
+    },
+    {
+      "type": "text",
+      "id": "t_40",
+      "label": "天候や交通事情、配送会社の状況などにより、お…"
+    },
+    {
+      "type": "text",
+      "id": "t_41",
+      "label": "お届け先について"
+    },
+    {
+      "type": "text",
+      "id": "t_42",
+      "label": "ご注文時にご指定いただいた住所へ商品をお届け…"
+    },
+    {
+      "type": "text",
+      "id": "t_43",
+      "label": "お届け先は、日本国内に限らせていただきます。"
+    },
+    {
+      "type": "text",
+      "id": "t_44",
+      "label": "ご住所に誤りがあった場合は、できるだけ早くお…"
+    },
+    {
+      "type": "text",
+      "id": "t_45",
+      "label": "不在などで返送された場合"
+    },
+    {
+      "type": "textarea",
+      "id": "t_46",
+      "label": "お受け取りの期間内にお受け取りいただけなかっ…"
+    },
+    {
+      "type": "text",
+      "id": "t_47",
+      "label": "ご注文はキャンセルとして扱い、お支払い済みの…"
+    },
+    {
+      "type": "text",
+      "id": "t_48",
+      "label": "ご希望の場合は、あらためてご注文ください。こ…"
+    },
+    {
+      "type": "html",
+      "id": "t_49",
+      "label": "04 返品・交換について",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_50",
+      "label": "お客様都合による返品・交換"
+    },
+    {
+      "type": "text",
+      "id": "t_51",
+      "label": "化粧品という商品の性質上、お客様都合による返…"
+    },
+    {
+      "type": "text",
+      "id": "t_52",
+      "label": "ご注文内容をご確認のうえ、お買い求めください…"
+    },
+    {
+      "type": "text",
+      "id": "t_53",
+      "label": "不良品・破損・誤配送について"
+    },
+    {
+      "type": "textarea",
+      "id": "t_54",
+      "label": "万が一、お届けした商品に不良や破損があった場…"
+    },
+    {
+      "type": "text",
+      "id": "t_55",
+      "label": "返品・交換をご希望の場合は、商品をお送りいた…"
+    },
+    {
+      "type": "text",
+      "id": "t_56",
+      "label": "ご注文と異なる商品や数量が届いた場合は、未使…"
+    },
+    {
+      "type": "text",
+      "id": "t_57",
+      "label": "状況を確認のうえ、交換または返金等の対応をい…"
+    },
+    {
+      "type": "text",
+      "id": "t_58",
+      "label": "当ショップの責任による返品・交換にかかる送料…"
+    },
+    {
+      "type": "text",
+      "id": "t_59",
+      "label": "お問い合わせの際は、ご注文番号と商品の状態を…"
+    },
+    {
+      "type": "text",
+      "id": "t_60",
+      "label": "ご連絡をいただいた後、返送先等をご案内いたし…"
+    },
+    {
+      "type": "text",
+      "id": "t_61",
+      "label": "※法令により認められるお客様の権利を制限する…"
+    },
+    {
+      "type": "html",
+      "id": "t_62",
+      "label": "05 製品のお取り扱いについて",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_63",
+      "label": "Lilasの製品は、それぞれの特徴に合わせた…"
+    },
+    {
+      "type": "text",
+      "id": "t_64",
+      "label": "ご使用前に、製品に記載された使用方法・使用期…"
+    },
+    {
+      "type": "text",
+      "id": "t_65",
+      "label": "お肌に異常が生じていないか、よく注意してご使…"
+    },
+    {
+      "type": "text",
+      "id": "t_66",
+      "label": "製品の特徴や使い方については、各商品ページを…"
+    },
+    {
+      "type": "html",
+      "id": "t_67",
+      "label": "06 お問い合わせ",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_68",
+      "label": "ご注文や製品についてご不明な点がございました…"
+    },
+    {
+      "type": "text",
+      "id": "t_69",
+      "label": "ご注文に関するお問い合わせの際は、ご注文番号…"
+    },
+    {
+      "type": "text",
+      "id": "t_70",
+      "label": "お問い合わせはこちら"
+    }
+  ]
+}
+{% endschema %}

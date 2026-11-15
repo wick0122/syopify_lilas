@@ -1,0 +1,26 @@
+<section class="fsec why whyC lx-top lx-n5" id="why3"><div class="wrap"><div class="grid12"><figure class="f5" data-r=""><div class="ph"><img alt="窓辺のテーブルで、Lilasのボトルを見つめる女性" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-b857fac53a97.webp' | asset_url }}{% endif %}" style="object-position:60% 55%;transform:scale(1.3);transform-origin:48% 60%"/></div><p class="word">{{ section.settings.t_1 | escape }}</p><div class="caprow"><p class="cap">{{ section.settings.t_2 | escape }}</p></div></figure></div></div></section>
+{% schema %}
+{
+  "name": "トップ 07 03 Why Lilas 3/3",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：窓辺のテーブルで、Lilasのボトルを見つめ…",
+      "info": "未設定のときは元の画像（img-b857fac53a97.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "From the salon"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "サロンの現場から生まれ、国内工場で100本ず…"
+    }
+  ]
+}
+{% endschema %}

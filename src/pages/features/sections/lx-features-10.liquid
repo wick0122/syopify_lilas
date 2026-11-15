@@ -1,0 +1,56 @@
+<section class="mz mz-l lx-top lx-n8" id="f4d"><div class="wrap mz-row">
+<div class="mz-txt" data-r="">
+<p class="mz-no">{{ section.settings.t_1 }}</p>
+<h3 class="mz-h">{{ section.settings.t_2 | escape }}</h3>
+<p>{{ section.settings.t_3 | escape }}</p>
+<p>{{ section.settings.t_4 | escape }}</p>
+<a class="mz-link" href="#f2">{{ section.settings.t_5 }}</a>
+</div>
+<figure class="mz-fig" data-r="">
+<svg aria-label="重ねた保湿成分の網の上を、ブレンドオイルの層がドーム状にやさしく覆う図" role="img" viewbox="0 0 460 260">
+<defs><lineargradient id="mzOil2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9fb4bf" stop-opacity=".5"></stop><stop offset="1" stop-color="#9fb4bf" stop-opacity=".05"></stop></lineargradient><clippath id="c4"><path d="M80 210 Q230 70 380 210 Z"></path></clippath></defs>
+<path d="M50 214 Q230 30 410 214" fill="url(#mzOil2)" stroke="#9fb4bf" stroke-width="1.2"></path>
+<g clip-path="url(#c4)" opacity=".8" stroke="#8fa3ab" stroke-width=".8"><path d="M60 100 L220 260 M100 100 L260 260 M140 100 L300 260 M180 100 L340 260 M220 100 L380 260 M260 100 L420 260 M20 100 L180 260"></path><path d="M400 100 L240 260 M360 100 L200 260 M320 100 L160 260 M280 100 L120 260 M240 100 L80 260 M200 100 L40 260 M440 100 L280 260"></path><path d="M60 150 H400 M60 180 H400 M150 100 V220 M230 100 V220 M310 100 V220" stroke="#9fb4bf"></path></g>
+<g fill="#a9bcc2"><circle cx="170" cy="182" r="5"></circle><circle cx="214" cy="160" r="5.5"></circle><circle cx="258" cy="190" r="5"></circle><circle cx="300" cy="170" r="4.5"></circle><circle cx="232" cy="130" r="4"></circle></g>
+<path d="M30 216 Q130 206 230 216 T430 216" fill="none" stroke="#585856" stroke-width="1.2"></path>
+<text class="mz-cap" text-anchor="middle" x="230" y="104">ブレンドオイル(保護)</text>
+<text class="mz-cap" text-anchor="middle" x="230" y="246">重ねた保湿成分の網(保水・水分保持)</text>
+</svg>
+</figure>
+</div></section>
+{% schema %}
+{
+  "name": "特徴 10 重ねた網を、ブレンドオイルで包む",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "html",
+      "id": "t_1",
+      "label": "iii — Protect",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "重ねた網を、ブレンドオイルで包む"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "最後に、リラ考案のオリジナルブレンドオイルが…"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "使う直前に振り合わせる2層式は、この3つを1…"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "オイルの量で、今の肌に合わせて調節する →",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    }
+  ]
+}
+{% endschema %}

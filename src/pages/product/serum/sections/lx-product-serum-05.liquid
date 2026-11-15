@@ -1,0 +1,214 @@
+<div class="np">
+<section class="craft" id="craft"><div class="wrap"><div class="cr-screen" id="craftS1"><div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><p class="disp">{{ section.settings.t_2 }}</p><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div><div class="cr-grid"><div class="cr-free" data-r="">
+<h3>{{ section.settings.t_4 | escape }}</h3>
+<ul class="free10"><li>{{ section.settings.t_5 }}</li><li>{{ section.settings.t_6 | escape }}</li><li>{{ section.settings.t_7 | escape }}</li><li>{{ section.settings.t_8 | escape }}</li><li>{{ section.settings.t_9 | escape }}</li><li>{{ section.settings.t_10 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_11 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_12 | escape }}</li><li>{{ section.settings.t_13 | escape }}</li><li>{{ section.settings.t_14 }}</li></ul>
+<p class="cr-note">{{ section.settings.t_15 }}</p>
+<p class="cr-fine">{{ section.settings.t_16 | escape }}</p>
+</div><div class="cr-box" data-r=""><span class="k">{{ section.settings.t_17 | escape }}</span><h3>{{ section.settings.t_18 | escape }}</h3><p>{{ section.settings.t_19 | escape }}</p></div></div></div><div class="cr-screen" id="craftS2"><div class="cr-grid"><!-- 写真差し替え:このfigure内のimgのsrcを差し替えてください(ブラウザ上ではクリックで仮差し替えも可) --><figure class="ph cr-ph editable" data-editable="" title="クリックして写真を差し替え"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-5b69fc28c92a.webp' | asset_url }}{% endif %}"/><input accept="image/*" hidden="" type="file"/></figure><div class="cr-box" data-r=""><span class="k">{{ section.settings.t_20 | escape }}</span><h3>{{ section.settings.t_21 | escape }}</h3><p>{{ section.settings.t_22 | escape | newline_to_br | strip_newlines }}</p><ul class="cr-sz"><li><b>{{ section.settings.t_23 | escape }}</b><span>{{ section.settings.t_24 | escape }}</span></li><li><b>{{ section.settings.t_25 | escape }}</b><span>{{ section.settings.t_26 | escape }}</span></li></ul></div></div></div></div><div class="feat-more-wrap"><a class="feat-more" href="/pages/lilas-features">{{ section.settings.t_27 }}</a></div>
+</section>
+<section class="np-sec np-alt np-way" id="yourway"><div class="wrap"><div class="np-hd" data-r=""><p class="disp">{{ section.settings.t_28 }}</p><h2 class="sh2">{{ section.settings.t_29 | escape }}</h2><p class="np-lead2 c">{{ section.settings.t_30 | escape }}</p></div><div class="np-way-g"><div data-r=""><h3>{{ section.settings.t_31 | escape }}</h3><p>{{ section.settings.t_32 | escape }}</p></div><div data-r=""><h3>{{ section.settings.t_33 | escape }}</h3><p>{{ section.settings.t_34 | escape }}</p></div><div data-r=""><h3>{{ section.settings.t_35 | escape }}</h3><p>{{ section.settings.t_36 | escape }}</p></div></div></div></section>
+</div>
+{% schema %}
+{
+  "name": "セラム 05 製品ページ 新セクション",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-5b69fc28c92a.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Craft & Care"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Made with care",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "入れないもの、手をかけること"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "配合していない、10の成分"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "乳化剤 合成界面活性剤",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "シリコン"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "合成香料"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "合成着色料"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "タール系色素"
+    },
+    {
+      "type": "textarea",
+      "id": "t_10",
+      "label": "石油由来 ミネラル油",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_11",
+      "label": "石油由来 ワセリン",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "エデト酸塩"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "安息香酸"
+    },
+    {
+      "type": "html",
+      "id": "t_14",
+      "label": "PG プロピレングリコール",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_15",
+      "label": "長期保存のための添加物に頼らず、使用期限を短…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "※すべての方に肌トラブルが起こらないというこ…"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "Small Batch, Made in J…"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "国内工場で100本ずつ、大切に製造"
+    },
+    {
+      "type": "textarea",
+      "id": "t_19",
+      "label": "仕上げのブレンドオイルも一つひとつ手作業で加…"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "2 Sizes"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "選べる2サイズ"
+    },
+    {
+      "type": "textarea",
+      "id": "t_22",
+      "label": "肌の状態に合わせて、必要な部分に必要なだけ、…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_23",
+      "label": "60ml"
+    },
+    {
+      "type": "text",
+      "id": "t_24",
+      "label": "お顔まわりで約1ヶ月分"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "200ml"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "全身で約3ヶ月分"
+    },
+    {
+      "type": "html",
+      "id": "t_27",
+      "label": "製品の特徴を見る →",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_28",
+      "label": "Your way",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_29",
+      "label": "おすすめの使い方"
+    },
+    {
+      "type": "text",
+      "id": "t_30",
+      "label": "うるおいを与え、触れたくなるほどしっとりとし…"
+    },
+    {
+      "type": "text",
+      "id": "t_31",
+      "label": "お顔の仕上げに"
+    },
+    {
+      "type": "text",
+      "id": "t_32",
+      "label": "「イクイティシリーズ 濃縮ローション」で水分…"
+    },
+    {
+      "type": "text",
+      "id": "t_33",
+      "label": "全身ケアに"
+    },
+    {
+      "type": "textarea",
+      "id": "t_34",
+      "label": "モイストヴェールセラムを全身に塗布します。気…"
+    },
+    {
+      "type": "text",
+      "id": "t_35",
+      "label": "ヘアケア・フェムケアに"
+    },
+    {
+      "type": "text",
+      "id": "t_36",
+      "label": "一年を通して、毛先やデリケートゾーンのうるお…"
+    }
+  ]
+}
+{% endschema %}

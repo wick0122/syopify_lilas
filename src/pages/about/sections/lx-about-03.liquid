@@ -1,0 +1,66 @@
+<section class="msec lx-top lx-n2">
+<div class="wrap">
+<div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><p class="disp">{{ section.settings.t_2 }}</p><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div>
+<div class="mgrid">
+<figure class="ph fph" data-r=""><img alt="Lilasの開発者と製品" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-918aaddd5709.webp' | asset_url }}{% endif %}"/></figure>
+<div class="story" data-r="">
+<h3>{{ section.settings.t_4 | escape | newline_to_br | strip_newlines }}</h3>
+<p>{{ section.settings.t_5 | escape }}</p>
+<p>{{ section.settings.t_6 | escape }}</p>
+<p>{{ section.settings.t_7 | escape }}</p>
+</div>
+</div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "歩み 03 1 はじまり",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilasの開発者と製品",
+      "info": "未設定のときは元の画像（img-918aaddd5709.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Origin"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Our origin",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "サロンと教室から、生まれたスキンケア"
+    },
+    {
+      "type": "textarea",
+      "id": "t_4",
+      "label": "たくさんの素肌に触れてきた、 サロンの手から…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "Lilasは、エステ＆アロマサロンと調合スキ…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_6",
+      "label": "スキンセラピーや教室を続けるなかで、一人ひと…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_7",
+      "label": "そこで気づいたのは、体が健やかでも、肌に自信…"
+    }
+  ]
+}
+{% endschema %}

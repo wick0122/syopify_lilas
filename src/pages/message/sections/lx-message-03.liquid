@@ -1,0 +1,61 @@
+<section class="r-sec r-msg lx-top lx-n2">
+<div class="wrap r-msg__grid">
+<div class="r-msg__txt" data-r="">
+<span class="r-no">{{ section.settings.t_1 | escape }}</span>
+<p class="r-en">{{ section.settings.t_2 }}</p>
+<h2 class="r-h">{{ section.settings.t_3 | escape | newline_to_br | strip_newlines }}</h2>
+<p>{{ section.settings.t_4 | escape }}</p>
+<p>{{ section.settings.t_5 }}</p>
+</div>
+<figure class="ph r-msg__ph" data-r=""><img alt="2種類の濃縮ローションを手に持ち寄る" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-9971ea4dc5a6.webp' | asset_url }}{% endif %}"/></figure>
+<p aria-hidden="true" class="r-vert">{{ section.settings.t_6 | escape }}</p>
+</div>
+</section>
+{% schema %}
+{
+  "name": "想い 03 01 大切にしていること",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：2種類の濃縮ローションを手に持ち寄る",
+      "info": "未設定のときは元の画像（img-9971ea4dc5a6.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "01"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "Our message",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "季節・性別・年齢・肌の状態に合わせて、 「自…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "「水分」「水分保持成分」「保護成分」の配合バ…"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "毎日に寄り添う「一生愛用したいスキンケア」を…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "自分で、調える。"
+    }
+  ]
+}
+{% endschema %}

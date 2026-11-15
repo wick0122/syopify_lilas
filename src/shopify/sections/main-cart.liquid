@@ -1,0 +1,33 @@
+<div class="lx-sys">
+  <span class="lx-en">CART</span>
+  <h1>カート</h1>
+  {%- if cart.item_count > 0 -%}
+  <form action="{{ routes.cart_url }}" method="post">
+    <table>
+      <thead><tr><th>商品</th><th class="lx-hide-sp">価格</th><th>数量</th><th>小計</th><th></th></tr></thead>
+      <tbody>
+      {%- for item in cart.items -%}
+        <tr>
+          <td><div class="lx-ci">{% if item.image %}<img src="{{ item.image | image_url: width: 160 }}" alt="" width="72" height="72">{% endif %}<span>{{ item.product.title | escape }}{% unless item.variant.title contains 'Default' %}<br><small>{{ item.variant.title | escape }}</small>{% endunless %}</span></div></td>
+          <td class="lx-hide-sp">{{ item.final_price | money }}</td>
+          <td><input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="数量"></td>
+          <td>{{ item.final_line_price | money }}</td>
+          <td><a href="{{ item.url_to_remove }}" aria-label="削除">×</a></td>
+        </tr>
+      {%- endfor -%}
+      </tbody>
+    </table>
+    <p class="lx-total">合計（税込）　<b>{{ cart.total_price | money }}</b></p>
+    {%- if section.settings.note != blank -%}<p style="text-align:right;font-size:13px;color:#888">{{ section.settings.note | escape }}</p>{%- endif -%}
+    <div class="lx-actions">
+      <button type="submit" class="lx-btn ghost" name="update">数量を更新</button>
+      <button type="submit" class="lx-btn" name="checkout">ご購入手続きへ</button>
+    </div>
+  </form>
+  {%- else -%}
+  <div class="lx-empty"><p>カートに商品が入っていません。</p><p><a class="lx-btn" href="/pages/lilas-products">製品一覧を見る</a></p></div>
+  {%- endif -%}
+</div>
+{% schema %}
+{"name":"カート","tag":"div","class":"lx-sec","settings":[{"type":"text","id":"note","label":"合計の下の注記","default":"送料はご購入手続きの画面で計算されます。"}]}
+{% endschema %}

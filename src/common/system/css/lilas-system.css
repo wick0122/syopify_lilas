@@ -1,0 +1,24 @@
+/* カート・検索・404などShopify標準ページの見た目 */
+.lx-sys{max-width:1080px;margin:0 auto;padding:clamp(40px,7vw,96px) 20px clamp(56px,8vw,110px);font-family:"Zen Kaku Gothic New",sans-serif;color:#333;line-height:1.9}
+.lx-sys h1{font-family:"Shippori Mincho",serif;font-weight:400;font-size:clamp(24px,3vw,34px);letter-spacing:.08em;margin:0 0 .4em;text-align:center}
+.lx-sys .lx-en{display:block;text-align:center;font-family:"Cormorant Garamond",serif;letter-spacing:.2em;color:#9a8f86;font-size:13px;margin-bottom:28px}
+.lx-sys a{color:inherit}
+.lx-sys table{width:100%;border-collapse:collapse}
+.lx-sys th,.lx-sys td{padding:16px 8px;border-bottom:1px solid #e7e2dc;text-align:left;vertical-align:middle;font-weight:400}
+.lx-sys th{font-size:12px;letter-spacing:.1em;color:#888}
+.lx-sys .lx-ci{display:flex;gap:16px;align-items:center}
+.lx-sys .lx-ci img{width:72px;height:72px;object-fit:cover;border-radius:4px;background:#f4f1ed}
+.lx-sys input[type=number]{width:64px;padding:8px;border:1px solid #d9d2ca;border-radius:4px;font:inherit}
+.lx-sys .lx-btn,.lx-sys button[type=submit]{display:inline-block;background:#3b3632;color:#fff;border:0;border-radius:999px;padding:14px 42px;font:inherit;letter-spacing:.12em;cursor:pointer;text-decoration:none}
+.lx-sys .lx-btn.ghost{background:none;color:#3b3632;border:1px solid #3b3632}
+.lx-sys .lx-total{text-align:right;margin-top:28px;font-size:18px}
+.lx-sys .lx-actions{display:flex;gap:12px;justify-content:flex-end;flex-wrap:wrap;margin-top:20px}
+.lx-sys .lx-empty{text-align:center}
+.lx-sys .lx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:28px}
+.lx-sys .lx-card{text-decoration:none}
+.lx-sys .lx-card img{width:100%;aspect-ratio:1;object-fit:cover;background:#f4f1ed;border-radius:4px}
+.lx-sys .lx-pd{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,64px);align-items:start}
+.lx-sys .lx-pd img{width:100%;border-radius:4px;background:#f4f1ed}
+.lx-sys select{padding:10px;border:1px solid #d9d2ca;border-radius:4px;font:inherit;min-width:200px}
+.lx-sys .rte img{max-width:100%;height:auto}
+@media(max-width:700px){.lx-sys .lx-pd{grid-template-columns:1fr}.lx-sys .lx-hide-sp{display:none}}

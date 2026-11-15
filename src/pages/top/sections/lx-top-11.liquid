@@ -1,0 +1,153 @@
+<section class="fsec pdsec lx-top lx-n9" id="pr-sens"><div class="wrap"><article class="prow sens-card" data-r=""><figure class="ph"><img alt="カームスムース" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-c5d27c9f0af9.webp' | asset_url }}{% endif %}"/><div class="bdg"><span class="badge vgb"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_1 | escape }}</span><span class="badge rsv">{{ section.settings.t_2 | escape }}</span></div></figure>
+<div class="info"><p class="p-en">{{ section.settings.t_3 | escape }}</p><div class="ttl"><h3>{{ section.settings.t_4 | escape }}</h3></div><p class="k">{{ section.settings.t_5 | escape }}</p><p class="d">{{ section.settings.t_6 }}</p><div class="pki"><p class="pki-h">{{ section.settings.t_7 }}</p><p class="pki-g">{{ section.settings.t_8 | escape }}</p><ul><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-a6e1a1e2fa53.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_9 | escape | newline_to_br | strip_newlines }}</span></li><li><span style="display:block;width:44px;height:44px;margin:0 auto 4px;border:1px dashed #b9b9b6;border-radius:50%"></span><span>{{ section.settings.t_10 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-33690fb24b1f.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_11 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-56e5f03aac6e.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_12 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-b113907c8715.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_13 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-64d844f6cc82.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_14 | escape | newline_to_br | strip_newlines }}</span></li></ul></div><div aria-label="容量" class="size sens-size" role="group"><button class="on" data-img="c110" data-p="¥11,000" data-s="110ml" type="button">{{ section.settings.t_15 | escape }}</button><button data-img="c50" data-p="¥6,490" data-s="50ml" type="button">{{ section.settings.t_16 | escape }}</button></div><div class="buyrow"><p class="pr"><span class="pv">{{ section.settings.t_17 | escape }}</span><small>{{ section.settings.t_18 | escape }}</small></p><p class="sznote"></p><a class="addcart more" href="/pages/lilas-product-calmsmooth">{{ section.settings.t_19 | escape }}</a></div><p class="pdnote">{{ section.settings.t_20 | escape }}</p></div></article></div></section>
+{% schema %}
+{
+  "name": "トップ 11 カームスムース",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：カームスムース",
+      "info": "未設定のときは元の画像（img-c5d27c9f0af9.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像 2",
+      "info": "未設定のときは元の画像（img-a6e1a1e2fa53.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像 3",
+      "info": "未設定のときは元の画像（img-33690fb24b1f.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "画像 4",
+      "info": "未設定のときは元の画像（img-56e5f03aac6e.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_5",
+      "label": "画像 5",
+      "info": "未設定のときは元の画像（img-b113907c8715.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像 6",
+      "info": "未設定のときは元の画像（img-64d844f6cc82.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "新作"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "Calm & Smooth"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "カームスムース"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "肌荒れを防ぎ、キメの乱れを整えなめらかに"
+    },
+    {
+      "type": "html",
+      "id": "t_6",
+      "label": "敏感肌によるゆらぎ ※ や肌荒れ、キメを整え…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "Key ingredients 肌荒れ予防・…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "特徴となる成分"
+    },
+    {
+      "type": "textarea",
+      "id": "t_9",
+      "label": "ハートリーフ (ドクダミ)",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_10",
+      "label": "CICA (ツボクサ)",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "カンゾウ根"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "オウゴン根"
+    },
+    {
+      "type": "textarea",
+      "id": "t_13",
+      "label": "フィトスフィン ゴシン",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_14",
+      "label": "玄米麹発酵 エキス",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "110ml"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "50ml"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "¥11,000"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "(税込)"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "この製品を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "VEGAN対応:動物由来の原料を使用していま…"
+    }
+  ]
+}
+{% endschema %}

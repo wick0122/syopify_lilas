@@ -1,0 +1,67 @@
+<section class="r-founder lx-top lx-n6">
+<div class="wrap r-founder__grid">
+<div class="r-founder__txt" data-r="">
+<span class="r-no">{{ section.settings.t_1 | escape }}</span>
+<p class="r-en">{{ section.settings.t_2 }}</p>
+<h2 class="r-h">{{ section.settings.t_3 | escape | newline_to_br | strip_newlines }}</h2>
+<p>{{ section.settings.t_4 | escape }}</p>
+<p>{{ section.settings.t_5 | escape }}</p>
+<p class="r-sign">{{ section.settings.t_6 | escape }}</p>
+<a class="r-more" href="/pages/lilas-about">{{ section.settings.t_7 }}</a>
+</div>
+<figure class="ph r-founder__ph" data-r=""><img alt="Lilasの開発者" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-dca828bae116.webp' | asset_url }}{% endif %}"/></figure>
+</div>
+</section>
+{% schema %}
+{
+  "name": "想い 07 04 開発者の想い",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：Lilasの開発者",
+      "info": "未設定のときは元の画像（img-dca828bae116.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "04"
+    },
+    {
+      "type": "html",
+      "id": "t_2",
+      "label": "From the founder",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_3",
+      "label": "肌に自信が持てると、 表情が、晴れていく。",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "textarea",
+      "id": "t_4",
+      "label": "エステ＆アロマサロンと調合スキンケア教室を1…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_5",
+      "label": "だからこそ、肌にふれる時間を、自分を大切にす…"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "Lilas 開発者"
+    },
+    {
+      "type": "html",
+      "id": "t_7",
+      "label": "ブランドの歩みを読む →",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,22 @@
+<div class="fpair" data-r=""><figure class="ph"><img alt="植物とテーブルのある、落ち着いた部屋" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-8a720d611731.webp' | asset_url }}{% endif %}"/></figure><figure class="ph"><img alt="Lilasのボトルを横に、ほほえむ女性" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-f9bdde3155bc.webp' | asset_url }}{% endif %}"/></figure></div>
+{% schema %}
+{
+  "name": "特徴 03 div.fpair",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像：植物とテーブルのある、落ち着いた部屋",
+      "info": "未設定のときは元の画像（img-8a720d611731.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像：Lilasのボトルを横に、ほほえむ女性",
+      "info": "未設定のときは元の画像（img-f9bdde3155bc.webp）を表示します"
+    }
+  ]
+}
+{% endschema %}

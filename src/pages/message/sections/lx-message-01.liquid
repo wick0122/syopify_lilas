@@ -1,0 +1,30 @@
+<section class="mhero lx-top lx-n1">
+<figure class="ph">{%- assign lxv_1 = section.settings.vid_1 | default: settings.video_message -%}<video aria-label="コーヒーや読書など、ふたりで過ごす日常とスキンケアの時間" autoplay="" class="blobv" loop="" muted="" playsinline="" poster="{{ 'img-c1482b079dfa.webp' | asset_url }}" preload="auto"><source data-src="{% render 'lx-video-src', video: lxv_1 %}" data-src-sp="{% render 'lx-video-src', video: lxv_1, sp: true %}" type="video/mp4"/></video><script>(function(v){if(!v||!matchMedia("(max-width:900px)").matches)return;v.querySelectorAll("source[data-src-sp]").forEach(function(s){s.setAttribute("data-src",s.getAttribute("data-src-sp"))})})(document.currentScript.previousElementSibling)</script></figure>
+<div class="in"><p class="en" data-r="">{{ section.settings.t_1 | escape }}</p><h1 data-r="">{{ section.settings.t_2 | escape | newline_to_br | strip_newlines }}</h1></div>
+</section>
+{% schema %}
+{
+  "name": "想い 01 小さな喜びで、 日常を満たそう",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "video",
+      "id": "vid_1",
+      "label": "動画：コーヒーや読書など、ふたりで過ごす日常とスキ…",
+      "info": "未設定のときは「テーマ設定 → 動画」の「想いページの表紙」を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "All gender & Semi-cust…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_2",
+      "label": "小さな喜びで、 日常を満たそう",
+      "info": "改行はそのまま反映されます"
+    }
+  ]
+}
+{% endschema %}

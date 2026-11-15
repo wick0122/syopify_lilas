@@ -1,0 +1,10 @@
+<div class="lx-sys">
+  <h1>{{ blog.title | escape }}</h1>
+  {%- paginate blog.articles by 12 -%}
+  {%- for a in blog.articles -%}<p><a href="{{ a.url }}">{{ a.title | escape }}</a> <small>{{ a.published_at | date: '%Y.%m.%d' }}</small></p>{%- endfor -%}
+  {{ paginate | default_pagination }}
+  {%- endpaginate -%}
+</div>
+{% schema %}
+{"name":"ブログ","tag":"div","class":"lx-sec","settings":[]}
+{% endschema %}

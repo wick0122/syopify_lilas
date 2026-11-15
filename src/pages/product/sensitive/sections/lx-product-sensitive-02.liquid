@@ -1,0 +1,458 @@
+{%- liquid
+  assign p = section.settings.product
+  assign po = section.settings.oil_product
+  assign pg = section.settings.gift_product
+-%}
+{%- if p -%}
+<script>
+window.LX_PRICE={{ p.selected_or_first_available_variant.price | divided_by: 100 }};
+window.LX_CART={
+  variants:[{%- for v in p.variants -%}{"id":{{ v.id }},"title":{{ v.title | json }},"available":{{ v.available | json }}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}],
+  oil:{% if po %}{{ po.selected_or_first_available_variant.id }}{% else %}null{% endif %},
+  gift:{% if pg %}{{ pg.selected_or_first_available_variant.id }}{% else %}null{% endif %}
+};
+</script>
+{%- endif -%}
+<section class="wrap buy lx-top lx-n1" id="buy">
+<div class="gal">
+<div aria-label="製品写真" class="thumbs" role="tablist"><button aria-label="写真1" class="on" data-src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-001f5c275da4.webp' | asset_url }}{% endif %}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-13488294a854.webp' | asset_url }}{% endif %}"/></button></div>
+<figure class="ph main-ph"><img alt="センシティブケア" decoding="async" id="mainImg" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-001f5c275da4.webp' | asset_url }}{% endif %}"/><span class="stamps"><span class="vg-badge"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_1 | escape }}</span><span class="salebdg sold">{{ section.settings.t_2 | escape }}</span></span></figure>
+</div>
+<div class="info">
+<span class="nmb">{{ section.settings.t_3 | escape }}</span>
+<h1>{{ section.settings.t_4 }}</h1>
+<p class="jp">{{ section.settings.t_5 | escape }}</p>
+<p class="catch"><span class="catch-t">{{ section.settings.t_6 | escape }}</span></p>
+<p class="rec-for">{{ section.settings.t_7 | escape }}</p><p class="rec-for">{{ section.settings.t_8 | escape }}</p><ul class="chips"><li>{{ section.settings.t_9 | escape }}</li><li>{{ section.settings.t_10 | escape }}</li><li>{{ section.settings.t_11 | escape }}</li><li>{{ section.settings.t_12 | escape }}</li></ul>
+<p class="ag-note"><span class="vg">{{ section.settings.t_13 | escape }}</span><span class="fn">{{ section.settings.t_14 | escape }}</span></p>
+<div class="price"><b>{{ section.settings.t_15 | escape }}</b><small>{{ section.settings.t_16 | escape }}</small><span class="vol" id="szVol">{{ section.settings.t_17 | escape }}</span></div>
+<p class="soldnote">{{ section.settings.t_18 | escape | newline_to_br | strip_newlines }}</p>
+<div aria-label="オプション" class="opt-box" role="group">
+<label class="opt"><input checked="" data-price="1320" id="optOil" type="checkbox"/><img alt="" class="ti" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-b3ab3b980636.webp' | asset_url }}{% endif %}"/><span><b>{{ section.settings.t_19 }}</b><small>{{ section.settings.t_20 | escape | newline_to_br | strip_newlines }}</small></span><span class="p">{{ section.settings.t_21 | escape }}</span></label>
+<label class="opt"><input data-price="330" id="optGift" type="checkbox"/><img alt="" class="ti" decoding="async" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-3bdc8772dbe5.webp' | asset_url }}{% endif %}"/><span><b>{{ section.settings.t_22 | escape }}</b><small>{{ section.settings.t_23 | escape }}</small></span><span class="p">{{ section.settings.t_24 | escape }}</span></label>
+</div>
+<div class="qtyrow">
+<div class="qty"><button aria-label="減らす" id="qMinus" type="button">{{ section.settings.t_25 | escape }}</button><output id="qty">{{ section.settings.t_26 | escape }}</output><button aria-label="増やす" id="qPlus" type="button">{{ section.settings.t_27 | escape }}</button></div>
+<div class="total"><span>{{ section.settings.t_28 | escape }}</span><b id="total">{{ section.settings.t_29 | escape }}</b></div>
+</div>
+<button class="addcart big" disabled="" id="buyBtn">{{ section.settings.t_30 | escape }}</button>
+<p class="ship"><span id="shipTx">{{ section.settings.t_31 | escape }}</span><span class="bar"><i id="shipBar" style="width:84%"></i></span></p>
+<div class="ingC"><h3>{{ section.settings.t_32 }}</h3><p class="ic-lead">{{ section.settings.t_33 | escape }}</p><p class="ic-sec">{{ section.settings.t_34 | escape }}</p><div class="ic-g"><h4>{{ section.settings.t_35 }}</h4><ul class="tiles five"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-33690fb24b1f.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_36 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-0996f123f7de.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_37 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_7 %}{{ section.settings.img_7 | image_url: width: 1800 }}{% else %}{{ 'img-5d890b902915.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_38 | escape }}</span></li></ul></div><div class="ic-g"><details class="ic-more"><summary>{{ section.settings.t_39 | escape }}</summary><p class="ic-sec ic-sec2">{{ section.settings.t_40 }}</p><div class="ic-g"><h4>{{ section.settings.t_41 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_8 %}{{ section.settings.img_8 | image_url: width: 1800 }}{% else %}{{ 'img-c1575d06b548.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_42 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_9 %}{{ section.settings.img_9 | image_url: width: 1800 }}{% else %}{{ 'img-4b8e54f71bb7.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_43 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_10 %}{{ section.settings.img_10 | image_url: width: 1800 }}{% else %}{{ 'img-4d4aab12a91b.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_44 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_11 %}{{ section.settings.img_11 | image_url: width: 1800 }}{% else %}{{ 'img-158bccc6c230.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_45 | escape }}</span></li></ul></div><div class="ic-g"><h4>{{ section.settings.t_46 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_12 %}{{ section.settings.img_12 | image_url: width: 1800 }}{% else %}{{ 'img-5f425005f26c.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_47 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_13 %}{{ section.settings.img_13 | image_url: width: 1800 }}{% else %}{{ 'img-a9a95b36a5f8.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_48 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_14 %}{{ section.settings.img_14 | image_url: width: 1800 }}{% else %}{{ 'img-2797e0c14ec0.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_49 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_15 %}{{ section.settings.img_15 | image_url: width: 1800 }}{% else %}{{ 'img-b59e95669293.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_50 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_16 %}{{ section.settings.img_16 | image_url: width: 1800 }}{% else %}{{ 'img-e1aba261b351.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_51 | escape }}</span></li></ul></div><div class="ic-g"><h4>{{ section.settings.t_52 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_17 %}{{ section.settings.img_17 | image_url: width: 1800 }}{% else %}{{ 'img-72d059972333.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_53 | escape }}</span></li></ul></div></details></div></div>
+<ul class="mini"><li>{{ section.settings.t_54 }}</li></ul>
+</div>
+</section>
+{% schema %}
+{
+  "name": "センシティブ 02 1 購入エリア",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-13488294a854.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像：センシティブケア",
+      "info": "未設定のときは元の画像（img-001f5c275da4.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像 3",
+      "info": "未設定のときは元の画像（img-b3ab3b980636.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "画像 4",
+      "info": "未設定のときは元の画像（img-3bdc8772dbe5.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_5",
+      "label": "画像 5",
+      "info": "未設定のときは元の画像（img-33690fb24b1f.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像 6",
+      "info": "未設定のときは元の画像（img-0996f123f7de.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_7",
+      "label": "画像 7",
+      "info": "未設定のときは元の画像（img-5d890b902915.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_8",
+      "label": "画像 8",
+      "info": "未設定のときは元の画像（img-c1575d06b548.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_9",
+      "label": "画像 9",
+      "info": "未設定のときは元の画像（img-4b8e54f71bb7.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_10",
+      "label": "画像 10",
+      "info": "未設定のときは元の画像（img-4d4aab12a91b.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_11",
+      "label": "画像 11",
+      "info": "未設定のときは元の画像（img-158bccc6c230.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_12",
+      "label": "画像 12",
+      "info": "未設定のときは元の画像（img-5f425005f26c.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_13",
+      "label": "画像 13",
+      "info": "未設定のときは元の画像（img-a9a95b36a5f8.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_14",
+      "label": "画像 14",
+      "info": "未設定のときは元の画像（img-2797e0c14ec0.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_15",
+      "label": "画像 15",
+      "info": "未設定のときは元の画像（img-b59e95669293.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_16",
+      "label": "画像 16",
+      "info": "未設定のときは元の画像（img-e1aba261b351.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_17",
+      "label": "画像 17",
+      "info": "未設定のときは元の画像（img-72d059972333.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "完売"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "Equity Concentrate Lot…"
+    },
+    {
+      "type": "html",
+      "id": "t_4",
+      "label": "Sensitive Care",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "センシティブケア"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "乾燥・敏感肌に、肌荒れ予防と高濃度保湿を"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "敏感な肌のことを考え、肌荒れ予防と保湿に重点…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_8",
+      "label": "複数の保湿成分が肌をうるおいで満たし、多めに…"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "ヴィーガン処方"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "防腐剤無添加※"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "国内工場で手作業"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "ジェンダーレス"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "VEGAN対応:動物由来の原料を使用していま…"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "※防腐剤無添加:化粧品基準に定められた防腐剤…"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "¥10,450"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "(税込)"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "110ml"
+    },
+    {
+      "type": "textarea",
+      "id": "t_18",
+      "label": "センシティブケアは旧作のため、販売を終了しま…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "html",
+      "id": "t_19",
+      "label": "02 ブレンドオイル(15ml) おすすめ",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "textarea",
+      "id": "t_20",
+      "label": "ローションに加えると油分が補われ、 より乳液…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "+¥1,320"
+    },
+    {
+      "type": "text",
+      "id": "t_22",
+      "label": "ギフトラッピング"
+    },
+    {
+      "type": "text",
+      "id": "t_23",
+      "label": "贈り物に。"
+    },
+    {
+      "type": "text",
+      "id": "t_24",
+      "label": "+¥330"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "−"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "1"
+    },
+    {
+      "type": "text",
+      "id": "t_27",
+      "label": "＋"
+    },
+    {
+      "type": "text",
+      "id": "t_28",
+      "label": "合計(税込)"
+    },
+    {
+      "type": "text",
+      "id": "t_29",
+      "label": "¥11,770"
+    },
+    {
+      "type": "text",
+      "id": "t_30",
+      "label": "完売しました"
+    },
+    {
+      "type": "text",
+      "id": "t_31",
+      "label": "あと¥2,230で送料無料"
+    },
+    {
+      "type": "html",
+      "id": "t_32",
+      "label": "Key ingredients 主な配合成分",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_33",
+      "label": "カンゾウ根・シソ葉・ビワ葉などの和漢植物エキ…"
+    },
+    {
+      "type": "text",
+      "id": "t_34",
+      "label": "センシティブケアの特徴となる成分"
+    },
+    {
+      "type": "html",
+      "id": "t_35",
+      "label": "Herbs 和漢植物エキス 3 種",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_36",
+      "label": "カンゾウ根"
+    },
+    {
+      "type": "text",
+      "id": "t_37",
+      "label": "ビワ葉"
+    },
+    {
+      "type": "text",
+      "id": "t_38",
+      "label": "シソ葉"
+    },
+    {
+      "type": "text",
+      "id": "t_39",
+      "label": "Lilas共通のベース成分を見る"
+    },
+    {
+      "type": "html",
+      "id": "t_40",
+      "label": "Lilas共通の土台 リラの土台となる、肌を…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_41",
+      "label": "Moisture うるおいを与える成分 4 …",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_42",
+      "label": "高分子＆低分子ヒアルロン酸Na"
+    },
+    {
+      "type": "text",
+      "id": "t_43",
+      "label": "シロキクラゲ多糖体"
+    },
+    {
+      "type": "text",
+      "id": "t_44",
+      "label": "クリ渋皮セラミド"
+    },
+    {
+      "type": "text",
+      "id": "t_45",
+      "label": "アラントイン"
+    },
+    {
+      "type": "html",
+      "id": "t_46",
+      "label": "Oil オイルと植物バター 5 種",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_47",
+      "label": "アンズ核油"
+    },
+    {
+      "type": "text",
+      "id": "t_48",
+      "label": "スクワラン"
+    },
+    {
+      "type": "text",
+      "id": "t_49",
+      "label": "セサミ油"
+    },
+    {
+      "type": "text",
+      "id": "t_50",
+      "label": "ヒマシ油"
+    },
+    {
+      "type": "text",
+      "id": "t_51",
+      "label": "シア脂"
+    },
+    {
+      "type": "html",
+      "id": "t_52",
+      "label": "Floral water オーガニック植物の…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_53",
+      "label": "月桃水"
+    },
+    {
+      "type": "html",
+      "id": "t_54",
+      "label": "送料 全国一律800円 ・ 14,000円以…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "header",
+      "content": "Shopifyの商品とつなぐ"
+    },
+    {
+      "type": "paragraph",
+      "content": "ここで商品を選ぶと「カートに入れる」でShopifyのカートに入ります。未選択のときはカートに入りません。"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "この製品（本体）"
+    },
+    {
+      "type": "product",
+      "id": "oil_product",
+      "label": "オプション：ブレンドオイル"
+    },
+    {
+      "type": "product",
+      "id": "gift_product",
+      "label": "オプション：ギフトラッピング"
+    }
+  ]
+}
+{% endschema %}

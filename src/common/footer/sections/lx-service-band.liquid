@@ -1,0 +1,59 @@
+<section aria-label="ご購入について" class="svc-band">
+<ul class="svc-list">
+<li><svg aria-hidden="true" viewbox="0 0 32 32"><rect fill="none" height="12" stroke="currentColor" stroke-width="1.1" width="17" x="3" y="9"></rect><path d="M20 13h5l4 4v4h-9z" fill="none" stroke="currentColor" stroke-width="1.1"></path><circle cx="9" cy="23.5" fill="none" r="2" stroke="currentColor" stroke-width="1.1"></circle><circle cx="23" cy="23.5" fill="none" r="2" stroke="currentColor" stroke-width="1.1"></circle></svg><div><p class="svc-t">{{ section.settings.t_1 | escape }}</p><p class="svc-d">{{ section.settings.t_2 | escape }}</p></div></li>
+<li><svg aria-hidden="true" viewbox="0 0 32 32"><rect fill="none" height="14" stroke="currentColor" stroke-width="1.1" width="20" x="6" y="13"></rect><rect fill="none" height="4" stroke="currentColor" stroke-width="1.1" width="24" x="4" y="9"></rect><path d="M16 9v18M16 9c-2-4-7-4-6-1s6 1 6 1c2-4 7-4 6-1s-6 1-6 1" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg><div><p class="svc-t">{{ section.settings.t_3 | escape }}</p><p class="svc-d">{{ section.settings.t_4 }}</p></div></li>
+<li><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M6 26C6 13 14 6 27 5C26 18 19 26 6 26Z M6 26L17 15" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg><div><p class="svc-t">{{ section.settings.t_5 | escape }}</p><p class="svc-d">{{ section.settings.t_6 }}</p></div></li>
+<li><a class="svc-a" href="/#formula"><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="16" cy="16" fill="none" r="11" stroke="currentColor" stroke-width="1.1"></circle><path d="M11 16.5l3.5 3.5 7-8" fill="none" stroke="currentColor" stroke-width="1.1"></path></svg><div><p class="svc-t">{{ section.settings.t_7 | escape }}</p><p class="svc-d">{{ section.settings.t_8 | escape }}</p></div></a></li>
+</ul>
+</section>
+{% schema %}
+{
+  "name": "ご購入について",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "送料無料"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "14,000円以上のご購入で"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "ギフトラッピング"
+    },
+    {
+      "type": "html",
+      "id": "t_4",
+      "label": "大切な方への贈り物に、 1点330円で承りま…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "ヴィーガン処方"
+    },
+    {
+      "type": "html",
+      "id": "t_6",
+      "label": "動物由来原料を使わない処方です。 ※エイジン…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "肌タイプチェック"
+    },
+    {
+      "type": "text",
+      "id": "t_8",
+      "label": "3つの質問で、あなたに合う1本を。"
+    }
+  ]
+}
+{% endschema %}

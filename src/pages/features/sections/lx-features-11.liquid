@@ -1,0 +1,54 @@
+<section class="mz mz-ritual lx-top lx-n9" id="f4e"><div class="wrap">
+<svg aria-hidden="true" class="mz-rings" viewbox="0 0 800 800"><g fill="none" stroke="#7e8f96"><circle cx="400" cy="400" opacity=".9" r="120"></circle><circle cx="400" cy="400" opacity=".7" r="220"></circle><circle cx="400" cy="400" opacity=".5" r="300"></circle><circle cx="400" cy="400" opacity=".3" r="390"></circle></g></svg>
+<div class="mz-rt" data-r="">
+<p class="mz-k">{{ section.settings.t_1 | escape }}</p>
+<p class="mz-big"><span class="nb">{{ section.settings.t_2 | escape }}</span><br/><span class="nb">{{ section.settings.t_3 | escape }}</span><span class="nb">{{ section.settings.t_4 | escape }}</span></p>
+<p class="mz-rtx">{{ section.settings.t_5 | escape | newline_to_br | strip_newlines }}</p>
+<p class="mz-end"><span>{{ section.settings.t_6 | escape }}</span><em>{{ section.settings.t_7 | escape }}</em></p>
+</div>
+</div></section>
+{% schema %}
+{
+  "name": "特徴 11 section.mz mz-ritua",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Ritual"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "だから1プッシュずつ、"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "なじむのを待って、"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "数回重ねる。"
+    },
+    {
+      "type": "textarea",
+      "id": "t_5",
+      "label": "うるおいの網を、ミルフィーユのように一枚ずつ…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "特別なうるおいを、毎日に。"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "Moisture, for every da…"
+    }
+  ]
+}
+{% endschema %}
