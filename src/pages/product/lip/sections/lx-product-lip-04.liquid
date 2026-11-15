@@ -1,0 +1,163 @@
+<section class="detail lx-top lx-n3" id="detail">
+<div class="wrap">
+<div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><h2 class="sh2">{{ section.settings.t_2 | escape }}</h2></div>
+<div class="acc" data-r=""><details><summary>{{ section.settings.t_3 | escape }}</summary><div class="body"><h4>{{ section.settings.t_4 | escape }}</h4><p class="full">{{ section.settings.t_5 }}</p></div></details><details><summary>{{ section.settings.t_6 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_7 | escape }}</li><li>{{ section.settings.t_8 }}</li></ul></div></details><details><summary>{{ section.settings.t_9 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_10 | escape }}</li><li>{{ section.settings.t_11 | escape }}</li><li>{{ section.settings.t_12 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_13 | escape }}</li><li>{{ section.settings.t_14 | escape }}</li></ul></div></details><details><summary>{{ section.settings.t_15 | escape }}</summary><div class="body"><p class="q">{{ section.settings.t_16 | escape }}</p><p>{{ section.settings.t_17 | escape }}</p><p class="q">{{ section.settings.t_18 | escape }}</p><p>{{ section.settings.t_19 | escape }}</p><p class="q">{{ section.settings.t_20 | escape }}</p><p>{{ section.settings.t_21 | escape }}</p><p class="q">{{ section.settings.t_22 | escape }}</p><p>{{ section.settings.t_23 | escape }}</p></div></details><details><summary>{{ section.settings.t_24 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_25 | escape }}</li><li>{{ section.settings.t_26 | escape }}</li><li>{{ section.settings.t_ship | escape }}</li><li>{{ section.settings.t_27 | escape }}</li><li>{{ section.settings.t_28 | escape }}</li></ul></div></details></div>
+</div>
+</section>
+{% schema %}
+{
+  "name": "リップ 04 9 詳細",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "Details"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "製品の詳細"
+    },
+    {
+      "type": "text",
+      "id": "t_3",
+      "label": "全成分"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "リペアリップスティック"
+    },
+    {
+      "type": "html",
+      "id": "t_5",
+      "label": "要確認 (全成分の表記をご用意ください)",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_6",
+      "label": "容量・使用期限"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "内容量:15g"
+    },
+    {
+      "type": "html",
+      "id": "t_8",
+      "label": "使用期限: 要確認",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "ご使用上の注意"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "唇に異常が生じていないか、注意してご使用くだ…"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "傷やはれもの、湿しん等、異常のある部位には使…"
+    },
+    {
+      "type": "textarea",
+      "id": "t_12",
+      "label": "唇に合わない次のような場合は、使用を中止して…",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "体温でとろける処方のため、高温になる場所(夏…"
+    },
+    {
+      "type": "text",
+      "id": "t_14",
+      "label": "使用後は、キャップをしっかり閉めてください。"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "よくある質問"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "Q. 口紅の前に使えますか?"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "A. はい。薄く塗ってなじませてから口紅を重…"
+    },
+    {
+      "type": "text",
+      "id": "t_18",
+      "label": "Q. 夜はどのように使えばよいですか?"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "A. おやすみ前に少し多めに重ねて、唇を包み…"
+    },
+    {
+      "type": "text",
+      "id": "t_20",
+      "label": "Q. 香りは?"
+    },
+    {
+      "type": "text",
+      "id": "t_21",
+      "label": "A. ラベンダーとベンゾイン(樹脂)の、天然…"
+    },
+    {
+      "type": "text",
+      "id": "t_22",
+      "label": "Q. マルチバームとの違いは?"
+    },
+    {
+      "type": "textarea",
+      "id": "t_23",
+      "label": "A. マルチバームは、顔や体まで広く使える大…"
+    },
+    {
+      "type": "text",
+      "id": "t_24",
+      "label": "送料・お支払い・お届け"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "送料:全国一律800円(14,000円以上の…"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "お支払い:ご購入手続き画面に表示…"
+    },
+    {
+      "type": "text",
+      "id": "t_ship",
+      "label": "発送:ご注文・お支払いの確認後…"
+    },
+    {
+      "type": "text",
+      "id": "t_27",
+      "label": "ギフトボックス:リボン付きのギフトボックスに…"
+    },
+    {
+      "type": "text",
+      "id": "t_28",
+      "label": "ほかの製品と一緒にご購入の場合は、まとめてお…"
+    }
+  ]
+}
+{% endschema %}

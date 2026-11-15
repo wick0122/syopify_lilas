@@ -89,6 +89,16 @@
     {%- assign lx_main = '' -%}
     {{ 'lilas-product-balm.css' | asset_url | stylesheet_tag }}
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-lip' -%}
+    {%- assign lx_title = "モイストグロー リペアリップスティック | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-lip.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  {%- when 'page.lilas-product-giftset' -%}
+    {%- assign lx_title = "ギフトセット スタートキット | Lilas" -%}
+    {%- assign lx_main = '' -%}
+    {{ 'lilas-product-giftset.css' | asset_url | stylesheet_tag }}
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&amp;family=Jost:wght@200;300;400&amp;family=Shippori+Mincho:wght@400;500&amp;family=Zen+Kaku+Gothic+New:wght@300;400;500&amp;display=swap" rel="stylesheet">
   {%- when 'page.lilas-product-sensitive' -%}
     {%- assign lx_title = "センシティブケア | Lilas" -%}
     {%- assign lx_main = '' -%}
@@ -132,6 +142,8 @@
   {%- when 'page.lilas-product-oil' -%}{%- render 'lx-tail-product-oil' -%}
   {%- when 'page.lilas-product-serum' -%}{%- render 'lx-tail-product-serum' -%}
   {%- when 'page.lilas-product-balm' -%}{%- render 'lx-tail-product-balm' -%}
+  {%- when 'page.lilas-product-lip' -%}{%- render 'lx-tail-product-lip' -%}
+  {%- when 'page.lilas-product-giftset' -%}{%- render 'lx-tail-product-giftset' -%}
   {%- when 'page.lilas-product-sensitive' -%}{%- render 'lx-tail-product-sensitive' -%}
   {%- when 'page.lilas-product-smooth' -%}{%- render 'lx-tail-product-smooth' -%}
   {%- else -%}{%- render 'lx-tail-system' -%}

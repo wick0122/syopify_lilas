@@ -1,0 +1,286 @@
+{%- liquid
+  assign p = section.settings.product
+  assign po = section.settings.oil_product
+  assign pg = section.settings.gift_product
+-%}
+{%- if p -%}
+<script>
+window.LX_PRICE={{ p.selected_or_first_available_variant.price | divided_by: 100 }};
+window.LX_CART={
+  variants:[{%- for v in p.variants -%}{"id":{{ v.id }},"title":{{ v.title | json }},"available":{{ v.available | json }}}{%- unless forloop.last -%},{%- endunless -%}{%- endfor -%}],
+  oil:{% if po %}{{ po.selected_or_first_available_variant.id }}{% else %}null{% endif %},
+  gift:{% if pg %}{{ pg.selected_or_first_available_variant.id }}{% else %}null{% endif %}
+};
+</script>
+{%- endif -%}
+<section class="wrap buy lx-top lx-n1" id="buy">
+<div class="gal">
+<div aria-label="製品写真" class="thumbs" role="tablist"><button aria-label="写真1" class="on" data-src="{{ 'img-14b47b6433bd.webp' | asset_url }}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_1 %}{{ section.settings.img_1 | image_url: width: 1800 }}{% else %}{{ 'img-65f0d52a2ced.webp' | asset_url }}{% endif %}"/></button><button aria-label="写真2" data-src="{{ 'img-c0658ba86c48.webp' | asset_url }}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_2 %}{{ section.settings.img_2 | image_url: width: 1800 }}{% else %}{{ 'img-ad2c2fbf622c.webp' | asset_url }}{% endif %}"/></button><button aria-label="写真3" data-src="{{ 'img-9b7dc14ae461.webp' | asset_url }}"><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_3 %}{{ section.settings.img_3 | image_url: width: 1800 }}{% else %}{{ 'img-34ed0ae22757.webp' | asset_url }}{% endif %}"/></button></div>
+<figure class="ph main-ph"><img alt="モイストグロー リペアリップスティック" decoding="async" id="mainImg" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-14b47b6433bd.webp' | asset_url }}{% endif %}"/><span class="stamps"><span class="vg-badge"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_1 | escape }}</span></span></figure>
+</div>
+<div class="info">
+<span class="nmb">{{ section.settings.t_2 | escape }}</span>
+<h1>{{ section.settings.t_3 }}</h1>
+<p class="jp">{{ section.settings.t_4 | escape }}</p><p class="subt">{{ section.settings.t_5 | escape }}</p>
+<p class="catch">{{ section.settings.t_6 }}</p>
+<ul class="chips"><li>{{ section.settings.t_7 | escape }}</li><li>{{ section.settings.t_8 }}</li><li>{{ section.settings.t_9 | escape }}</li><li>{{ section.settings.t_10 | escape }}</li><li>{{ section.settings.t_11 | escape }}</li><li>{{ section.settings.t_12 | escape }}</li></ul>
+<p class="ag-note">{{ section.settings.t_13 | escape }}</p>
+<div class="price">{{ section.settings.t_14 }}</div>
+<div class="qtyrow">
+<div class="qty"><button aria-label="減らす" id="qMinus" type="button">{{ section.settings.t_15 | escape }}</button><output id="qty">{{ section.settings.t_16 | escape }}</output><button aria-label="増やす" id="qPlus" type="button">{{ section.settings.t_17 | escape }}</button></div>
+<div class="total">{{ section.settings.t_18 }}</div>
+</div>
+<button class="addcart big" id="buyBtn">{{ section.settings.t_19 | escape }}</button>
+<p class="ship">{{ section.settings.t_20 }}</p>
+<div class="ingC"><h3>{{ section.settings.t_21 }}</h3><div class="ic-g"><h4>{{ section.settings.t_22 }}</h4><ul class="tiles"><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_5 %}{{ section.settings.img_5 | image_url: width: 1800 }}{% else %}{{ 'img-33690fb24b1f.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_23 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-136b8a2b8742.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_24 | escape | newline_to_br | strip_newlines }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_7 %}{{ section.settings.img_7 | image_url: width: 1800 }}{% else %}{{ 'img-e1aba261b351.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_25 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_8 %}{{ section.settings.img_8 | image_url: width: 1800 }}{% else %}{{ 'img-a9a95b36a5f8.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_26 | escape }}</span></li><li><img alt="" decoding="async" loading="lazy" src="{% if section.settings.img_9 %}{{ section.settings.img_9 | image_url: width: 1800 }}{% else %}{{ 'img-b59e95669293.webp' | asset_url }}{% endif %}"/><span>{{ section.settings.t_27 | escape }}</span></li></ul></div></div>
+<ul class="mini"><li>{{ section.settings.t_28 }}</li><li>{{ section.settings.t_29 }}</li><li>{{ section.settings.t_30 }}</li></ul>
+</div>
+</section>
+{% schema %}
+{
+  "name": "リップ 02 1 購入エリア",
+  "tag": "div",
+  "class": "lx-sec",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "img_1",
+      "label": "画像 1",
+      "info": "未設定のときは元の画像（img-65f0d52a2ced.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_2",
+      "label": "画像 2",
+      "info": "未設定のときは元の画像（img-ad2c2fbf622c.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_3",
+      "label": "画像 3",
+      "info": "未設定のときは元の画像（img-34ed0ae22757.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_4",
+      "label": "モイストグロー リペアリップスティック",
+      "info": "未設定のときは元の画像（img-14b47b6433bd.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_1",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_2",
+      "label": "Moist Glow ｜Repair Lip…"
+    },
+    {
+      "type": "html",
+      "id": "t_3",
+      "label": "Repair Lip Stick",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_4",
+      "label": "モイストグロー リペアリップスティック"
+    },
+    {
+      "type": "text",
+      "id": "t_5",
+      "label": "唇の荒れを防ぎ、濃密なツヤ膜で守る集中保湿ケア"
+    },
+    {
+      "type": "html",
+      "id": "t_6",
+      "label": "植物の恵みで、乾燥による唇の荒れを防ぐリップ…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_7",
+      "label": "リップ3本分"
+    },
+    {
+      "type": "html",
+      "id": "t_8",
+      "label": "ヴィーガン処方 ※2",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_9",
+      "label": "自然由来指数100%"
+    },
+    {
+      "type": "text",
+      "id": "t_10",
+      "label": "ギフトボックス入り"
+    },
+    {
+      "type": "text",
+      "id": "t_11",
+      "label": "天然アロマ精油配合"
+    },
+    {
+      "type": "text",
+      "id": "t_12",
+      "label": "ジェンダーレス"
+    },
+    {
+      "type": "text",
+      "id": "t_13",
+      "label": "※1 ツヤによる見た目の印象(メーキャップ効…"
+    },
+    {
+      "type": "html",
+      "id": "t_14",
+      "label": "¥2,750 (税込) 15g",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_15",
+      "label": "−"
+    },
+    {
+      "type": "text",
+      "id": "t_16",
+      "label": "1"
+    },
+    {
+      "type": "text",
+      "id": "t_17",
+      "label": "＋"
+    },
+    {
+      "type": "html",
+      "id": "t_18",
+      "label": "合計(税込) ¥2,750",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_19",
+      "label": "カートに入れる"
+    },
+    {
+      "type": "html",
+      "id": "t_20",
+      "label": "あと¥11,250で送料無料",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_21",
+      "label": "Key ingredients 主な配合成分",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_22",
+      "label": "Botanical 整肌・保湿成分 5 種",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_5",
+      "label": "画像 5",
+      "info": "未設定のときは元の画像（img-33690fb24b1f.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_23",
+      "label": "グリチルレチン酸ステアリル(甘草由来)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像 6",
+      "info": "未設定のときは元の画像（img-136b8a2b8742.webp）を表示します"
+    },
+    {
+      "type": "textarea",
+      "id": "t_24",
+      "label": "セラミドNP (米ぬか由来)",
+      "info": "改行はそのまま反映されます"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_7",
+      "label": "画像 7",
+      "info": "未設定のときは元の画像（img-e1aba261b351.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_25",
+      "label": "シア脂"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_8",
+      "label": "画像 8",
+      "info": "未設定のときは元の画像（img-a9a95b36a5f8.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_26",
+      "label": "スクワラン(オリーブ由来)"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_9",
+      "label": "画像 9",
+      "info": "未設定のときは元の画像（img-b59e95669293.webp）を表示します"
+    },
+    {
+      "type": "text",
+      "id": "t_27",
+      "label": "ヒマシ油"
+    },
+    {
+      "type": "html",
+      "id": "t_28",
+      "label": "パッケージ リボン付きのギフトボックス入り",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_29",
+      "label": "香り ラベンダー ・ ベンゾイン(天然アロマ…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "html",
+      "id": "t_30",
+      "label": "送料 全国一律800円 ・ 14,000円以…",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "header",
+      "content": "Shopifyの商品とつなぐ"
+    },
+    {
+      "type": "paragraph",
+      "content": "ここで商品を選ぶと「カートに入れる」でShopifyのカートに入ります。未選択のときはカートに入りません。"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "この製品（本体）"
+    },
+    {
+      "type": "product",
+      "id": "oil_product",
+      "label": "オプション：ブレンドオイル"
+    },
+    {
+      "type": "product",
+      "id": "gift_product",
+      "label": "オプション：ギフトラッピング"
+    }
+  ]
+}
+{% endschema %}

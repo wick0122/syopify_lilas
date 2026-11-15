@@ -35,7 +35,7 @@ PAGES = [
     ('pages/legal/terms',         ['terms']),
     ('pages/legal/tokushoho',     ['tokushoho']),
 ]
-for p in ['aging', 'bright', 'calmsmooth', 'sensitive', 'smooth', 'oil', 'serum', 'balm']:
+for p in ['aging', 'bright', 'calmsmooth', 'sensitive', 'smooth', 'oil', 'serum', 'balm', 'lip', 'giftset']:
     PAGES.append((f'pages/product/{p}', [f'product-{p}']))
 
 COMMON_KEYS = {

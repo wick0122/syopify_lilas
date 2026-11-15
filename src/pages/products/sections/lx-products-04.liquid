@@ -25,6 +25,22 @@
 <p class="pl-price">{{ section.settings.t_24 }}</p>
 <a class="pl-btn" href="/pages/lilas-product-bright">{{ section.settings.t_25 | escape }}</a>
 </div>
+</article><article class="pl-card" data-r="">
+<div class="pl-ph"><img alt="ブレンドオイル" loading="lazy" src="{% if section.settings.img_6 %}{{ section.settings.img_6 | image_url: width: 1800 }}{% else %}{{ 'img-0ecc6586723b.webp' | asset_url }}{% endif %}"/><span class="vg-badge"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_41 | escape }}</span></div>
+<div class="pl-tx">
+<div class="pl-name"><p class="pl-en">{{ section.settings.t_42 | escape }}</p><h3>{{ section.settings.t_43 | escape }}</h3></div>
+<p class="pl-lbl">{{ section.settings.t_44 | escape }}</p><p class="pl-desc">{{ section.settings.t_45 | escape }}</p>
+<p class="pl-price">{{ section.settings.t_46 }}</p>
+<a class="pl-btn" href="/pages/lilas-product-oil">{{ section.settings.t_47 | escape }}</a>
+</div>
+</article><article class="pl-card" data-r="" id="p-giftset">
+<div class="pl-ph"><img alt="ギフトセット スタートキット" loading="lazy" src="{% if section.settings.img_7 %}{{ section.settings.img_7 | image_url: width: 1800 }}{% else %}{{ 'img-dd1058626c00.webp' | asset_url }}{% endif %}"/><span class="vg-badge"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_48 | escape }}</span><span class="pl-badge">{{ section.settings.t_49 | escape }}</span></div>
+<div class="pl-tx">
+<div class="pl-name"><p class="pl-en">{{ section.settings.t_50 | escape }}</p><h3>{{ section.settings.t_51 | escape }}</h3></div>
+<p class="pl-lbl">{{ section.settings.t_52 | escape }}</p><p class="pl-desc">{{ section.settings.t_53 | escape }}</p>
+<p class="pl-price">{{ section.settings.t_54 }}</p>
+<a class="pl-btn" href="/pages/lilas-product-giftset">{{ section.settings.t_55 | escape }}</a>
+</div>
 </article><article class="pl-card is-wait" data-r="">
 <div class="pl-ph"><img alt="センシティブケア" loading="lazy" src="{% if section.settings.img_4 %}{{ section.settings.img_4 | image_url: width: 1800 }}{% else %}{{ 'img-28c48b4754b2.webp' | asset_url }}{% endif %}"/><span class="vg-badge"><svg aria-hidden="true" viewbox="0 0 16 16"><path d="M3 13C3 6 8 3 14 3C14 9 10 13 3 13Z M3 13L9 7" fill="none" stroke="currentColor" stroke-width="1"></path></svg>{{ section.settings.t_26 | escape }}</span><span class="pl-badge">{{ section.settings.t_27 | escape }}</span></div>
 <div class="pl-tx">
@@ -79,6 +95,18 @@
       "id": "img_5",
       "label": "画像：スムーススキン",
       "info": "未設定のときは元の画像（img-84c35dacd7d9.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_6",
+      "label": "画像：ブレンドオイル",
+      "info": "未設定のときは元の画像（img-0ecc6586723b.webp）を表示します"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_7",
+      "label": "画像：ギフトセット",
+      "info": "未設定のときは元の画像（img-dd1058626c00.webp）を表示します"
     },
     {
       "type": "text",
@@ -285,6 +313,83 @@
       "type": "text",
       "id": "t_40",
       "label": "※エイジングケア:年齢に応じたうるおいケアの…"
+    },
+    {
+      "type": "text",
+      "id": "t_41",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_42",
+      "label": "Blend Oil"
+    },
+    {
+      "type": "text",
+      "id": "t_43",
+      "label": "ブレンドオイル"
+    },
+    {
+      "type": "text",
+      "id": "t_44",
+      "label": "ローション専用の調整オイル"
+    },
+    {
+      "type": "text",
+      "id": "t_45",
+      "label": "濃縮ローションに加える量で、今の肌に合わせて保湿"
+    },
+    {
+      "type": "html",
+      "id": "t_46",
+      "label": "15ml ¥1,320 (税込)",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_47",
+      "label": "この製品を見る"
+    },
+    {
+      "type": "text",
+      "id": "t_48",
+      "label": "VEGAN"
+    },
+    {
+      "type": "text",
+      "id": "t_49",
+      "label": "新作"
+    },
+    {
+      "type": "text",
+      "id": "t_50",
+      "label": "Gift Set"
+    },
+    {
+      "type": "text",
+      "id": "t_51",
+      "label": "スタートキット"
+    },
+    {
+      "type": "text",
+      "id": "t_52",
+      "label": "カームスムース・リペアリップ・ブレンドオイルの3"
+    },
+    {
+      "type": "text",
+      "id": "t_53",
+      "label": "リボン付きのギフトボックスに入れてお届けします。"
+    },
+    {
+      "type": "html",
+      "id": "t_54",
+      "label": "3点セット ¥10,670 (税込)",
+      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+    },
+    {
+      "type": "text",
+      "id": "t_55",
+      "label": "この製品を見る"
     }
   ]
 }

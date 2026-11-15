@@ -1386,6 +1386,15 @@ budoux-ja{display:contents}
 
 .pl-ph:has(.pl-badge) .vg-badge{position:absolute!important;top:44px!important;left:8px!important;margin:0!important}
 
+/* スタンプは左に統一:VEGANを左上、新作・SALEなどの札はその下 */
+.pl-ph:has(.pl-badge) .vg-badge,.pl-ph .vg-badge{position:absolute!important;left:12px!important;right:auto!important;top:12px!important;bottom:auto!important;margin:0!important;transform:none!important}
+.pl-ph .pl-badge{left:12px!important;right:auto!important;top:46px!important}
+.pl-ph .pl-badge:only-of-type{top:12px!important}
+.pl-name.pl-name-br{display:block!important}
+.pl-name.pl-name-br .pl-en{display:block!important;margin:0 0 4px!important}
+@media(max-width:700px){.pl-ph .pl-badge{top:38px!important;max-width:calc(100% - 24px);white-space:normal;line-height:1.5;letter-spacing:.08em}
+}
+
 @media (max-width:600px){.w-grid,.w-grid.n4,.w-grid.n5{grid-template-columns:minmax(0,1fr)!important}}
 
 /* スマホ:肌タイプチェックの5つを「3つ＋2つ」に */
