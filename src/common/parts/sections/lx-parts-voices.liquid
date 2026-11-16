@@ -2,11 +2,8 @@
 <span class="qlbl" data-r="">{{ section.settings.t_1 | escape }}</span>
 <p class="disp" data-r=""><em>{{ section.settings.t_2 | escape }}</em></p>
 <div class="vc-hdrow" data-r=""><h2 class="sh2">{{ section.settings.t_3 | escape }}</h2></div>
-{%- assign lxp = section.settings.product -%}
 <div class="vc-jdgm" data-r="">
-{%- if lxp -%}
-<div class="jdgm-widget jdgm-review-widget jdgm-outside-widget" data-id="{{ lxp.id }}" data-product-title="{{ lxp.title | escape }}">{{ lxp.metafields.judgeme.widget }}</div>
-{%- endif -%}
+{%- for block in section.blocks -%}{% render block %}{%- endfor -%}
 </div>
 <p class="vc-note">{{ section.settings.t_20 | escape }}</p>
 </section>
@@ -42,12 +39,17 @@
     },
     {
       "type": "paragraph",
-      "content": "この欄に口コミを表示する商品を選びます。未選択のときは口コミ欄を表示しません。"
+      "content": "口コミは、この欄に追加したJudge.meのブロックで表示します。ここで選んだ商品は控えとして残しています。"
     },
     {
       "type": "product",
       "id": "product",
       "label": "口コミを表示する商品"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
     }
   ]
 }

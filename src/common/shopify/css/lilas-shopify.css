@@ -8,7 +8,8 @@ header.site .cart.lx-bag .cartn{position:absolute;top:6px;right:4px;min-width:16
 header.site .cart.lx-bag .cartn[hidden]{display:none!important}
 
 /* 口コミ欄(Judge.me):サイトの色と文字に合わせる */
-#voices .vc-jdgm{max-width:960px;margin:28px auto 0;padding:0 16px}
+#voices .vc-jdgm{width:100%;max-width:960px;margin:28px auto 0;padding:0 16px;box-sizing:border-box}
+#voices .vc-note{text-align:center!important}
 #voices .vc-jdgm:empty{display:none}
 #voices .jdgm-widget,#voices .jdgm-widget *{font-family:inherit}
 #voices .jdgm-widget{color:#3C3C3C}
