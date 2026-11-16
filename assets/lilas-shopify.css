@@ -19,3 +19,7 @@ header.site .cart.lx-bag .cartn[hidden]{display:none!important}
 /* 「レビューを書く」:カートに入れるボタンと同じ見た目 */
 #voices .jm-button--primary{background:#1C1C1C!important;border:1px solid #1C1C1C!important;color:#F8F8F7!important;border-radius:0!important;font-size:11px!important;font-weight:300!important;letter-spacing:.2em!important;padding:16px 44px!important;height:auto!important;line-height:1.6!important;transition:opacity .2s}
 #voices .jm-button--primary:hover{opacity:.85}
+/* 口コミの★とレビュー入力画面(ポップアップ):緑をサイトの黒に */
+.jdgm-star{color:#1C1C1C!important}
+.jdgm-write-review-modal__nav-btn-next,.jdgm-write-review-modal__nav-btn-close,.jdgm-write-review-modal__btn--repeat-write-another,.jdgm-write-review-modal button[type=submit]{background:#1C1C1C!important;border-color:#1C1C1C!important;color:#F8F8F7!important;letter-spacing:.2em}
+.jdgm-write-review-modal__btn--repeat-not-now,.jdgm-write-review-modal__nav-btn-back{color:#1C1C1C!important}
