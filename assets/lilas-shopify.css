@@ -11,7 +11,11 @@ header.site .cart.lx-bag .cartn[hidden]{display:none!important}
 #voices .vc-jdgm{width:100%;max-width:960px;margin:28px auto 0;padding:0 16px;box-sizing:border-box}
 #voices .vc-note{text-align:center!important}
 #voices .vc-jdgm:empty{display:none}
-#voices .jdgm-widget,#voices .jdgm-widget *{font-family:inherit}
-#voices .jdgm-widget{color:#3C3C3C}
-#voices .jdgm-star{color:#3C3C3C!important}
-#voices .jdgm-write-rev-link,#voices .jdgm-ask-question-btn{background:#3C3C3C!important;border:1px solid #3C3C3C!important;color:#fff!important;border-radius:999px!important;padding:10px 22px!important;letter-spacing:.08em}
+#voices .vc-jdgm{--jdgm-primary-color:#1C1C1C}
+/* 見出し「カスタマーレビュー」は「お客様の口コミ」と重なるため出さない */
+#voices .jm-review-widget-minimal-header__title{display:none!important}
+/* 「最初のレビューを書きましょう」:本文と同じ書体・字間 */
+#voices .jm-no-reviews-state__text{font-size:14px!important;font-weight:300!important;letter-spacing:.12em!important;color:#3A3A38!important}
+/* 「レビューを書く」:カートに入れるボタンと同じ見た目 */
+#voices .jm-button--primary{background:#1C1C1C!important;border:1px solid #1C1C1C!important;color:#F8F8F7!important;border-radius:0!important;font-size:11px!important;font-weight:300!important;letter-spacing:.2em!important;padding:16px 44px!important;height:auto!important;line-height:1.6!important;transition:opacity .2s}
+#voices .jm-button--primary:hover{opacity:.85}
