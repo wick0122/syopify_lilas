@@ -6,3 +6,11 @@ header.site .cart.lx-bag{position:relative;display:inline-flex!important;align-i
 header.site .cart.lx-bag svg{width:23px;height:23px;display:block}
 header.site .cart.lx-bag .cartn{position:absolute;top:6px;right:4px;min-width:16px!important;height:16px!important;padding:0 4px;box-sizing:border-box;border:0!important;border-radius:8px;background:#c9a77a!important;color:#282828!important;font-family:var(--en,"Helvetica Neue",Arial,sans-serif);font-size:10px!important;line-height:16px;letter-spacing:0;display:inline-grid;place-items:center}
 header.site .cart.lx-bag .cartn[hidden]{display:none!important}
+
+/* 口コミ欄(Judge.me):サイトの色と文字に合わせる */
+#voices .vc-jdgm{max-width:960px;margin:28px auto 0;padding:0 16px}
+#voices .vc-jdgm:empty{display:none}
+#voices .jdgm-widget,#voices .jdgm-widget *{font-family:inherit}
+#voices .jdgm-widget{color:#3C3C3C}
+#voices .jdgm-star{color:#3C3C3C!important}
+#voices .jdgm-write-rev-link,#voices .jdgm-ask-question-btn{background:#3C3C3C!important;border:1px solid #3C3C3C!important;color:#fff!important;border-radius:999px!important;padding:10px 22px!important;letter-spacing:.08em}
