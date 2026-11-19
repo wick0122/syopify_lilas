@@ -1,7 +1,7 @@
 <section class="detail lx-top lx-n3" id="detail">
 <div class="wrap">
 <div class="center" data-r=""><span class="qlbl">{{ section.settings.t_1 | escape }}</span><h2 class="sh2">{{ section.settings.t_2 | escape }}</h2></div>
-<div class="acc" data-r=""><details><summary>{{ section.settings.t_3 | escape }}</summary><div class="body"><h4>{{ section.settings.t_4 | escape }}</h4><p class="full">{{ section.settings.t_5 }}</p></div></details><details><summary>{{ section.settings.t_6 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_7 | escape }}</li><li>{{ section.settings.t_8 }}</li></ul></div></details><details><summary>{{ section.settings.t_9 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_10 | escape }}</li><li>{{ section.settings.t_11 | escape }}</li><li>{{ section.settings.t_12 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_13 | escape }}</li><li>{{ section.settings.t_14 | escape }}</li></ul></div></details><details><summary>{{ section.settings.t_15 | escape }}</summary><div class="body"><p class="q">{{ section.settings.t_16 | escape }}</p><p>{{ section.settings.t_17 | escape }}</p><p class="q">{{ section.settings.t_18 | escape }}</p><p>{{ section.settings.t_19 | escape }}</p><p class="q">{{ section.settings.t_20 | escape }}</p><p>{{ section.settings.t_21 | escape }}</p><p class="q">{{ section.settings.t_22 | escape }}</p><p>{{ section.settings.t_23 | escape }}</p></div></details><details><summary>{{ section.settings.t_24 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_25 | escape }}</li><li>{{ section.settings.t_26 | escape }}</li><li>{{ section.settings.t_ship | escape }}</li><li>{{ section.settings.t_27 | escape }}</li><li>{{ section.settings.t_28 | escape }}</li></ul></div></details></div>
+<div class="acc" data-r=""><details><summary>{{ section.settings.t_3 | escape }}</summary><div class="body"><h4>{{ section.settings.t_4 | escape }}</h4><p class="full">{{ section.settings.t_5 | escape }}</p></div></details><details><summary>{{ section.settings.t_6 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_7 | escape }}</li></ul></div></details><details><summary>{{ section.settings.t_9 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_10 | escape }}</li><li>{{ section.settings.t_11 | escape }}</li><li>{{ section.settings.t_12 | escape | newline_to_br | strip_newlines }}</li><li>{{ section.settings.t_13 | escape }}</li><li>{{ section.settings.t_14 | escape }}</li></ul></div></details><details><summary>{{ section.settings.t_15 | escape }}</summary><div class="body"><p class="q">{{ section.settings.t_16 | escape }}</p><p>{{ section.settings.t_17 | escape }}</p><p class="q">{{ section.settings.t_18 | escape }}</p><p>{{ section.settings.t_19 | escape }}</p><p class="q">{{ section.settings.t_20 | escape }}</p><p>{{ section.settings.t_21 | escape }}</p><p class="q">{{ section.settings.t_22 | escape }}</p><p>{{ section.settings.t_23 | escape }}</p></div></details><details><summary>{{ section.settings.t_24 | escape }}</summary><div class="body"><ul><li>{{ section.settings.t_25 | escape }}</li><li>{{ section.settings.t_26 | escape }}</li><li>{{ section.settings.t_ship | escape }}</li><li>{{ section.settings.t_27 | escape }}</li><li>{{ section.settings.t_28 | escape }}</li></ul></div></details></div>
 </div>
 </section>
 {% schema %}
@@ -31,26 +31,19 @@
       "label": "リペアリップスティック"
     },
     {
-      "type": "html",
+      "type": "textarea",
       "id": "t_5",
-      "label": "要確認 (全成分の表記をご用意ください)",
-      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
+      "label": "ヒマシ油、スクワラン、シア脂、キャンデリラ…"
     },
     {
       "type": "text",
       "id": "t_6",
-      "label": "容量・使用期限"
+      "label": "容量"
     },
     {
       "type": "text",
       "id": "t_7",
       "label": "内容量:15g"
-    },
-    {
-      "type": "html",
-      "id": "t_8",
-      "label": "使用期限: 要確認",
-      "info": "文字の装飾タグ（<br> や <span> など）を含みます。文字だけ書き換えてください"
     },
     {
       "type": "text",
